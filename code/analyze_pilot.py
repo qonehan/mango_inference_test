@@ -100,9 +100,11 @@ for mk in MODELS:
         ra.append(f("M", "ttft_any_ms") / f("OR-default", "ttft_any_ms"))
         rc.append(f("M", "ttft_content_ms") / f("OR-default", "ttft_content_ms"))
         ph = lambda k: med([t[k][i]["ttft_content_ms"] - t[k][i]["ttft_any_ms"] for i in com])
-        rph.append(ph("M") / ph("OR-default"))
+        pm, po = ph("M"), ph("OR-default")
+        if pm > 0 and po > 0:  # 추론 구간이 0인 세션(추론 없이 바로 답변)은 비율에서 제외 (1회 실험에서 0 나누기 발생, 2026-11-18 수정)
+            rph.append(pm / po)
         rr.append(med([t["M"][i]["reasoning_tokens"] or 0 for i in com]) / max(1, med([t["OR-default"][i]["reasoning_tokens"] or 0 for i in com])))
-    print(f"  {mk:26s} 세션 {len(ra)} | TTFT any {gm(ra):.2f} | TTFT content {gm(rc):.2f} | 추론 구간 시간 {gm(rph):.2f} | 추론 토큰 {gm(rr):.2f}")
+    print(f"  {mk:26s} 세션 {len(ra)} | TTFT any {gm(ra):.2f} | TTFT content {gm(rc):.2f} | 추론 구간 시간 {gm(rph):.2f} (세션 {len(rph)}) | 추론 토큰 {gm(rr):.2f}")
 
 print("\n## 4. 관측 오버헤드: Z(출력 1토큰) TTFT any 중앙값")
 for mk in MODELS:
