@@ -1,0 +1,33 @@
+﻿model,slice,kind,rank,tokens_t,share_pct,days_explicit
+Kimi K3.1 Pro,Moonshot AI,주요,1,6.407,59.58,24
+Kimi K3.1 Pro,inference.net,주요,2,0.8872,8.25,12
+Kimi K3.1 Pro,Modal,주요,3,0.5739,5.337,12
+Kimi K3.1 Pro,Wafer,주요,4,0.4437,4.126,10
+Kimi K3.1 Pro,Together,주요,5,0.4147,3.856,10
+Kimi K3.1 Pro,기타 제공사 11곳,기타,6,1.148,10.68,
+Kimi K3.1 Pro,미귀속(Others·미수집),기타,7,0.8793,8.176,
+Kimi K3.1 Pro,모델 전체,합계,0,10.75,100,
+GLM-5.3-Flash,Together,주요,1,9.111,16.18,30
+GLM-5.3-Flash,inference.net,주요,2,5.966,10.59,30
+GLM-5.3-Flash,Open Inference,주요,3,4.349,7.723,30
+GLM-5.3-Flash,CoreWeave,주요,4,4.026,7.15,29
+GLM-5.3-Flash,Z.ai,주요,5,3.683,6.539,30
+GLM-5.3-Flash,기타 제공사 32곳,기타,6,27.91,49.56,
+GLM-5.3-Flash,미귀속(Others·미수집),기타,7,1.273,2.261,
+GLM-5.3-Flash,모델 전체,합계,0,56.32,100,
+GLM-5.3,Wafer,주요,1,4.255,23.85,30
+GLM-5.3,inference.net,주요,2,3.628,20.34,30
+GLM-5.3,Z.ai,주요,3,1.7,9.532,30
+GLM-5.3,SiliconFlow,주요,4,1.169,6.555,27
+GLM-5.3,Decart,주요,5,0.9153,5.131,30
+GLM-5.3,기타 제공사 30곳,기타,6,5.479,30.72,
+GLM-5.3,미귀속(Others·미수집),기타,7,0.6906,3.872,
+GLM-5.3,모델 전체,합계,0,17.84,100,
+DeepSeek V4.1 Flash 1017,DeepSeek,주요,1,50.3,25.07,30
+DeepSeek V4.1 Flash 1017,DeepInfra,주요,2,23.24,11.58,30
+DeepSeek V4.1 Flash 1017,Together,주요,3,19.24,9.589,28
+DeepSeek V4.1 Flash 1017,inference.net,주요,4,17.39,8.664,30
+DeepSeek V4.1 Flash 1017,Wafer,주요,5,15.72,7.832,29
+DeepSeek V4.1 Flash 1017,기타 제공사 33곳,기타,6,72.39,36.08,
+DeepSeek V4.1 Flash 1017,미귀속(Others·미수집),기타,7,2.381,1.186,
+DeepSeek V4.1 Flash 1017,모델 전체,합계,0,200.7,100,

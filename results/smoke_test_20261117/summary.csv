@@ -1,0 +1,57 @@
+﻿model_key,arm,kind,ok,status,finish_reason,ttft_any_ms,ttft_content_ms,e2e_ms,prompt_tokens,completion_tokens,reasoning_tokens,served_by,attempts,cost,error
+deepseek-v4.1-flash-1017,M,text,False,402,,,,,,,,Mango,,,APIStatusError: Error code: 402 - API key has insufficient balance
+deepseek-v4.1-flash-1017,OR-default,text,True,,stop,1007.8,1710.7,2210.1,59,114,59,Makora,"[('Makora', 200)]",5.268e-05,
+deepseek-v4.1-flash-1017,OR-pin-deepseek,text,False,404,,,,,,,,,,,"NotFoundError: Error code: 404 - No endpoints found for deepseek/deepseek-v4.1-flash-1017. Every candidate endpoint was removed during routing: Filter by Tier Endpoint Rows removed particle-ai/us/flex, ionstream/flex, deepinfra/fp8/flex (Excluded tier endpoint rows the request did not opt into); Filter by Guardrai"
+deepseek-v4.1-flash-1017,OR-pin-deepinfra,text,True,,stop,1130.1,1860.7,2308.8,56,158,86,DeepInfra,"[('DeepInfra', 200)]",5.194e-05,
+deepseek-v4.1-flash-1017,OR-pin-together,text,True,,stop,1273.3,1636.3,1989.6,59,130,62,Together,"[('Together', 200)]",0.0001737,
+deepseek-v4.1-flash-1017,OR-pin-inference-net,text,True,,stop,858.2,1979.4,2350.3,33,187,109,InferenceNet,"[('InferenceNet', 200)]",0.000115775,
+deepseek-v4.1-flash-1017,OR-pin-wafer,text,True,,stop,533.2,1140.5,1373.2,55,157,100,Wafer,"[('Wafer', 200)]",8.048e-05,
+deepseek-v4.1-flash-1017,OR-sort-price,text,True,,stop,359.0,496.9,914.8,60,88,23,Wafer,"[('Wafer', 200)]",4.616e-05,
+deepseek-v4.1-flash-1017,OR-sort-throughput,text,True,,stop,358.6,1725.1,2013.7,58,126,58,CoreWeave,"[('CoreWeave', 200)]",0.0001686,
+deepseek-v4.1-flash-1017,OR-sort-latency,text,True,,stop,549.4,1631.0,2519.6,33,147,80,InferenceNet,"[('InferenceNet', 200)]",9.1575e-05,
+deepseek-v4.1-flash-1017,OR-floor,text,True,,stop,327.7,655.5,972.0,60,104,43,Wafer,"[('Wafer', 200)]",5.416e-05,
+deepseek-v4.1-flash-1017,OR-nitro,text,True,,stop,338.8,1310.1,3904.7,58,107,58,CoreWeave,"[('CoreWeave', 200)]",0.0001458,
+deepseek-v4.1-flash-1017,M,tool,False,402,,,,,,,,Mango,,,APIStatusError: Error code: 402 - API key has insufficient balance
+deepseek-v4.1-flash-1017,OR-default,tool,True,,tool_calls,926.6,926.6,1113.8,316,48,0,River,"[('River', 200)]",4.3891e-05,
+glm-5.3,M,text,False,402,,,,,,,,Mango,,,APIStatusError: Error code: 402 - API key has insufficient balance
+glm-5.3,OR-default,text,True,,stop,404.8,3442.1,3989.6,43,458,372,Decart,"[('Decart', 200)]",0.00084848,
+glm-5.3,OR-pin-wafer,text,True,,stop,487.9,487.9,1688.9,44,101,0,Wafer,"[('Wafer', 200)]",0.000144475,
+glm-5.3,OR-pin-inference-net,text,True,,stop,1290.8,4751.2,5369.5,42,410,320,InferenceNet,"[('InferenceNet', 200)]",0.001479528,
+glm-5.3,OR-pin-z-ai,text,True,,stop,970.9,3496.9,4213.4,43,364,276,Z.AI,"[('Z.AI', 200)]",0.0016618,
+glm-5.3,OR-pin-siliconflow,text,True,,stop,1795.7,3093.7,3327.9,45,217,127,SiliconFlow,"[('SiliconFlow', 200)]",0.0005089,
+glm-5.3,OR-pin-decart,text,True,,stop,467.2,4956.3,5561.1,42,688,599,Decart,"[('Decart', 200)]",0.00126192,
+glm-5.3,OR-sort-price,text,True,,stop,394.0,394.0,1018.7,42,75,1,Wafer,"[('Wafer', 200)]",0.000107935,
+glm-5.3,OR-sort-throughput,text,True,,stop,772.2,1682.4,2326.5,43,223,125,Alibaba,"[('Alibaba', 200)]",0.00124968,
+glm-5.3,OR-sort-latency,text,True,,stop,406.3,406.3,1711.4,42,90,0,Wafer,"[('Wafer', 200)]",0.000133518,
+glm-5.3,OR-floor,text,True,,stop,377.0,517.8,1434.6,41,96,1,Wafer,"[('Wafer', 200)]",0.000137265,
+glm-5.3,OR-nitro,text,True,,stop,596.5,2704.5,3250.1,41,407,316,Alibaba,"[('Alibaba', 200)]",0.00221784,
+glm-5.3,M,tool,False,402,,,,,,,,Mango,,,APIStatusError: Error code: 402 - API key has insufficient balance
+glm-5.3,OR-default,tool,True,,tool_calls,731.2,990.6,1016.7,186,38,24,Fireworks,"[('Fireworks', 200)]",0.00029932,
+glm-5.3-flash,M,text,False,402,,,,,,,,Mango,,,APIStatusError: Error code: 402 - API key has insufficient balance
+glm-5.3-flash,OR-default,text,True,,stop,1658.0,4000.1,4440.2,41,451,414,Relace,"[('Relace', 200)]",3.6994e-05,
+glm-5.3-flash,OR-pin-together,text,True,,stop,533.4,1781.1,2064.8,40,363,272,Together,"[('Together', 200)]",0.0001875,
+glm-5.3-flash,OR-pin-inference-net,text,True,,stop,612.5,3233.5,3560.7,42,383,294,InferenceNet,"[('InferenceNet', 200)]",0.000138586,
+glm-5.3-flash,OR-pin-open-inference,text,True,,stop,795.4,979.5,1773.8,57,90,8,OpenInference,"[('OpenInference', 200)]",2.997e-05,
+glm-5.3-flash,OR-pin-coreweave,text,True,,stop,670.4,1547.5,1791.2,42,388,293,CoreWeave,"[('CoreWeave', 200)]",0.00015248,
+glm-5.3-flash,OR-pin-z-ai,text,True,,stop,1280.3,5860.3,6966.8,42,343,257,Z.AI,"[('Z.AI', 200)]",0.0001778,
+glm-5.3-flash,OR-sort-price,text,True,,stop,831.9,4213.8,5018.2,39,344,309,Relace,"[('Relace', 200)]",2.8525e-05,
+glm-5.3-flash,OR-sort-throughput,text,True,,stop,797.6,822.8,1079.6,42,87,8,Particle AI,"[('Particle AI', 200)]",4.896e-05,
+glm-5.3-flash,OR-sort-latency,text,True,,stop,381.9,1406.2,1684.0,45,329,283,Friendli,"[('Friendli', 200)]",0.00017125,
+glm-5.3-flash,OR-floor,text,True,,stop,1659.5,14945.8,15497.9,44,528,522,Relace,"[('Relace', 200)]",4.315e-05,
+glm-5.3-flash,OR-nitro,text,True,,stop,710.7,742.2,1082.4,42,101,9,Particle AI,"[('Particle AI', 200)]",5.596e-05,
+glm-5.3-flash,M,tool,False,402,,,,,,,,Mango,,,APIStatusError: Error code: 402 - API key has insufficient balance
+glm-5.3-flash,OR-default,tool,True,,tool_calls,918.3,1079.6,1081.5,186,38,23,Relace,"[('Relace', 200)]",1.04e-05,
+kimi-k3.1-pro,M,text,False,402,,,,,,,,Mango,,,APIStatusError: Error code: 402 - API key has insufficient balance
+kimi-k3.1-pro,OR-default,text,True,,stop,565.2,2469.6,2930.6,111,283,196,River,"[('River', 200)]",0.003052,
+kimi-k3.1-pro,OR-pin-moonshotai,text,True,,stop,2767.8,4914.9,6701.3,117,210,125,Moonshot AI,"[('Moonshot AI', 200)]",0.002334,
+kimi-k3.1-pro,OR-pin-inference-net,text,True,,stop,646.5,1498.3,1536.8,113,195,119,InferenceNet,"[('InferenceNet', 200)]",0.0019584,
+kimi-k3.1-pro,OR-pin-modal,text,True,,stop,648.1,1935.2,2271.1,110,238,158,Modal,"[('Modal', 200)]",0.0024848,
+kimi-k3.1-pro,OR-pin-wafer,text,True,,stop,550.8,1462.1,1869.6,111,206,124,Wafer,"[('Wafer', 200)]",0.001836211,
+kimi-k3.1-pro,OR-pin-together,text,True,,stop,967.9,3139.0,3820.8,113,213,132,Together,"[('Together', 200)]",0.002356,
+kimi-k3.1-pro,OR-sort-price,text,True,,stop,1120.7,2359.6,2662.7,112,206,152,Relace,"[('Relace', 200)]",0.001755208,
+kimi-k3.1-pro,OR-sort-throughput,text,True,,stop,1920.2,3038.4,3281.0,116,218,139,InferenceNet,"[('InferenceNet', 200)]",0.0021708,
+kimi-k3.1-pro,OR-sort-latency,text,True,,stop,655.1,16959.3,17068.9,115,275,190,InferenceNet,"[('InferenceNet', 200)]",0.002682,
+kimi-k3.1-pro,OR-floor,text,True,,stop,1181.8,2167.0,2501.4,110,230,171,Relace,"[('Relace', 200)]",0.001956382,
+kimi-k3.1-pro,OR-nitro,text,True,,stop,674.3,1793.1,2052.7,112,310,226,InferenceNet,"[('InferenceNet', 200)]",0.0029916,
+kimi-k3.1-pro,M,tool,False,402,,,,,,,,Mango,,,APIStatusError: Error code: 402 - API key has insufficient balance
+kimi-k3.1-pro,OR-default,tool,True,,tool_calls,2165.4,2414.4,2449.5,197,109,58,DigitalOcean,"[('DigitalOcean', 200)]",0.001484,

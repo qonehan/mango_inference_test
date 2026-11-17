@@ -1,0 +1,199 @@
+<title>Mango·OpenRouter 간이 테스트</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* layout: 한 열 보고서. 요약 수치 → 문제와 조치 → 모델별 경로 표 → 데이터 확보 현황 */
+:root {
+  --bg: #f6f7f9; --surface: #ffffff; --fg: #18202b; --muted: #5d6877; --line: #dde2e9;
+  --ok: #1d7a52; --ok-bg: #e6f4ec; --re: #9a5a12; --re-bg: #fbf0e1; --bad: #b42318; --bad-bg: #fdecea;
+  --b1: #2e5fd8; --b2: #b9c8ef;
+  --sans: "IBM Plex Sans KR", "Malgun Gothic", "Apple SD Gothic Neo", sans-serif;
+  --mono: "IBM Plex Mono", Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #11151b; --surface: #19202a; --fg: #e5e9ef; --muted: #9aa5b4; --line: #2c3542;
+  --ok: #5fd3a0; --ok-bg: #173a2c; --re: #f0b46a; --re-bg: #3a2a14; --bad: #ff8a80; --bad-bg: #3d1a17;
+  --b1: #7ea2ff; --b2: #34456b; color-scheme: dark; } }
+:root[data-theme="dark"] {
+  --bg: #11151b; --surface: #19202a; --fg: #e5e9ef; --muted: #9aa5b4; --line: #2c3542;
+  --ok: #5fd3a0; --ok-bg: #173a2c; --re: #f0b46a; --re-bg: #3a2a14; --bad: #ff8a80; --bad-bg: #3d1a17;
+  --b1: #7ea2ff; --b2: #34456b; color-scheme: dark; }
+body { background: var(--bg); color: var(--fg); font-family: var(--sans); font-size: 15px; line-height: 1.6; }
+.wrap { max-width: 1080px; margin: 0 auto; padding-block: 32px 56px; padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px)); display: grid; gap: 28px; }
+h1 { font-size: 1.7rem; margin: 0; text-wrap: balance; }
+h2 { font-size: 1.15rem; margin: 0 0 10px; }
+h3 { font-size: 1rem; margin: 0; }
+p { margin: 0; max-width: 70ch; }
+.lede { color: var(--muted); margin-top: 6px; }
+.note { font-size: .85rem; color: var(--re); background: var(--re-bg); padding: 8px 12px; border-radius: 6px; margin-top: 12px; }
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 12px; }
+.stat { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 14px 16px; }
+.stat b { display: block; font-size: 1.6rem; font-variant-numeric: tabular-nums; line-height: 1.2; }
+.stat span { font-size: .82rem; color: var(--muted); }
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 12px; }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 14px 16px; display: grid; gap: 6px; align-content: start; }
+.card h3 { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+.card p { font-size: .9rem; }
+.fix { color: var(--ok); font-weight: 500; }
+.card ul { margin: 0; padding-left: 18px; font-size: .9rem; }
+.card li { margin: 3px 0; }
+.models { display: grid; gap: 14px; }
+.model { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 16px; min-width: 0; }
+.mhead { display: flex; gap: 10px; align-items: baseline; flex-wrap: wrap; margin-bottom: 10px; }
+code { font-family: var(--mono); font-size: .8rem; color: var(--muted); }
+.tw { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; font-size: .86rem; min-width: 980px; }
+.q { font-size: .72rem; color: var(--muted); }
+th, td { padding: 6px 8px; border-bottom: 1px solid var(--line); text-align: left; white-space: nowrap; }
+th { font-weight: 500; color: var(--muted); font-size: .78rem; letter-spacing: .02em; }
+.n { text-align: right; font-variant-numeric: tabular-nums; font-family: var(--mono); font-size: .82rem; }
+.chip { display: inline-block; font-size: .72rem; font-weight: 500; padding: 1px 8px; border-radius: 99px; margin-right: 4px; }
+.chip.ok { color: var(--ok); background: var(--ok-bg); }
+.chip.re { color: var(--re); background: var(--re-bg); cursor: help; }
+.chip.bad { color: var(--bad); background: var(--bad-bg); }
+.bar { display: flex; height: 8px; border-radius: 4px; overflow: hidden; background: var(--bg); width: 170px; }
+.bar i { display: block; height: 100%; }
+.b1 { background: var(--b1); } .b2 { background: var(--b2); }
+.legend { font-size: .8rem; color: var(--muted); display: flex; gap: 14px; flex-wrap: wrap; }
+.legend i { display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: 5px; vertical-align: -1px; }
+footer { font-size: .8rem; color: var(--muted); }
+.label { font-size: .75rem; color: var(--muted); letter-spacing: .03em; margin-top: 4px; }
+pre { margin: 0; font-family: var(--mono); font-size: .8rem; background: var(--bg); border: 1px solid var(--line); border-radius: 6px; padding: 8px 10px; overflow-x: auto; white-space: pre-wrap; word-break: break-word; }
+.chip:not(.ok):not(.re):not(.bad) { color: var(--muted); background: var(--bg); font-weight: 400; }
+</style>
+<div class="wrap">
+  <header>
+    <h1>Mango·OpenRouter 간이 테스트 결과</h1>
+    <p class="lede">2026-11-17 · 본 실험 전에 4개 모델의 호출 경로 12개(Mango 직접 1, OpenRouter 11)와 도구 호출을 한 번씩 불러 동작과 기록 항목을 확인했습니다.</p>
+    <p class="note">사용자 PC에서 경로마다 1회 호출한 값입니다. 네트워크 상태와 순간 부하가 그대로 섞여 있어 성능 비교에는 쓰지 않습니다.</p>
+  </header>
+  <div class="stats">
+    <div class="stat"><b>56 / 56</b><span>최종 성공 (재시험 9건 포함)</span></div>
+    <div class="stat"><b>47 / 56</b><span>첫 실행 성공</span></div>
+    <div class="stat"><b>$0.039</b><span>OpenRouter 비용 합계 (서버 기록)</span></div>
+    <div class="stat"><b>4 / 4</b><span>Mango 모델 ID 확정</span></div>
+  </div>
+  <section>
+    <h2>발견한 문제와 조치</h2>
+    <div class="cards">
+      <div class="card"><h3>Mango 8건 실패 <span class="chip re">402 잔액 부족</span></h3>
+        <p>키와 주소(<code>api.mangoboost.io/v1</code>)는 정상이었고 모델 목록 조회도 됐습니다. 선불 잔액이 없어 호출만 막혔습니다.</p>
+        <p class="fix">충전 후 재시험 8/8 성공 (텍스트 4, 도구 호출 4)</p></div>
+      <div class="card"><h3>DeepSeek 고정 경로 실패 <span class="chip re">404 후보 없음</span></h3>
+        <p>OpenRouter 계정의 "Paid model training" 차단 설정 때문에 DeepSeek 공식 엔드포인트가 후보에서 빠졌습니다. 기본 라우팅에서도 빠지므로 실험 B의 후보군이 달라지는 문제였습니다.</p>
+        <p class="fix">설정을 허용으로 바꾼 뒤 재시험 성공 (응답 제공사 DeepSeek). 프로토콜 사전 조건에 추가</p></div>
+    </div>
+  </section>
+  
+  <section>
+    <h2>실제로 보낸 요청</h2>
+    <p class="lede" style="margin:0 0 12px">모든 경로에 같은 내용을 보냈습니다. 첫 줄의 <code>ID:</code>는 요청마다 새로 만든 16자리 무작위 문자열(nonce)로, 경로끼리 캐시가 섞이지 않게 하려는 것입니다. 아래 값은 예시입니다.</p>
+    <div class="cards">
+      <div class="card"><h3>텍스트 요청 <span class="chip">경로 12개 × 모델 4개</span></h3>
+        <div class="label">사용자 메시지</div><pre>ID: 3f9c2a7d1b8e4c60
+Explain in two sentences what a hash table is and when to use one.</pre>
+        <div class="label">성공 기준</div><p>답변이 끝까지 생성됨 (<code>finish_reason = stop</code>)</p></div>
+      <div class="card"><h3>도구 호출 요청 <span class="chip">Mango 직접·OpenRouter 기본 × 모델 4개</span></h3>
+        <div class="label">사용자 메시지</div><pre>ID: 3f9c2a7d1b8e4c60
+Read the file src/app.py to find the bug. Use the provided tool.</pre>
+        <div class="label">함께 보낸 도구 정의 (<code>tool_choice: "auto"</code>)</div><pre>[
+  {
+    &quot;type&quot;: &quot;function&quot;,
+    &quot;function&quot;: {
+      &quot;name&quot;: &quot;read_file&quot;,
+      &quot;description&quot;: &quot;Return the contents of a file.&quot;,
+      &quot;parameters&quot;: {
+        &quot;type&quot;: &quot;object&quot;,
+        &quot;properties&quot;: {
+          &quot;path&quot;: {
+            &quot;type&quot;: &quot;string&quot;
+          }
+        },
+        &quot;required&quot;: [
+          &quot;path&quot;
+        ]
+      }
+    }
+  }
+]</pre>
+        <div class="label">성공 기준</div><p>글 대신 <code>read_file</code> 함수 호출을 돌려줌 (<code>finish_reason = tool_calls</code>)</p></div>
+    </div>
+    <div class="cards" style="margin-top:12px">
+      <div class="card"><h3>공통 요청 설정</h3><pre>&quot;stream&quot;: true,
+&quot;stream_options&quot;: {&quot;include_usage&quot;: true},
+&quot;temperature&quot;: 0.6,
+&quot;top_p&quot;: 1,
+&quot;max_tokens&quot;: 2048</pre>
+        <p>SDK 자동 재시도는 끔(<code>max_retries=0</code>). OpenRouter 경로에만 요청 ID를 <code>"trace": {"trace_id": …}</code>로 추가.</p></div>
+      <div class="card"><h3>정렬과 접미사</h3><ul>
+        <li><code>sort: "price"</code>: 기본 배분을 건너뛰고 가격이 낮은 엔드포인트부터 시도</li>
+        <li><code>:floor</code>: 가격순 정렬 + 할인된 flex 등급 엔드포인트도 후보에 넣음</li>
+        <li><code>sort: "throughput"</code>: 처리량이 높은 엔드포인트부터 시도</li>
+        <li><code>:nitro</code>: 처리량순 정렬 + 빠른 priority 등급 엔드포인트도 후보에 넣음</li></ul>
+        <p>이번 1회 호출에서는 4개 모델 모두 <code>:floor</code>가 가격순과, <code>:nitro</code>가 처리량순과 같은 엔드포인트로 갔습니다.</p></div>
+      <div class="card"><h3>경로별로 달라지는 부분</h3><ul>
+        <li>Mango 직접: <code>api.mangoboost.io/v1</code>, model = Mango 모델 ID</li>
+        <li>OpenRouter 기본: provider 설정 없음</li>
+        <li>고정: <code>"provider": {"order": ["제공사"], "allow_fallbacks": false}</code></li>
+        <li>정렬: <code>"provider": {"sort": "price" | "throughput" | "latency"}</code></li>
+        <li><code>:floor</code>, <code>:nitro</code>: 모델 이름 뒤에 접미사</li></ul></div>
+    </div>
+  </section>
+  <section class="models">
+    <h2 style="margin:0">모델별 경로 결과</h2>
+    <div class="legend"><span><i style="background:var(--b1)"></i>첫 답변까지</span><span><i style="background:var(--b2)"></i>나머지 생성 시간</span><span>막대 길이는 모델 안에서 가장 긴 전체 시간 기준 · 재시험 표시에 마우스를 올리면 첫 실패 사유 · <sup>*</sup> Mango 비용은 응답에 없어 토큰 수 × Mango API 단가(할인 전 가격)로 계산한 값</span></div>
+    
+<section class="model">
+  <div class="mhead"><h3>DeepSeek V4.1 Flash 1017</h3><code>Mango ID: deepseek-ai/DeepSeek-V4.1-Flash-1017</code></div>
+  <div class="tw"><table>
+    <thead><tr><th>경로</th><th>종류</th><th>결과</th><th>응답 제공사</th><th>엔드포인트 · 양자화</th><th class="n">첫 답변 ms</th>
+    <th class="n">전체 ms</th><th>시간 구성</th><th class="n">출력 토큰</th><th class="n">reasoning</th><th class="n">비용</th></tr></thead>
+    <tbody><tr><td>Mango 직접</td><td>텍스트</td><td><span class="chip ok">성공</span><span class="chip re" title="APIStatusError: Error code: 402 - API key has insufficient balance">재시험</span></td><td>Mango</td><td>api.mangoboost.io</td><td class='n'>679</td><td class='n'>772</td><td class='barcell'><div class="bar" aria-hidden="true"><i class="b1" style="width:17.4%"></i><i class="b2" style="width:2.4%"></i></div></td><td class='n'>107</td><td class='n'>52</td><td class='n'>$0.00010<sup>*</sup></td></tr><tr><td>OpenRouter 기본</td><td>텍스트</td><td><span class="chip ok">성공</span></td><td>Makora</td><td><code>makora/fp8</code> <span class='q'>fp8</span></td><td class='n'>1,711</td><td class='n'>2,210</td><td class='barcell'><div class="bar" aria-hidden="true"><i class="b1" style="width:43.8%"></i><i class="b2" style="width:12.8%"></i></div></td><td class='n'>114</td><td class='n'>59</td><td class='n'>$0.00005</td></tr><tr><td>고정: deepseek</td><td>텍스트</td><td><span class="chip ok">성공</span><span class="chip re" title="NotFoundError: Error code: 404 - No endpoints found for deepseek/deepseek-v4.1-flash-1017.">재시험</span></td><td>DeepSeek</td><td><code>deepseek</code> <span class='q'>unknown</span></td><td class='n'>1,507</td><td class='n'>1,851</td><td class='barcell'><div class="bar" aria-hidden="true"><i class="b1" style="width:38.6%"></i><i class="b2" style="width:8.8%"></i></div></td><td class='n'>91</td><td class='n'>34</td><td class='n'>$0.00006</td></tr><tr><td>고정: deepinfra</td><td>텍스트</td><td><span class="chip ok">성공</span></td><td>DeepInfra</td><td><code>deepinfra/fp8</code> <span class='q'>fp8</span></td><td class='n'>1,861</td><td class='n'>2,309</td><td class='barcell'><div class="bar" aria-hidden="true"><i class="b1" style="width:47.7%"></i><i class="b2" style="width:11.5%"></i></div></td><td class='n'>158</td><td class='n'>86</td><td class='n'>$0.00005</td></tr><tr><td>고정: together</td><td>텍스트</td><td><span class="chip ok">성공</span></td><td>Together</td><td><code>together</code> <span class='q'>unknown</span></td><td class='n'>1,636</td><td class='n'>1,990</td><td class='barcell'><div class="bar" aria-hidden="true"><i class="b1" style="width:41.9%"></i><i class="b2" style="width:9.0%"></i></div></td><td class='n'>130</td><td class='n'>62</td><td class='n'>$0.00017</td></tr><tr><td>고정: inference-net</td><td>텍스트</td><td><span class="chip ok">성공</span></td><td>InferenceNet</td><td><code>inference-net/us</code> <span class='q'>fp8</span></td><td class='n'>1,979</td><td class='n'>2,350</td><td class='barcell'><div class="bar" aria-hidden="true"><i class="b1" style="width:50.7%"></i><i class="b2" style="width:9.5%"></i></div></td><td class='n'>187</td><td class='n'>109</td><td class='n'>$0.00012</td></tr><tr><td>고정: wafer</td><td>텍스트</td><td><span class="chip ok">성공</span></td><td>Wafer</td><td><code>wafer/us</code> <span class='q'>mxfp4</span></td><td class='n'>1,140</td><td class='n'>1,373</td><td class='barcell'><div class="bar" aria-hidden="true"><i class="b1" style="width:29.2%"></i><i class="b2" style="width:6.0%"></i></div></td><td class='n'>157</td><td class='n'>100</td><td class='n'>$0.00008</td></tr><tr><td>정렬: 가격</td><td>텍스트</td><td><span class="chip ok">성공</span></td><td>Wafer</td><td><code>wafer/us</code> <span class='q'>mxfp4</span></td><td class='n'>497</td><td class='n'>915</td><td class='barcell'><div class="bar" aria-hidden="true"><i class="b1" style="width:12.7%"></i><i class="b2" style="width:10.7%"></i></div></td><td class='n'>88</td><td class='n'>23</td><td class='n'>$0.00005</td></tr><tr><td>정렬: 처리량</td><td>텍스트</td><td><span class="chip ok">성공</span></td><td>CoreWeave</td><td><code>coreweave/fp8</code> <span class='q'>fp8</span></td><td class='n'>1,725</td><td class='n'>2,014</td><td class='barcell'><div class="bar" aria-hidden="true"><i class="b1" style="width:44.2%"></i><i class="b2" style="width:7.4%"></i></div></td><td class='n'>126</td><td class='n'>58</td><td class='n'>$0.00017</td></tr><tr><td>정렬: 지연</td><td>텍스트</td><td><span class="chip ok">성공</span></td><td>InferenceNet</td><td><code>inference-net/us</code> <span class='q'>fp8</span></td><td class='n'>1,631</td><td class='n'>2,520</td><td class='barcell'><div class="bar" aria-hidden="true"><i class="b1" style="width:41.8%"></i><i class="b2" style="width:22.8%"></i></div></td><td class='n'>147</td><td class='n'>80</td><td class='n'>$0.00009</td></tr><tr><td>:floor</td><td>텍스트</td><td><span class="chip ok">성공</span></td><td>Wafer</td><td><code>wafer/us</code> <span class='q'>mxfp4</span></td><td class='n'>656</td><td class='n'>972</td><td class='barcell'><div class="bar" aria-hidden="true"><i class="b1" style="width:16.8%"></i><i class="b2" style="width:8.1%"></i></div></td><td class='n'>104</td><td class='n'>43</td><td class='n'>$0.00005</td></tr><tr><td>:nitro</td><td>텍스트</td><td><span class="chip ok">성공</span></td><td>CoreWeave</td><td><code>coreweave/fp8</code> <span class='q'>fp8</span></td><td class='n'>1,310</td><td class='n'>3,905</td><td class='barcell'><div class="bar" aria-hidden="true"><i class="b1" style="width:33.6%"></i><i class="b2" style="width:66.4%"></i></div></td><td class='n'>107</td><td class='n'>58</td><td class='n'>$0.00015</td></tr><tr><td>Mango 직접</td><td>도구</td><td><span class="chip ok">성공</span><span class="chip re" title="APIStatusError: Error code: 402 - API key has insufficient balance">재시험</span></td><td>Mango</td><td>api.mangoboost.io</td><td class='n'>1,017</td><td class='n'>1,080</td><td class='barcell'><div class="bar" aria-hidden="true"><i class="b1" style="width:26.0%"></i><i class="b2" style="width:1.6%"></i></div></td><td class='n'>48</td><td class='n'>0</td><td class='n'>$0.00010<sup>*</sup></td></tr><tr><td>OpenRouter 기본</td><td>도구</td><td><span class="chip ok">성공</span></td><td>River</td><td><code>river</code> <span class='q'>unknown</span></td><td class='n'>927</td><td class='n'>1,114</td><td class='barcell'><div class="bar" aria-hidden="true"><i class="b1" style="width:23.7%"></i><i class="b2" style="width:4.8%"></i></div></td><td class='n'>48</td><td class='n'>0</td><td class='n'>$0.00004</td></tr></tbody>
+  </table></div>
+</section>
+<section class="model">
+  <div class="mhead"><h3>GLM-5.3</h3><code>Mango ID: zai-org/GLM-5.3</code></div>
+  <div class="tw"><table>
+    <thead><tr><th>경로</th><th>종류</th><th>결과</th><th>응답 제공사</th><th>엔드포인트 · 양자화</th><th class="n">첫 답변 ms</th>
+    <th class="n">전체 ms</th><th>시간 구성</th><th class="n">출력 토큰</th><th class="n">reasoning</th><th class="n">비용</th></tr></thead>
+    <tbody><tr><td>Mango 직접</td><td>텍스트</td><td><span class="chip ok">성공</span><span class="chip re" title="APIStatusError: Error code: 402 - API key has insufficient balance">재시험</span></td><td>Mango</td><td>api.mangoboost.io</td><td class='n'>1,361</td><td class='n'>1,862</td><td class='barcell'><div class="bar" aria-hidden="true"><i class="b1" style="width:24.5%"></i><i class="b2" style="width:9.0%"></i></div></td><td class='n'>192</td><td class='n'>102</td><td class='n'>$0.00086<sup>*</sup></td></tr><tr><td>OpenRouter 기본</td><td>텍스트</td><td><span class="chip ok">성공</span></td><td>Decart</td><td><code>decart/fp4</code> <span class='q'>fp4</span></td><td class='n'>3,442</td><td class='n'>3,990</td><td class='barcell'><div class="bar" aria-hidden="true"><i class="b1" style="width:61.9%"></i><i class="b2" style="width:9.8%"></i></div></td><td class='n'>458</td><td class='n'>372</td><td class='n'>$0.00085</td></tr><tr><td>고정: wafer</td><td>텍스트</td><td><span class="chip ok">성공</span></td><td>Wafer</td><td><code>wafer/us</code> <span class='q'>fp4</span></td><td class='n'>488</td><td class='n'>1,689</td><td class='barcell'><div class="bar" aria-hidden="true"><i class="b1" style="width:8.8%"></i><i class="b2" style="width:21.6%"></i></div></td><td class='n'>101</td><td class='n'>0</td><td class='n'>$0.00014</td></tr><tr><td>고정: inference-net</td><td>텍스트</td><td><span class="chip ok">성공</span></td><td>InferenceNet</td><td><code>inference-net/us</code> <span class='q'>fp4</span></td><td class='n'>4,751</td><td class='n'>5,370</td><td class='barcell'><div class="bar" aria-hidden="true"><i class="b1" style="width:85.4%"></i><i class="b2" style="width:11.1%"></i></div></td><td class='n'>410</td><td class='n'>320</td><td class='n'>$0.00148</td></tr><tr><td>고정: z-ai</td><td>텍스트</td><td><span class="chip ok">성공</span></td><td>Z.AI</td><td><code>z-ai/fp8</code> <span class='q'>fp8</span></td><td class='n'>3,497</td><td class='n'>4,213</td><td class='barcell'><div class="bar" aria-hidden="true"><i class="b1" style="width:62.9%"></i><i class="b2" style="width:12.9%"></i></div></td><td class='n'>364</td><td class='n'>276</td><td class='n'>$0.00166</td></tr><tr><td>고정: siliconflow</td><td>텍스트</td><td><span class="chip ok">성공</span></td><td>SiliconFlow</td><td><code>siliconflow/fp8</code> <span class='q'>fp8</span></td><td class='n'>3,094</td><td class='n'>3,328</td><td class='barcell'><div class="bar" aria-hidden="true"><i class="b1" style="width:55.6%"></i><i class="b2" style="width:4.2%"></i></div></td><td class='n'>217</td><td class='n'>127</td><td class='n'>$0.00051</td></tr><tr><td>고정: decart</td><td>텍스트</td><td><span class="chip ok">성공</span></td><td>Decart</td><td><code>decart/fp4</code> <span class='q'>fp4</span></td><td class='n'>4,956</td><td class='n'>5,561</td><td class='barcell'><div class="bar" aria-hidden="true"><i class="b1" style="width:89.1%"></i><i class="b2" style="width:10.9%"></i></div></td><td class='n'>688</td><td class='n'>599</td><td class='n'>$0.00126</td></tr><tr><td>정렬: 가격</td><td>텍스트</td><td><span class="chip ok">성공</span></td><td>Wafer</td><td><code>wafer/us</code> <span class='q'>fp4</span></td><td class='n'>394</td><td class='n'>1,019</td><td class='barcell'><div class="bar" aria-hidden="true"><i class="b1" style="width:7.1%"></i><i class="b2" style="width:11.2%"></i></div></td><td class='n'>75</td><td class='n'>1</td><td class='n'>$0.00011</td></tr><tr><td>정렬: 처리량</td><td>텍스트</td><td><span class="chip ok">성공</span></td><td>Alibaba</td><td><code>alibaba/prime</code> <span class='q'>unknown</span></td><td class='n'>1,682</td><td class='n'>2,326</td><td class='barcell'><div class="bar" aria-hidden="true"><i class="b1" style="width:30.3%"></i><i class="b2" style="width:11.6%"></i></div></td><td class='n'>223</td><td class='n'>125</td><td class='n'>$0.00125</td></tr><tr><td>정렬: 지연</td><td>텍스트</td><td><span class="chip ok">성공</span></td><td>Wafer</td><td><code>wafer/fp4</code> <span class='q'>fp4</span></td><td class='n'>406</td><td class='n'>1,711</td><td class='barcell'><div class="bar" aria-hidden="true"><i class="b1" style="width:7.3%"></i><i class="b2" style="width:23.5%"></i></div></td><td class='n'>90</td><td class='n'>0</td><td class='n'>$0.00013</td></tr><tr><td>:floor</td><td>텍스트</td><td><span class="chip ok">성공</span></td><td>Wafer</td><td><code>wafer/us</code> <span class='q'>fp4</span></td><td class='n'>518</td><td class='n'>1,435</td><td class='barcell'><div class="bar" aria-hidden="true"><i class="b1" style="width:9.3%"></i><i class="b2" style="width:16.5%"></i></div></td><td class='n'>96</td><td class='n'>1</td><td class='n'>$0.00014</td></tr><tr><td>:nitro</td><td>텍스트</td><td><span class="chip ok">성공</span></td><td>Alibaba</td><td><code>alibaba/prime</code> <span class='q'>unknown</span></td><td class='n'>2,704</td><td class='n'>3,250</td><td class='barcell'><div class="bar" aria-hidden="true"><i class="b1" style="width:48.6%"></i><i class="b2" style="width:9.8%"></i></div></td><td class='n'>407</td><td class='n'>316</td><td class='n'>$0.00222</td></tr><tr><td>Mango 직접</td><td>도구</td><td><span class="chip ok">성공</span><span class="chip re" title="APIStatusError: Error code: 402 - API key has insufficient balance">재시험</span></td><td>Mango</td><td>api.mangoboost.io</td><td class='n'>1,197</td><td class='n'>1,218</td><td class='barcell'><div class="bar" aria-hidden="true"><i class="b1" style="width:21.5%"></i><i class="b2" style="width:0.4%"></i></div></td><td class='n'>38</td><td class='n'>25</td><td class='n'>$0.00040<sup>*</sup></td></tr><tr><td>OpenRouter 기본</td><td>도구</td><td><span class="chip ok">성공</span></td><td>Fireworks</td><td><code>fireworks/spot</code> <span class='q'>unknown</span></td><td class='n'>991</td><td class='n'>1,017</td><td class='barcell'><div class="bar" aria-hidden="true"><i class="b1" style="width:17.8%"></i><i class="b2" style="width:0.5%"></i></div></td><td class='n'>38</td><td class='n'>24</td><td class='n'>$0.00030</td></tr></tbody>
+  </table></div>
+</section>
+<section class="model">
+  <div class="mhead"><h3>GLM-5.3-Flash</h3><code>Mango ID: zai-org/GLM-5.3-Flash</code></div>
+  <div class="tw"><table>
+    <thead><tr><th>경로</th><th>종류</th><th>결과</th><th>응답 제공사</th><th>엔드포인트 · 양자화</th><th class="n">첫 답변 ms</th>
+    <th class="n">전체 ms</th><th>시간 구성</th><th class="n">출력 토큰</th><th class="n">reasoning</th><th class="n">비용</th></tr></thead>
+    <tbody><tr><td>Mango 직접</td><td>텍스트</td><td><span class="chip ok">성공</span><span class="chip re" title="APIStatusError: Error code: 402 - API key has insufficient balance">재시험</span></td><td>Mango</td><td>api.mangoboost.io</td><td class='n'>1,479</td><td class='n'>1,651</td><td class='barcell'><div class="bar" aria-hidden="true"><i class="b1" style="width:9.5%"></i><i class="b2" style="width:1.1%"></i></div></td><td class='n'>442</td><td class='n'>351</td><td class='n'>$0.00020<sup>*</sup></td></tr><tr><td>OpenRouter 기본</td><td>텍스트</td><td><span class="chip ok">성공</span></td><td>Relace</td><td><code>relace/fp4</code> <span class='q'>fp4</span></td><td class='n'>4,000</td><td class='n'>4,440</td><td class='barcell'><div class="bar" aria-hidden="true"><i class="b1" style="width:25.8%"></i><i class="b2" style="width:2.8%"></i></div></td><td class='n'>451</td><td class='n'>414</td><td class='n'>$0.00004</td></tr><tr><td>고정: together</td><td>텍스트</td><td><span class="chip ok">성공</span></td><td>Together</td><td><code>together</code> <span class='q'>unknown</span></td><td class='n'>1,781</td><td class='n'>2,065</td><td class='barcell'><div class="bar" aria-hidden="true"><i class="b1" style="width:11.5%"></i><i class="b2" style="width:1.8%"></i></div></td><td class='n'>363</td><td class='n'>272</td><td class='n'>$0.00019</td></tr><tr><td>고정: inference-net</td><td>텍스트</td><td><span class="chip ok">성공</span></td><td>InferenceNet</td><td><code>inference-net/us</code> <span class='q'>fp4</span></td><td class='n'>3,234</td><td class='n'>3,561</td><td class='barcell'><div class="bar" aria-hidden="true"><i class="b1" style="width:20.9%"></i><i class="b2" style="width:2.1%"></i></div></td><td class='n'>383</td><td class='n'>294</td><td class='n'>$0.00014</td></tr><tr><td>고정: open-inference</td><td>텍스트</td><td><span class="chip ok">성공</span></td><td>OpenInference</td><td><code>open-inference/fp4</code> <span class='q'>fp4</span></td><td class='n'>980</td><td class='n'>1,774</td><td class='barcell'><div class="bar" aria-hidden="true"><i class="b1" style="width:6.3%"></i><i class="b2" style="width:5.1%"></i></div></td><td class='n'>90</td><td class='n'>8</td><td class='n'>$0.00003</td></tr><tr><td>고정: coreweave</td><td>텍스트</td><td><span class="chip ok">성공</span></td><td>CoreWeave</td><td><code>coreweave/nvfp4</code> <span class='q'>nvfp4</span></td><td class='n'>1,548</td><td class='n'>1,791</td><td class='barcell'><div class="bar" aria-hidden="true"><i class="b1" style="width:10.0%"></i><i class="b2" style="width:1.6%"></i></div></td><td class='n'>388</td><td class='n'>293</td><td class='n'>$0.00015</td></tr><tr><td>고정: z-ai</td><td>텍스트</td><td><span class="chip ok">성공</span></td><td>Z.AI</td><td><code>z-ai/fp8</code> <span class='q'>fp8</span></td><td class='n'>5,860</td><td class='n'>6,967</td><td class='barcell'><div class="bar" aria-hidden="true"><i class="b1" style="width:37.8%"></i><i class="b2" style="width:7.1%"></i></div></td><td class='n'>343</td><td class='n'>257</td><td class='n'>$0.00018</td></tr><tr><td>정렬: 가격</td><td>텍스트</td><td><span class="chip ok">성공</span></td><td>Relace</td><td><code>relace/fp4</code> <span class='q'>fp4</span></td><td class='n'>4,214</td><td class='n'>5,018</td><td class='barcell'><div class="bar" aria-hidden="true"><i class="b1" style="width:27.2%"></i><i class="b2" style="width:5.2%"></i></div></td><td class='n'>344</td><td class='n'>309</td><td class='n'>$0.00003</td></tr><tr><td>정렬: 처리량</td><td>텍스트</td><td><span class="chip ok">성공</span></td><td>Particle AI</td><td><code>particle-ai/nvfp4</code> <span class='q'>nvfp4</span></td><td class='n'>823</td><td class='n'>1,080</td><td class='barcell'><div class="bar" aria-hidden="true"><i class="b1" style="width:5.3%"></i><i class="b2" style="width:1.7%"></i></div></td><td class='n'>87</td><td class='n'>8</td><td class='n'>$0.00005</td></tr><tr><td>정렬: 지연</td><td>텍스트</td><td><span class="chip ok">성공</span></td><td>Friendli</td><td><code>friendli</code> <span class='q'>unknown</span></td><td class='n'>1,406</td><td class='n'>1,684</td><td class='barcell'><div class="bar" aria-hidden="true"><i class="b1" style="width:9.1%"></i><i class="b2" style="width:1.8%"></i></div></td><td class='n'>329</td><td class='n'>283</td><td class='n'>$0.00017</td></tr><tr><td>:floor</td><td>텍스트</td><td><span class="chip ok">성공</span></td><td>Relace</td><td><code>relace/fp4</code> <span class='q'>fp4</span></td><td class='n'>14,946</td><td class='n'>15,498</td><td class='barcell'><div class="bar" aria-hidden="true"><i class="b1" style="width:96.4%"></i><i class="b2" style="width:3.6%"></i></div></td><td class='n'>528</td><td class='n'>522</td><td class='n'>$0.00004</td></tr><tr><td>:nitro</td><td>텍스트</td><td><span class="chip ok">성공</span></td><td>Particle AI</td><td><code>particle-ai/nvfp4</code> <span class='q'>nvfp4</span></td><td class='n'>742</td><td class='n'>1,082</td><td class='barcell'><div class="bar" aria-hidden="true"><i class="b1" style="width:4.8%"></i><i class="b2" style="width:2.2%"></i></div></td><td class='n'>101</td><td class='n'>9</td><td class='n'>$0.00006</td></tr><tr><td>Mango 직접</td><td>도구</td><td><span class="chip ok">성공</span><span class="chip re" title="APIStatusError: Error code: 402 - API key has insufficient balance">재시험</span></td><td>Mango</td><td>api.mangoboost.io</td><td class='n'>534</td><td class='n'>546</td><td class='barcell'><div class="bar" aria-hidden="true"><i class="b1" style="width:3.4%"></i><i class="b2" style="width:0.1%"></i></div></td><td class='n'>38</td><td class='n'>24</td><td class='n'>$0.00004<sup>*</sup></td></tr><tr><td>OpenRouter 기본</td><td>도구</td><td><span class="chip ok">성공</span></td><td>Relace</td><td><code>relace/fp4</code> <span class='q'>fp4</span></td><td class='n'>1,080</td><td class='n'>1,082</td><td class='barcell'><div class="bar" aria-hidden="true"><i class="b1" style="width:7.0%"></i><i class="b2" style="width:0.0%"></i></div></td><td class='n'>38</td><td class='n'>23</td><td class='n'>$0.00001</td></tr></tbody>
+  </table></div>
+</section>
+<section class="model">
+  <div class="mhead"><h3>Kimi K3.1 Pro</h3><code>Mango ID: moonshotai/Kimi-K3.1-Pro</code></div>
+  <div class="tw"><table>
+    <thead><tr><th>경로</th><th>종류</th><th>결과</th><th>응답 제공사</th><th>엔드포인트 · 양자화</th><th class="n">첫 답변 ms</th>
+    <th class="n">전체 ms</th><th>시간 구성</th><th class="n">출력 토큰</th><th class="n">reasoning</th><th class="n">비용</th></tr></thead>
+    <tbody><tr><td>Mango 직접</td><td>텍스트</td><td><span class="chip ok">성공</span><span class="chip re" title="APIStatusError: Error code: 402 - API key has insufficient balance">재시험</span></td><td>Mango</td><td>api.mangoboost.io</td><td class='n'>1,466</td><td class='n'>1,900</td><td class='barcell'><div class="bar" aria-hidden="true"><i class="b1" style="width:8.6%"></i><i class="b2" style="width:2.5%"></i></div></td><td class='n'>202</td><td class='n'>122</td><td class='n'>$0.00213<sup>*</sup></td></tr><tr><td>OpenRouter 기본</td><td>텍스트</td><td><span class="chip ok">성공</span></td><td>River</td><td><code>river</code> <span class='q'>unknown</span></td><td class='n'>2,470</td><td class='n'>2,931</td><td class='barcell'><div class="bar" aria-hidden="true"><i class="b1" style="width:14.5%"></i><i class="b2" style="width:2.7%"></i></div></td><td class='n'>283</td><td class='n'>196</td><td class='n'>$0.00305</td></tr><tr><td>고정: moonshotai</td><td>텍스트</td><td><span class="chip ok">성공</span></td><td>Moonshot AI</td><td><code>moonshotai/mxfp4</code> <span class='q'>mxfp4</span></td><td class='n'>4,915</td><td class='n'>6,701</td><td class='barcell'><div class="bar" aria-hidden="true"><i class="b1" style="width:28.8%"></i><i class="b2" style="width:10.5%"></i></div></td><td class='n'>210</td><td class='n'>125</td><td class='n'>$0.00233</td></tr><tr><td>고정: inference-net</td><td>텍스트</td><td><span class="chip ok">성공</span></td><td>InferenceNet</td><td><code>inference-net/mxfp4</code> <span class='q'>mxfp4</span></td><td class='n'>1,498</td><td class='n'>1,537</td><td class='barcell'><div class="bar" aria-hidden="true"><i class="b1" style="width:8.8%"></i><i class="b2" style="width:0.2%"></i></div></td><td class='n'>195</td><td class='n'>119</td><td class='n'>$0.00196</td></tr><tr><td>고정: modal</td><td>텍스트</td><td><span class="chip ok">성공</span></td><td>Modal</td><td><code>modal/mxfp4</code> <span class='q'>mxfp4</span></td><td class='n'>1,935</td><td class='n'>2,271</td><td class='barcell'><div class="bar" aria-hidden="true"><i class="b1" style="width:11.3%"></i><i class="b2" style="width:2.0%"></i></div></td><td class='n'>238</td><td class='n'>158</td><td class='n'>$0.00248</td></tr><tr><td>고정: wafer</td><td>텍스트</td><td><span class="chip ok">성공</span></td><td>Wafer</td><td><code>wafer/us</code> <span class='q'>mxfp4</span></td><td class='n'>1,462</td><td class='n'>1,870</td><td class='barcell'><div class="bar" aria-hidden="true"><i class="b1" style="width:8.6%"></i><i class="b2" style="width:2.4%"></i></div></td><td class='n'>206</td><td class='n'>124</td><td class='n'>$0.00184</td></tr><tr><td>고정: together</td><td>텍스트</td><td><span class="chip ok">성공</span></td><td>Together</td><td><code>together</code> <span class='q'>unknown</span></td><td class='n'>3,139</td><td class='n'>3,821</td><td class='barcell'><div class="bar" aria-hidden="true"><i class="b1" style="width:18.4%"></i><i class="b2" style="width:4.0%"></i></div></td><td class='n'>213</td><td class='n'>132</td><td class='n'>$0.00236</td></tr><tr><td>정렬: 가격</td><td>텍스트</td><td><span class="chip ok">성공</span></td><td>Relace</td><td><code>relace/fp4</code> <span class='q'>fp4</span></td><td class='n'>2,360</td><td class='n'>2,663</td><td class='barcell'><div class="bar" aria-hidden="true"><i class="b1" style="width:13.8%"></i><i class="b2" style="width:1.8%"></i></div></td><td class='n'>206</td><td class='n'>152</td><td class='n'>$0.00176</td></tr><tr><td>정렬: 처리량</td><td>텍스트</td><td><span class="chip ok">성공</span></td><td>InferenceNet</td><td><code>inference-net/mxfp4/us</code> <span class='q'>mxfp4</span></td><td class='n'>3,038</td><td class='n'>3,281</td><td class='barcell'><div class="bar" aria-hidden="true"><i class="b1" style="width:17.8%"></i><i class="b2" style="width:1.4%"></i></div></td><td class='n'>218</td><td class='n'>139</td><td class='n'>$0.00217</td></tr><tr><td>정렬: 지연</td><td>텍스트</td><td><span class="chip ok">성공</span></td><td>InferenceNet</td><td><code>inference-net/mxfp4/us</code> <span class='q'>mxfp4</span></td><td class='n'>16,959</td><td class='n'>17,069</td><td class='barcell'><div class="bar" aria-hidden="true"><i class="b1" style="width:99.4%"></i><i class="b2" style="width:0.6%"></i></div></td><td class='n'>275</td><td class='n'>190</td><td class='n'>$0.00268</td></tr><tr><td>:floor</td><td>텍스트</td><td><span class="chip ok">성공</span></td><td>Relace</td><td><code>relace/fp4</code> <span class='q'>fp4</span></td><td class='n'>2,167</td><td class='n'>2,501</td><td class='barcell'><div class="bar" aria-hidden="true"><i class="b1" style="width:12.7%"></i><i class="b2" style="width:2.0%"></i></div></td><td class='n'>230</td><td class='n'>171</td><td class='n'>$0.00196</td></tr><tr><td>:nitro</td><td>텍스트</td><td><span class="chip ok">성공</span></td><td>InferenceNet</td><td><code>inference-net/mxfp4/us</code> <span class='q'>mxfp4</span></td><td class='n'>1,793</td><td class='n'>2,053</td><td class='barcell'><div class="bar" aria-hidden="true"><i class="b1" style="width:10.5%"></i><i class="b2" style="width:1.5%"></i></div></td><td class='n'>310</td><td class='n'>226</td><td class='n'>$0.00299</td></tr><tr><td>Mango 직접</td><td>도구</td><td><span class="chip ok">성공</span><span class="chip re" title="APIStatusError: Error code: 402 - API key has insufficient balance">재시험</span></td><td>Mango</td><td>api.mangoboost.io</td><td class='n'>867</td><td class='n'>898</td><td class='barcell'><div class="bar" aria-hidden="true"><i class="b1" style="width:5.1%"></i><i class="b2" style="width:0.2%"></i></div></td><td class='n'>75</td><td class='n'>24</td><td class='n'>$0.00106<sup>*</sup></td></tr><tr><td>OpenRouter 기본</td><td>도구</td><td><span class="chip ok">성공</span></td><td>DigitalOcean</td><td><code>digitalocean</code> <span class='q'>unknown</span></td><td class='n'>2,414</td><td class='n'>2,450</td><td class='barcell'><div class="bar" aria-hidden="true"><i class="b1" style="width:14.1%"></i><i class="b2" style="width:0.2%"></i></div></td><td class='n'>109</td><td class='n'>58</td><td class='n'>$0.00148</td></tr></tbody>
+  </table></div>
+</section>
+  </section>
+  <section>
+    <h2>요청별 데이터 확보 현황</h2>
+    <div class="cards">
+      <div class="card"><h3>확보됨</h3><ul>
+        <li>성공 여부, 종료 이유, 오류 코드·메시지</li>
+        <li>첫 토큰·첫 답변·전체 시간 (클라이언트 측정)</li>
+        <li>입력·출력·reasoning·캐시 토큰 (Mango GLM-5.3은 reasoning을 <code>usage.reasoning_tokens</code>에 보고, 캐시 세부는 없음)</li>
+        <li>OpenRouter: 실제 응답 제공사, 폴백 시도 내역, 서버 측 지연·생성 시간, 요청당 비용</li>
+        <li>도구 호출 인자</li></ul></div>
+      <div class="card"><h3>본 실험 코드에 추가할 것</h3><ul>
+        <li>조각별 도착 시각 전체 (조각 간 간격 분포)</li>
+        <li>요청 시각(UTC), nonce, 질문 ID</li>
+        <li>연결 단계 시간(TCP·TLS), 호스트 IP·ASN, 응답 헤더</li>
+        <li>OpenRouter Broadcast 구간 시간 (서울 VM 수신 주소 필요)</li>
+        <li>Mango 요청당 비용: 응답에 없어 토큰 × 단가로 계산 후 콘솔 내역과 대조</li></ul></div>
+    </div>
+  </section>
+  <footer>대조 확인: OpenRouter 대시보드의 요청 48건·$0.04와 Mango 대시보드의 처리 토큰 약 2.3K가 이 기록과 일치합니다. 원본은 저장소 <code>results/smoke_test_20261117/</code>에 있습니다.</footer>
+</div>

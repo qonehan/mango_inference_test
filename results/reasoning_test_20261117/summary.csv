@@ -1,0 +1,153 @@
+﻿model_key,arm,variant,rep,ok,status,finish_reason,reasoning_tokens,reasoning_chars,completion_tokens,ttft_content_ms,answer,served_by,error
+deepseek-v4.1-flash-1017,M|default,default,0,True,,stop,34,99,37,770.3,80,Mango,
+deepseek-v4.1-flash-1017,M|default,default,1,True,,stop,28,90,31,1035.2,80,Mango,
+deepseek-v4.1-flash-1017,M|off-template,off-template,0,True,,stop,0,0,2,892.8,80,Mango,
+deepseek-v4.1-flash-1017,M|off-template,off-template,1,True,,stop,0,0,2,886.6,80,Mango,
+deepseek-v4.1-flash-1017,M|on-template,on-template,0,True,,stop,30,91,33,722.1,80,Mango,
+deepseek-v4.1-flash-1017,M|on-template,on-template,1,True,,stop,41,113,44,738.4,80,Mango,
+deepseek-v4.1-flash-1017,M|effort-low,effort-low,0,True,,stop,35,100,38,348.7,80,Mango,
+deepseek-v4.1-flash-1017,M|effort-low,effort-low,1,True,,stop,32,100,35,311.9,80,Mango,
+deepseek-v4.1-flash-1017,OR:deepseek|default,default,0,True,,stop,33,98,35,1303.1,80,DeepSeek,
+deepseek-v4.1-flash-1017,OR:deepseek|default,default,1,True,,stop,35,105,37,1233.6,80,DeepSeek,
+deepseek-v4.1-flash-1017,OR:deepseek|off,off,0,True,,stop,0,0,1,801.3,80,DeepSeek,
+deepseek-v4.1-flash-1017,OR:deepseek|off,off,1,True,,stop,0,0,1,869.9,80,DeepSeek,
+deepseek-v4.1-flash-1017,OR:deepseek|on,on,0,True,,stop,34,104,36,1145.6,80,DeepSeek,
+deepseek-v4.1-flash-1017,OR:deepseek|on,on,1,True,,stop,32,100,34,1205.6,80,DeepSeek,
+deepseek-v4.1-flash-1017,OR:deepinfra/fp8|default,default,0,True,,stop,42,115,45,1058.6,80,DeepInfra,
+deepseek-v4.1-flash-1017,OR:deepinfra/fp8|default,default,1,True,,stop,33,87,36,1003.6,80,DeepInfra,
+deepseek-v4.1-flash-1017,OR:deepinfra/fp8|off,off,0,True,,stop,0,0,2,1357.4,80,DeepInfra,
+deepseek-v4.1-flash-1017,OR:deepinfra/fp8|off,off,1,True,,stop,0,0,2,636.9,80,DeepInfra,
+deepseek-v4.1-flash-1017,OR:deepinfra/fp8|on,on,0,True,,stop,38,102,41,1093.0,80,DeepInfra,
+deepseek-v4.1-flash-1017,OR:deepinfra/fp8|on,on,1,True,,stop,31,81,34,1021.4,80,DeepInfra,
+deepseek-v4.1-flash-1017,OR:together|default,default,0,True,,stop,33,93,36,412.8,80,Together,
+deepseek-v4.1-flash-1017,OR:together|default,default,1,True,,stop,39,109,42,1219.2,80,Together,
+deepseek-v4.1-flash-1017,OR:together|off,off,0,True,,stop,0,0,2,466.6,80,Together,
+deepseek-v4.1-flash-1017,OR:together|off,off,1,True,,stop,0,0,2,374.6,80,Together,
+deepseek-v4.1-flash-1017,OR:together|on,on,0,True,,stop,32,97,35,869.7,80,Together,
+deepseek-v4.1-flash-1017,OR:together|on,on,1,True,,stop,34,99,37,637.8,80,Together,
+deepseek-v4.1-flash-1017,OR:inference-net/us|default,default,0,True,,stop,45,133,48,1312.7,80,InferenceNet,
+deepseek-v4.1-flash-1017,OR:inference-net/us|default,default,1,True,,stop,39,107,42,737.6,80,InferenceNet,
+deepseek-v4.1-flash-1017,OR:inference-net/us|off,off,0,True,,stop,0,0,2,504.6,80,InferenceNet,
+deepseek-v4.1-flash-1017,OR:inference-net/us|off,off,1,True,,stop,0,0,2,461.5,80,InferenceNet,
+deepseek-v4.1-flash-1017,OR:inference-net/us|on,on,0,True,,stop,30,94,33,875.9,80,InferenceNet,
+deepseek-v4.1-flash-1017,OR:inference-net/us|on,on,1,True,,stop,39,107,42,774.6,80,InferenceNet,
+deepseek-v4.1-flash-1017,OR:wafer/us|default,default,0,True,,stop,28,85,30,476.2,80,Wafer,
+deepseek-v4.1-flash-1017,OR:wafer/us|default,default,1,True,,stop,36,100,38,520.8,80,Wafer,
+deepseek-v4.1-flash-1017,OR:wafer/us|off,off,0,True,,stop,0,0,2,341.2,80,Wafer,
+deepseek-v4.1-flash-1017,OR:wafer/us|off,off,1,True,,stop,0,0,2,514.2,80,Wafer,
+deepseek-v4.1-flash-1017,OR:wafer/us|on,on,0,True,,stop,34,93,36,504.5,80,Wafer,
+deepseek-v4.1-flash-1017,OR:wafer/us|on,on,1,True,,stop,34,88,36,480.7,80,Wafer,
+glm-5.3,M|default,default,0,True,,stop,39,114,41,636.8,80,Mango,
+glm-5.3,M|default,default,1,True,,stop,32,79,34,573.9,80,Mango,
+glm-5.3,M|off-template,off-template,0,False,,length,4099,14907,4096,,,Mango,
+glm-5.3,M|off-template,off-template,1,True,,stop,94,306,94,,,Mango,
+glm-5.3,M|on-template,on-template,0,True,,stop,40,102,42,752.4,80,Mango,
+glm-5.3,M|on-template,on-template,1,True,,stop,55,158,57,734.5,80,Mango,
+glm-5.3,M|effort-low,effort-low,0,True,,stop,1,0,3,392.7,80,Mango,
+glm-5.3,M|effort-low,effort-low,1,True,,stop,1,0,3,399.1,80,Mango,
+glm-5.3,OR:wafer/us|default,default,0,False,429,,,0,,,,,RateLimitError: Error code: 429 - Provider returned error
+glm-5.3,OR:wafer/us|default,default,1,False,429,,,0,,,,,RateLimitError: Error code: 429 - Provider returned error
+glm-5.3,OR:wafer/us|off,off,0,False,400,,,0,,,,,BadRequestError: Error code: 400 - Reasoning is mandatory for this endpoint and cannot be disabled.
+glm-5.3,OR:wafer/us|off,off,1,False,400,,,0,,,,,BadRequestError: Error code: 400 - Reasoning is mandatory for this endpoint and cannot be disabled.
+glm-5.3,OR:wafer/us|on,on,0,False,429,,,0,,,,,RateLimitError: Error code: 429 - Provider returned error
+glm-5.3,OR:wafer/us|on,on,1,False,429,,,0,,,,,RateLimitError: Error code: 429 - Provider returned error
+glm-5.3,OR:inference-net/us|default,default,0,False,429,,,0,,,,,RateLimitError: Error code: 429 - Provider returned error
+glm-5.3,OR:inference-net/us|default,default,1,False,429,,,0,,,,,RateLimitError: Error code: 429 - Provider returned error
+glm-5.3,OR:inference-net/us|off,off,0,False,400,,,0,,,,,BadRequestError: Error code: 400 - Reasoning is mandatory for this endpoint and cannot be disabled.
+glm-5.3,OR:inference-net/us|off,off,1,False,400,,,0,,,,,BadRequestError: Error code: 400 - Reasoning is mandatory for this endpoint and cannot be disabled.
+glm-5.3,OR:inference-net/us|on,on,0,True,,stop,33,74,35,1545.3,80,InferenceNet,
+glm-5.3,OR:inference-net/us|on,on,1,False,429,,,0,,,,,RateLimitError: Error code: 429 - Provider returned error
+glm-5.3,OR:z-ai/fp8|default,default,0,True,,stop,54,164,57,1869.3,80,Z.AI,
+glm-5.3,OR:z-ai/fp8|default,default,1,True,,stop,52,151,55,2068.5,80,Z.AI,
+glm-5.3,OR:z-ai/fp8|off,off,0,False,400,,,0,,,,,BadRequestError: Error code: 400 - Reasoning is mandatory for this endpoint and cannot be disabled.
+glm-5.3,OR:z-ai/fp8|off,off,1,False,400,,,0,,,,,BadRequestError: Error code: 400 - Reasoning is mandatory for this endpoint and cannot be disabled.
+glm-5.3,OR:z-ai/fp8|on,on,0,True,,stop,57,170,60,1490.2,80,Z.AI,
+glm-5.3,OR:z-ai/fp8|on,on,1,True,,stop,49,130,52,1552.3,80,Z.AI,
+glm-5.3,OR:siliconflow/fp8|default,default,0,True,,stop,52,142,54,1877.8,80,SiliconFlow,
+glm-5.3,OR:siliconflow/fp8|default,default,1,True,,stop,42,120,44,1665.0,80,SiliconFlow,
+glm-5.3,OR:siliconflow/fp8|off,off,0,False,400,,,0,,,,,BadRequestError: Error code: 400 - Reasoning is mandatory for this endpoint and cannot be disabled.
+glm-5.3,OR:siliconflow/fp8|off,off,1,False,400,,,0,,,,,BadRequestError: Error code: 400 - Reasoning is mandatory for this endpoint and cannot be disabled.
+glm-5.3,OR:siliconflow/fp8|on,on,0,True,,stop,31,76,33,1247.0,80,SiliconFlow,
+glm-5.3,OR:siliconflow/fp8|on,on,1,True,,stop,24,50,26,1219.7,80,SiliconFlow,
+glm-5.3,OR:decart/fp4|default,default,0,True,,stop,49,132,52,1119.7,80,Decart,
+glm-5.3,OR:decart/fp4|default,default,1,True,,stop,53,148,56,1201.6,80,Decart,
+glm-5.3,OR:decart/fp4|off,off,0,False,400,,,0,,,,,BadRequestError: Error code: 400 - Reasoning is mandatory for this endpoint and cannot be disabled.
+glm-5.3,OR:decart/fp4|off,off,1,False,400,,,0,,,,,BadRequestError: Error code: 400 - Reasoning is mandatory for this endpoint and cannot be disabled.
+glm-5.3,OR:decart/fp4|on,on,0,True,,stop,53,150,56,712.9,80,Decart,
+glm-5.3,OR:decart/fp4|on,on,1,True,,stop,53,150,56,1168.7,80,Decart,
+glm-5.3-flash,M|default,default,0,True,,stop,45,132,48,451.6,80,Mango,
+glm-5.3-flash,M|default,default,1,True,,stop,32,72,35,427.6,80,Mango,
+glm-5.3-flash,M|off-template,off-template,0,False,400,,,0,,,,Mango,BadRequestError: Error code: 400 - This model always engages in thinking and cannot be disabled (request asked via chat_template_kwargs.enable_thinking=false). 
+glm-5.3-flash,M|off-template,off-template,1,False,400,,,0,,,,Mango,BadRequestError: Error code: 400 - This model always engages in thinking and cannot be disabled (request asked via chat_template_kwargs.enable_thinking=false). 
+glm-5.3-flash,M|on-template,on-template,0,True,,stop,53,158,56,568.8,80,Mango,
+glm-5.3-flash,M|on-template,on-template,1,True,,stop,36,97,39,441.9,80,Mango,
+glm-5.3-flash,M|effort-low,effort-low,0,True,,stop,7,12,10,417.0,80,Mango,
+glm-5.3-flash,M|effort-low,effort-low,1,True,,stop,11,19,14,442.7,80,Mango,
+glm-5.3-flash,OR:together|default,default,0,True,,stop,44,129,49,807.6,80,Together,
+glm-5.3-flash,OR:together|default,default,1,True,,stop,41,120,45,730.0,80,Together,
+glm-5.3-flash,OR:together|off,off,0,False,400,,,0,,,,,BadRequestError: Error code: 400 - Reasoning is mandatory for this endpoint and cannot be disabled.
+glm-5.3-flash,OR:together|off,off,1,False,400,,,0,,,,,BadRequestError: Error code: 400 - Reasoning is mandatory for this endpoint and cannot be disabled.
+glm-5.3-flash,OR:together|on,on,0,True,,stop,44,129,49,720.9,80,Together,
+glm-5.3-flash,OR:together|on,on,1,True,,stop,44,129,49,709.5,80,Together,
+glm-5.3-flash,OR:inference-net/us|default,default,0,True,,stop,37,92,39,868.4,80,InferenceNet,
+glm-5.3-flash,OR:inference-net/us|default,default,1,True,,stop,43,111,45,1816.6,80,InferenceNet,
+glm-5.3-flash,OR:inference-net/us|off,off,0,False,400,,,0,,,,,BadRequestError: Error code: 400 - Reasoning is mandatory for this endpoint and cannot be disabled.
+glm-5.3-flash,OR:inference-net/us|off,off,1,False,400,,,0,,,,,BadRequestError: Error code: 400 - Reasoning is mandatory for this endpoint and cannot be disabled.
+glm-5.3-flash,OR:inference-net/us|on,on,0,True,,stop,34,79,36,1442.1,80,InferenceNet,
+glm-5.3-flash,OR:inference-net/us|on,on,1,True,,stop,34,78,36,723.8,80,InferenceNet,
+glm-5.3-flash,OR:open-inference/fp4|default,default,0,True,,stop,19,35,21,2479.2,80,OpenInference,
+glm-5.3-flash,OR:open-inference/fp4|default,default,1,True,,stop,14,25,16,714.9,80,OpenInference,
+glm-5.3-flash,OR:open-inference/fp4|off,off,0,False,400,,,0,,,,,BadRequestError: Error code: 400 - Reasoning is mandatory for this endpoint and cannot be disabled.
+glm-5.3-flash,OR:open-inference/fp4|off,off,1,False,400,,,0,,,,,BadRequestError: Error code: 400 - Reasoning is mandatory for this endpoint and cannot be disabled.
+glm-5.3-flash,OR:open-inference/fp4|on,on,0,True,,stop,47,129,49,933.0,80,OpenInference,
+glm-5.3-flash,OR:open-inference/fp4|on,on,1,True,,stop,54,148,56,934.8,80,OpenInference,
+glm-5.3-flash,OR:coreweave/nvfp4|default,default,0,True,,stop,46,127,48,976.0,80,CoreWeave,
+glm-5.3-flash,OR:coreweave/nvfp4|default,default,1,True,,stop,48,137,50,936.5,80,CoreWeave,
+glm-5.3-flash,OR:coreweave/nvfp4|off,off,0,False,400,,,0,,,,,BadRequestError: Error code: 400 - Reasoning is mandatory for this endpoint and cannot be disabled.
+glm-5.3-flash,OR:coreweave/nvfp4|off,off,1,False,400,,,0,,,,,BadRequestError: Error code: 400 - Reasoning is mandatory for this endpoint and cannot be disabled.
+glm-5.3-flash,OR:coreweave/nvfp4|on,on,0,True,,stop,47,129,49,1305.3,80,CoreWeave,
+glm-5.3-flash,OR:coreweave/nvfp4|on,on,1,True,,stop,45,124,47,840.5,80,CoreWeave,
+glm-5.3-flash,OR:z-ai/fp8|default,default,0,True,,stop,47,137,50,14833.6,80,Z.AI,
+glm-5.3-flash,OR:z-ai/fp8|default,default,1,True,,stop,28,61,31,14355.6,80,Z.AI,
+glm-5.3-flash,OR:z-ai/fp8|off,off,0,False,400,,,0,,,,,BadRequestError: Error code: 400 - Reasoning is mandatory for this endpoint and cannot be disabled.
+glm-5.3-flash,OR:z-ai/fp8|off,off,1,False,400,,,0,,,,,BadRequestError: Error code: 400 - Reasoning is mandatory for this endpoint and cannot be disabled.
+glm-5.3-flash,OR:z-ai/fp8|on,on,0,True,,stop,47,125,50,14636.5,80,Z.AI,
+glm-5.3-flash,OR:z-ai/fp8|on,on,1,True,,stop,44,117,47,14241.6,80,Z.AI,
+kimi-k3.1-pro,M|default,default,0,True,,stop,47,154,61,703.6,80,Mango,
+kimi-k3.1-pro,M|default,default,1,True,,stop,30,99,44,604.6,80,Mango,
+kimi-k3.1-pro,M|off-template,off-template,0,True,,stop,0,0,8,270.5,80,Mango,
+kimi-k3.1-pro,M|off-template,off-template,1,True,,stop,0,0,8,275.4,80,Mango,
+kimi-k3.1-pro,M|on-template,on-template,0,True,,stop,32,100,46,596.0,80,Mango,
+kimi-k3.1-pro,M|on-template,on-template,1,True,,stop,35,116,49,556.8,80,Mango,
+kimi-k3.1-pro,M|effort-low,effort-low,0,True,,stop,17,53,31,528.7,80,Mango,
+kimi-k3.1-pro,M|effort-low,effort-low,1,True,,stop,15,44,29,428.8,80,Mango,
+kimi-k3.1-pro,OR:moonshotai/mxfp4|default,default,0,True,,stop,47,121,63,2365.9,80,Moonshot AI,
+kimi-k3.1-pro,OR:moonshotai/mxfp4|default,default,1,True,,stop,35,123,51,2580.7,80,Moonshot AI,
+kimi-k3.1-pro,OR:moonshotai/mxfp4|off,off,0,True,,stop,0,0,11,1289.9,80,Moonshot AI,
+kimi-k3.1-pro,OR:moonshotai/mxfp4|off,off,1,True,,stop,0,0,11,1177.5,80,Moonshot AI,
+kimi-k3.1-pro,OR:moonshotai/mxfp4|on,on,0,True,,stop,37,89,53,2112.5,80,Moonshot AI,
+kimi-k3.1-pro,OR:moonshotai/mxfp4|on,on,1,True,,stop,39,141,55,2395.1,80,Moonshot AI,
+kimi-k3.1-pro,OR:inference-net/mxfp4|default,default,0,True,,stop,41,145,52,1469.7,80,InferenceNet,
+kimi-k3.1-pro,OR:inference-net/mxfp4|default,default,1,True,,stop,52,184,63,1779.6,80,InferenceNet,
+kimi-k3.1-pro,OR:inference-net/mxfp4|off,off,0,True,,stop,0,0,8,592.5,80,InferenceNet,
+kimi-k3.1-pro,OR:inference-net/mxfp4|off,off,1,True,,stop,0,0,8,591.7,80,InferenceNet,
+kimi-k3.1-pro,OR:inference-net/mxfp4|on,on,0,True,,stop,44,113,55,844.3,80,InferenceNet,
+kimi-k3.1-pro,OR:inference-net/mxfp4|on,on,1,True,,stop,60,217,71,1183.1,80,InferenceNet,
+kimi-k3.1-pro,OR:modal/mxfp4|default,default,0,True,,stop,43,128,54,786.1,80,Modal,
+kimi-k3.1-pro,OR:modal/mxfp4|default,default,1,True,,stop,35,121,46,1023.9,80,Modal,
+kimi-k3.1-pro,OR:modal/mxfp4|off,off,0,True,,stop,0,0,8,647.3,80,Modal,
+kimi-k3.1-pro,OR:modal/mxfp4|off,off,1,True,,stop,0,0,8,502.1,80,Modal,
+kimi-k3.1-pro,OR:modal/mxfp4|on,on,0,True,,stop,52,141,63,932.1,80,Modal,
+kimi-k3.1-pro,OR:modal/mxfp4|on,on,1,True,,stop,38,83,49,914.1,80,Modal,
+kimi-k3.1-pro,OR:wafer/us|default,default,0,True,,stop,45,116,56,792.1,80,Wafer,
+kimi-k3.1-pro,OR:wafer/us|default,default,1,True,,stop,52,147,63,877.0,80,Wafer,
+kimi-k3.1-pro,OR:wafer/us|off,off,0,False,429,,,0,,,,,RateLimitError: Error code: 429 - Rate limit exceeded: new-account-rpm/moonshotai/kimi-k3.1-pro-20261023. Rate limit reached: new accounts are limited to 20 req
+kimi-k3.1-pro,OR:wafer/us|off,off,1,False,429,,,0,,,,,RateLimitError: Error code: 429 - Rate limit exceeded: new-account-rpm/moonshotai/kimi-k3.1-pro-20261023. Rate limit reached: new accounts are limited to 20 req
+kimi-k3.1-pro,OR:wafer/us|on,on,0,False,429,,,0,,,,,RateLimitError: Error code: 429 - Rate limit exceeded: new-account-rpm/moonshotai/kimi-k3.1-pro-20261023. Rate limit reached: new accounts are limited to 20 req
+kimi-k3.1-pro,OR:wafer/us|on,on,1,False,429,,,0,,,,,RateLimitError: Error code: 429 - Rate limit exceeded: new-account-rpm/moonshotai/kimi-k3.1-pro-20261023. Rate limit reached: new accounts are limited to 20 req
+kimi-k3.1-pro,OR:together|default,default,0,False,429,,,0,,,,,RateLimitError: Error code: 429 - Rate limit exceeded: new-account-rpm/moonshotai/kimi-k3.1-pro-20261023. Rate limit reached: new accounts are limited to 20 req
+kimi-k3.1-pro,OR:together|default,default,1,False,429,,,0,,,,,RateLimitError: Error code: 429 - Rate limit exceeded: new-account-rpm/moonshotai/kimi-k3.1-pro-20261023. Rate limit reached: new accounts are limited to 20 req
+kimi-k3.1-pro,OR:together|off,off,0,False,429,,,0,,,,,RateLimitError: Error code: 429 - Rate limit exceeded: new-account-rpm/moonshotai/kimi-k3.1-pro-20261023. Rate limit reached: new accounts are limited to 20 req
+kimi-k3.1-pro,OR:together|off,off,1,False,429,,,0,,,,,RateLimitError: Error code: 429 - Rate limit exceeded: new-account-rpm/moonshotai/kimi-k3.1-pro-20261023. Rate limit reached: new accounts are limited to 20 req
+kimi-k3.1-pro,OR:together|on,on,0,False,429,,,0,,,,,RateLimitError: Error code: 429 - Rate limit exceeded: new-account-rpm/moonshotai/kimi-k3.1-pro-20261023. Rate limit reached: new accounts are limited to 20 req
+kimi-k3.1-pro,OR:together|on,on,1,False,429,,,0,,,,,RateLimitError: Error code: 429 - Rate limit exceeded: new-account-rpm/moonshotai/kimi-k3.1-pro-20261023. Rate limit reached: new accounts are limited to 20 req

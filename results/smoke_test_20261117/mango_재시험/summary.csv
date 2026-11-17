@@ -1,0 +1,9 @@
+﻿model_key,arm,kind,ok,status,finish_reason,ttft_any_ms,ttft_content_ms,e2e_ms,prompt_tokens,completion_tokens,reasoning_tokens,served_by,attempts,cost,error
+deepseek-v4.1-flash-1017,M,text,True,,stop,512.5,678.8,772.2,60,107,52,Mango,,,
+deepseek-v4.1-flash-1017,M,tool,True,,tool_calls,1016.9,1016.9,1079.5,319,48,0,Mango,,,
+glm-5.3,M,text,True,,stop,817.3,1361.3,1862.4,44,192,,Mango,,,
+glm-5.3,M,tool,True,,tool_calls,1136.5,1197.4,1218.4,184,38,,Mango,,,
+glm-5.3-flash,M,text,True,,stop,370.8,1479.0,1651.3,43,442,351,Mango,,,
+glm-5.3-flash,M,tool,True,,tool_calls,474.7,533.5,545.6,185,38,24,Mango,,,
+kimi-k3.1-pro,M,text,True,,stop,340.2,1465.5,1899.6,117,202,122,Mango,,,
+kimi-k3.1-pro,M,tool,True,,tool_calls,424.5,867.1,897.6,192,75,24,Mango,,,

@@ -1,0 +1,211 @@
+{
+ "object": "list",
+ "data": [
+  {
+   "id": "moonshotai/Kimi-K3.1-Pro",
+   "object": "model",
+   "created": 1794294923,
+   "owned_by": "mangoboost",
+   "status": "available",
+   "model_type": "chat",
+   "input_modalities": [
+    "text",
+    "image",
+    "file"
+   ],
+   "output_modalities": [
+    "text"
+   ],
+   "context_window": 1048576,
+   "max_output_tokens": 1048576,
+   "supported_features": [
+    "tools",
+    "reasoning",
+    "response_format"
+   ],
+   "supported_sampling_parameters": [
+    "temperature",
+    "top_p",
+    "top_k",
+    "stop",
+    "logprobs",
+    "top_logprobs",
+    "response_format",
+    "n",
+    "tools",
+    "tool_choice"
+   ],
+   "quantization": "mxfp4",
+   "cost": {
+    "input": 1.8,
+    "output": 9.5,
+    "cache": {
+     "read": 0.19
+    }
+   }
+  },
+  {
+   "id": "deepseek-ai/DeepSeek-V4.1-Flash-1017",
+   "object": "model",
+   "created": 1793589375,
+   "owned_by": "mangoboost",
+   "status": "available",
+   "model_type": "chat",
+   "input_modalities": [
+    "text",
+    "image",
+    "file"
+   ],
+   "output_modalities": [
+    "text"
+   ],
+   "context_window": 1048576,
+   "max_output_tokens": 1048576,
+   "supported_features": [
+    "tools",
+    "response_format",
+    "reasoning"
+   ],
+   "supported_sampling_parameters": [
+    "temperature",
+    "max_tokens",
+    "stop",
+    "logprobs",
+    "top_logprobs",
+    "response_format",
+    "tools",
+    "tool_choice"
+   ],
+   "quantization": "fp4",
+   "cost": {
+    "input": 0.2,
+    "output": 0.8,
+    "cache": {
+     "read": 0.006
+    }
+   }
+  },
+  {
+   "id": "moonshotai/Kimi-K3",
+   "object": "model",
+   "created": 1788834322,
+   "owned_by": "mangoboost",
+   "status": "deprecated",
+   "model_type": "chat",
+   "input_modalities": [
+    "text"
+   ],
+   "output_modalities": [
+    "text"
+   ],
+   "context_window": 1048576,
+   "max_output_tokens": 1048576,
+   "supported_features": [
+    "tools",
+    "response_format",
+    "reasoning"
+   ],
+   "supported_sampling_parameters": [
+    "temperature",
+    "max_tokens",
+    "stop",
+    "n",
+    "logprobs",
+    "top_logprobs",
+    "response_format",
+    "tools",
+    "tool_choice"
+   ],
+   "quantization": "fp4",
+   "cost": {
+    "input": 2.9,
+    "output": 14.25,
+    "cache": {
+     "read": 0.29
+    }
+   }
+  },
+  {
+   "id": "zai-org/GLM-5.3",
+   "object": "model",
+   "created": 1788120372,
+   "owned_by": "mangoboost",
+   "status": "available",
+   "model_type": "chat",
+   "input_modalities": [
+    "text"
+   ],
+   "output_modalities": [
+    "text"
+   ],
+   "context_window": 1048576,
+   "max_output_tokens": 1048576,
+   "supported_features": [
+    "tools",
+    "response_format",
+    "reasoning"
+   ],
+   "supported_sampling_parameters": [
+    "temperature",
+    "max_tokens",
+    "stop",
+    "logprobs",
+    "top_logprobs",
+    "response_format",
+    "tools",
+    "tool_choice"
+   ],
+   "quantization": "mxfp4",
+   "cost": {
+    "input": 1.3,
+    "output": 4.2,
+    "cache": {
+     "read": 0.14
+    }
+   }
+  },
+  {
+   "id": "zai-org/GLM-5.3-Flash",
+   "object": "model",
+   "created": 1792635985,
+   "owned_by": "mangoboost",
+   "status": "available",
+   "model_type": "chat",
+   "input_modalities": [
+    "text",
+    "image",
+    "file"
+   ],
+   "output_modalities": [
+    "text"
+   ],
+   "context_window": 1048576,
+   "max_output_tokens": 1048576,
+   "supported_features": [
+    "tools",
+    "response_format",
+    "reasoning"
+   ],
+   "supported_sampling_parameters": [
+    "temperature",
+    "top_p",
+    "top_k",
+    "stop",
+    "n",
+    "logprobs",
+    "top_logprobs",
+    "response_format",
+    "tools",
+    "tool_choice"
+   ],
+   "quantization": "fp8",
+   "cost": {
+    "input": 0.13,
+    "output": 0.45,
+    "cache": {
+     "read": 0.03
+    }
+   }
+  }
+ ]
+}

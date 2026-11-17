@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>실험 진행 정리: Mango vs OpenRouter</title>
+<style>
+  :root {
+    --ink: #1c2430; --ink-2: #4a5564; --ink-3: #7a8494;
+    --line: #dfe3ea; --soft: #f4f6f9;
+    --accent: #2f5bd3; --accent-soft: #eaf0fd;
+    --warn: #b4531a; --warn-soft: #fdf1e8; --ok: #1f7a55; --ok-soft: #e8f5ee;
+  }
+  @page {
+    size: A4; margin: 14mm 14mm 15mm 14mm;
+    @bottom-center { content: counter(page) " / " counter(pages); font: 8pt "Noto Sans KR", "Malgun Gothic", sans-serif; color: #7a8494; }
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body { margin: 0; background: #fff; color: var(--ink); font-family: "Noto Sans KR", "Malgun Gothic", sans-serif; font-size: 9.2pt; line-height: 1.55; word-break: keep-all; overflow-wrap: anywhere; }
+  main { max-width: 182mm; margin: 0 auto; }
+  h1 { font-size: 19pt; line-height: 1.25; margin: 0 0 4pt; }
+  h2 { font-size: 12.5pt; margin: 16pt 0 6pt; padding-bottom: 3pt; border-bottom: 2px solid var(--ink); break-after: avoid; }
+  h2 .no { color: var(--accent); margin-right: 6pt; }
+  h3 { font-size: 10pt; margin: 10pt 0 4pt; color: var(--accent); break-after: avoid; }
+  p { margin: 0 0 5pt; }
+  ul, ol { margin: 0 0 5pt; padding-left: 15pt; }
+  li { margin: 1.5pt 0; }
+  code { font-family: Consolas, monospace; font-size: 8.2pt; background: var(--soft); padding: 0 2.5pt; border-radius: 3px; }
+  pre { font-family: Consolas, monospace; font-size: 7.9pt; background: var(--soft); border: 1px solid var(--line); border-radius: 4px; padding: 6pt 8pt; margin: 3pt 0 7pt; white-space: pre-wrap; line-height: 1.45; break-inside: avoid; }
+  table { width: 100%; border-collapse: collapse; margin: 3pt 0 7pt; font-size: 8.5pt; }
+  th, td { border-bottom: 1px solid var(--line); padding: 3.5pt 5pt; text-align: left; vertical-align: top; }
+  th { background: var(--soft); color: var(--ink-2); font-weight: 700; }
+  tr { break-inside: avoid; }
+  .num { text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
+  tfoot td, tr.total td { font-weight: 700; background: var(--soft); }
+  .sub { color: var(--ink-2); font-size: 10pt; margin: 0 0 6pt; }
+  .meta { color: var(--ink-3); font-size: 8.4pt; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 4pt 0; margin: 6pt 0 4pt; }
+  .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6pt; margin: 6pt 0; }
+  .stat { border: 1px solid var(--line); border-radius: 6px; padding: 6pt 8pt; }
+  .stat b { display: block; font-size: 13.5pt; line-height: 1.2; }
+  .stat span { font-size: 7.8pt; color: var(--ink-3); }
+  .note { border-left: 3px solid var(--warn); background: var(--warn-soft); padding: 5pt 8pt; border-radius: 0 4px 4px 0; font-size: 8.6pt; margin: 3pt 0 7pt; break-inside: avoid; }
+  .ok { border-left-color: var(--ok); background: var(--ok-soft); }
+  .two { display: grid; grid-template-columns: 1fr 1fr; gap: 8pt; }
+  .card { border: 1px solid var(--line); border-radius: 6px; padding: 6pt 8pt; break-inside: avoid; min-width: 0; }
+  .card h4 { margin: 0 0 3pt; font-size: 9.2pt; color: var(--accent); }
+  .card p, .card ul { margin: 0; font-size: 8.6pt; }
+  .tl { display: grid; grid-template-columns: 26mm 1fr 18mm; border-top: 1px solid var(--line); }
+  .tl > div { padding: 4pt 5pt; border-bottom: 1px solid var(--line); font-size: 8.6pt; }
+  .tl .s { font-weight: 700; color: var(--accent); }
+  .tl .n { text-align: right; font-variant-numeric: tabular-nums; color: var(--ink-2); }
+  .muted { color: var(--ink-3); font-size: 8.2pt; }
+  .pb { break-before: page; }
+</style>
+</head>
+<body>
+<main>
+
+<h1>실험 진행 정리: Mango vs OpenRouter</h1>
+<p class="sub">언제 몇 번 돌리는지, 어떤 질문을 어떤 호출로 보내는지, 예산이 얼마인지 한 문서로 정리</p>
+<div class="meta">프로토콜 v0.9 기준 (2026-11-17) · 설정값의 기준: 재현용 명세(<code>pdf/01_재현용_명세.pdf</code>), 설계 이유: <code>docs/02_실험_프로토콜.md</code> · 실행 시각은 미확정</div>
+
+<div class="stats">
+  <div class="stat"><b>4 모델 × 12 경로</b><span>Mango 직접 1 + OpenRouter 11</span></div>
+  <div class="stat"><b>회차 8회 + 2회</b><span>본 측정 8회(6시간 간격) + 파일럿 1 + 품질 점검 1</span></div>
+  <div class="stat"><b>약 26,200건</b><span>전체 API 호출</span></div>
+  <div class="stat"><b>$100~215</b><span>예상 비용 · 상한 $250 권장</span></div>
+</div>
+
+<h2><span class="no">1</span>전체 일정과 반복 횟수</h2>
+<p>회차 시작 시각을 <b>T</b>라 하면, 본 측정은 T부터 6시간 간격으로 8회 돌립니다. 하루 4회(예: KST 03·09·15·21시)로 미국·유럽·아시아 업무 시간대의 부하를 모두 담기 위함입니다.</p>
+<div class="tl">
+  <div class="s">사전 준비</div><div>계정·키·충전, 서울 VM(AWS 서울 권장: Mango API가 Google Cloud를 경유하므로 같은 사업자 회피) 설치, OpenRouter Broadcast 연결, Mango 콘솔 잔액 기록 ①</div><div class="n">호출 0</div>
+  <div class="s">파일럿</div><div>12경로 × 작업별 5건(W2는 1세션). 기록·비용·소요 시간 확인 후 합격 기준을 넘으면 설정 동결(v1.0)</div><div class="n">약 1,100</div>
+  <div class="s">품질 점검 회차</div><div>본 회차와 겹치지 않는 시간에 1회. 정답 문항 400개 × 6경로(Mango + OpenRouter 고정 5) × 4모델. 약 2시간</div><div class="n">9,600</div>
+  <div class="s">단계 1 · 1~4회차</div><div>T, T+6h, T+12h, T+18h. 성능 비교(실험 A)와 제공사 선택(실험 B)을 한 루프로. 회차당 약 1시간 30분 · 끝나면 Mango 잔액 기록 ②</div><div class="n">2,952 × 4 = 11,808</div>
+  <div class="s">단계 2 · 5~8회차</div><div>T+24h ~ T+42h. 제공사 선택만 반복(OpenRouter 기본·정렬 경로) · 끝나면 Mango 잔액 기록 ③</div><div class="n">920 × 4 = 3,680</div>
+  <div class="s" style="border-bottom:none">합계</div><div style="font-weight:700">약 2일 + 파일럿·품질 점검</div><div class="n" style="font-weight:700">약 26,200</div>
+</div>
+
+<h2><span class="no">2</span>모델과 호출 경로</h2>
+<table>
+  <tr><th style="width:20%">모델</th><th style="width:32%">Mango ID · 양자화 / OpenRouter slug</th><th>OpenRouter 고정 엔드포인트 5곳 (양자화)</th><th style="width:12%">샘플링</th></tr>
+  <tr><td>DeepSeek V4.1 Flash 1017</td><td><code>deepseek-ai/DeepSeek-V4.1-Flash-1017</code> · fp4<br><code>deepseek/deepseek-v4.1-flash-1017</code></td><td><code>deepseek</code>, <code>deepinfra/fp8</code>, <code>together</code>, <code>inference-net/us</code> (fp8), <code>wafer/us</code> (mxfp4)</td><td>temp 1.0<br>top_p 1.0</td></tr>
+  <tr><td>GLM-5.3</td><td><code>zai-org/GLM-5.3</code> · mxfp4<br><code>z-ai/glm-5.3</code></td><td><code>wafer/us</code> (fp4), <code>inference-net/us</code> (fp4), <code>z-ai/fp8</code>, <code>siliconflow/fp8</code>, <code>decart/fp4</code></td><td>temp 1.0<br>top_p 0.95</td></tr>
+  <tr><td>GLM-5.3-Flash</td><td><code>zai-org/GLM-5.3-Flash</code> · fp8<br><code>z-ai/glm-5.3-flash</code></td><td><code>together</code>, <code>inference-net/us</code> (fp4), <code>open-inference/fp4</code>, <code>coreweave/nvfp4</code>, <code>z-ai/fp8</code></td><td>temp 1.0<br>top_p 0.95</td></tr>
+  <tr><td>Kimi K3.1 Pro</td><td><code>moonshotai/Kimi-K3.1-Pro</code> · mxfp4<br><code>moonshotai/kimi-k3.1-pro</code></td><td><code>moonshotai/mxfp4</code>, <code>inference-net/mxfp4</code>, <code>modal/mxfp4</code>, <code>wafer/us</code> (mxfp4), <code>together</code></td><td>temp 1.0<br>top_p 0.95</td></tr>
+</table>
+<p class="muted">고정 엔드포인트: 30일 점유율 상위 5개 제공사마다 표준 엔드포인트 중 사용량(가격 표본) 1위. 양자화는 신고 값이며 맞추지 않고 기록. 샘플링은 모델 제작사 권장값.</p>
+
+<table>
+  <tr><th style="width:22%">경로 (모델마다 12개)</th><th>보내는 곳과 요청 차이</th><th style="width:22%">무엇을 재나</th></tr>
+  <tr><td><b>M</b> Mango 직접</td><td><code>https://api.mangoboost.io/v1</code>, model = Mango ID</td><td>Mango 성능 (실험 A)</td></tr>
+  <tr><td><b>OR-기본</b></td><td><code>https://openrouter.ai/api/v1</code>, provider 설정 없음</td><td>일반 사용자가 받는 성능 + 기본 배분 (A·B)</td></tr>
+  <tr><td><b>OR-고정</b> × 5</td><td><code>"provider": {"order": ["wafer/us"], "allow_fallbacks": false}</code> 형식</td><td>제공사 엔드포인트별 성능 (A)</td></tr>
+  <tr><td><b>OR-정렬</b> × 3</td><td><code>"provider": {"sort": "price" | "throughput" | "latency"}</code></td><td>정렬 시 1위 엔드포인트 (B)</td></tr>
+  <tr><td><b>OR-접미사</b> × 2</td><td>model = slug + <code>:floor</code> / <code>:nitro</code></td><td>할인·고속 등급 포함 시 1위 (B)</td></tr>
+</table>
+
+<h2><span class="no">3</span>API 호출 구성</h2>
+<div class="two">
+<div>
+<h3>OpenRouter 고정 경로 요청 예시</h3>
+<pre>POST https://openrouter.ai/api/v1/chat/completions
+{
+  "model": "z-ai/glm-5.3",
+  "messages": [
+    {"role": "system", "content": "ID: 9c41e07ab3d2f816"},
+    {"role": "user",   "content": "&lt;질문 본문&gt;"}
+  ],
+  "stream": true,
+  "stream_options": {"include_usage": true},
+  "temperature": 1.0, "top_p": 0.95,
+  "max_tokens": 32768,
+  "reasoning": {"enabled": true},
+  "provider": {"order": ["wafer/us"],
+               "allow_fallbacks": false},
+  "trace": {"trace_id": "&lt;요청 ID&gt;"}
+}</pre>
+</div>
+<div>
+<h3>Mango 요청 예시</h3>
+<pre>POST https://api.mangoboost.io/v1/chat/completions
+{
+  "model": "zai-org/GLM-5.3",
+  "messages": [
+    {"role": "system", "content": "ID: 9c41e07ab3d2f816"},
+    {"role": "user",   "content": "&lt;질문 본문&gt;"}
+  ],
+  "stream": true,
+  "stream_options": {"include_usage": true},
+  "temperature": 1.0, "top_p": 0.95,
+  "max_tokens": 32768
+}
+# reasoning 파라미터 없음: Mango는 공식 조절
+#   기능이 없고 기본값이 켜짐
+# provider·trace 없음 (OpenRouter 전용)</pre>
+</div>
+</div>
+<table>
+  <tr><th style="width:24%">공통 규칙</th><th>내용</th></tr>
+  <tr><td>클라이언트</td><td>OpenAI 공식 Python SDK + 연결 시간을 재는 <code>httpx</code> 클라이언트, <b>자동 재시도 0</b>, 타임아웃 300초</td></tr>
+  <tr><td>nonce</td><td>모든 요청의 첫 메시지를 무작위 16자리만 담은 시스템 메시지로 시작. 같은 질문을 여러 경로에 보내도 서로의 캐시를 쓰지 못함(W2는 세션마다 1개)</td></tr>
+  <tr><td>reasoning</td><td>켜짐 단일 조건. 응답의 reasoning 토큰 수로 실제로 켜졌는지 확인</td></tr>
+  <tr><td>호출 속도</td><td>OpenRouter: 모델별 분당 18회 이하(새 계정 한도 20). Mango: 4개 모델 합계 동시 3건·분당 36회 이하(기본 등급 동시 4·분당 40). 부하 조건만 동시 4</td></tr>
+  <tr><td>호출 후 조회</td><td>OpenRouter 응답마다 <code>GET /api/v1/generation?id=…</code>로 실제 엔드포인트·폴백·서버 측 지연·비용 조회. Broadcast로 게이트웨이·제공사 구간 시간 수신</td></tr>
+  <tr><td>호출마다 기록</td><td>조각별 도착 시각, 첫 토큰·첫 답변·전체 시간, 입력·캐시·출력·reasoning 토큰, 응답 엔드포인트·양자화, 모델 버전, 오류, 비용(Mango는 토큰 × 단가)</td></tr>
+</table>
+
+<h2 class="pb"><span class="no">4</span>질문 종류와 프롬프트 예시</h2>
+<p>질문 세트는 실험 전에 한 번 만들어 고정합니다. 원천은 CPython <code>v3.12.7</code> 저장소의 코드(<code>Lib/</code>)와 문서(<code>Doc/</code>), 토큰 길이는 <code>o200k_base</code> 기준, 생성 시드 <code>20261116</code>. 아래 예시는 형식을 보여 주려고 줄인 것입니다.</p>
+
+<table>
+  <tr><th style="width:15%">작업</th><th style="width:24%">구성</th><th>프롬프트 예시 (시스템 nonce 메시지 다음의 사용자 메시지)</th></tr>
+  <tr><td><b>W1</b> 단일 요청<br><span class="muted">풀 200개, 유형 5종</span></td><td>원천 발췌 + 지시, 합계 약 1,000토큰. 유형: 코드 작성·코드 설명·문서 요약·JSON 추출·수학 풀이</td><td><pre>[Lib/heapq.py 발췌 약 900토큰]
+def heappush(heap, item):
+    heap.append(item)
+    _siftdown(heap, 0, len(heap)-1)
+    …
+Write a function `top_k(stream, k)` that returns the k largest
+items from an iterable using only the functions above.</pre></td></tr>
+  <tr><td><b>W2</b> 에이전트 대화<br><span class="muted">세션 8개 × 10턴</span></td><td>시스템 문구 + 코드 문맥 약 16k로 시작, 매 턴 도구 호출·결과(1.5k)가 쌓여 약 30k까지. 이전 턴은 미리 만든 고정 기록</td><td><pre>[system] ID: … / You are a coding agent. Tools: read_file, search_code, run_tests.
+[user]   [Lib/json 패키지 일부 약 16k토큰] Find why dumps() fails on Decimal.
+[assistant, 고정] tool_call read_file("Lib/json/encoder.py")
+[tool, 고정]      [encoder.py 일부 약 1.5k토큰]
+[user]   Now propose a patch.            ← 턴 2 (앞부분은 캐시 적중)
+…                                         ← 턴 10까지</pre></td></tr>
+  <tr><td><b>W3</b> 도구 호출<br><span class="muted">풀 200개</span></td><td>원천 발췌 + 도구 사용 지시, 약 2k토큰 + 도구 3개</td><td><pre>[Doc/library/pathlib.rst 발췌 약 1.8k토큰]
+Check whether the examples in this section still pass.
+Use the tools to locate and run the relevant tests.
+→ 기대: run_tests 또는 search_code 함수 호출 (JSON 인자)</pre></td></tr>
+  <tr><td><b>L</b> 입력 길이 단계<br><span class="muted">길이별 16개</span></td><td>1k / 10k / 32k 토큰, 출력 16토큰. 서버 처리(prefill) 속도와 고정 지연 분해용</td><td><pre>[원천 발췌 정확히 10,000토큰]
+Answer with one word: does this text define a class?</pre></td></tr>
+  <tr><td><b>Z</b> 최소 요청</td><td>출력 1토큰. 순수 오버헤드</td><td><pre>Reply with OK.</pre></td></tr>
+  <tr><td><b>Q</b> 품질 점검<br><span class="muted">400문항</span></td><td>어려운 수학(MATH) 200, 전문 지식 객관식(MMLU-Pro) 150, 도구 호출 정확도(BFCL) 50. 정답 자동 채점</td><td><pre>수학 형식: "Find all real x such that … . Put the final answer in \boxed{}."
+객관식 형식: "[문항] (A) … (B) … … (J) …  Answer with the letter only."
+도구 형식: 함수 정의 + 요청 → 함수 이름·인자가 정답과 일치하는지 채점</pre></td></tr>
+</table>
+<p class="muted">같은 회차에서는 같은 질문 ID를 모든 경로에 보냅니다(nonce만 다름). 수학·객관식 예시는 형식 설명용이며 실제 문항은 공개 데이터셋에서 시드로 추출합니다.</p>
+
+<h2 class="pb"><span class="no">5</span>회차 1회의 호출 구성</h2>
+<h3>단계 1 회차 (1~4회차) · 모델 1개 기준</h3>
+<table>
+  <tr><th>경로</th><th class="num">W1</th><th class="num">W3</th><th class="num">W2</th><th class="num">L</th><th class="num">Z</th><th class="num">부하</th><th class="num">합계</th></tr>
+  <tr><td>M (Mango)</td><td class="num">15</td><td class="num">15</td><td class="num">20</td><td class="num">12</td><td class="num">8</td><td class="num">24</td><td class="num">94</td></tr>
+  <tr><td>OR-기본</td><td class="num">75</td><td class="num">75</td><td class="num">20</td><td class="num">12</td><td class="num">8</td><td class="num">24</td><td class="num">214</td></tr>
+  <tr><td>OR-고정 × 5 (각각)</td><td class="num">15</td><td class="num">15</td><td class="num">20</td><td class="num">12</td><td class="num">8</td><td class="num">–</td><td class="num">70 × 5 = 350</td></tr>
+  <tr><td>OR-정렬 3 + 접미사 2 (각각)</td><td class="num">8</td><td class="num">8</td><td class="num">–</td><td class="num">–</td><td class="num">–</td><td class="num">–</td><td class="num">16 × 5 = 80</td></tr>
+  <tr class="total"><td>모델 1개</td><td colspan="6" class="num">Mango 94 + OpenRouter 644</td><td class="num">738</td></tr>
+  <tr class="total"><td>4개 모델</td><td colspan="6" class="num"></td><td class="num">2,952</td></tr>
+</table>
+<p class="muted">W2는 2세션 × 10턴. L은 길이 3단계 × 4건. 부하는 W1 24건을 동시 4건씩 6묶음으로 본 루프 뒤에 따로. 작업자마다 준비 호출(Z) 1건은 분석 제외.</p>
+
+<div class="two">
+<div class="card"><h4>단계 2 회차 (5~8회차) · 모델 1개</h4><p>OR-기본 W1 75 + W3 75 = 150, 정렬·접미사 5경로 × 16 = 80 → <b>230건</b>, 4개 모델 <b>920건</b>. Mango 호출 없음.</p></div>
+<div class="card"><h4>품질 점검 회차 · 1회</h4><p>Q 400문항 × 6경로(M + OR-고정 5) × 4모델 = <b>9,600건</b>. 모델당 Mango 400, OpenRouter 2,000.</p></div>
+</div>
+
+<h2><span class="no">6</span>회차 1회의 진행 순서</h2>
+<table>
+  <tr><th style="width:15%">시각 (예)</th><th>단계</th></tr>
+  <tr><td>T + 0분</td><td>환경·코드 커밋·질문 파일 해시·시각 오차·호스트 IP·ASN·모델 목록(가격·양자화) 스냅샷 기록, 1분마다 대조군 연결 시간 측정 시작</td></tr>
+  <tr><td>T + 2분</td><td>호스트별 새 연결 10회 (네트워크 왕복시간)</td></tr>
+  <tr><td>T + 5분</td><td>작업자마다 준비 호출 → 본 루프: 회차 시드로 질문 묶음 추첨 → 모든 경로에 같은 묶음 → 경로 순서 섞어 모델 × 경로별 작업자가 한 번에 1건씩 호출(동시 최대 16, 위 호출 속도 한도 준수)</td></tr>
+  <tr><td>약 T + 75분</td><td>부하 조건: Mango·OR-기본만 동시 4건씩</td></tr>
+  <tr><td>약 T + 85분</td><td>OpenRouter generation 조회(엔드포인트·비용), 실패율·결측·결합률 점검, 파일 해시 봉인, 기록 회수</td></tr>
+</table>
+
+<h2><span class="no">7</span>예산</h2>
+<p>게시가 기준 추정입니다. Mango는 간이 테스트에서 실제 청구가 할인 전 단가와 일치해 할인 전 단가로 계산했습니다. <b>가장 큰 불확실성은 reasoning 출력 길이</b>로, 요청당 평균 출력 1,000토큰을 가정했습니다. 파일럿에서 실측해 다시 계산합니다.</p>
+<table>
+  <tr><th>단계</th><th class="num">호출</th><th>토큰 규모 (대략)</th><th class="num">예상 비용</th></tr>
+  <tr><td>파일럿</td><td class="num">약 1,100</td><td>소량</td><td class="num">$3~8</td></tr>
+  <tr><td>품질 점검 회차</td><td class="num">9,600</td><td>입력 약 2M + 출력 약 10M (어려운 문항이라 reasoning이 김)</td><td class="num">$35~90</td></tr>
+  <tr><td>단계 1 · 4회차</td><td class="num">11,808</td><td>출력 약 12M, W2 입력 약 51M(대부분 캐시), L 입력 약 19M(캐시 없음)</td><td class="num">$48~92</td></tr>
+  <tr><td>단계 2 · 4회차</td><td class="num">3,680</td><td>입력 약 5.5M + 출력 약 3.7M</td><td class="num">$10~20</td></tr>
+  <tr><td>서울 VM</td><td class="num">–</td><td>소형 인스턴스 약 4일</td><td class="num">$2~5</td></tr>
+  <tr class="total"><td>합계</td><td class="num">약 26,200</td><td></td><td class="num">$100~215</td></tr>
+</table>
+
+<div class="two">
+<div class="card"><h4>지불처별 나눔 (추정)</h4><ul>
+  <li><b>OpenRouter:</b> 약 $80~175. 모델별로는 Kimi가 절반 이상(출력 단가 100만 토큰당 약 $9~10)</li>
+  <li><b>Mango:</b> 약 $15~35. 실험 A와 품질 점검에서 6경로 중 1경로</li>
+  <li><b>클라우드 VM:</b> $2~5</li></ul></div>
+<div class="card"><h4>준비할 금액</h4><ul>
+  <li>OpenRouter 크레딧 약 $200, 실험 키에 예산 한도 설정</li>
+  <li>Mango 현재 잔액 $9.97 → <b>약 $30 추가 충전</b> 필요(누적 지출 $50이 넘으면 Mango 등급이 오르지만, 실험은 기본 등급 한도로 고정)</li>
+  <li>전체 예산 상한 <b>$250</b>. 도달하면 측정 코드가 전체 중단</li></ul></div>
+</div>
+<div class="note">출력이 예상보다 길어 예산이 부족하면, 판정에 쓰는 주 비교(Mango vs OR-기본)는 유지하고 부 비교(OR-고정 5곳, 부하 조건)의 회차당 횟수부터 줄입니다. 바꾼 내용은 이탈 기록에 남깁니다.</div>
+
+<h2><span class="no">8</span>결과를 판정하는 방법</h2>
+<table>
+  <tr><th style="width:24%">항목</th><th>방법</th></tr>
+  <tr><td>주 비교 (16개)</td><td>모델 4 × 지표 4, Mango vs OR-기본. 지표: 에이전트 대화 2~10턴의 첫 답변 시간, 짧은 요청의 생성 속도, 성공률, 세션당 비용</td></tr>
+  <tr><td>판정 기준</td><td>Mango ÷ 비교 대상의 중앙값 비율, 보정한 신뢰구간(99.69%)이 전체 0.90 미만이면 우위, 1.10 초과면 열위, 0.90~1.10 안이면 동등, 그 외 판정 불가 (처리량·성공률은 반대 방향)</td></tr>
+  <tr><td>품질</td><td>같은 문항의 정답 여부를 Mango와 각 엔드포인트끼리 짝지어 비교. 약 5~6%p 차이까지 구분</td></tr>
+  <tr><td>제공사 선택</td><td>OR-기본의 응답 엔드포인트·제공사 비율을 30일 점유율(제공사 단위)과 비교</td></tr>
+  <tr><td>비용 검증</td><td>Mango 콘솔 잔액 3회(시작 직전, 1일차 후, 종료 후) 기록, 구간별 실제 차감액과 계산값 대조</td></tr>
+</table>
+
+<h2><span class="no">9</span>실행 전에 정할 것</h2>
+<table>
+  <tr><th style="width:30%">항목</th><th>현재 상태</th></tr>
+  <tr><td>실행 시각 T</td><td>미정. 정해지면 Mango 잔액 확인 3회를 예약 작업으로 설정</td></tr>
+  <tr><td>클라우드</td><td>AWS 서울 권장(Mango가 Google Cloud 경유). 파일럿에서 ASN으로 최종 확인</td></tr>
+  <tr><td>Broadcast 수신</td><td>OpenRouter가 HTTPS를 요구하는지 확인, 필요하면 도메인·TLS 또는 S3</td></tr>
+  <tr><td>OpenRouter 계정 한도</td><td>분당 20회 한도가 Kimi만인지, 언제 풀리는지 확인</td></tr>
+  <tr><td>품질 점검 데이터셋</td><td>MATH·MMLU-Pro·BFCL 라이선스 확인 후 문항 추출</td></tr>
+  <tr><td>코드</td><td>질문 세트 생성, 측정 실행, VM 설정, 분석 코드 작성(간이 테스트·reasoning 시험 코드를 확장)</td></tr>
+</table>
+
+</main>
+</body>
+</html>

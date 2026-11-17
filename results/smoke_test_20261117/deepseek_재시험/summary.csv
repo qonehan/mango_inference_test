@@ -1,0 +1,2 @@
+﻿model_key,arm,kind,ok,status,finish_reason,ttft_any_ms,ttft_content_ms,e2e_ms,prompt_tokens,completion_tokens,reasoning_tokens,served_by,attempts,cost,error
+deepseek-v4.1-flash-1017,OR-pin-deepseek,text,True,,stop,1298.0,1506.7,1850.8,61,91,34,DeepSeek,"[('DeepSeek', 200)]",6.375e-05,

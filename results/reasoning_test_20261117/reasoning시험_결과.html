@@ -1,0 +1,143 @@
+<title>reasoning 설정 시험</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* layout: 한 열 보고서. 요약 → 방법 → 모델별 설정×엔드포인트 표 → 실패 원인 → 결론 */
+:root {
+  --bg: #f6f7f9; --surface: #ffffff; --fg: #18202b; --muted: #5d6877; --line: #dde2e9;
+  --on: #2e5fd8; --on-bg: #e8eefc; --zero: #4b5563; --zero-bg: #eceef1;
+  --ok: #1d7a52; --ok-bg: #e6f4ec; --bad: #b42318; --bad-bg: #fdecea; --warn: #9a5a12; --warn-bg: #fbf0e1;
+  --sans: "IBM Plex Sans KR", "Malgun Gothic", "Apple SD Gothic Neo", sans-serif;
+  --mono: "IBM Plex Mono", Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #11151b; --surface: #19202a; --fg: #e5e9ef; --muted: #9aa5b4; --line: #2c3542;
+  --on: #8fb0ff; --on-bg: #22304f; --zero: #c3cad4; --zero-bg: #2a313b;
+  --ok: #5fd3a0; --ok-bg: #173a2c; --bad: #ff8a80; --bad-bg: #3d1a17; --warn: #f0b46a; --warn-bg: #3a2a14; color-scheme: dark; } }
+:root[data-theme="dark"] {
+  --bg: #11151b; --surface: #19202a; --fg: #e5e9ef; --muted: #9aa5b4; --line: #2c3542;
+  --on: #8fb0ff; --on-bg: #22304f; --zero: #c3cad4; --zero-bg: #2a313b;
+  --ok: #5fd3a0; --ok-bg: #173a2c; --bad: #ff8a80; --bad-bg: #3d1a17; --warn: #f0b46a; --warn-bg: #3a2a14; color-scheme: dark; }
+body { background: var(--bg); color: var(--fg); font-family: var(--sans); font-size: 15px; line-height: 1.6; }
+.wrap { max-width: 1080px; margin: 0 auto; padding-block: 32px 56px; padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px)); display: grid; gap: 28px; }
+h1 { font-size: 1.7rem; margin: 0; text-wrap: balance; }
+h2 { font-size: 1.15rem; margin: 0 0 10px; }
+h3 { font-size: 1rem; margin: 0; }
+p { margin: 0; max-width: 72ch; }
+.lede { color: var(--muted); margin-top: 6px; }
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 12px; }
+.stat { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 14px 16px; }
+.stat b { display: block; font-size: 1.55rem; font-variant-numeric: tabular-nums; line-height: 1.2; }
+.stat span { font-size: .82rem; color: var(--muted); }
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 12px; }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 14px 16px; display: grid; gap: 6px; align-content: start; min-width: 0; }
+.card ul, .card ol { margin: 0; padding-left: 18px; font-size: .92rem; }
+.card li { margin: 4px 0; }
+pre { margin: 0; font-family: var(--mono); font-size: .8rem; background: var(--bg); border: 1px solid var(--line); border-radius: 6px; padding: 8px 10px; white-space: pre-wrap; word-break: break-word; }
+code { font-family: var(--mono); font-size: .82rem; }
+.label { font-size: .75rem; color: var(--muted); letter-spacing: .03em; }
+.models { display: grid; gap: 14px; }
+.model { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 16px; min-width: 0; }
+.mhead { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; margin-bottom: 10px; }
+.mhead p { flex-basis: 100%; font-size: .88rem; color: var(--muted); }
+.tw { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; font-size: .86rem; min-width: 760px; }
+th, td { padding: 7px 8px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; white-space: nowrap; }
+thead th { font-weight: 500; color: var(--muted); font-size: .78rem; letter-spacing: .02em; }
+tbody th { font-weight: 400; }
+.q { font-size: .72rem; color: var(--muted); }
+.v { display: inline-block; font-family: var(--mono); font-size: .78rem; padding: 1px 7px; border-radius: 4px; margin: 0 4px 3px 0; font-variant-numeric: tabular-nums; }
+.v.on { color: var(--on); background: var(--on-bg); }
+.v.zero { color: var(--zero); background: var(--zero-bg); }
+.v.bad { color: var(--bad); background: var(--bad-bg); }
+.v.acct, .v.prov { color: var(--warn); background: var(--warn-bg); }
+td small { display: block; font-size: .72rem; color: var(--muted); }
+td.na { color: var(--muted); font-size: .78rem; }
+.chip { display: inline-block; font-size: .74rem; font-weight: 500; padding: 1px 9px; border-radius: 99px; }
+.chip.ok { color: var(--ok); background: var(--ok-bg); }
+.chip.bad { color: var(--bad); background: var(--bad-bg); }
+.legend { font-size: .8rem; color: var(--muted); display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
+footer { font-size: .8rem; color: var(--muted); }
+</style>
+<div class="wrap">
+  <header>
+    <h1>reasoning 설정 시험 결과</h1>
+    <p class="lede">2026-11-17 · 엔드포인트마다 reasoning 켜기·끄기 지정을 실제로 따르는지 확인했습니다. 간이 테스트에서 같은 질문에 reasoning 토큰이 엔드포인트마다 0~599개로 달라, 기본값에 맡기면 조건이 통제되지 않았기 때문입니다.</p>
+  </header>
+
+  <div class="stats">
+    <div class="stat"><b>192건</b><span>모델 4 × (Mango 설정 4 + OpenRouter 엔드포인트 5 × 설정 4) × 2회</span></div>
+    <div class="stat"><b>150 / 192</b><span>정상 응답 (오답 0)</span></div>
+    <div class="stat"><b>121 / 121</b><span>고정한 엔드포인트가 실제로 응답</span></div>
+    <div class="stat"><b>$0.021</b><span>OpenRouter 비용 합계</span></div>
+  </div>
+
+  <section>
+    <h2>시험 방법</h2>
+    <div class="cards">
+      <div class="card"><div class="label">질문 (정답 80)</div>
+        <pre>A train travels 60 km in 45 minutes. What is its average speed in km/h? Reply with the number only.</pre>
+        <p style="font-size:.88rem">공통: <code>stream</code>, <code>temperature 0.6</code>, <code>top_p 1</code>, <code>max_tokens 4096</code>, 재시도 없음. OpenRouter는 제공사가 아니라 엔드포인트 슬러그로 고정(<code>"order": ["wafer/us"]</code> 등).</p></div>
+      <div class="card"><div class="label">시험한 설정</div><ul>
+        <li><b>OpenRouter</b> 끄기 <code>reasoning: {"enabled": false}</code>, 켜기 <code>{"enabled": true}</code>, 강도 낮춤 <code>{"effort": "low"}</code> (강도 낮춤은 나중에 추가로 40건 시험)</li>
+        <li><b>Mango</b>는 공식 문서에 조절 파라미터가 없습니다. 문서에 없는 필드는 모델 서버로 그대로 전달된다고 해서 끄기·켜기는 <code>chat_template_kwargs: {"enable_thinking", "thinking"}</code>, 강도 낮춤은 <code>reasoning_effort: "low"</code>를 시험했습니다</li></ul></div>
+    </div>
+  </section>
+
+  <section class="models">
+    <h2 style="margin:0">모델별 결과</h2>
+    <div class="legend"><span>칸의 숫자 = reasoning 토큰 수 (2회). 아래는 첫 토큰(생각 포함)과 첫 답변까지의 중앙값이며, 그 차이가 생각 시간</span>
+      <span class="v on">켜짐</span><span class="v zero">0</span><span class="v bad">끄기 불가·오작동</span><span class="v acct">429 한도</span></div>
+    
+<section class="model">
+  <div class="mhead"><h3>DeepSeek V4.1 Flash 1017</h3><span class="chip ok">끄기 가능 · 강도 조절 없음</span><p>Mango·OpenRouter 모두 끄면 0. 강도 낮춤은 Mango·OpenRouter 모두 효과 없음(기본값과 비슷)</p></div>
+  <div class="tw"><table>
+    <thead><tr><th>엔드포인트 · 양자화</th><th>기본값</th><th>끄기</th><th>켜기</th><th>강도 낮춤</th></tr></thead>
+    <tbody><tr><th scope='row'><b>Mango</b> <span class='q'>fp4</span></th><td><span class='v on'>34</span><span class='v on'>28</span><small>첫 토큰 0.84초 · 첫 답변 0.90초</small></td><td><span class='v zero'>0</span><span class='v zero'>0</span><small>첫 토큰 0.89초 · 첫 답변 0.89초</small></td><td><span class='v on'>30</span><span class='v on'>41</span><small>첫 토큰 0.68초 · 첫 답변 0.73초</small></td><td><span class='v on'>35</span><span class='v on'>32</span><small>첫 토큰 0.27초 · 첫 답변 0.33초</small></td></tr><tr><th scope='row'><code>deepseek</code> <span class='q'>unknown</span></th><td><span class='v on'>33</span><span class='v on'>35</span><small>첫 토큰 1.06초 · 첫 답변 1.27초</small></td><td><span class='v zero'>0</span><span class='v zero'>0</span><small>첫 토큰 0.84초 · 첫 답변 0.84초</small></td><td><span class='v on'>34</span><span class='v on'>32</span><small>첫 토큰 0.86초 · 첫 답변 1.18초</small></td><td><span class='v on'>43</span><span class='v on'>31</span><small>첫 토큰 1.81초 · 첫 답변 2.08초</small></td></tr><tr><th scope='row'><code>deepinfra/fp8</code> <span class='q'>fp8</span></th><td><span class='v on'>42</span><span class='v on'>33</span><small>첫 토큰 0.67초 · 첫 답변 1.03초</small></td><td><span class='v zero'>0</span><span class='v zero'>0</span><small>첫 토큰 1.00초 · 첫 답변 1.00초</small></td><td><span class='v on'>38</span><span class='v on'>31</span><small>첫 토큰 0.72초 · 첫 답변 1.06초</small></td><td><span class='v on'>31</span><span class='v on'>31</span><small>첫 토큰 1.34초 · 첫 답변 1.53초</small></td></tr><tr><th scope='row'><code>together</code> <span class='q'>unknown</span></th><td><span class='v on'>33</span><span class='v on'>39</span><small>첫 토큰 0.70초 · 첫 답변 0.82초</small></td><td><span class='v zero'>0</span><span class='v zero'>0</span><small>첫 토큰 0.42초 · 첫 답변 0.42초</small></td><td><span class='v on'>32</span><span class='v on'>34</span><small>첫 토큰 0.64초 · 첫 답변 0.75초</small></td><td><span class='v on'>27</span><span class='v on'>31</span><small>첫 토큰 0.45초 · 첫 답변 0.56초</small></td></tr><tr><th scope='row'><code>inference-net/us</code> <span class='q'>fp8</span></th><td><span class='v on'>45</span><span class='v on'>39</span><small>첫 토큰 0.81초 · 첫 답변 1.03초</small></td><td><span class='v zero'>0</span><span class='v zero'>0</span><small>첫 토큰 0.48초 · 첫 답변 0.48초</small></td><td><span class='v on'>30</span><span class='v on'>39</span><small>첫 토큰 0.61초 · 첫 답변 0.83초</small></td><td><span class='v on'>34</span><span class='v on'>32</span><small>첫 토큰 0.51초 · 첫 답변 0.92초</small></td></tr><tr><th scope='row'><code>wafer/us</code> <span class='q'>mxfp4</span></th><td><span class='v on'>28</span><span class='v on'>36</span><small>첫 토큰 0.34초 · 첫 답변 0.50초</small></td><td><span class='v zero'>0</span><span class='v zero'>0</span><small>첫 토큰 0.43초 · 첫 답변 0.43초</small></td><td><span class='v on'>34</span><span class='v on'>34</span><small>첫 토큰 0.33초 · 첫 답변 0.49초</small></td><td><span class='v on'>40</span><span class='v on'>35</span><small>첫 토큰 0.32초 · 첫 답변 0.49초</small></td></tr></tbody></table></div>
+</section>
+<section class="model">
+  <div class="mhead"><h3>GLM-5.3</h3><span class="chip bad">끌 수 없음 · 강도 조절 가능</span><p>끄기는 OpenRouter 400 &quot;Reasoning is mandatory&quot;, Mango는 답이 비거나 추론 폭주. 강도 낮춤은 Mango·OpenRouter 모두 0~7개로 크게 줄어듦</p></div>
+  <div class="tw"><table>
+    <thead><tr><th>엔드포인트 · 양자화</th><th>기본값</th><th>끄기</th><th>켜기</th><th>강도 낮춤</th></tr></thead>
+    <tbody><tr><th scope='row'><b>Mango</b> <span class='q'>mxfp4</span></th><td><span class='v on'>39</span><span class='v on'>32</span><small>첫 토큰 0.45초 · 첫 답변 0.61초</small></td><td><span class='v bad'>폭주 4099</span><span class='v bad'>답 없음 (94)</span><small>첫 토큰 0.66초 · 첫 답변 –초</small></td><td><span class='v on'>40</span><span class='v on'>55</span><small>첫 토큰 0.43초 · 첫 답변 0.74초</small></td><td><span class='v on'>1</span><span class='v on'>1</span><small>첫 토큰 0.40초 · 첫 답변 0.40초</small></td></tr><tr><th scope='row'><code>wafer/us</code> <span class='q'>fp4</span></th><td><span class='v prov'>429 제공사</span><span class='v prov'>429 제공사</span></td><td><span class='v bad'>400 끄기 불가</span><span class='v bad'>400 끄기 불가</span></td><td><span class='v prov'>429 제공사</span><span class='v prov'>429 제공사</span></td><td><span class='v on'>6</span><span class='v on'>5</span><small>첫 토큰 0.42초 · 첫 답변 0.57초</small></td></tr><tr><th scope='row'><code>inference-net/us</code> <span class='q'>fp4</span></th><td><span class='v prov'>429 제공사</span><span class='v prov'>429 제공사</span></td><td><span class='v bad'>400 끄기 불가</span><span class='v bad'>400 끄기 불가</span></td><td><span class='v on'>33</span><span class='v prov'>429 제공사</span><small>첫 토큰 1.28초 · 첫 답변 1.55초</small></td><td><span class='v on'>1</span><span class='v on'>1</span><small>첫 토큰 0.65초 · 첫 답변 0.65초</small></td></tr><tr><th scope='row'><code>z-ai/fp8</code> <span class='q'>fp8</span></th><td><span class='v on'>54</span><span class='v on'>52</span><small>첫 토큰 1.32초 · 첫 답변 1.97초</small></td><td><span class='v bad'>400 끄기 불가</span><span class='v bad'>400 끄기 불가</span></td><td><span class='v on'>57</span><span class='v on'>49</span><small>첫 토큰 0.85초 · 첫 답변 1.52초</small></td><td><span class='v on'>7</span><span class='v zero'>0</span><small>첫 토큰 1.38초 · 첫 답변 1.47초</small></td></tr><tr><th scope='row'><code>siliconflow/fp8</code> <span class='q'>fp8</span></th><td><span class='v on'>52</span><span class='v on'>42</span><small>첫 토큰 1.62초 · 첫 답변 1.77초</small></td><td><span class='v bad'>400 끄기 불가</span><span class='v bad'>400 끄기 불가</span></td><td><span class='v on'>31</span><span class='v on'>24</span><small>첫 토큰 1.19초 · 첫 답변 1.23초</small></td><td><span class='v zero'>0</span><span class='v zero'>0</span><small>첫 토큰 1.72초 · 첫 답변 1.72초</small></td></tr><tr><th scope='row'><code>decart/fp4</code> <span class='q'>fp4</span></th><td><span class='v on'>49</span><span class='v on'>53</span><small>첫 토큰 0.77초 · 첫 답변 1.16초</small></td><td><span class='v bad'>400 끄기 불가</span><span class='v bad'>400 끄기 불가</span></td><td><span class='v on'>53</span><span class='v on'>53</span><small>첫 토큰 0.57초 · 첫 답변 0.94초</small></td><td><span class='v on'>7</span><span class='v zero'>0</span><small>첫 토큰 0.79초 · 첫 답변 0.84초</small></td></tr></tbody></table></div>
+</section>
+<section class="model">
+  <div class="mhead"><h3>GLM-5.3-Flash</h3><span class="chip bad">끌 수 없음 · 강도 조절 가능</span><p>끄기는 OpenRouter·Mango 모두 400. 강도 낮춤은 양쪽 모두 0~11개로 줄어듦</p></div>
+  <div class="tw"><table>
+    <thead><tr><th>엔드포인트 · 양자화</th><th>기본값</th><th>끄기</th><th>켜기</th><th>강도 낮춤</th></tr></thead>
+    <tbody><tr><th scope='row'><b>Mango</b> <span class='q'>fp8</span></th><td><span class='v on'>45</span><span class='v on'>32</span><small>첫 토큰 0.35초 · 첫 답변 0.44초</small></td><td><span class='v bad'>400 끄기 불가</span><span class='v bad'>400 끄기 불가</span></td><td><span class='v on'>53</span><span class='v on'>36</span><small>첫 토큰 0.38초 · 첫 답변 0.51초</small></td><td><span class='v on'>7</span><span class='v on'>11</span><small>첫 토큰 0.39초 · 첫 답변 0.43초</small></td></tr><tr><th scope='row'><code>together</code> <span class='q'>unknown</span></th><td><span class='v on'>44</span><span class='v on'>41</span><small>첫 토큰 0.63초 · 첫 답변 0.77초</small></td><td><span class='v bad'>400 끄기 불가</span><span class='v bad'>400 끄기 불가</span></td><td><span class='v on'>44</span><span class='v on'>44</span><small>첫 토큰 0.55초 · 첫 답변 0.72초</small></td><td><span class='v on'>6</span><span class='v on'>5</span><small>첫 토큰 1.20초 · 첫 답변 1.20초</small></td></tr><tr><th scope='row'><code>inference-net/us</code> <span class='q'>fp4</span></th><td><span class='v on'>37</span><span class='v on'>43</span><small>첫 토큰 1.01초 · 첫 답변 1.34초</small></td><td><span class='v bad'>400 끄기 불가</span><span class='v bad'>400 끄기 불가</span></td><td><span class='v on'>34</span><span class='v on'>34</span><small>첫 토큰 0.91초 · 첫 답변 1.08초</small></td><td><span class='v on'>8</span><span class='v on'>8</span><small>첫 토큰 0.61초 · 첫 답변 0.77초</small></td></tr><tr><th scope='row'><code>open-inference/fp4</code> <span class='q'>fp4</span></th><td><span class='v on'>19</span><span class='v on'>14</span><small>첫 토큰 0.80초 · 첫 답변 1.60초</small></td><td><span class='v bad'>400 끄기 불가</span><span class='v bad'>400 끄기 불가</span></td><td><span class='v on'>47</span><span class='v on'>54</span><small>첫 토큰 0.50초 · 첫 답변 0.93초</small></td><td><span class='v prov'>429 제공사</span><span class='v prov'>429 제공사</span></td></tr><tr><th scope='row'><code>coreweave/nvfp4</code> <span class='q'>nvfp4</span></th><td><span class='v on'>46</span><span class='v on'>48</span><small>첫 토큰 0.77초 · 첫 답변 0.96초</small></td><td><span class='v bad'>400 끄기 불가</span><span class='v bad'>400 끄기 불가</span></td><td><span class='v on'>47</span><span class='v on'>45</span><small>첫 토큰 0.81초 · 첫 답변 1.07초</small></td><td><span class='v on'>9</span><span class='v on'>8</span><small>첫 토큰 1.28초 · 첫 답변 1.49초</small></td></tr><tr><th scope='row'><code>z-ai/fp8</code> <span class='q'>fp8</span></th><td><span class='v on'>47</span><span class='v on'>28</span><small>첫 토큰 13.83초 · 첫 답변 14.59초</small></td><td><span class='v bad'>400 끄기 불가</span><span class='v bad'>400 끄기 불가</span></td><td><span class='v on'>47</span><span class='v on'>44</span><small>첫 토큰 13.55초 · 첫 답변 14.44초</small></td><td><span class='v zero'>0</span><span class='v zero'>0</span><small>첫 토큰 1.68초 · 첫 답변 1.68초</small></td></tr></tbody></table></div>
+</section>
+<section class="model">
+  <div class="mhead"><h3>Kimi K3.1 Pro</h3><span class="chip ok">끄기 가능 · 강도 조절 가능</span><p>응답한 곳은 모두 끄면 0. 강도 낮춤은 Mango 15~17개, OpenRouter 18~40개로 기본값보다 줄어듦</p></div>
+  <div class="tw"><table>
+    <thead><tr><th>엔드포인트 · 양자화</th><th>기본값</th><th>끄기</th><th>켜기</th><th>강도 낮춤</th></tr></thead>
+    <tbody><tr><th scope='row'><b>Mango</b> <span class='q'>mxfp4</span></th><td><span class='v on'>47</span><span class='v on'>30</span><small>첫 토큰 0.32초 · 첫 답변 0.65초</small></td><td><span class='v zero'>0</span><span class='v zero'>0</span><small>첫 토큰 0.27초 · 첫 답변 0.27초</small></td><td><span class='v on'>32</span><span class='v on'>35</span><small>첫 토큰 0.30초 · 첫 답변 0.58초</small></td><td><span class='v on'>17</span><span class='v on'>15</span><small>첫 토큰 0.30초 · 첫 답변 0.48초</small></td></tr><tr><th scope='row'><code>moonshotai/mxfp4</code> <span class='q'>mxfp4</span></th><td><span class='v on'>47</span><span class='v on'>35</span><small>첫 토큰 1.72초 · 첫 답변 2.47초</small></td><td><span class='v zero'>0</span><span class='v zero'>0</span><small>첫 토큰 1.23초 · 첫 답변 1.23초</small></td><td><span class='v on'>37</span><span class='v on'>39</span><small>첫 토큰 1.41초 · 첫 답변 2.25초</small></td><td><span class='v on'>18</span><span class='v on'>19</span><small>첫 토큰 1.56초 · 첫 답변 1.99초</small></td></tr><tr><th scope='row'><code>inference-net/mxfp4</code> <span class='q'>mxfp4</span></th><td><span class='v on'>41</span><span class='v on'>52</span><small>첫 토큰 1.22초 · 첫 답변 1.62초</small></td><td><span class='v zero'>0</span><span class='v zero'>0</span><small>첫 토큰 0.59초 · 첫 답변 0.59초</small></td><td><span class='v on'>44</span><span class='v on'>60</span><small>첫 토큰 0.64초 · 첫 답변 1.01초</small></td><td><span class='v on'>24</span><span class='v on'>22</span><small>첫 토큰 0.63초 · 첫 답변 0.99초</small></td></tr><tr><th scope='row'><code>modal/mxfp4</code> <span class='q'>mxfp4</span></th><td><span class='v on'>43</span><span class='v on'>35</span><small>첫 토큰 0.59초 · 첫 답변 0.91초</small></td><td><span class='v zero'>0</span><span class='v zero'>0</span><small>첫 토큰 0.57초 · 첫 답변 0.57초</small></td><td><span class='v on'>52</span><span class='v on'>38</span><small>첫 토큰 0.60초 · 첫 답변 0.92초</small></td><td><span class='v on'>22</span><span class='v on'>23</span><small>첫 토큰 0.63초 · 첫 답변 0.78초</small></td></tr><tr><th scope='row'><code>wafer/us</code> <span class='q'>mxfp4</span></th><td><span class='v on'>45</span><span class='v on'>52</span><small>첫 토큰 0.49초 · 첫 답변 0.83초</small></td><td><span class='v acct'>429 계정</span><span class='v acct'>429 계정</span></td><td><span class='v acct'>429 계정</span><span class='v acct'>429 계정</span></td><td><span class='v on'>26</span><span class='v on'>40</span><small>첫 토큰 0.54초 · 첫 답변 0.78초</small></td></tr><tr><th scope='row'><code>together</code> <span class='q'>unknown</span></th><td><span class='v acct'>429 계정</span><span class='v acct'>429 계정</span></td><td><span class='v acct'>429 계정</span><span class='v acct'>429 계정</span></td><td><span class='v acct'>429 계정</span><span class='v acct'>429 계정</span></td><td><span class='v on'>18</span><span class='v on'>21</span><small>첫 토큰 0.97초 · 첫 답변 1.48초</small></td></tr></tbody></table></div>
+</section>
+  </section>
+
+  <section>
+    <h2>실패 42건의 원인</h2>
+    <div class="cards">
+      <div class="card"><h3>끄기 불가·오작동 · 23건</h3><p style="font-size:.9rem">GLM 계열에서 끄기를 요청한 경우입니다(400 오류 22건, Mango GLM-5.3 추론 폭주 1건). 모델 특성입니다. "끄기"를 표준 조건으로 쓸 수 없다는 근거입니다.</p></div>
+      <div class="card"><h3>429 계정 한도 · 10건</h3><p style="font-size:.9rem">OpenRouter 새 계정은 Kimi K3.1 Pro를 <b>분당 20회</b>까지만 부를 수 있습니다. 본 실험에서는 우리 쪽 실패로 분류하고 모델별 호출을 분당 18회 이하로 묶습니다.</p></div>
+      <div class="card"><h3>429 제공사 한도 · 9건</h3><p style="font-size:.9rem">Wafer·inference.net·Together가 보낸 "Provider returned error"입니다. 본 실험에서는 제공사 쪽 실패로 집계합니다. GLM-5.3 Wafer는 모두 429여서 간이 테스트의 reasoning 0개 원인은 확인하지 못했습니다.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>프로토콜에 반영한 결론</h2>
+    <div class="card"><ol>
+      <li><b>reasoning은 "켜짐"으로 통제합니다.</b> 모든 모델·엔드포인트의 기본값이 켜짐이고 GLM 계열은 끌 수 없어, 끄기는 공통 조건이 될 수 없습니다. OpenRouter에는 <code>reasoning.enabled=true</code>를 명시합니다.</li>
+      <li><b>Mango에는 켜기 지정을 보내지 않습니다.</b> 기본값이 켜짐이고, 문서에 없는 <code>chat_template_kwargs</code>는 GLM-5.3에서 오작동했습니다.</li>
+      <li><b>reasoning 토큰이 0인 응답은 "reasoning 미작동"으로 표시</b>하고 성능 비교에서 구분합니다.</li>
+      <li><b>reasoning 토큰은 두 위치를 모두 읽습니다.</b> 모델에 따라 <code>completion_tokens_details.reasoning_tokens</code> 또는 <code>usage.reasoning_tokens</code>에 옵니다(Mango GLM-5.3은 후자).</li>
+      <li><b>OpenRouter 새 계정 한도</b>(모델당 분당 20회)에 맞춰 호출 속도를 묶고, 계정 한도 429는 우리 쪽 실패로 분류합니다.</li>
+      <li><b>강도 낮춤은 Mango의 비공식 <code>reasoning_effort</code>와 OpenRouter의 <code>reasoning.effort</code>가 같은 방향으로 작동</b>했습니다. GLM·Kimi는 줄고 DeepSeek은 변화 없음. 보조 조건으로 쓸 수 있는 후보입니다.</li>
+      <li>엔드포인트 슬러그 고정이 응답 121건 모두 그대로 지켜져, 고정 경로를 <b>엔드포인트 단위로</b> 정의할 수 있음을 확인했습니다.</li>
+    </ol></div>
+  </section>
+
+  <footer>원본: 저장소 <code>results/reasoning_test_20261117/</code> (raw.jsonl, endpoints.jsonl, summary.csv) · 코드: <code>code/reasoning_param_test.py</code></footer>
+</div>
