@@ -1,0 +1,61 @@
+## 1. 실패 재분류 (의도된 length 종료 분리)
+   163 의도된 종료(Z·L 출력 상한)
+    18 추론 폭주(32,768 상한 도달)
+     8 W2 세션 중단으로 미송신
+     7 300초 마감
+
+## 2. 추론 폭주(32,768 상한 또는 300초 마감) 비율, W1·W2·W3·LOAD 송신 요청 기준
+  deepseek-v4.1-flash-1017   M  송신   75 폭주  1 (1.3%)
+  deepseek-v4.1-flash-1017   OR 송신  225 폭주  0 (0.0%)
+  glm-5.3                    M  송신   67 폭주  4 (6.0%)
+  glm-5.3                    OR 송신  225 폭주  9 (4.0%)
+  glm-5.3-flash              M  송신   75 폭주  1 (1.3%)
+  glm-5.3-flash              OR 송신  225 폭주  9 (4.0%)
+  kimi-k3.1-pro              M  송신   75 폭주  0 (0.0%)
+  kimi-k3.1-pro              OR 송신  225 폭주  1 (0.4%)
+
+## 3. W2 TTFT 분해 (세션별 2~10턴 기하평균의 M÷OR-기본, 양쪽 성공 턴만)
+   TTFT any = 첫 토큰(추론 포함), 추론 구간 = content − any
+  deepseek-v4.1-flash-1017   세션 6 | TTFT any 0.74 | TTFT content 0.40 | 추론 구간 시간 0.23 | 추론 토큰 0.82
+  glm-5.3                    세션 6 | TTFT any 0.71 | TTFT content 0.73 | 추론 구간 시간 0.95 | 추론 토큰 1.13
+  glm-5.3-flash              세션 6 | TTFT any 0.69 | TTFT content 0.49 | 추론 구간 시간 0.50 | 추론 토큰 0.77
+  kimi-k3.1-pro              세션 6 | TTFT any 0.66 | TTFT content 0.86 | 추론 구간 시간 1.16 | 추론 토큰 0.88
+
+## 4. 관측 오버헤드: Z(출력 1토큰) TTFT any 중앙값
+  deepseek-v4.1-flash-1017   M 265ms (n5) | OR-default 567ms (n3)
+  glm-5.3                    M 433ms (n5) | OR-default nanms (n0)
+  glm-5.3-flash              M 360ms (n5) | OR-default 670ms (n4)
+  kimi-k3.1-pro              M 347ms (n5) | OR-default 737ms (n5)
+
+## 5. decode 처리량 중앙값 순위 (W1+W3+W2 성공, 12경로)
+  deepseek-v4.1-flash-1017   M 512 tok/s, 순위 1/12 | 상위: M 512, OR-pin:together 278, OR-sort:price 241 | OR-default 187
+  glm-5.3                    M 198 tok/s, 순위 3/12 | 상위: OR-nitro 288, OR-sort:throughput 201, M 198 | OR-default 186
+  glm-5.3-flash              M 308 tok/s, 순위 2/12 | 상위: OR-sort:throughput 331, M 308, OR-nitro 256 | OR-default 174
+  kimi-k3.1-pro              M 115 tok/s, 순위 8/12 | 상위: OR-nitro 183, OR-pin:inference-net/mxfp4 166, OR-sort:throughput 157 | OR-default 142
+
+## 6. W2 2~10턴 TTFT content 꼬리 (ms)
+  deepseek-v4.1-flash-1017   M p50 955 p90 2087 (p90/p50 2.2) | OR-default p50 2430 p90 5376 (p90/p50 2.2)
+  glm-5.3                    M p50 1858 p90 5879 (p90/p50 3.2) | OR-default p50 1934 p90 11337 (p90/p50 5.9)
+  glm-5.3-flash              M p50 1085 p90 2164 (p90/p50 2.0) | OR-default p50 2037 p90 7577 (p90/p50 3.7)
+  kimi-k3.1-pro              M p50 3273 p90 9399 (p90/p50 2.9) | OR-default p50 4117 p90 12989 (p90/p50 3.2)
+
+## 7. OR-기본의 W2 제공사 고착과 턴별 캐시 적중률
+  OR-기본 세션: {'1턴과 2턴 제공사 다름': 20, '2~10턴 한 제공사': 22, '1턴과 2턴 제공사 같음': 4, '2턴 이후 제공사 바뀜': 2}
+  M          턴별 평균 캐시 적중률(%): 1:0 2:90 3:90 4:91 5:92 6:92 7:93 8:93 9:93 10:94
+  OR-default 턴별 평균 캐시 적중률(%): 1:0 2:15 3:83 4:92 5:92 6:85 7:93 8:90 9:93 10:91
+
+## 8. P4(W2 성공 세션당 비용) 분해: 비율 = 단가 효과 × 토큰량 효과 × 성공 세션 수 효과
+   단가 효과 = M 토큰을 Mango 정가로 ÷ M 토큰을 OR-기본 실효 단가로. 토큰량 효과 = M 토큰 ÷ OR 토큰(둘 다 OR 실효 단가)
+  deepseek-v4.1-flash-1017   비율 1.36 = 단가 1.88 × 토큰량 0.72 × 성공 수 1.00 | 비캐시 입력 M 193,984 OR 332,975 · 출력 M 18,594 OR 22,922 | 단가($/M 입력·캐시·출력) Mango 0.2/0.006/0.8 OR실효 0.081/0.006/0.498
+  glm-5.3                    비율 3.41 = 단가 2.14 × 토큰량 1.06 × 성공 수 1.50 | 비캐시 입력 M 166,802 OR 249,280 · 출력 M 99,212 OR 58,001 | 단가($/M 입력·캐시·출력) Mango 1.3/0.14/4.2 OR실효 0.502/0.095/1.848
+  glm-5.3-flash              비율 0.81 = 단가 1.00 × 토큰량 0.81 × 성공 수 1.00 | 비캐시 입력 M 239,478 OR 345,175 · 출력 M 14,295 OR 28,955 | 단가($/M 입력·캐시·출력) Mango 0.13/0.03/0.45 OR실효 0.127/0.030/0.476
+  kimi-k3.1-pro              비율 0.94 = 단가 1.17 × 토큰량 0.81 × 성공 수 1.00 | 비캐시 입력 M 186,137 OR 314,144 · 출력 M 26,262 OR 29,332 | 단가($/M 입력·캐시·출력) Mango 1.8/0.19/9.5 OR실효 1.259/0.183/9.210
+
+## 9. 품질 점검 Q (경로당 20문항, 정답 수)
+  deepseek-v4.1-flash-1017   M 18/20 | OR-default 18/20 | OR 6경로 합 104/120 | M만 정답 0, OR-기본만 정답 0
+  glm-5.3                    M 16/20 | OR-default 17/20 | OR 6경로 합 108/120 | M만 정답 1, OR-기본만 정답 2
+  glm-5.3-flash              M 17/20 | OR-default 18/20 | OR 6경로 합 105/120 | M만 정답 0, OR-기본만 정답 1
+  kimi-k3.1-pro              M 19/20 | OR-default 17/20 | OR 6경로 합 107/120 | M만 정답 2, OR-기본만 정답 0
+
+## 10. Mango 파일럿 본 루프 비용(정가 적용, 실패 요청 포함)
+  본 루프 $2.9642, 그중 실패 요청 $0.6834. OR 본 루프 generation 합계 $9.1835

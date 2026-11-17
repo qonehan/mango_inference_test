@@ -1,0 +1,495 @@
+{
+  "requests": 1556,
+  "missing_required_fields": 0,
+  "generation_join_rate": 1.0,
+  "broadcast_join_rate": 1.0,
+  "spend_usd": {
+    "openrouter": 9.1812,
+    "mango_estimate": 2.9641,
+    "mango_unpriced": 0
+  },
+  "over_50pct_endpoint_failures": [],
+  "alerts": [],
+  "cells": [
+    {
+      "model": "deepseek-v4.1-flash-1017",
+      "arm": "M",
+      "n": 88,
+      "ok": 82,
+      "fail_endpoint": 6,
+      "unmeasured": 0,
+      "session_stopped": 0,
+      "endpoint_fail_rate": 0.068
+    },
+    {
+      "model": "deepseek-v4.1-flash-1017",
+      "arm": "OR-default",
+      "n": 86,
+      "ok": 81,
+      "fail_endpoint": 5,
+      "unmeasured": 0,
+      "session_stopped": 0,
+      "endpoint_fail_rate": 0.058
+    },
+    {
+      "model": "deepseek-v4.1-flash-1017",
+      "arm": "OR-floor",
+      "n": 10,
+      "ok": 10,
+      "unmeasured": 0,
+      "session_stopped": 0,
+      "fail_endpoint": 0,
+      "endpoint_fail_rate": 0.0
+    },
+    {
+      "model": "deepseek-v4.1-flash-1017",
+      "arm": "OR-nitro",
+      "n": 10,
+      "ok": 10,
+      "unmeasured": 0,
+      "session_stopped": 0,
+      "fail_endpoint": 0,
+      "endpoint_fail_rate": 0.0
+    },
+    {
+      "model": "deepseek-v4.1-flash-1017",
+      "arm": "OR-pin:deepinfra/fp8",
+      "n": 33,
+      "ok": 28,
+      "fail_endpoint": 5,
+      "unmeasured": 0,
+      "session_stopped": 0,
+      "endpoint_fail_rate": 0.152
+    },
+    {
+      "model": "deepseek-v4.1-flash-1017",
+      "arm": "OR-pin:deepseek",
+      "n": 33,
+      "ok": 28,
+      "fail_endpoint": 5,
+      "unmeasured": 0,
+      "session_stopped": 0,
+      "endpoint_fail_rate": 0.152
+    },
+    {
+      "model": "deepseek-v4.1-flash-1017",
+      "arm": "OR-pin:inference-net/us",
+      "n": 33,
+      "ok": 28,
+      "fail_endpoint": 5,
+      "unmeasured": 0,
+      "session_stopped": 0,
+      "endpoint_fail_rate": 0.152
+    },
+    {
+      "model": "deepseek-v4.1-flash-1017",
+      "arm": "OR-pin:together",
+      "n": 33,
+      "ok": 28,
+      "fail_endpoint": 5,
+      "unmeasured": 0,
+      "session_stopped": 0,
+      "endpoint_fail_rate": 0.152
+    },
+    {
+      "model": "deepseek-v4.1-flash-1017",
+      "arm": "OR-pin:wafer/us",
+      "n": 33,
+      "ok": 28,
+      "fail_endpoint": 5,
+      "unmeasured": 0,
+      "session_stopped": 0,
+      "endpoint_fail_rate": 0.152
+    },
+    {
+      "model": "deepseek-v4.1-flash-1017",
+      "arm": "OR-sort:latency",
+      "n": 10,
+      "ok": 10,
+      "unmeasured": 0,
+      "session_stopped": 0,
+      "fail_endpoint": 0,
+      "endpoint_fail_rate": 0.0
+    },
+    {
+      "model": "deepseek-v4.1-flash-1017",
+      "arm": "OR-sort:price",
+      "n": 10,
+      "ok": 10,
+      "unmeasured": 0,
+      "session_stopped": 0,
+      "fail_endpoint": 0,
+      "endpoint_fail_rate": 0.0
+    },
+    {
+      "model": "deepseek-v4.1-flash-1017",
+      "arm": "OR-sort:throughput",
+      "n": 10,
+      "ok": 10,
+      "unmeasured": 0,
+      "session_stopped": 0,
+      "fail_endpoint": 0,
+      "endpoint_fail_rate": 0.0
+    },
+    {
+      "model": "glm-5.3",
+      "arm": "M",
+      "n": 88,
+      "ok": 69,
+      "fail_endpoint": 11,
+      "session_stopped": 8,
+      "unmeasured": 0,
+      "endpoint_fail_rate": 0.138
+    },
+    {
+      "model": "glm-5.3",
+      "arm": "OR-default",
+      "n": 86,
+      "ok": 79,
+      "fail_endpoint": 7,
+      "unmeasured": 0,
+      "session_stopped": 0,
+      "endpoint_fail_rate": 0.081
+    },
+    {
+      "model": "glm-5.3",
+      "arm": "OR-floor",
+      "n": 10,
+      "ok": 10,
+      "unmeasured": 0,
+      "session_stopped": 0,
+      "fail_endpoint": 0,
+      "endpoint_fail_rate": 0.0
+    },
+    {
+      "model": "glm-5.3",
+      "arm": "OR-nitro",
+      "n": 10,
+      "ok": 9,
+      "fail_endpoint": 1,
+      "unmeasured": 0,
+      "session_stopped": 0,
+      "endpoint_fail_rate": 0.1
+    },
+    {
+      "model": "glm-5.3",
+      "arm": "OR-pin:decart/fp4",
+      "n": 33,
+      "ok": 24,
+      "fail_endpoint": 9,
+      "unmeasured": 0,
+      "session_stopped": 0,
+      "endpoint_fail_rate": 0.273
+    },
+    {
+      "model": "glm-5.3",
+      "arm": "OR-pin:inference-net/us",
+      "n": 33,
+      "ok": 26,
+      "fail_endpoint": 7,
+      "unmeasured": 0,
+      "session_stopped": 0,
+      "endpoint_fail_rate": 0.212
+    },
+    {
+      "model": "glm-5.3",
+      "arm": "OR-pin:siliconflow/fp8",
+      "n": 33,
+      "ok": 26,
+      "fail_endpoint": 7,
+      "unmeasured": 0,
+      "session_stopped": 0,
+      "endpoint_fail_rate": 0.212
+    },
+    {
+      "model": "glm-5.3",
+      "arm": "OR-pin:wafer/us",
+      "n": 33,
+      "fail_endpoint": 5,
+      "ok": 28,
+      "unmeasured": 0,
+      "session_stopped": 0,
+      "endpoint_fail_rate": 0.152
+    },
+    {
+      "model": "glm-5.3",
+      "arm": "OR-pin:z-ai/fp8",
+      "n": 33,
+      "ok": 23,
+      "fail_endpoint": 10,
+      "unmeasured": 0,
+      "session_stopped": 0,
+      "endpoint_fail_rate": 0.303
+    },
+    {
+      "model": "glm-5.3",
+      "arm": "OR-sort:latency",
+      "n": 10,
+      "ok": 8,
+      "fail_endpoint": 2,
+      "unmeasured": 0,
+      "session_stopped": 0,
+      "endpoint_fail_rate": 0.2
+    },
+    {
+      "model": "glm-5.3",
+      "arm": "OR-sort:price",
+      "n": 10,
+      "ok": 9,
+      "fail_endpoint": 1,
+      "unmeasured": 0,
+      "session_stopped": 0,
+      "endpoint_fail_rate": 0.1
+    },
+    {
+      "model": "glm-5.3",
+      "arm": "OR-sort:throughput",
+      "n": 10,
+      "ok": 10,
+      "unmeasured": 0,
+      "session_stopped": 0,
+      "fail_endpoint": 0,
+      "endpoint_fail_rate": 0.0
+    },
+    {
+      "model": "glm-5.3-flash",
+      "arm": "M",
+      "n": 88,
+      "ok": 81,
+      "fail_endpoint": 7,
+      "unmeasured": 0,
+      "session_stopped": 0,
+      "endpoint_fail_rate": 0.08
+    },
+    {
+      "model": "glm-5.3-flash",
+      "arm": "OR-default",
+      "n": 86,
+      "ok": 81,
+      "fail_endpoint": 5,
+      "unmeasured": 0,
+      "session_stopped": 0,
+      "endpoint_fail_rate": 0.058
+    },
+    {
+      "model": "glm-5.3-flash",
+      "arm": "OR-floor",
+      "n": 10,
+      "ok": 9,
+      "fail_endpoint": 1,
+      "unmeasured": 0,
+      "session_stopped": 0,
+      "endpoint_fail_rate": 0.1
+    },
+    {
+      "model": "glm-5.3-flash",
+      "arm": "OR-nitro",
+      "n": 10,
+      "ok": 9,
+      "fail_endpoint": 1,
+      "unmeasured": 0,
+      "session_stopped": 0,
+      "endpoint_fail_rate": 0.1
+    },
+    {
+      "model": "glm-5.3-flash",
+      "arm": "OR-pin:coreweave/nvfp4",
+      "n": 33,
+      "fail_endpoint": 7,
+      "ok": 26,
+      "unmeasured": 0,
+      "session_stopped": 0,
+      "endpoint_fail_rate": 0.212
+    },
+    {
+      "model": "glm-5.3-flash",
+      "arm": "OR-pin:inference-net/us",
+      "n": 33,
+      "fail_endpoint": 10,
+      "ok": 23,
+      "unmeasured": 0,
+      "session_stopped": 0,
+      "endpoint_fail_rate": 0.303
+    },
+    {
+      "model": "glm-5.3-flash",
+      "arm": "OR-pin:open-inference/fp4",
+      "n": 33,
+      "ok": 23,
+      "fail_endpoint": 10,
+      "unmeasured": 0,
+      "session_stopped": 0,
+      "endpoint_fail_rate": 0.303
+    },
+    {
+      "model": "glm-5.3-flash",
+      "arm": "OR-pin:together",
+      "n": 33,
+      "ok": 26,
+      "fail_endpoint": 7,
+      "unmeasured": 0,
+      "session_stopped": 0,
+      "endpoint_fail_rate": 0.212
+    },
+    {
+      "model": "glm-5.3-flash",
+      "arm": "OR-pin:z-ai/fp8",
+      "n": 33,
+      "ok": 27,
+      "fail_endpoint": 6,
+      "unmeasured": 0,
+      "session_stopped": 0,
+      "endpoint_fail_rate": 0.182
+    },
+    {
+      "model": "glm-5.3-flash",
+      "arm": "OR-sort:latency",
+      "n": 10,
+      "ok": 9,
+      "fail_endpoint": 1,
+      "unmeasured": 0,
+      "session_stopped": 0,
+      "endpoint_fail_rate": 0.1
+    },
+    {
+      "model": "glm-5.3-flash",
+      "arm": "OR-sort:price",
+      "n": 10,
+      "ok": 10,
+      "unmeasured": 0,
+      "session_stopped": 0,
+      "fail_endpoint": 0,
+      "endpoint_fail_rate": 0.0
+    },
+    {
+      "model": "glm-5.3-flash",
+      "arm": "OR-sort:throughput",
+      "n": 10,
+      "ok": 10,
+      "unmeasured": 0,
+      "session_stopped": 0,
+      "fail_endpoint": 0,
+      "endpoint_fail_rate": 0.0
+    },
+    {
+      "model": "kimi-k3.1-pro",
+      "arm": "M",
+      "n": 88,
+      "ok": 82,
+      "fail_endpoint": 6,
+      "unmeasured": 0,
+      "session_stopped": 0,
+      "endpoint_fail_rate": 0.068
+    },
+    {
+      "model": "kimi-k3.1-pro",
+      "arm": "OR-default",
+      "n": 86,
+      "ok": 81,
+      "fail_endpoint": 5,
+      "unmeasured": 0,
+      "session_stopped": 0,
+      "endpoint_fail_rate": 0.058
+    },
+    {
+      "model": "kimi-k3.1-pro",
+      "arm": "OR-floor",
+      "n": 10,
+      "ok": 10,
+      "unmeasured": 0,
+      "session_stopped": 0,
+      "fail_endpoint": 0,
+      "endpoint_fail_rate": 0.0
+    },
+    {
+      "model": "kimi-k3.1-pro",
+      "arm": "OR-nitro",
+      "n": 10,
+      "ok": 10,
+      "unmeasured": 0,
+      "session_stopped": 0,
+      "fail_endpoint": 0,
+      "endpoint_fail_rate": 0.0
+    },
+    {
+      "model": "kimi-k3.1-pro",
+      "arm": "OR-pin:inference-net/mxfp4",
+      "n": 33,
+      "fail_endpoint": 5,
+      "ok": 28,
+      "unmeasured": 0,
+      "session_stopped": 0,
+      "endpoint_fail_rate": 0.152
+    },
+    {
+      "model": "kimi-k3.1-pro",
+      "arm": "OR-pin:modal/mxfp4",
+      "n": 33,
+      "ok": 28,
+      "fail_endpoint": 5,
+      "unmeasured": 0,
+      "session_stopped": 0,
+      "endpoint_fail_rate": 0.152
+    },
+    {
+      "model": "kimi-k3.1-pro",
+      "arm": "OR-pin:moonshotai/mxfp4",
+      "n": 33,
+      "ok": 27,
+      "fail_endpoint": 6,
+      "unmeasured": 0,
+      "session_stopped": 0,
+      "endpoint_fail_rate": 0.182
+    },
+    {
+      "model": "kimi-k3.1-pro",
+      "arm": "OR-pin:together",
+      "n": 33,
+      "ok": 28,
+      "fail_endpoint": 5,
+      "unmeasured": 0,
+      "session_stopped": 0,
+      "endpoint_fail_rate": 0.152
+    },
+    {
+      "model": "kimi-k3.1-pro",
+      "arm": "OR-pin:wafer/us",
+      "n": 33,
+      "ok": 28,
+      "fail_endpoint": 5,
+      "unmeasured": 0,
+      "session_stopped": 0,
+      "endpoint_fail_rate": 0.152
+    },
+    {
+      "model": "kimi-k3.1-pro",
+      "arm": "OR-sort:latency",
+      "n": 10,
+      "ok": 10,
+      "unmeasured": 0,
+      "session_stopped": 0,
+      "fail_endpoint": 0,
+      "endpoint_fail_rate": 0.0
+    },
+    {
+      "model": "kimi-k3.1-pro",
+      "arm": "OR-sort:price",
+      "n": 10,
+      "ok": 10,
+      "unmeasured": 0,
+      "session_stopped": 0,
+      "fail_endpoint": 0,
+      "endpoint_fail_rate": 0.0
+    },
+    {
+      "model": "kimi-k3.1-pro",
+      "arm": "OR-sort:throughput",
+      "n": 10,
+      "ok": 10,
+      "unmeasured": 0,
+      "session_stopped": 0,
+      "fail_endpoint": 0,
+      "endpoint_fail_rate": 0.0
+    }
+  ]
+}

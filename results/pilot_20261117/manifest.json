@@ -1,0 +1,86 @@
+{
+  "start": {
+    "env": {
+      "t_utc": 1794897027.428769,
+      "platform": "Linux-7.0.0-1014-aws-x86_64-with-glibc2.39",
+      "python": "3.12.3",
+      "packages": {
+        "openai": "3.52.0",
+        "httpx": "0.28.1",
+        "tiktoken": "0.14.0",
+        "pyyaml": "6.0.3",
+        "jsonschema": "4.26.0"
+      },
+      "git_commit": "48f7bb0566587f259035089e75f47d709a3ba054",
+      "chrony": "Reference ID    : A9FEA97B (169.254.169.123)\nStratum         : 4\nRef time (UTC)  : Tue Nov 17 06:30:26 2026\nSystem time     : 0.000000259 seconds slow of NTP time\nLast offset     : +0.000000029 seconds\nRMS offset      : 0.000000278 seconds\nFrequency       : 23.524 ppm fast\nResidual freq   : -0.000 ppm\nSkew            : 0.005 ppm\nRoot delay      : 0.000190999 seconds\nRoot dispersion : 0.000144433 seconds\nUpdate interval : 16.0 seconds\nLeap status     : Normal"
+    },
+    "chrony_offset": "System time     : 0.000000259 seconds slow of NTP time",
+    "host_ips": {
+      "mango": "34.36.178.149",
+      "openrouter": "104.18.3.115"
+    }
+  },
+  "run": {
+    "slot": "P",
+    "seed": 37263683872331222,
+    "config": "config/pilot.yaml",
+    "config_sha256": "8875e353803b24ca8f80449167fdb386bdc9d19f406f1471b6000ba67c26818d",
+    "prompts_manifest": {
+      "seed": 20261116,
+      "tokenizer": "o200k_base",
+      "official": true,
+      "cpython_tag": "v3.12.7",
+      "counts": {
+        "w1.jsonl": 200,
+        "w3.jsonl": 200,
+        "w2_main.jsonl": 48,
+        "w2_pilot.jsonl": 6,
+        "l.jsonl": 48,
+        "z.jsonl": 1
+      },
+      "w2_prefix_check": "passed",
+      "sha256": {
+        "l.jsonl": "b4b341c74ba002234c35c24dec79bfd019e65bbeb65082b3e329f1e75eac750e",
+        "tools.json": "3de0fef5c8b24f9704ae5564a22cce56d73148ffd3f19276285cda3a7f2c5efa",
+        "w1.jsonl": "38ca50e2dcb4f538e0553373f70c403aec7a999e0660b695c41a7f683806637d",
+        "w2_main.jsonl": "d70fdca05325e1834f99bacd4341144dfab70f4a7f6d010183391f16a2de8797",
+        "w2_pilot.jsonl": "266770b3f17b21f298d28e72b1befb299b9aeeb303cd521f45fe6fa32059922a",
+        "w3.jsonl": "c235875c3037844e6d9dbf3df0a3b5eb37de57f16872fa333a66ca687ea6add9",
+        "z.jsonl": "81e4bbca18cb345cf212185f7565d45dbd926840ee6ec02316bfff93f8890457"
+      }
+    },
+    "started_utc": 1794897032.1796613,
+    "ended_utc": 1794900903.3210077,
+    "deadline_utc": 1794915031.0,
+    "planned": 1556,
+    "outcomes": {
+      "endpoint": 236,
+      "ok": 1360,
+      "session_stopped": 8
+    },
+    "pilot": true
+  },
+  "seal": {
+    "check.json": "8c35525e48a2da0c53c0b7a2e651787d214c5ce5c7afe9ac3ac878c55c5d33a2",
+    "control.jsonl": "b32e51bec6df5e21e2c30bdd23c58fb2d72db581b30ce58968c6fe2b634fdf87",
+    "generations.jsonl": "89fdbce4840880904b81880da39bee534a5bfbc643919f0a60991e54daefcce0",
+    "mango_models.json": "6612631197a6a40416afede0966ee28d2648be6278f8bc3281fd60ce034bc5b4",
+    "or_endpoints.json": "0128f3bb5cc58de9c7dac1dfd562494557b659d0d778b573932eceb0223feeff",
+    "pilot.log": "c17c81cef1f7bfbe4cd23ee41e23d4d6d1e1fe46a9fa814a4677947f64593929",
+    "probes.jsonl": "3b4b63c12248bca1ff5e3ce785022dc3e1cff1f31e0456e75d88c12adae0814e",
+    "raw.jsonl": "0d0be00fe4d5d92497a8bc5ac3211bf73ec9f863e1dcb38c6588d746d69cb0f6"
+  },
+  "check": {
+    "requests": 1556,
+    "missing_required_fields": 0,
+    "generation_join_rate": 1.0,
+    "broadcast_join_rate": 1.0,
+    "spend_usd": {
+      "openrouter": 9.1812,
+      "mango_estimate": 2.9641,
+      "mango_unpriced": 0
+    },
+    "over_50pct_endpoint_failures": [],
+    "alerts": []
+  }
+}
