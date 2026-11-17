@@ -86,6 +86,9 @@ def arms_for(cfg: dict, model_key: str) -> dict[str, dict]:
     for s in cfg["sort_routes"]:
         arms[f"OR-sort:{s}"] = {"arm": f"OR-sort:{s}", "host": "or", "model": slug,
                                 "extra": {"provider": {"sort": s}}}
+    if (cfg.get("counts") or {}).get("w2_nosid_sessions"):
+        # 탐색 조건: OR-기본과 같되 W2에 session_id를 보내지 않음 (OpenRouter 고착 규칙 비교용, v1.0)
+        arms["OR-default-nosid"] = {"arm": "OR-default-nosid", "host": "or", "model": slug, "extra": {}}
     arms["OR-floor"] = {"arm": "OR-floor", "host": "or", "model": slug + ":floor", "extra": {}}
     arms["OR-nitro"] = {"arm": "OR-nitro", "host": "or", "model": slug + ":nitro", "extra": {}}
     return arms
@@ -237,13 +240,16 @@ def validate_tool(args_text: str, name: str | None, tools: list | None) -> bool:
 async def stream_call(client: AsyncOpenAI, *, host: str, model: str, messages: list[dict], max_tokens: int,
                       temperature: float, top_p: float, extra: dict | None = None, tools: list | None = None,
                       need_tool: bool = False, deadline_s: float = 300, meta: dict | None = None,
-                      on_chunk=None, keep_text: int = 400) -> dict:
+                      on_chunk=None, keep_text: int = 400, expect_length: bool = False,
+                      session_id: str | None = None) -> dict:
     """한 요청을 스트리밍으로 보내고 프로토콜 기록 스키마의 한 행을 돌려준다."""
     rid = (meta or {}).get("request_id") or str(uuid.uuid4())
     body_extra = dict(extra or {})
     if host == "or":
         body_extra.setdefault("reasoning", {"enabled": True})
         body_extra["trace"] = {"trace_id": rid}
+        if session_id:  # OpenRouter 제공사 고착 키 (v1.0). Mango에는 보내지 않음
+            body_extra["session_id"] = session_id[:256]
     kwargs = dict(model=model, messages=messages, stream=True, stream_options={"include_usage": True},
                   temperature=temperature, top_p=top_p, max_tokens=max_tokens)
     if tools:
@@ -303,7 +309,10 @@ async def stream_call(client: AsyncOpenAI, *, host: str, model: str, messages: l
         call_list = [{"name": c_["name"], "arguments": "".join(c_["args"])} for _, c_ in sorted(calls.items())]
         tool_ok = (bool(call_list) and all(validate_tool(c_["arguments"], c_["name"], tools) for c_ in call_list)
                    if need_tool else None)
-        if finish == "length":
+        if finish == "length" and expect_length:
+            # L·Z·준비 호출처럼 출력 상한을 일부러 작게 둔 요청의 정상 종료 (v1.0: 실패에서 제외)
+            rec.update(ok=True, status_note="length_expected")
+        elif finish == "length":
             rec.update(fail_side="endpoint", error="truncated")
         elif finish is None:
             rec.update(fail_side="endpoint", error="no_finish")
@@ -338,8 +347,9 @@ async def stream_call(client: AsyncOpenAI, *, host: str, model: str, messages: l
         tool_args="".join(calls[min(calls)]["args"])[:2000] if calls else "",
         reasoning_missing=bool(rtoks == 0),
     )
+    full = rec["ok"] and rec.get("status_note") != "length_expected"  # 의도된 짧은 출력은 처리량 계산 제외
     rec["decode_tps"] = (decode_rate(u.get("completion_tokens"), rtoks, reasoning_chars > 0, gen_times)
-                         if rec["ok"] else None)
+                         if full else None)
     rec["total_tps"] = (u["completion_tokens"] / ((stream_end - t0) / 1e9)
-                        if rec["ok"] and stream_end and u.get("completion_tokens") is not None else None)
+                        if full and stream_end and u.get("completion_tokens") is not None else None)
     return rec

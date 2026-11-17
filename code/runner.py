@@ -85,7 +85,9 @@ def make_plan(cfg: dict, P: dict, slot: str, models: list[str]) -> dict:
         r.shuffle(blocks)
         blocks = [{"block_id": f"{slot}-{mk}-b{j:03d}", "task": t, "item": it,
                    "order": r.sample(["M", "OR-default"], 2)} for j, (t, it) in enumerate(blocks)]
-        extras = ([("OR-default", "W1", it) for it in w1_s[C["common_w1"]:C["or_default_w1"]]]
+        k_nosid = C.get("w2_nosid_sessions", 0)
+        extras = ([("OR-default-nosid", "W2", s) for s in w2_s[:k_nosid]]
+                  + [("OR-default", "W1", it) for it in w1_s[C["common_w1"]:C["or_default_w1"]]]
                   + [("OR-default", "W3", it) for it in w3_s[C["common_w3"]:C["or_default_w3"]]]
                   + [(a, "L", it) for a in ("M", "OR-default") for it in l_s]
                   + [(a, "Z", P["z"][0]) for a in ("M", "OR-default") for _ in range(C["z"])]
@@ -94,9 +96,12 @@ def make_plan(cfg: dict, P: dict, slot: str, models: list[str]) -> dict:
         side = {}
         for p in cfg["models"][mk]["pins"]:
             a = f"OR-pin:{p}"
-            items = ([(a, "W1", it) for it in w1_s[:C["common_w1"]]] + [(a, "W3", it) for it in w3_s[:C["common_w3"]]]
-                     + [(a, "W2", s) for s in w2_s[:C["pin_w2_sessions"]]] + [(a, "L", it) for it in l_s]
-                     + [(a, "Z", P["z"][0]) for _ in range(C["z"])] + [(a, "CACHE", s) for s in c_s])
+            pin_extras = C.get("pin_extras", True)  # v1.0 1회 실험: False면 L·Z·CACHE 생략
+            items = ([(a, "W1", it) for it in w1_s[:C.get("pin_w1", C["common_w1"])]]
+                     + [(a, "W3", it) for it in w3_s[:C.get("pin_w3", C["common_w3"])]]
+                     + [(a, "W2", s) for s in w2_s[:C["pin_w2_sessions"]]]
+                     + ([(a, "L", it) for it in l_s] + [(a, "Z", P["z"][0]) for _ in range(C["z"])]
+                        + [(a, "CACHE", s) for s in c_s] if pin_extras else []))
             r.shuffle(items)
             side[a] = items
         for a in [x for x in arms if x.startswith(("OR-sort", "OR-floor", "OR-nitro"))]:
@@ -139,7 +144,8 @@ class Runner:
                           "fail_side": None, "error": "slot_deadline_not_sent", "t_start_utc": time.time()})
 
     async def one(self, mk: str, arm_name: str, task: str, messages: list, meta: dict, *, tools=False,
-                  need_tool=False, max_tokens=None, allow_retry=True) -> dict:
+                  need_tool=False, max_tokens=None, allow_retry=True, expect_length=False,
+                  session_id=None) -> dict:
         arm = self.plan["models"][mk]["arms"][arm_name]
         m = self.cfg["models"][mk]
         meta = {"slot": self.plan["slot"], "model_key": mk, "arm": arm_name, "task": task,
@@ -152,7 +158,8 @@ class Runner:
                                     messages=messages, max_tokens=max_tokens or self.cfg["max_tokens_cap"],
                                     temperature=m["temperature"], top_p=m["top_p"], extra=arm["extra"],
                                     tools=self.tools if tools else None, need_tool=need_tool,
-                                    deadline_s=self.cfg["request_deadline_s"], meta=meta)
+                                    deadline_s=self.cfg["request_deadline_s"], meta=meta,
+                                    expect_length=expect_length, session_id=session_id)
         self.w.write(rec)
         if allow_retry and rec.get("error") == "or_account_rate_limit":
             self.retry_queue.append((mk, arm_name, task, messages, {**meta, "resent_of": rec["request_id"]},
@@ -166,9 +173,10 @@ class Runner:
                            tools=task == "W3", need_tool=task == "W3")
         elif task == "L":
             await self.one(mk, arm_name, task, with_nonce(item["messages"], nonce_hex()),
-                       {**meta, "length": item["length"]}, max_tokens=64)
+                       {**meta, "length": item["length"]}, max_tokens=64, expect_length=True)
         elif task == "Z":
-            await self.one(mk, arm_name, task, with_nonce(item["messages"], nonce_hex()), meta, max_tokens=1)
+            await self.one(mk, arm_name, task, with_nonce(item["messages"], nonce_hex()), meta, max_tokens=1,
+                           expect_length=True)
         elif task == "W2":
             await self.session(mk, arm_name, item, meta)
         elif task == "CACHE":
@@ -181,11 +189,14 @@ class Runner:
 
     async def session(self, mk, arm_name, sess, meta):
         n = nonce_hex()
-        sid = f"{self.plan['slot']}-{mk}-{arm_name}-{sess['id']}"
+        sid = f"{self.plan['slot']}-{mk}-{arm_name}-{sess['id']}-{n}"
+        arm = self.plan["models"][mk]["arms"][arm_name]
+        send_sid = (self.cfg.get("or_send_session_id") and arm["host"] == "or" and arm_name != "OR-default-nosid")
         for k in range(1, len(sess["turns"]) + 1):
             rec = await self.one(mk, arm_name, "W2", with_nonce(w2_messages(sess, k), n),
-                                 {**meta, "session_id": sid, "turn": k}, tools=True, need_tool=True,
-                                 allow_retry=False)
+                                 {**meta, "session_id": sid, "session_id_sent": bool(send_sid), "turn": k},
+                                 tools=True, need_tool=True, allow_retry=False,
+                                 session_id=sid if send_sid else None)
             if not rec.get("ok"):  # 한 턴이 실패하면 나머지 턴은 보내지 않는다 (P4 규칙)
                 left = len(sess["turns"]) - k
                 for kk in range(k + 1, k + 1 + left):
@@ -194,9 +205,9 @@ class Runner:
                                   "ok": False, "status_note": "session_stopped", "t_start_utc": time.time()})
                 return
 
-    async def main_lane(self, mk):
+    async def main_lane(self, mk, part=0, parts=1):
         m = self.plan["models"][mk]
-        blocks, extras = m["blocks"], list(m["extras"])
+        blocks, extras = m["blocks"][part::parts], list(m["extras"][part::parts])
         per_gap = len(extras) / max(1, len(blocks))
         acc = 0.0
         for b in blocks:
@@ -217,7 +228,7 @@ class Runner:
 
     async def warmup(self, mk, arm_name):
         await self.one(mk, arm_name, "WARMUP", with_nonce(self.P["z"][0]["messages"], nonce_hex()),
-                       {"warmup": True}, max_tokens=1, allow_retry=False)
+                       {"warmup": True}, max_tokens=1, allow_retry=False, expect_length=True)
 
     async def load_phase(self):
         conc = self.cfg["limits"]["load_concurrency"]
@@ -233,7 +244,8 @@ class Runner:
     async def run(self, do_load=True):
         models = list(self.plan["models"])
         await asyncio.gather(*(self.warmup(mk, a) for mk in models for a in self.plan["models"][mk]["arms"]))
-        lanes = [self.main_lane(mk) for mk in models]
+        parts = int(self.cfg.get("main_lanes_per_model", 1))  # v1.0 1회 실험: 주 블록을 여러 레인으로 나눠 병렬
+        lanes = [self.main_lane(mk, i, parts) for mk in models for i in range(parts)]
         lanes += [self.side_lane(mk, items) for mk in models for items in self.plan["models"][mk]["side"].values()]
         await asyncio.gather(*lanes)
         if do_load:

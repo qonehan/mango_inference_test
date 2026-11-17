@@ -1,0 +1,25 @@
+# 1회 실험 설정 (프로토콜 v1.0, 2026-11-17). day1.yaml을 바탕으로 회차 1번에 주 비교 표본을 모은다.
+# 총 예산 $50(예비비 포함). 건수는 code/estimate_cost.py로 파일럿 단가를 적용해 정했다.
+base: day1.yaml
+version: "v1.0"
+or_send_session_id: true      # OR 경로 W2에 session_id 전송 (OpenRouter 고착 규칙, 파일럿 정정)
+main_lanes_per_model: 2       # 주 블록을 모델당 2레인으로 병렬 (Mango 동시 3·분당 36 한도는 유지)
+
+counts:
+  common_w1: 40          # M·OR-기본 공통 W1 (P2)
+  common_w3: 40          # P3
+  or_default_w1: 40      # 라우팅 전용 추가분 없음
+  or_default_w3: 40
+  w2_sessions_per_slot: 40   # P1·P4 세션 쌍
+  w2_nosid_sessions: 6       # 탐색: session_id 없는 OR-기본 W2 (앞 6세션과 같은 내용)
+  pin_w2_sessions: 0
+  pin_w1: 3
+  pin_w3: 3
+  pin_extras: false
+  l_per_length: 1        # 1k·10k·32k 각 1건 (M·OR-기본)
+  z: 4
+  cache_pairs: 1
+  load: 8                # M·OR-기본 동시 4 × 2묶음
+  sort_w1: 5
+  sort_w3: 5
+q_items_per_model: 25    # 품질 점검: M·OR-기본만
