@@ -1,0 +1,76 @@
+model          endpoint                      n | TTFT ms: 우리 / OR기록 / 공개p50 | tok/s: 우리decode / OR기록decode / OR기록전체 / 공개throughput / 공개speed | 공개 30분 요청수
+deepseek-v4.1- stepfun/fp8                  75 |   1462 /   1376 /   1248 |   207 /   223 /    88 /   127 /   nan | 53543
+deepseek-v4.1- relace/fp4                   74 |    740 /    622 /    748 |   280 /   207 /    97 /   151 /   nan | 128000
+deepseek-v4.1- morph/fp8                    65 |    726 /    636 /    572 |   150 /   150 /   101 /   120 /   nan | 132778
+deepseek-v4.1- cohere/fp8                   48 |    895 /    772 /    921 |   227 /   231 /   127 /   140 /   nan | 75184
+deepseek-v4.1- wafer/us                     45 |    382 /    298 /    369 |   225 /   249 /   172 /   157 /   nan | 255128
+deepseek-v4.1- river                        44 |    934 /    848 /    997 |   161 /   157 /   105 /   114 /   nan | 42810
+deepseek-v4.1- wafer/mxfp4                  37 |    447 /    358 /    426 |   179 /   190 /   124 /   152 /   nan | 61374
+deepseek-v4.1- inference-net/fp8            35 |    650 /    533 /    238 |   150 /   150 /    97 /   114 /   nan | 116238
+deepseek-v4.1- inference-net/us             30 |    670 /    566 /    230 |   143 /   145 /    92 /   122 /   nan | 188080
+deepseek-v4.1- alibaba                      25 |   1034 /    967 /   1401 |   172 /   173 /    94 /   114 /   nan | 60740
+deepseek-v4.1- deepinfra/fp8                16 |    834 /    760 /    834 |   127 /   121 /    76 /    84 /   nan | 557493
+deepseek-v4.1- together                     16 |    714 /    642 /    554 |   299 /   306 /   119 /   184 /   nan | 160455
+deepseek-v4.1- digitalocean                 16 |   1171 /   1096 /    745 |   260 /   256 /   113 /   168 /   nan | 77930
+deepseek-v4.1- modelrun/fp4                 13 |    782 /    693 /    794 |   227 /   236 /   105 /   138 /   nan | 18496
+deepseek-v4.1- sail-research/fp4            12 |   1531 /   1455 /   1430 |   178 /   180 /    88 /   100 /   nan | 27882
+deepseek-v4.1- ambient/fp4                  11 |   1109 /    999 /    669 |    58 /    58 /    50 /    69 /   nan | 2697
+deepseek-v4.1- dekallm                      10 |   1109 /   1040 /   1418 |   148 /   163 /    86 /   106 /   nan | 3216
+deepseek-v4.1- gmicloud/fp8                 10 |    722 /    634 /    998 |   243 /   243 /   116 /   150 /   nan | 7316
+glm-5.3        wafer/us                     96 |    458 /    376 /    216 |   118 /   114 /    97 /    77 /   nan | 141877
+glm-5.3        decart/fp4                   91 |    916 /    814 /    726 |   143 /   140 /    87 /   102 /   nan | 17062
+glm-5.3        tenstorrent/fp8              61 |   1522 /   1442 /    702 |   260 /   252 /    67 /   104 /   nan | 8943
+glm-5.3        digitalocean                 47 |   1370 /   1271 /    534 |   215 /   201 /    85 /    94 /   nan | 12660
+glm-5.3        inference-net/us             45 |    969 /    715 /    390 |   120 /   121 /    72 /    80 /   nan | 10366
+glm-5.3        inference-net/fp4            44 |    866 /    622 /    386 |   134 /   136 /    92 /    81 /   nan | 9156
+glm-5.3        cohere/nvfp4                 32 |   1200 /    958 /    932 |   104 /    98 /    42 /    76 /   nan | 4418
+glm-5.3        wafer/fp4                    26 |    509 /    408 /    296 |   140 /   133 /   108 /    80 /   nan | 14250
+glm-5.3        fireworks/spot               22 |   1806 /   1580 /    452 |   124 /   124 /    50 /    82 /   nan | 13748
+glm-5.3        coreweave/nvfp4              22 |    625 /    524 /    503 |   220 /   200 /   120 /    90 /   nan | 11145
+glm-5.3        inceptron/fp4                22 |    938 /    686 /    676 |   114 /   110 /    73 /    89 /   nan | 3954
+glm-5.3        modal                        11 |   1021 /    689 /    414 |   200 /   196 /   122 /    90 /   nan | 2266
+glm-5.3        alibaba/prime                10 |    623 /    401 /    718 |   144 /   144 /   142 /    90 /   nan | 496
+glm-5.3        fireworks                    10 |   1018 /    770 /    553 |   147 /   151 /    74 /    72 /   nan | 1011
+glm-5.3        gmicloud/fp8                 10 |   2627 /   2548 /   2270 |   119 /   120 /    36 /    67 /   nan | 238
+glm-5.3        relace/fp4                   10 |   1271 /   1034 /   1342 |   109 /   108 /    75 /    68 /   nan | 1903
+glm-5.3        parasail/fp4                 10 |    708 /    474 /    509 |   301 /   307 /   175 /   121 /   nan | 4014
+glm-5.3-flash  inference-net/us             90 |    843 /    595 /    348 |   146 /   152 /    98 /   118 /   nan | 68234
+glm-5.3-flash  modal/fp4                    63 |    693 /    458 /    441 |   123 /   135 /    68 /    91 /   nan | 32581
+glm-5.3-flash  digitalocean                 58 |   1715 /   1488 /    828 |   181 /   147 /    42 /   121 /   nan | 50760
+glm-5.3-flash  baseten/fp8                  54 |    896 /    661 /    429 |   104 /   101 /    72 /    94 /   nan | 44460
+glm-5.3-flash  coreweave/nvfp4              51 |   1080 /    849 /    658 |   117 /   113 /    56 /   116 /   nan | 65002
+glm-5.3-flash  inference-net/fp4            42 |    923 /    680 /    393 |   152 /   156 /    88 /   110 /   nan | 20438
+glm-5.3-flash  together                     39 |    947 /    711 /    656 |   213 /   208 /   111 /   132 /   nan | 151579
+glm-5.3-flash  makora/fp4                   35 |   1329 /   1062 /    784 |   177 /   136 /    68 /    80 /   nan | 20090
+glm-5.3-flash  particle-ai/nvfp4            31 |    958 /    735 /    618 |   279 /   287 /   145 /   136 /   nan | 70714
+glm-5.3-flash  venice                       31 |   1350 /   1124 /    985 |   159 /   138 /    56 /    90 /   nan | 4938
+glm-5.3-flash  friendli                     24 |    772 /    534 /    502 |   221 /   219 /   119 /   123 /   nan | 10862
+glm-5.3-flash  relace/fp4                   23 |   2098 /   1880 /    879 |    97 /    98 /    66 /    66 /   nan | 93829
+glm-5.3-flash  wafer/us                     14 |    773 /    480 /    486 |   118 /    99 /    75 /    97 /   nan | 61647
+glm-5.3-flash  cohere/nvfp4                 14 |   1056 /    832 /    638 |   209 /   205 /    59 /   126 /   nan | 48132
+kimi-k3.1-pro  inference-net/mxfp4         106 |    994 /    752 /    772 |   155 /   158 /   113 /    98 /   nan | 5598
+kimi-k3.1-pro  modal/mxfp4                  97 |    776 /    514 /    881 |   103 /   103 /    85 /    90 /   nan | 3481
+kimi-k3.1-pro  digitalocean                 85 |   2001 /   1760 /   1529 |   273 /   267 /   115 /   102 /   nan | 5434
+kimi-k3.1-pro  wafer/us                     56 |    724 /    497 /    760 |   105 /   105 /    86 /    82 /   nan | 7334
+kimi-k3.1-pro  relace/fp4                   46 |   1260 /   1040 /   1777 |   124 /   120 /    91 /    66 /   nan | 4265
+kimi-k3.1-pro  wafer/mxfp4                  44 |    730 /    485 /    909 |   148 /   148 /   119 /    82 /   nan | 3728
+kimi-k3.1-pro  fireworks                    34 |   1113 /    872 /   1367 |    86 /    86 /    73 /    63 /   nan | 3109
+kimi-k3.1-pro  river                        30 |    784 /    546 /    721 |   127 /   127 /   105 /   106 /   nan | 2166
+kimi-k3.1-pro  inference-net/us/fast        20 |   1194 /    964 /    856 |   182 /   202 /   107 /   101 /   nan | 2093
+kimi-k3.1-pro  parasail/fp4                 19 |   1020 /    662 /   1299 |   122 /   123 /    98 /   102 /   nan | 1788
+kimi-k3.1-pro  inference-net/mxfp4/us       16 |   1421 /   1193 /    695 |   131 /   134 /    86 /   103 /   nan | 1988
+kimi-k3.1-pro  inference-net/fast           15 |   1101 /    874 /    796 |   144 /   145 /   110 /   100 /   nan | 2069
+kimi-k3.1-pro  primalabs/mxfp4              13 |   1222 /   1004 /   1540 |   203 /   193 /   130 /   101 /   nan | 783
+kimi-k3.1-pro  akashml/fp4                  12 |   1617 /   1400 /   1333 |   126 /   116 /    58 /    72 /   nan | 612
+
+우리 TTFT ÷ OR 기록 지연(같은 요청): 엔드포인트 63개, 비율 중앙값 1.23 (범위 1.03~1.61), 순위상관(Spearman) 0.96
+OR 기록 지연 ÷ 공개 p50 지연: 엔드포인트 63개, 비율 중앙값 1.10 (범위 0.51~3.49), 순위상관(Spearman) 0.60
+우리 TTFT ÷ 공개 p50 지연: 엔드포인트 63개, 비율 중앙값 1.37 (범위 0.71~3.99), 순위상관(Spearman) 0.58
+우리 decode ÷ OR 기록 decode(같은 요청): 엔드포인트 63개, 비율 중앙값 1.00 (범위 0.90~1.35), 순위상관(Spearman) 0.97
+우리 decode ÷ 공개 p50 throughput: 엔드포인트 63개, 비율 중앙값 1.54 (범위 0.84~2.67), 순위상관(Spearman) 0.72
+OR 기록 전체 tok/s ÷ 공개 p50 throughput: 엔드포인트 63개, 비율 중앙값 0.85 (범위 0.35~1.57), 순위상관(Spearman) 0.52
+
+deepseek-v4.1-flash-1017: 엔드포인트 18개 | decode 순위상관 우리 vs 공개 0.85 | TTFT 순위상관 0.78
+glm-5.3: 엔드포인트 17개 | decode 순위상관 우리 vs 공개 0.76 | TTFT 순위상관 0.51
+glm-5.3-flash: 엔드포인트 14개 | decode 순위상관 우리 vs 공개 0.72 | TTFT 순위상관 0.85
+kimi-k3.1-pro: 엔드포인트 14개 | decode 순위상관 우리 vs 공개 0.47 | TTFT 순위상관 0.46

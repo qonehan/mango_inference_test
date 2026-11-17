@@ -18,6 +18,8 @@
 | `analysis/primary.json` | `code/analyze.py`의 P1~P4 판정 |
 | `analysis/routing.csv` | OR 경로별 제공사·엔드포인트 배분 |
 | `analysis/deep_analysis.txt` | `code/analyze_pilot.py` 보조 지표 출력(아래 주의 참고) |
+| `analysis/compare_or_stats.txt` | `code/compare_or_stats.py` 출력: OR 엔드포인트별 실측·generation 기록·공개 통계 비교 |
+| `analysis/explore_run1.txt` | `code/explore_run1.py` 출력: 입력 길이·부하·캐시 대조·고정 제공사·도구 호출 탐색 집계 |
 | `SHA256SUMS` | 이 폴더 파일의 해시 |
 
 **싣지 않은 것:** Broadcast 수신 원본(요청 전문과 계정 메타데이터 포함), Q 응답 원문(`q_raw.jsonl`), 질문 세트 파일(파일럿과 같은 `prompts_manifest`, `code/build_prompts.py`로 재생성), OR 통계 페이지 HTML, 계정 콘솔 캡처. 이 자료는 비공개로 보관합니다.

@@ -1,0 +1,33 @@
+## 1. L (입력 길이) TTFT any ms, 모델·경로·길이별 1건
+  deepseek-v4.1-flash-1017 M: 1k→319, 10k→536, 33k→1182 | OR-default: 1k→373, 10k→774, 33k→1587
+  glm-5.3 M: 1k→579, 10k→1268, 31k→2611 | OR-default: 1k→591, 10k→632, 31k→1352
+  glm-5.3-flash M: 1k→375, 10k→813, 31k→2037 | OR-default: 1k→655, 10k→1378, 31k→1938
+  kimi-k3.1-pro M: 1k→432, 10k→893, 32k→2357 | OR-default: 1k→840, 10k→1069, 32k→2232
+
+## 2. LOAD(동시 4, 8건) vs W1(동시 1, 성공) 중앙값: TTFT any ms, decode tok/s, 실패
+  deepseek-v4.1-flash-1017 M: TTFT 360 vs 328, decode 487 vs 501, 실패 0/8 | OR-default: TTFT 431 vs 737, decode 207 vs 208, 실패 0/8
+  glm-5.3 M: TTFT 501 vs 451, decode 174 vs 193, 실패 1/8 | OR-default: TTFT 794 vs 691, decode 123 vs 140, 실패 1/8
+  glm-5.3-flash M: TTFT 416 vs 402, decode 303 vs 331, 실패 1/8 | OR-default: TTFT 883 vs 816, decode 164 vs 134, 실패 0/8
+  kimi-k3.1-pro M: TTFT 705 vs 470, decode 109 vs 119, 실패 0/8 | OR-default: TTFT 1023 vs 795, decode 107 vs 144, 실패 0/8
+
+## 3. 캐시 대조 (M, 같은 입력 2회): prompt, cached, TTFT any ms
+  glm-5.3-flash w2-04 23711 0 1665
+  glm-5.3-flash w2-04 23711 23040 634
+  deepseek-v4.1-flash-1017 w2-04 24984 0 834
+  deepseek-v4.1-flash-1017 w2-04 24984 24960 563
+  kimi-k3.1-pro w2-04 24372 0 2072
+  kimi-k3.1-pro w2-04 24372 24320 717
+  glm-5.3 w2-04 23712 256 2622
+  glm-5.3 w2-04 23712 23680 634
+
+## 4. OR-고정 제공사 vs M (W1+W3 성공, 고정 경로당 6건): decode 중앙값, TTFT any 중앙값
+  deepseek-v4.1-flash-1017 M 509 tok/s 341ms | wafer/us 354 tok/s 350ms | together 284 tok/s 714ms | deepseek 199 tok/s 679ms | inference-net/us 128 tok/s 888ms | deepinfra/fp8 93 tok/s 701ms
+  glm-5.3 M 193 tok/s 452ms | decart/fp4 127 tok/s 877ms | inference-net/us 114 tok/s 829ms | wafer/us 106 tok/s 402ms | siliconflow/fp8 105 tok/s 1884ms | z-ai/fp8 94 tok/s 2479ms
+  glm-5.3-flash M 324 tok/s 421ms | coreweave/nvfp4 226 tok/s 707ms | together 205 tok/s 671ms | inference-net/us 154 tok/s 766ms | open-inference/fp4 127 tok/s 1252ms | z-ai/fp8 62 tok/s 1882ms
+  kimi-k3.1-pro inference-net/mxfp4 172 tok/s 783ms | M 119 tok/s 471ms | wafer/us 102 tok/s 619ms | modal/mxfp4 97 tok/s 643ms | together 49 tok/s 1079ms | moonshotai/mxfp4 31 tok/s 1949ms
+
+## 5. W3 도구 호출: 성공/전체, 유효 도구 호출
+  deepseek-v4.1-flash-1017 M 40/40, 유효 40 | OR-default 40/40, 유효 40
+  glm-5.3 M 38/40, 유효 38 | OR-default 38/40, 유효 38
+  glm-5.3-flash M 40/40, 유효 40 | OR-default 40/40, 유효 40
+  kimi-k3.1-pro M 40/40, 유효 40 | OR-default 40/40, 유효 40

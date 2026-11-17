@@ -1,4 +1,6 @@
+d8759aa8f11bd4afb7324a504def2b5706afc75345c7dd25a4de442a87621e87  ./analysis/compare_or_stats.txt
 f8316184406e14b849addf7e08477ada0701ef16ccd4b8895ad5697a1d394b69  ./analysis/deep_analysis.txt
+5849daacab959ab1d47a7cba84ceed7cc7c0ceab20d85350db4076bd15c594e0  ./analysis/explore_run1.txt
 fb0ce002bf71f728d8fc384cd1e36b50496f3e9d96382c6f17fe3436e04445cb  ./analysis/primary.json
 48c6196beeaf5b7c71641d3076a23f8ef51ab20a928f0f868879b697e0fdbc25  ./analysis/routing.csv
 a5c0dac52a12ddbefc2c9b11b53cb0a75d65d4234184bcf5362f1997349b0776  ./check.json
