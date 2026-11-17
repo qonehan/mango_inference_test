@@ -1,45 +1,27 @@
 # mango_inference_test
 
-Mango Inference(MangoBoost)와 OpenRouter 제공사의 성능·비용 비교, 그리고 OpenRouter가 실제로 어느 제공사를 고르는지를 재는 실험의 계획·시험 기록·코드입니다.
+Mango Inference와 OpenRouter의 관측 성능·비용 및 라우팅을 비교하는 실험입니다.
 
-- **상태:** 프로토콜 v0.9.1(사전 등록 초안). 간이 테스트·reasoning 설정 시험과 외부 검토 의견을 반영함. 파일럿과 본 측정은 아직 실행하지 않음
-- **대상:** DeepSeek V4.1 Flash 1017, GLM-5.3, GLM-5.3-Flash, Kimi K3.1 Pro × 호출 경로 12개(Mango 직접, OpenRouter 기본, 고정 엔드포인트 5, 정렬 3, `:floor`·`:nitro`)
-- **규모·예산:** 약 27,000건(W2 세션 32 기준), 약 $105~225 (상한 $250)
+- **현재 기준:** [프로토콜 v0.9.2](docs/02_실험_프로토콜.md) · [통합 명세 HTML](pdf/04_통합명세_v0.9.2.html). 사전 등록 초안이며 파일럿 후 v1.0으로 동결합니다.
+- **상태:** 간이 테스트·reasoning 시험 완료. 본 runner·프롬프트 생성기·Q 채점기·서버 기록 결합은 미구현. 파일럿·본 측정 미실행.
+- **판정:** P1·P2·P4 × 4모델의 12개 주 판정. P3는 성공률 차이 추정만 수행. Q는 M·OR-기본·고정 5곳의 7경로, 400문항으로 품질 허용 범위를 확인합니다.
+- **규모:** W2 32세션 기준 약 28,640건. 서울 약 $107~238, 상한 $250. W2 확대 시 최대 약 $15 추가로 상한을 넘을 수 있어 파일럿에서 주 비교·Q 예산을 먼저 확보하고 탐색 범위를 줄입니다. 미국 축소판은 별도 예산 확정 전 미실행.
+- **해석:** 서울에서 관측한 종단간 성능과 고정 대화 재생의 프로토콜 성공률입니다. 서버 내부 성능·실제 에이전트 과제 성공률로 일반화하지 않습니다.
 
-## 먼저 볼 문서
+## 읽는 순서
 
-**최신 정정:** [v0.9.1 정정 명세 PDF](pdf/03_정정명세_v0.9.1.pdf) · [HTML](pdf/03_정정명세_v0.9.1.html). 기존 01·02 PDF보다 우선합니다.
+1. [계획 절차](docs/01_실험계획_절차.md)
+2. [현재 프로토콜](docs/02_실험_프로토콜.md)
+3. [간이 테스트](docs/03_간이테스트_결과.md) · [reasoning 시험](docs/04_reasoning설정_시험.md)
+4. [보완 이력](docs/05_간이테스트_이후_보완.md)
 
-| 문서 | 내용 |
-|---|---|
-| [실험 진행 정리 (PDF, 5쪽)](pdf/02_실험진행_정리.pdf) | 언제 몇 번 돌리는지, 질문 예시, 회차별 호출 수, API 요청 예시, 예산 |
-| [재현용 명세 (PDF, 6쪽)](pdf/01_재현용_명세.pdf) | 설정값·질문 생성 규칙·시드·실행 순서·지표 공식·분석 절차 (설정의 기준) |
-| [실험 계획 절차](docs/01_실험계획_절차.md) | 계획을 세운 순서, 단계별 산출물, 재사용 체크리스트 |
-| [실험 프로토콜](docs/02_실험_프로토콜.md) | 연구 질문·가설·판정 기준·통제 방법과 설계 이유 (변경 기록 포함) |
-| [간이 테스트 이후 보완 이력](docs/05_간이테스트_이후_보완.md) | 시험에서 발견한 것과 그에 따라 바뀐 계획 20건 |
+`code/`는 시험·계산 코드, `data/`는 공개 통계, `results/`는 기존 시험 원시 기록입니다. `pdf/`의 01·02는 v0.9, 03은 v0.9.1 보관본으로 현재 실행 기준이 아닙니다. 원본 PDF는 변경하지 않았습니다.
 
-## 폴더
-
-| 폴더 | 내용 |
-|---|---|
-| `docs/` | 절차, 프로토콜, 간이 테스트 결과, reasoning 설정 시험, 보완 이력, 참고 자료(AA 방법론, OpenRouter 라우팅) |
-| `pdf/` | 재현용 명세, 실험 진행 정리 (PDF와 원본 HTML) |
-| `code/` | 간이 테스트(`smoke_test.py`), reasoning 시험(`reasoning_param_test.py`), 응답 엔드포인트 조회(`enrich_endpoints.py`), 결과 페이지 생성, 엔드포인트 통계 생성 |
-| `results/` | 간이 테스트·reasoning 시험 원시 기록(JSONL), 요약 CSV, 결과 페이지(HTML) |
-| `data/` | OpenRouter 엔드포인트별 공개 통계, 30일 점유율, 가격 비교 (2026-11-16 수집) |
-
-## 코드 실행
+## 검증과 실행
 
 ```bash
-python -m venv .venv && .venv/Scripts/pip install openai httpx
-python code/smoke_test.py --dry-run                 # 호출 없이 요청 목록 확인
-python code/smoke_test.py --out results/<폴더>      # 경로마다 1회 호출
-python code/enrich_endpoints.py results/<폴더>      # 응답한 엔드포인트 채우기
+python -m unittest discover -s code -p "test_analysis_metrics.py"
+python code/smoke_test.py --dry-run
 ```
 
-API 키는 환경변수 `MANGO_API_KEY`, `OPENROUTER_API_KEY` 또는 저장소 밖 `%USERPROFILE%\mango_bench.env`(KEY=VALUE)에서 읽습니다. 키는 저장소에 넣지 않습니다.
-
-
-## 2026-11-17 재검토 수정
-
-최신 규칙은 [프로토콜 v0.9.1 정정 절](docs/02_실험_프로토콜.md#2026-11-17-재검토-반영-확정-분석-규칙-v091)과 [재현용 HTML](pdf/01_재현용_명세.html#revision-v091)을 따릅니다. **기존 PDF 두 개는 v0.9 보관본이며 최신 명세가 아닙니다.** 계산 함수는 `code/analysis_metrics.py`, 검증은 `python -m unittest discover -s code -p "test_analysis_metrics.py"`입니다. 본 측정 runner는 아직 미구현이며 유료 API 호출은 실행하지 않았습니다.
+간이 테스트는 본 runner가 아닙니다. 실제 호출은 과금됩니다. 키는 환경변수 `MANGO_API_KEY`, `OPENROUTER_API_KEY` 또는 저장소 밖 `%USERPROFILE%\mango_bench.env`에서 읽습니다.
