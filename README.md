@@ -2,11 +2,13 @@
 
 Mango Inference(MangoBoost)와 OpenRouter 제공사의 성능·비용 비교, 그리고 OpenRouter가 실제로 어느 제공사를 고르는지를 재는 실험의 계획·시험 기록·코드입니다.
 
-- **상태:** 프로토콜 v0.9(사전 등록 초안). 간이 테스트·reasoning 설정 시험과 외부 검토 의견을 반영함. 파일럿과 본 측정은 아직 실행하지 않음
+- **상태:** 프로토콜 v0.9.1(사전 등록 초안). 간이 테스트·reasoning 설정 시험과 외부 검토 의견을 반영함. 파일럿과 본 측정은 아직 실행하지 않음
 - **대상:** DeepSeek V4.1 Flash 1017, GLM-5.3, GLM-5.3-Flash, Kimi K3.1 Pro × 호출 경로 12개(Mango 직접, OpenRouter 기본, 고정 엔드포인트 5, 정렬 3, `:floor`·`:nitro`)
 - **규모·예산:** 약 27,000건(W2 세션 32 기준), 약 $105~225 (상한 $250)
 
 ## 먼저 볼 문서
+
+**최신 정정:** [v0.9.1 정정 명세 PDF](pdf/03_정정명세_v0.9.1.pdf) · [HTML](pdf/03_정정명세_v0.9.1.html). 기존 01·02 PDF보다 우선합니다.
 
 | 문서 | 내용 |
 |---|---|
@@ -37,3 +39,7 @@ python code/enrich_endpoints.py results/<폴더>      # 응답한 엔드포인�
 
 API 키는 환경변수 `MANGO_API_KEY`, `OPENROUTER_API_KEY` 또는 저장소 밖 `%USERPROFILE%\mango_bench.env`(KEY=VALUE)에서 읽습니다. 키는 저장소에 넣지 않습니다.
 
+
+## 2026-11-17 재검토 수정
+
+최신 규칙은 [프로토콜 v0.9.1 정정 절](docs/02_실험_프로토콜.md#2026-11-17-재검토-반영-확정-분석-규칙-v091)과 [재현용 HTML](pdf/01_재현용_명세.html#revision-v091)을 따릅니다. **기존 PDF 두 개는 v0.9 보관본이며 최신 명세가 아닙니다.** 계산 함수는 `code/analysis_metrics.py`, 검증은 `python -m unittest discover -s code -p "test_analysis_metrics.py"`입니다. 본 측정 runner는 아직 미구현이며 유료 API 호출은 실행하지 않았습니다.

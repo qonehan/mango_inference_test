@@ -26,6 +26,7 @@ import uuid
 from pathlib import Path
 
 import httpx
+from analysis_metrics import decode_rate
 from openai import AsyncOpenAI
 
 MANGO_BASE = "https://api.mangoboost.io/v1"
@@ -114,6 +115,8 @@ async def call_once(client: AsyncOpenAI, name: str, arm: dict, kind: str, max_to
     t0 = time.perf_counter_ns()
     first_any = first_content = last = None
     n_chunks = 0
+    generated_times = []
+    stream_end = None
     text_parts, tool_args = [], []
     reasoning_chars = 0
     usage = finish = resp_id = None
@@ -133,6 +136,8 @@ async def call_once(client: AsyncOpenAI, name: str, arm: dict, kind: str, max_to
                     has_reason = bool(dd.get("reasoning") or dd.get("reasoning_content"))
                     has_content = bool(dd.get("content"))
                     has_tool = bool(dd.get("tool_calls"))
+                    if has_reason or has_content or has_tool:
+                        generated_times.append(now / 1e9)
                     if (has_reason or has_content or has_tool) and first_any is None:
                         first_any = now
                     if (has_content or has_tool) and first_content is None:
@@ -149,6 +154,7 @@ async def call_once(client: AsyncOpenAI, name: str, arm: dict, kind: str, max_to
                     if c.finish_reason:
                         finish = c.finish_reason
                 last = now
+            stream_end = time.perf_counter_ns()
             rec["ok"] = finish not in (None, "length") and (kind != "tool" or bool(tool_args))
     except TimeoutError:
         rec["error"] = f"DeadlineExceeded: 요청 전체 마감 {REQUEST_DEADLINE_S}초 초과"
@@ -158,12 +164,19 @@ async def call_once(client: AsyncOpenAI, name: str, arm: dict, kind: str, max_to
         rec["status"] = getattr(e, "status_code", None)
     ms = lambda t: None if t is None else round((t - t0) / 1e6, 1)
     rec.update(resp_id=resp_id, finish_reason=finish, chunks=n_chunks, ttft_any_ms=ms(first_any),
-               ttft_content_ms=ms(first_content), e2e_ms=ms(last), usage=usage,
+               ttft_content_ms=ms(first_content), e2e_ms=ms(stream_end), usage=usage,
                text_head="".join(text_parts)[:160], tool_args="".join(tool_args)[:160],
                reasoning_chars=reasoning_chars,
                reasoning_tokens=((usage or {}).get("completion_tokens_details") or {}).get("reasoning_tokens")
                if ((usage or {}).get("completion_tokens_details") or {}).get("reasoning_tokens") is not None
                else (usage or {}).get("reasoning_tokens"))
+    rec["generated_chunk_times_s"] = generated_times
+    rec["last_generated_ms"] = None if not generated_times else round((generated_times[-1] - t0/1e9)*1000, 1)
+    rec["decode_tps"] = decode_rate((usage or {}).get("completion_tokens"),
+        rec["reasoning_tokens"], reasoning_chars > 0, generated_times) if rec["ok"] else None
+    rec["decode_observable"] = rec["decode_tps"] is not None
+    rec["total_tps"] = ((usage or {}).get("completion_tokens", 0) / ((stream_end-t0)/1e9)
+        if rec["ok"] and stream_end and usage else None)
     return rec
 
 
