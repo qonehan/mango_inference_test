@@ -26,7 +26,7 @@ async def main(a) -> None:
     cfg = load_config(a.config)
     P = load_prompts(Path(a.prompts))
     keys = load_keys()
-    kb = os.environ.get("OPENROUTER_API_KEY_NOBC")
+    kb = keys.get("OPENROUTER_API_KEY_NOBC")  # .env 파일에서도 읽음 (파일럿에서 환경변수만 읽어 건너뛰어진 문제 수정)
     if not kb:
         raise SystemExit("OPENROUTER_API_KEY_NOBC(Broadcast 제외 키)가 필요합니다")
     on = make_clients(cfg, keys)["or"]

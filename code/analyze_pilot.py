@@ -27,7 +27,7 @@ def load(name):
 rows = [r for r in load("raw.jsonl") if r["task"] != "WARMUP"]
 gens = {g["resp_id"]: g for g in load("generations.jsonl")}
 mm = {m["id"]: m for m in json.load(open(os.path.join(D, "mango_models.json"), encoding="utf-8"))["data"]}
-q = load("q_graded.jsonl")
+q = load("q_graded.jsonl") if os.path.exists(os.path.join(D, "q_graded.jsonl")) else load(os.path.join("q", "q_graded.jsonl"))
 MODELS = sorted({r["model_key"] for r in rows})
 MID = {mk: next(r["model"] for r in rows if r["model_key"] == mk and r["arm"] == "M" and "model" in r) for mk in MODELS}
 

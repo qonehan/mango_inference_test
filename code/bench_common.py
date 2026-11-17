@@ -53,7 +53,7 @@ def file_sha256(path: str | Path) -> str:
 
 
 def load_keys() -> dict[str, str]:
-    keys = {k: os.environ.get(k, "") for k in ("MANGO_API_KEY", "OPENROUTER_API_KEY")}
+    keys = {k: os.environ.get(k, "") for k in ("MANGO_API_KEY", "OPENROUTER_API_KEY", "OPENROUTER_API_KEY_NOBC")}
     cands = [Path(os.environ["MANGO_BENCH_ENV"])] if os.environ.get("MANGO_BENCH_ENV") else []
     home = Path(os.environ.get("USERPROFILE", str(Path.home())))
     cands += [Path("/opt/mango-bench/.env"), home / ".mango_bench.env", home / "mango_bench.env"]

@@ -81,3 +81,53 @@ class Bench(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class TestExpectLength(unittest.TestCase):
+    """v1.0: L·Z·준비 호출의 의도된 length 종료는 성공으로 기록한다."""
+
+    def test_length_expected_is_ok(self):
+        import asyncio
+        from types import SimpleNamespace
+        import bench_common as bc
+
+        def chunk(delta, finish=None, usage=None):
+            d = SimpleNamespace(model_dump=lambda: delta)
+            ch = [] if usage else [SimpleNamespace(delta=d, finish_reason=finish)]
+            return SimpleNamespace(id="x", system_fingerprint=None, choices=ch,
+                                   usage=SimpleNamespace(model_dump=lambda: usage) if usage else None)
+
+        class Stream:
+            def __init__(self):
+                self.items = [chunk({"content": "a", "reasoning": None, "reasoning_content": None, "tool_calls": None}, "length"),
+                              chunk({}, usage={"prompt_tokens": 5, "completion_tokens": 1})]
+
+            def __aiter__(self):
+                return self
+
+            async def __anext__(self):
+                if not self.items:
+                    raise StopAsyncIteration
+                return self.items.pop(0)
+
+        class Raw:
+            headers = {}
+
+            def parse(self):
+                return Stream()
+
+        class Client:
+            class chat:
+                class completions:
+                    class with_raw_response:
+                        @staticmethod
+                        async def create(**kw):
+                            return Raw()
+
+        for expect, ok in ((True, True), (False, False)):
+            rec = asyncio.run(bc.stream_call(Client, host="mango", model="m", messages=[], max_tokens=1,
+                                             temperature=1.0, top_p=1.0, expect_length=expect))
+            self.assertEqual(rec["ok"], ok, rec.get("error"))
+            if expect:
+                self.assertEqual(rec.get("status_note"), "length_expected")
+                self.assertIsNone(rec["decode_tps"])

@@ -180,7 +180,9 @@ async def run(a) -> None:
     lanes = []
     for mk in cfg["models"]:
         arms = arms_for(cfg, mk)
-        for name in ["M", "OR-default"] + [f"OR-pin:{p}" for p in cfg["models"][mk]["pins"]]:
+        names = (a.arms.split(",") if a.arms
+                 else ["M", "OR-default"] + [f"OR-pin:{p}" for p in cfg["models"][mk]["pins"]])
+        for name in names:
             lanes.append(lane(mk, arms[name]))
     await asyncio.gather(*lanes)
     print("완료:", out / "q_raw.jsonl")
@@ -217,6 +219,7 @@ if __name__ == "__main__":
     r.add_argument("--q", required=True)
     r.add_argument("--out", required=True)
     r.add_argument("--limit", type=int, default=0)
+    r.add_argument("--arms", default="", help="쉼표로 구분한 경로만 실행 (예: M,OR-default). 기본: M·OR-기본·OR-고정 5곳")
     r.add_argument("--mango-base", default=None)
     r.add_argument("--or-base", default=None)
     g = sp.add_parser("grade")

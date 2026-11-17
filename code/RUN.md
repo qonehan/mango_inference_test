@@ -1,6 +1,6 @@
 # 측정 코드 실행 절차
 
-프로토콜: [docs/02_실험_프로토콜.md](../docs/02_실험_프로토콜.md) (v0.9.4). 아래 순서대로 실행합니다. 경로는 VM 기준이며, `code`는 저장소로 가는 심볼릭 링크라 상대 경로(`../`) 대신 아래 변수를 씁니다.
+프로토콜: [docs/02_실험_프로토콜.md](../docs/02_실험_프로토콜.md) (v1.0, 1회 실험은 0절과 아래 4절). 아래 순서대로 실행합니다. 경로는 VM 기준이며, `code`는 저장소로 가는 심볼릭 링크라 상대 경로(`../`) 대신 아래 변수를 씁니다.
 
 ```bash
 ROOT=/opt/mango-bench; PY=$ROOT/venv/bin/python; cd $ROOT/code
@@ -69,3 +69,27 @@ $PY analyze.py $ROOT/runs/<날짜>/S1 $ROOT/runs/<날짜>/S2 $ROOT/runs/<날짜>
 - 실제 호출은 과금됩니다. 키는 `.env`(권한 600)에만 두고 출력·기록하지 않습니다.
 - Q 문항 원문(`q_items.jsonl`)은 공개 저장소에 올리지 않습니다. ID·해시만 기록합니다.
 - 모의 서버로는 측정기만 검증합니다. 모의 결과 수치는 의미가 없습니다.
+
+## 4. 1회 실험 (프로토콜 v1.0, `config/run1.yaml`)
+
+```bash
+R=$ROOT/runs/run1
+cd $ROOT/repo && git fetch origin claude/wonderful-clarke-w44mne && git checkout FETCH_HEAD   # 실행 커밋 기록
+cd $ROOT/code
+$PY -m unittest discover -s . -p "test_*.py"
+$PY verify_meter.py --out $ROOT/runs/meter_check_run1.json
+$PY estimate_cost.py config/run1.yaml ../results/pilot_20261117        # 예상 약 $36
+$PY runner.py --config config/run1.yaml --prompts $ROOT/prompts --slot 1 --out $R --dry-run   # 4,528건 확인
+$PY probe.py start --config config/run1.yaml --out $R
+nohup $PY snapshot_or_stats.py --config config/run1.yaml --out $R/or_stats --every-min 30 --until-utc <시작+4시간> &
+$PY runner.py --config config/run1.yaml --prompts $ROOT/prompts --slot 1 --out $R --deadline-utc <시작+4시간>
+sleep 60 && $PY fetch_generations.py $R
+$PY check_slot.py $R --broadcast $ROOT/broadcast
+$PY q_bench.py run --config config/run1.yaml --q $ROOT/q --out $R/q --limit 25 --arms M,OR-default && $PY q_bench.py grade $R/q --q $ROOT/q
+$PY analyze.py $R --out $R/analysis
+$PY analyze_pilot.py $R > $R/analysis/deep_analysis.txt    # 보조 지표(분해 분석). q/q_graded.jsonl도 읽음
+```
+
+- 시작 전과 종료 후에 Mango 콘솔 잔액을 캡처합니다(비용 대조 2시점).
+- 예산 상한: Mango 잔액 약 $26, OpenRouter 실험 키 크레딧 한도 $24. 키 한도에 걸리면 이후 OpenRouter 요청은 우리 쪽 실패(잔액·한도)로 기록됩니다.
+- OR 경로 W2에는 `session_id`가 전송되고(`session_id_sent: true`), `OR-default-nosid` 6세션은 보내지 않습니다.
