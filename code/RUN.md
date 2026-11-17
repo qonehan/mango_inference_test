@@ -1,6 +1,10 @@
 # 측정 코드 실행 절차
 
-프로토콜: [docs/02_실험_프로토콜.md](../docs/02_실험_프로토콜.md) (v0.9.4). 아래 순서대로 실행합니다. 경로는 VM 기준(`/opt/mango-bench`)입니다.
+프로토콜: [docs/02_실험_프로토콜.md](../docs/02_실험_프로토콜.md) (v0.9.4). 아래 순서대로 실행합니다. 경로는 VM 기준이며, `code`는 저장소로 가는 심볼릭 링크라 상대 경로(`../`) 대신 아래 변수를 씁니다.
+
+```bash
+ROOT=/opt/mango-bench; PY=$ROOT/venv/bin/python; cd $ROOT/code
+```
 
 ## 파일 구성
 
@@ -24,40 +28,40 @@
 
 ```bash
 cd /opt/mango-bench/code
-../venv/bin/python verify_meter.py --out ../runs/meter_check.json          # 빠른 확인 (마감 5초)
-../venv/bin/python verify_meter.py --out ../runs/meter_check_full.json --full   # 실제 마감 300초
-../venv/bin/python -m unittest discover -s . -p "test_*.py"
+$PY verify_meter.py --out $ROOT/runs/meter_check.json          # 빠른 확인 (마감 5초)
+$PY verify_meter.py --out $ROOT/runs/meter_check_full.json --full   # 실제 마감 300초
+$PY -m unittest discover -s . -p "test_*.py"
 ```
 합격: 동시 1·16 모두 중앙값 < 5ms, 마감 시험 pass.
 
 ## 2. 파일럿
 
 ```bash
-R=../runs/pilot
-../venv/bin/python probe.py start --config config/pilot.yaml --out $R
-../venv/bin/python runner.py --config config/pilot.yaml --prompts ../prompts --slot P --out $R --deadline-utc <ISO 시각>
-sleep 60 && ../venv/bin/python fetch_generations.py $R
-../venv/bin/python check_slot.py $R --broadcast ../broadcast
-../venv/bin/python broadcast_ab.py --config config/pilot.yaml --prompts ../prompts --out $R/broadcast_ab
-../venv/bin/python q_bench.py run --config config/day1.yaml --q ../q --out $R/q --limit 20 && ../venv/bin/python q_bench.py grade $R/q --q ../q
-../venv/bin/python analyze.py $R --pilot --out $R/analysis
+R=$ROOT/runs/pilot
+$PY probe.py start --config config/pilot.yaml --out $R
+$PY runner.py --config config/pilot.yaml --prompts $ROOT/prompts --slot P --out $R --deadline-utc <ISO 시각>
+sleep 60 && $PY fetch_generations.py $R
+$PY check_slot.py $R --broadcast $ROOT/broadcast
+$PY broadcast_ab.py --config config/pilot.yaml --prompts $ROOT/prompts --out $R/broadcast_ab
+$PY q_bench.py run --config config/day1.yaml --q $ROOT/q --out $R/q --limit 20 && $PY q_bench.py grade $R/q --q $ROOT/q
+$PY analyze.py $R --pilot --out $R/analysis
 ```
 파일럿 뒤: 모델별 W2 세션 수 n(→ `w2_sessions_per_slot` = n/4), 회차 소요 시간, 잘림 비율(1% 초과면 `max_tokens_cap` 상향), Q 출력 길이로 예산 재계산 → 프로토콜 v1.0 동결(git 태그).
 
 ## 3. 본 측정 (회차마다, cron)
 
 ```bash
-R=../runs/$RUN_ID/S$N
-../venv/bin/python probe.py start --config config/day1.yaml --out $R
-../venv/bin/python runner.py --config config/day1.yaml --prompts ../prompts --slot $N --out $R
-sleep 60 && ../venv/bin/python fetch_generations.py $R && ../venv/bin/python check_slot.py $R --broadcast ../broadcast
+R=$ROOT/runs/$RUN_ID/S$N
+$PY probe.py start --config config/day1.yaml --out $R
+$PY runner.py --config config/day1.yaml --prompts $ROOT/prompts --slot $N --out $R
+sleep 60 && $PY fetch_generations.py $R && $PY check_slot.py $R --broadcast $ROOT/broadcast
 ```
-cron 예 (UTC 18·00·06·12시 = KST 03·09·15·21시): `0 18 * * * cd /opt/mango-bench/code && RUN_ID=day1 N=1 ./slot.sh` 형식으로 측정일 ID와 회차 번호를 넘깁니다(자정을 넘는 회차도 한 폴더에 모임).
+cron 예 (UTC 18·00·06·12시 = KST 03·09·15·21시): `0 18 * * * RUN_ID=day1 N=1 /opt/mango-bench/code/slot.sh` 형식으로 측정일 ID와 회차 번호를 넘깁니다(자정을 넘는 회차도 한 폴더에 모임).
 
 ## 4. 분석
 
 ```bash
-../venv/bin/python analyze.py ../runs/<날짜>/S1 ../runs/<날짜>/S2 ../runs/<날짜>/S3 ../runs/<날짜>/S4 --out ../runs/<날짜>/analysis
+$PY analyze.py $ROOT/runs/<날짜>/S1 $ROOT/runs/<날짜>/S2 $ROOT/runs/<날짜>/S3 $ROOT/runs/<날짜>/S4 --out $ROOT/runs/<날짜>/analysis
 ```
 
 ## 주의

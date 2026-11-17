@@ -57,4 +57,5 @@ EOF
   echo "Broadcast 주소: https://$DOMAIN/broadcast  (헤더 X-Bench-Token 설정)"
 fi
 
+chmod +x "$ROOT/code/slot.sh"
 echo "완료. 다음: /opt/mango-bench/.env 에 키 입력 → code/RUN.md의 파일럿 절차"
