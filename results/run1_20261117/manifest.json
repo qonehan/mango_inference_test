@@ -1,0 +1,90 @@
+{
+  "start": {
+    "env": {
+      "t_utc": 1794927044.4148097,
+      "platform": "Linux-7.0.0-1017-aws-x86_64-with-glibc2.39",
+      "python": "3.12.3",
+      "packages": {
+        "openai": "3.52.0",
+        "httpx": "0.28.1",
+        "tiktoken": "0.14.0",
+        "pyyaml": "6.0.3",
+        "jsonschema": "4.26.0"
+      },
+      "git_commit": "5e9962de37c3581107d86418f9f105b3c25dc10f",
+      "chrony": "Reference ID    : A9FEA97B (169.254.169.123)\nStratum         : 4\nRef time (UTC)  : Tue Nov 17 14:50:40 2026\nSystem time     : 0.000001527 seconds fast of NTP time\nLast offset     : +0.000000544 seconds\nRMS offset      : 0.000003507 seconds\nFrequency       : 16.592 ppm fast\nResidual freq   : +0.000 ppm\nSkew            : 0.036 ppm\nRoot delay      : 0.000226285 seconds\nRoot dispersion : 0.000165850 seconds\nUpdate interval : 16.3 seconds\nLeap status     : Normal"
+    },
+    "chrony_offset": "System time     : 0.000001527 seconds fast of NTP time",
+    "host_ips": {
+      "mango": "34.36.178.149",
+      "openrouter": "104.18.2.115"
+    }
+  },
+  "run": {
+    "slot": "1",
+    "seed": 1655282634247743964,
+    "config": "config/run1.yaml",
+    "config_sha256": "a970b7e0e12bf8358d0037a79930234b704916cc97589f7a12a4b80980d2ad16",
+    "prompts_manifest": {
+      "seed": 20261116,
+      "tokenizer": "o200k_base",
+      "official": true,
+      "cpython_tag": "v3.12.7",
+      "counts": {
+        "w1.jsonl": 200,
+        "w3.jsonl": 200,
+        "w2_main.jsonl": 48,
+        "w2_pilot.jsonl": 6,
+        "l.jsonl": 48,
+        "z.jsonl": 1
+      },
+      "w2_prefix_check": "passed",
+      "sha256": {
+        "l.jsonl": "b4b341c74ba002234c35c24dec79bfd019e65bbeb65082b3e329f1e75eac750e",
+        "tools.json": "3de0fef5c8b24f9704ae5564a22cce56d73148ffd3f19276285cda3a7f2c5efa",
+        "w1.jsonl": "38ca50e2dcb4f538e0553373f70c403aec7a999e0660b695c41a7f683806637d",
+        "w2_main.jsonl": "d70fdca05325e1834f99bacd4341144dfab70f4a7f6d010183391f16a2de8797",
+        "w2_pilot.jsonl": "266770b3f17b21f298d28e72b1befb299b9aeeb303cd521f45fe6fa32059922a",
+        "w3.jsonl": "c235875c3037844e6d9dbf3df0a3b5eb37de57f16872fa333a66ca687ea6add9",
+        "z.jsonl": "81e4bbca18cb345cf212185f7565d45dbd926840ee6ec02316bfff93f8890457"
+      }
+    },
+    "started_utc": 1794927048.135294,
+    "ended_utc": 1794938546.341114,
+    "deadline_utc": 1794941443.0,
+    "planned": 4528,
+    "outcomes": {
+      "ok": 4514,
+      "endpoint": 35,
+      "session_stopped": 31
+    },
+    "pilot": false
+  },
+  "seal": {
+    "check.json": "a5c0dac52a12ddbefc2c9b11b53cb0a75d65d4234184bcf5362f1997349b0776",
+    "control.jsonl": "bec03d0e3e0cc7b1379db76f9afef984d5b3477c6cd98c204663438f09f9e7ce",
+    "generations.jsonl": "0ec8fd471b1963944f9dde27e64050a8c3e8d0c1fcc2e33995f341a8ed6a2b42",
+    "launch_meta.txt": "f09f963550f1621303a0a80ca533a523858116552a123c7383baec6bce7a622e",
+    "mango_models.json": "6612631197a6a40416afede0966ee28d2648be6278f8bc3281fd60ce034bc5b4",
+    "or_endpoints.json": "49c76fa3d224a82f88605415ee221e5666b56806fdf233c9de3df4af7700cd8d",
+    "or_stats.log": "db95eda9b39b2c4f5990d38cbcc52eb2cae7a3029bd0bcbc210c7041001ada2f",
+    "post.log": "b2f2e12c6b5a91b1dbc4b3c63139de3e704a0e6973bf6fd6060245ce6f9a45a5",
+    "probe_start.log": "62eee713ff7db0a430146064f8409d598b015ac8a432448141cd3bea846b4bd4",
+    "probes.jsonl": "d9accf4aab9eb35796d3452a033c6310d77cb36e828be26045ae45481f595694",
+    "raw.jsonl": "ecb001865e513ee9403b9e6145362cb1456173f4645523c1c945c9307eea29c1",
+    "runner.log": "bffa1117737e9cbbd618d7c31431246cc60b174c763c68e460097ef954de4d42"
+  },
+  "check": {
+    "requests": 4528,
+    "missing_required_fields": 0,
+    "generation_join_rate": 1.0,
+    "broadcast_join_rate": 1.0,
+    "spend_usd": {
+      "openrouter": 19.0663,
+      "mango_estimate": 17.6274,
+      "mango_unpriced": 0
+    },
+    "over_50pct_endpoint_failures": [],
+    "alerts": []
+  }
+}
