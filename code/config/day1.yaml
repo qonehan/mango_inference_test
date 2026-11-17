@@ -1,0 +1,62 @@
+# 본 측정(하루 4회차) 설정. 프로토콜 v0.9.4 기준. v1.0 동결 시 이 파일의 해시를 manifest에 기록한다.
+# 파일럿 결과로 바꾸는 값: w2_sessions_per_slot(모델별 n/4), 회차당 횟수, max_tokens_cap.
+
+version: "v0.9.4"
+seed: 20261116
+seed_prefix: "v1.0"            # slot_seed = sha256(f"{seed_prefix}|slot{n}")[:16]
+request_deadline_s: 300
+max_tokens_cap: 32768
+mango_base: "https://api.mangoboost.io/v1"
+openrouter_base: "https://openrouter.ai/api/v1"
+
+limits:
+  global_concurrency: 16
+  mango_concurrency: 3          # 본 루프. 부하 조건만 4
+  mango_rpm: 36                 # 4개 모델 합계
+  openrouter_rpm_per_model: 18  # 새 계정 한도 20 대응
+  load_concurrency: 4
+
+models:
+  deepseek-v4.1-flash-1017:
+    mango_id: "deepseek-ai/DeepSeek-V4.1-Flash-1017"
+    or_slug: "deepseek/deepseek-v4.1-flash-1017"
+    temperature: 1.0
+    top_p: 1.0
+    pins: ["deepseek", "deepinfra/fp8", "together", "inference-net/us", "wafer/us"]
+  glm-5.3:
+    mango_id: "zai-org/GLM-5.3"
+    or_slug: "z-ai/glm-5.3"
+    temperature: 1.0
+    top_p: 0.95
+    pins: ["wafer/us", "inference-net/us", "z-ai/fp8", "siliconflow/fp8", "decart/fp4"]
+  glm-5.3-flash:
+    mango_id: "zai-org/GLM-5.3-Flash"
+    or_slug: "z-ai/glm-5.3-flash"
+    temperature: 1.0
+    top_p: 0.95
+    pins: ["together", "inference-net/us", "open-inference/fp4", "coreweave/nvfp4", "z-ai/fp8"]
+  kimi-k3.1-pro:
+    mango_id: "moonshotai/Kimi-K3.1-Pro"
+    or_slug: "moonshotai/kimi-k3.1-pro"
+    temperature: 1.0
+    top_p: 0.95
+    pins: ["moonshotai/mxfp4", "inference-net/mxfp4", "modal/mxfp4", "wafer/us", "together"]
+
+sort_routes: ["price", "throughput", "latency"]   # + :floor, :nitro
+
+# 회차당 건수 (모델 1개 기준)
+counts:
+  common_w1: 15           # M·OR-기본·OR-고정 공통 질문 (주 비교 P2)
+  common_w3: 15
+  or_default_w1: 75       # 앞 15개 = 공통, 나머지 60개 = 라우팅 분석 전용
+  or_default_w3: 75
+  w2_sessions_per_slot: 8 # n/4. 파일럿 후 모델별로 확정 (8~12)
+  pin_w2_sessions: 2
+  l_per_length: 2         # 길이 1k·10k·32k 각각
+  z: 8
+  cache_pairs: 2          # M·OR-고정만
+  load: 24                # M·OR-기본, 동시 4 × 6묶음
+  sort_w1: 4
+  sort_w3: 4
+
+slots_utc: ["18:00", "00:00", "06:00", "12:00"]   # KST 03·09·15·21시

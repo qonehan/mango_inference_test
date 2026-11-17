@@ -1,0 +1,18 @@
+# 파일럿 1회. day1.yaml을 바탕으로 건수만 바꾼다. 파일럿 데이터는 본 분석에 쓰지 않는다.
+base: day1.yaml
+pilot: true
+counts:
+  common_w1: 5
+  common_w3: 5
+  or_default_w1: 5
+  or_default_w3: 5
+  w2_sessions_per_slot: 6   # 파일럿 전용 세션 6개를 M·OR-기본에 (세션 수 n 산정용)
+  pin_w2_sessions: 1
+  l_per_length: 2
+  z: 5
+  cache_pairs: 1
+  load: 8
+  sort_w1: 5
+  sort_w3: 5
+broadcast_ab_pairs: 20       # OR-기본 W1을 Broadcast 켬·끔으로 짝지어 (모델당). 끔 구간은 사용자가 설정 전환
+q_items_per_model: 20        # 정답 문항 20개 (Q 비용 재계산)

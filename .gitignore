@@ -3,3 +3,7 @@ __pycache__/
 *.env
 mango_bench.env
 .DS_Store
+q_items.jsonl
+runs/
+prompts/
+meter_check*.json
