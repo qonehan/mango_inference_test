@@ -20,6 +20,7 @@ REQUIRED = ("ttft_any_ms", "e2e_ms", "prompt_tokens", "completion_tokens")
 
 
 def broadcast_trace_ids(folder: Path | None) -> set[str]:
+    """Broadcast 원본에서 결합 키(응답 ID gen-..., 요청의 trace_id)를 모은다."""
     ids: set[str] = set()
     if not folder or not folder.exists():
         return ids
@@ -30,10 +31,16 @@ def broadcast_trace_ids(folder: Path | None) -> set[str]:
             except (json.JSONDecodeError, KeyError):
                 continue
             for rs in body.get("resourceSpans", []):
+                for a in rs.get("resource", {}).get("attributes", []):
+                    if a.get("key") == "openrouter.trace.id":
+                        ids.update(str(v) for v in a.get("value", {}).values())
                 for ss in rs.get("scopeSpans", []):
                     for sp in ss.get("spans", []):
-                        tid = sp.get("traceId") or ""
-                        ids.update({tid, tid.replace("-", "").lower()})
+                        # OpenRouter는 traceId를 자체 해시로 바꾸므로 응답 ID(gen-...)로 결합한다
+                        for a in sp.get("attributes", []):
+                            if a.get("key") == "gen_ai.response.id":
+                                v = str(next(iter(a.get("value", {}).values()), ""))
+                                ids.add(v.split(":")[0])
     return ids
 
 
@@ -83,8 +90,7 @@ def main() -> None:
             if r["request_id"] in gens:
                 or_gen += 1
                 spend["openrouter"] += gens[r["request_id"]].get("total_cost") or 0
-            rid = r["request_id"]
-            if rid in bids or rid.replace("-", "") in bids:
+            if r.get("resp_id") in bids or r["request_id"] in bids:
                 or_bc += 1
         elif r.get("host") == "mango":
             mc = mango_cost(r, prices)
