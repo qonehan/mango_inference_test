@@ -55,9 +55,13 @@ async def handle(reader: asyncio.StreamReader, writer: asyncio.StreamWriter) -> 
                 # 누적 오차가 쌓이지 않게 목표 시각에 맞춰 보냄
                 await asyncio.sleep(max(0.0, start + gap * (i + 1) - time.perf_counter()))
                 last = i == n - 1
-                if use_tool and last:
-                    tc = {"index": 0, "id": "call_mock", "type": "function",
+                if use_tool and i == n - 2:  # 병렬 도구 호출: index가 다른 두 호출을 차례로 보냄
+                    tc = {"index": 0, "id": "call_mock0", "type": "function",
                           "function": {"name": "read_file", "arguments": json.dumps({"path": "Lib/x.py"})}}
+                    writer.write(chunk(model, {"tool_calls": [tc]}))
+                elif use_tool and last:
+                    tc = {"index": 1, "id": "call_mock1", "type": "function",
+                          "function": {"name": "search_code", "arguments": json.dumps({"query": "def main"})}}
                     writer.write(chunk(model, {"tool_calls": [tc]}, "tool_calls"))
                 elif i < 3:
                     writer.write(chunk(model, {"reasoning": f"r{i} "}))

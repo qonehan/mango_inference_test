@@ -3,7 +3,7 @@ import json
 import unittest
 
 from analyze import geo_ratio, strat_boot, verdict
-from bench_common import RateLimiter, classify_error, with_nonce
+from bench_common import RateLimiter, classify_error, validate_tool, with_nonce
 from build_prompts import prefix_ok, w2_messages
 from q_bench import boxed, fix_schema, grade_one, norm_math
 
@@ -59,6 +59,15 @@ class Bench(unittest.TestCase):
         self.assertFalse(grade_one(item, {"ok": True, "tool_name": "math_area", "tool_args": json.dumps({"r": 3})}))
         self.assertEqual(fix_schema({"type": "dict", "properties": {"x": {"type": "float"}}})["properties"]["x"]["type"],
                          "number")
+
+    def test_tool_validation(self):
+        tools = [{"type": "function", "function": {"name": "search_code", "parameters": {
+            "type": "object", "properties": {"query": {"type": "string"}}, "required": ["query"],
+            "additionalProperties": False}}}]
+        self.assertTrue(validate_tool('{"query": "x"}', "search_code", tools))
+        self.assertFalse(validate_tool('{"query": "x"}{"query": "y"}', "search_code", tools))  # 이어 붙인 인자는 무효
+        self.assertFalse(validate_tool('{"path": "x"}', "search_code", tools))
+        self.assertFalse(validate_tool('{"query": "x"}', "read_file", tools))
 
     def test_rate_limiter_counts(self):
         import asyncio

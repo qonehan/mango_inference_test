@@ -220,7 +220,7 @@ def classify_error(e: Exception, host: str) -> tuple[str, str]:
 
 # ---------------------------------------------------------------- 스트리밍 호출
 
-def _validate_tool(args_text: str, name: str | None, tools: list | None) -> bool:
+def validate_tool(args_text: str, name: str | None, tools: list | None) -> bool:
     if not tools or not name:
         return False
     spec = next((t["function"] for t in tools if t["function"]["name"] == name), None)
@@ -255,7 +255,7 @@ async def stream_call(client: AsyncOpenAI, *, host: str, model: str, messages: l
     tok = _conn_events.set(events)
     chunks: list = []           # (ms since t0, kind) kind: r=reasoning c=content t=tool u=usage/other
     first_any = first_content = stream_end = None
-    text_parts, tool_name, tool_args = [], None, []
+    text_parts, calls = [], {}   # calls: 조각의 tool_calls[].index별로 이름·인자를 따로 모음 (병렬 호출 대응)
     reasoning_chars = 0
     usage = finish = resp_id = fingerprint = None
     headers = None
@@ -285,11 +285,13 @@ async def stream_call(client: AsyncOpenAI, *, host: str, model: str, messages: l
                         text_parts.append(dd["content"])
                     if dd.get("tool_calls"):
                         kind = "t"
-                        for tc in dd["tool_calls"]:
-                            fn = (tc or {}).get("function") or {}
-                            tool_name = tool_name or fn.get("name")
+                        for j, tc in enumerate(dd["tool_calls"]):
+                            tc = tc or {}
+                            fn = tc.get("function") or {}
+                            c_ = calls.setdefault(tc.get("index", j), {"name": None, "args": []})
+                            c_["name"] = c_["name"] or fn.get("name")
                             if fn.get("arguments"):
-                                tool_args.append(fn["arguments"])
+                                c_["args"].append(fn["arguments"])
                     if c.finish_reason:
                         finish = c.finish_reason
                 if kind in "rct":
@@ -298,7 +300,9 @@ async def stream_call(client: AsyncOpenAI, *, host: str, model: str, messages: l
                         first_content = first_content or now
                 chunks.append((round((now - t0) / 1e6, 2), kind))
             stream_end = time.perf_counter_ns()
-        tool_ok = _validate_tool("".join(tool_args), tool_name, tools) if need_tool else None
+        call_list = [{"name": c_["name"], "arguments": "".join(c_["args"])} for _, c_ in sorted(calls.items())]
+        tool_ok = (bool(call_list) and all(validate_tool(c_["arguments"], c_["name"], tools) for c_ in call_list)
+                   if need_tool else None)
         if finish == "length":
             rec.update(fail_side="endpoint", error="truncated")
         elif finish is None:
@@ -328,7 +332,10 @@ async def stream_call(client: AsyncOpenAI, *, host: str, model: str, messages: l
         prompt_tokens=u.get("prompt_tokens"), cached_tokens=cached, completion_tokens=u.get("completion_tokens"),
         reasoning_tokens=rtoks, reasoning_chars=reasoning_chars, usage=usage, chunks=chunks,
         n_chunks=len(chunks), conn=summarize_conn(events, t0), headers=headers,
-        text=("".join(text_parts))[:keep_text], tool_name=tool_name, tool_args="".join(tool_args)[:2000],
+        text=("".join(text_parts))[:keep_text],
+        tool_calls=[{"name": c_["name"], "arguments": "".join(c_["args"])[:2000]} for _, c_ in sorted(calls.items())],
+        tool_name=calls[min(calls)]["name"] if calls else None,
+        tool_args="".join(calls[min(calls)]["args"])[:2000] if calls else "",
         reasoning_missing=bool(rtoks == 0),
     )
     rec["decode_tps"] = (decode_rate(u.get("completion_tokens"), rtoks, reasoning_chars > 0, gen_times)
