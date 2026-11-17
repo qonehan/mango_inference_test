@@ -16,7 +16,7 @@
   }
   * { box-sizing: border-box; }
   html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-  body { margin: 0; background: #fff; color: var(--ink); font-family: "Noto Sans KR", "Malgun Gothic", sans-serif; font-size: 9.2pt; line-height: 1.55; word-break: keep-all; overflow-wrap: anywhere; }
+  body { margin: 0; background: #fff; color: var(--ink); font-family: "Noto Sans KR", "Malgun Gothic", sans-serif; font-size: 9pt; line-height: 1.5; word-break: keep-all; overflow-wrap: anywhere; }
   main { max-width: 180mm; margin: 0 auto; }
   h1 { font-size: 18pt; line-height: 1.25; margin: 0 0 4pt; }
   h2 { font-size: 12pt; margin: 16pt 0 6pt; padding-bottom: 3pt; border-bottom: 2px solid var(--ink); break-after: avoid; }
@@ -119,9 +119,9 @@ body = {
 <table>
   <tr><th style="width:15%">작업</th><th>구성</th><th style="width:16%">개수</th></tr>
   <tr><td>W1 단일 요청</td><td>원천 발췌 + 지시문 1개, 합계 1,000 ± 50 토큰. 지시 유형 5종 균등: ① 코드 작성 ② 코드 설명 ③ 문서 요약 ④ JSON 추출 ⑤ 수학 풀이</td><td>200 (유형별 40)</td></tr>
-  <tr><td>W2 멀티턴 세션</td><td>시스템 메시지 + 코드 문맥 16,000 ± 500 토큰으로 시작, 10턴. 턴 k의 입력 = 고정 기록(턴 1~k−1의 사용자 지시, 미리 작성한 assistant 도구 호출 메시지, 도구 결과 1,500 ± 100 토큰) + 턴 k 지시. <b>모델의 실제 응답은 다음 턴에 넣지 않음</b></td><td>8 세션 × 10턴</td></tr>
+  <tr><td>W2 멀티턴 세션</td><td>시스템 메시지 + 코드 문맥 16,000 ± 500 토큰으로 시작, 10턴. 턴 k의 입력 = 고정 기록(턴 1~k−1의 사용자 지시, 미리 작성한 assistant 도구 호출 메시지, 도구 결과 1,500 ± 100 토큰) + 턴 k 지시. <b>모델의 실제 응답은 다음 턴에 넣지 않음</b>. 생성 시 턴 k 입력이 턴 k−1 입력의 바이트 단위 연장인지 검사(통과한 세션만 사용)</td><td>48 세션 × 10턴</td></tr>
   <tr><td>W3 도구 호출</td><td>원천 발췌 + 도구 사용 지시, 2,000 ± 100 토큰 + 도구 3개</td><td>200</td></tr>
-  <tr><td>L 입력 길이</td><td>원천 발췌 + "한 단어로 답하라" 지시. 길이 1,000 / 10,000 / 32,000 (± 2%). <code>max_tokens</code> = 16</td><td>길이별 16</td></tr>
+  <tr><td>L 입력 길이</td><td>원천 발췌 + "한 단어로 답하라" 지시. 길이 1,000 / 10,000 / 32,000 (± 2%). <code>max_tokens</code> = 64. 첫 토큰 시간만 사용, 잘림은 실패 아님</td><td>길이별 16</td></tr>
   <tr><td>Z 최소</td><td><code>Reply with OK.</code> 한 줄. <code>max_tokens</code> = 1</td><td>1</td></tr>
   <tr><td>Q 품질 점검</td><td>정답이 정해진 문항: 어려운 수학 풀이(MATH 상위 난이도) 200, 전문 지식 객관식(MMLU-Pro) 150, 도구 호출 정확도(BFCL) 50. 공개 데이터셋에서 생성 시드로 추출, 정답·채점 규칙 동봉 <span class="rec">[기록: 출처·라이선스·문항 ID]</span></td><td>400</td></tr>
 </table>
@@ -137,24 +137,23 @@ run_tests(target: string)            -> 테스트 결과 요약 반환
 <p>실험은 <b>회차 8회</b>로 구성합니다. 1~4회차는 단계 1(전체), 5~8회차는 단계 2(제공사 선택만)이며, 회차 시작 간격은 <b>6시간</b>입니다 <span class="rec">[기록: 각 회차 시작 UTC]</span>. 그 전에 파일럿 1회를 수행하며 파일럿 데이터는 분석에 쓰지 않습니다.</p>
 
 <table>
-  <tr><th>단계 1 회차당 요청 (모델 1개 기준)</th><th class="num">건수</th></tr>
-  <tr><td>M, OR-고정 ×5 (6경로) 각각: W1 15 + W3 15 + W2 2세션 × 10턴</td><td class="num">6 × 50 = 300</td></tr>
-  <tr><td>OR-기본: W1 75 + W3 75 + W2 2세션 × 10턴</td><td class="num">170</td></tr>
-  <tr><td>OR-가격·처리량·지연·floor·nitro (5경로) 각각: W1 8 + W3 8</td><td class="num">5 × 16 = 80</td></tr>
-  <tr><td>L: 7경로(M, OR-기본, OR-고정 ×5) × 길이 3 × 4</td><td class="num">84</td></tr>
-  <tr><td>Z: 7경로 × 8</td><td class="num">56</td></tr>
-  <tr><td>부하 조건: M, OR-기본 각각 W1 24건을 동시 4건씩 6묶음</td><td class="num">48</td></tr>
-  <tr><th>합계 (모델 4개면 2,952)</th><th class="num">738</th></tr>
+  <tr><th>단계 1 회차당 요청 (모델 1개 기준, W2 세션 수 n = 32일 때)</th><th class="num">건수</th></tr>
+  <tr><td>M: W1 15 + W3 15 + W2 (n/4 = 8)세션 × 10턴 + L 3길이 × 2 + Z 8 + 부하 24 + 캐시 대조 4</td><td class="num">152</td></tr>
+  <tr><td>OR-기본: W1 75 + W3 75 + W2 8세션 × 10턴 + L 6 + Z 8 + 부하 24</td><td class="num">268</td></tr>
+  <tr><td>OR-고정 ×5 각각: W1 15 + W3 15 + W2 2세션 × 10턴 + L 6 + Z 8 + 캐시 대조 4</td><td class="num">5 × 68 = 340</td></tr>
+  <tr><td>OR-가격·처리량·지연·floor·nitro (5경로) 각각: W1 4 + W3 4</td><td class="num">5 × 8 = 40</td></tr>
+  <tr><th>합계 (모델 4개면 3,200)</th><th class="num">800</th></tr>
 </table>
-<p>단계 2 회차는 OR-기본(W1 75 + W3 75)과 정렬 5경로(각 W1 8 + W3 8)만 실행합니다(모델당 230건). 파일럿은 12경로 × 각 작업 5건(W2는 1세션)입니다. <b>품질 점검 회차</b>는 본 회차와 겹치지 않는 시간에 1회, Q 400문항 × 6경로(M, OR-고정 ×5) × 4모델 = 9,600건을 실행합니다.</p>
+<p>단계 2 회차는 OR-기본(W1 75 + W3 75)과 정렬 5경로(각 W1 4 + W3 4)만 실행합니다(모델당 190건). 파일럿은 12경로 × 각 작업 5건에 더해, W2 세션 수 산정을 위해 M·OR-기본에 같은 세션 6개씩을 보냅니다. <b>W2 세션 수 n</b>은 파일럿에서 모델마다 세션별 로그 비율(M ÷ OR-기본)의 표준편차 s를 구해 n = ceil((2.96 × s / 0.05)²)를 4의 배수로 올리고 32~48로 제한합니다 <span class="rec">[기록: 모델별 s와 n]</span>. <b>품질 점검 회차</b>는 본 회차와 겹치지 않는 시간에 1회, Q 400문항 × 6경로(M, OR-고정 ×5) × 4모델 = 9,600건을 실행합니다.</p>
 
 <h3>5-2. 질문 배정 (같은 질문을 모든 경로에)</h3>
 <pre>slot_seed = int(sha256(f"v0.9|slot{n}").hexdigest()[:16], 16)
 rng = random.Random(slot_seed)
-W1_s = rng.sample(W1_pool, 75)   # OR-기본은 75개 전부, 15건 경로는 앞 15개, 8건 경로는 앞 8개
+W1_s = rng.sample(W1_pool, 75)   # 앞 15개 = 공통 질문(M·OR-기본·OR-고정, 주 비교용), OR-기본은 75개 전부(나머지 60개는 라우팅 분석 전용), 정렬 경로는 앞 4개
 W3_s = rng.sample(W3_pool, 75)   # 같은 방식
-W2_s = [S(2n-1), S(2n)]          # 단계 1 회차 n(1~4)마다 서로 다른 세션 2개, 8개를 한 번씩 사용
-L_s  = 길이별로 rng.sample(L_pool[len], 4)
+W2_s = rng.sample(남은 세션, n/4)  # 회차마다 새 세션, 회차 사이 재사용 없음. M·OR-기본은 전부, OR-고정은 앞 2개
+C_s  = rng.sample(W2_s, 2)       # 캐시 대조: 각 세션의 6턴 입력을 ① 새 nonce ② 같은 nonce로 즉시 재전송 (M·OR-고정)
+L_s  = 길이별로 rng.sample(L_pool[len], 2)
 Load = W1_s[:24]</pre>
 <p>같은 회차에서 같은 질문 ID는 모든 경로에 같은 내용(nonce만 다름)으로 보냅니다.</p>
 
@@ -194,8 +193,9 @@ Load = W1_s[:24]</pre>
   <tr><td>성공</td><td>HTTP 200 ∧ 스트림 정상 종료 ∧ <code>finish_reason</code> ≠ <code>length</code> ∧ (W2·W3) 도구 호출 인자가 스키마 검증 통과</td></tr>
   <tr><td>입력 토큰 편차</td><td>같은 질문의 입력 토큰 수가 모델 중앙값에서 20% 넘게 벗어난 엔드포인트 표시(대화 템플릿·계산 방식 차이)</td></tr>
   <tr><td>조각 크기</td><td>조각 수 대비 출력 토큰 수. ITL은 토큰 기준으로 환산</td></tr>
+  <tr><td>캐시 적중률</td><td>턴마다 캐시 토큰 ÷ 입력 토큰. W2 2~10턴의 캐시 적중은 이 값으로 확인한 뒤에만 그렇게 부름</td></tr>
   <tr><td>reasoning 미작동</td><td>켜짐 지정인데 reasoning 토큰 = 0. 실패는 아니지만 표시하고 성능 비교에서 구분</td></tr>
-  <tr><td>제공사 쪽 실패</td><td>5xx, 제공사가 보낸 429, 300초 타임아웃, 스트림 중단, <code>finish_reason</code> = <code>length</code>, 도구 인자 스키마 불일치</td></tr>
+  <tr><td>제공사 쪽 실패</td><td>5xx, 제공사가 보낸 429, <b>요청 전체 마감 300초 초과</b>(연결부터 스트림 끝까지를 감싸는 마감으로 강제 종료), 스트림 중단, <code>finish_reason</code> = <code>length</code>, 도구 인자 스키마 불일치</td></tr>
   <tr><td>우리 쪽 실패 (제외)</td><td>401·402·403(키·잔액), Mango 키·조직 한도 429, OpenRouter 계정 한도 429(<code>new-account-rpm</code> 등, 같은 회차 끝에 재전송), 요청 형식 오류(400·413·422), 측정 코드 예외</td></tr>
   <tr><td>네트워크 RTT</td><td>새 연결의 TCP 연결 시간 (5-3 단계 2)</td></tr>
 </table>
@@ -206,15 +206,16 @@ Load = W1_s[:24]</pre>
   <li>모든 경로 × 모델에서 성공 5건 이상, 필수 필드 결측 0건.</li>
   <li>OpenRouter 요청의 generation 조회·Broadcast 결합률 ≥ 99%.</li>
   <li>측정 토큰 수 = 서버 usage, 청구 합계가 계정 청구 내역과 ±2% 이내.</li>
-  <li>동시 1건 대비 동시 16건 조건의 TTFT 중앙값 차이 &lt; 2% (같은 질문, M 경로).</li>
+  <li><b>측정기 검증(로컬 모의 스트림 서버):</b> 정해진 간격으로 조각을 보내는 모의 서버에 동시 1·16 조건으로 호출해 측정 시각 오차 중앙값 &lt; 5ms. 느리게 끝나는 스트림에서 요청 전체 마감 300초가 지켜짐. 실제 서비스는 허용 동시성 안에서만 호출.</li>
+  <li>W2 세션 파일 접두부 일치 검사 통과, 모델별 s와 n 계산.</li>
   <li><code>finish_reason</code> = <code>length</code> 비율 ≤ 1%. 넘으면 <code>max_tokens</code> 상한을 올려 재시험.</li>
 </ul>
 
 <h3>8-2. 실행 중 규칙</h3>
 <table>
   <tr><th style="width:38%">조건</th><th>조치</th></tr>
-  <tr><td>한 경로의 회차 실패율 &gt; 50%</td><td>다음 회차부터 그 경로 중단, 결과에 보고</td></tr>
-  <tr><td>대조군 TCP 시간 &gt; 해당 회차 중앙값 × 3</td><td>그 1분 구간의 요청 제외, 같은 회차에서 같은 질문으로 재측정</td></tr>
+  <tr><td>한 경로의 회차 실패율 &gt; 50%</td><td>중단하지 않음. 다음 회차부터 그 경로는 확인 호출(W1 5건)만 유지해 회복 관측, 결과에 보고</td></tr>
+  <tr><td>중립 기준 호스트 2곳(클라우드 내부 DNS·메타데이터, 제3자 CDN)의 연결 시간이 모두 회차 중앙값 × 3 초과 또는 실패</td><td>로컬 장애로 보고 그 1분 구간만 제외, 같은 회차에서 재측정. 원격 API 호스트 하나의 지연만으로는 제외하지 않음. 원래·재측정 기록 모두 보존</td></tr>
   <tr><td>누적 비용 ≥ 상한 <span class="rec">[기록]</span></td><td>전체 중단</td></tr>
   <tr><td>회차가 다음 회차 시작 시각까지 끝나지 않음</td><td>남은 요청은 실패로 기록하고 다음 회차 시작</td></tr>
 </table>
@@ -222,27 +223,28 @@ Load = W1_s[:24]</pre>
 <h3>8-3. 분석 제외 (이 경우에만)</h3>
 <ol>
   <li>우리 쪽 실패 (7장 정의), 준비 호출, 파일럿 요청(Q 문항은 제외 대상 아님).</li>
-  <li>8-2의 대조군 이상 구간 요청.</li>
+  <li>8-2의 로컬 장애 구간 요청(중립 기준 호스트로 확인된 경우만).</li>
 </ol>
-<p>제외 건수와 사유는 모두 결과에 보고합니다. 제공사 쪽 실패는 제외하지 않습니다.</p>
+<p>제외 건수와 사유는 모두 결과에 보고합니다. 제공사 쪽 실패는 제외하지 않습니다. 제외하지 않은 전체 데이터로 같은 분석을 한 민감도 분석을 함께 보고합니다.</p>
 
 <h2><span class="no">9</span>분석 절차</h2>
 <ol>
   <li><b>결합:</b> 요청 ID로 측정 기록 · generation 조회 · Broadcast를 결합. 결합되지 않은 행 수를 보고.</li>
-  <li><b>셀 대표값:</b> 셀 = 모델 × 경로 × 작업(× 부하 조건). 회차마다 셀 중앙값 → 셀 대표값 = 회차 중앙값의 평균.</li>
+  <li><b>기술 통계:</b> 셀(모델 × 경로 × 작업)별 p50·p90·p99와 회차별 중앙값. 판정에는 쓰지 않음.</li>
   <li><b>주 비교 16개:</b> 모델 4 × 지표 4, Mango(M) vs OR-기본.
     <table>
       <tr><th>P1 응답 속도</th><th>P2 생성 속도</th><th>P3 성공률</th><th>P4 비용</th></tr>
-      <tr><td>W2 세션 TTFT</td><td>W1 decode 처리량</td><td>전체 요청 성공 비율</td><td>W2 성공 세션당 비용</td></tr>
+      <tr><td>W2 세션값(2~10턴 TTFT<sub>content</sub> 기하평균), 세션 쌍 n개</td><td>W1 공통 질문 decode 처리량, 회차당 15쌍</td><td>공통 요청 묶음(W1 공통·W3 공통·W2 세션 각 1/3 가중)</td><td>W2 성공 세션당 비용, 세션 쌍</td></tr>
     </table>
   </li>
-  <li><b>신뢰구간:</b> 질문 ID(W2는 세션 ID)를 단위로 회차별 층화 복원추출 10,000회, 시드 <code>20261116</code>. 통계량 = M 중앙값 ÷ OR-기본 중앙값(성공률은 비율의 비). 다중 비교는 Bonferroni: 백분위 신뢰구간 수준 1 − 0.05/16 = 99.6875%.</li>
-  <li><b>판정:</b> 지연·비용(작을수록 좋음)은 구간 전체 &lt; 0.90이면 Mango 우위, &gt; 1.10이면 열위, 0.90~1.10 안이면 동등, 그 외 판정 불가. 처리량·성공률은 방향을 뒤집음.</li>
-  <li><b>배분 분포 (B):</b> OR-기본의 W1·W3 요청에서 첫 시도와 최종 응답의 비율을 <b>엔드포인트 단위와 제공사 단위로 각각</b> 집계, Wilson 95% 신뢰구간. 30일 점유율(<code>data/openrouter_monthly_share_final_20261116.csv</code>)은 제공사 단위로만 공개되므로 <b>비교는 제공사 단위</b>로 하고, 기준값이 신뢰구간 밖이면 "차이 있음". 정렬 경로는 경로별 최빈 엔드포인트와 순위.</li>
+  <li><b>통계량 (하나로 고정):</b> P1·P2·P4는 짝 단위(세션 ID·질문 ID)별 log(M ÷ OR-기본)의 평균을 지수화한 기하평균 비율(양쪽 성공 쌍만). P3는 절대 차이(%p) = M 성공률 − OR-기본 성공률. 신뢰구간은 회차를 층으로 짝 단위를 복원추출 10,000회, 시드 <code>20261116</code>, Bonferroni 백분위 수준 1 − 0.05/16 = 99.6875%.</li>
+  <li><b>판정:</b> P1·P4는 구간 전체 &lt; 0.90 우위, &gt; 1.10 열위, 0.90~1.10 안 동등. P2는 방향을 뒤집음. <b>P3는 구간 전체 &gt; +2%p 우위, &lt; −2%p 열위, ±2%p 안 동등.</b> 그 외 판정 불가. 경로별 실패율과 실패 유형(5xx, 제공사 429, 마감 초과, 스트림 중단, 잘림, 도구 인자 오류)을 함께 보고.</li>
+  <li><b>배분 분포 (B):</b> OR-기본의 W1·W3 요청에서 첫 시도와 최종 응답의 비율을 <b>엔드포인트 단위와 제공사 단위로, 요청 건수 기준과 토큰 기준으로 각각</b> 집계, Wilson 95% 신뢰구간. 30일 점유율(<code>data/openrouter_monthly_share_final_20261116.csv</code>)은 제공사 단위로만 공개되므로 <b>비교는 제공사 단위</b>로 하고, 기준값이 신뢰구간 밖이면 "차이 있음". 결론은 "이 계정·작업의 기본 배분이 공개 사용량 구성과 다르다"까지로 제한(사용자 선택의 증거로 해석하지 않음). 정렬 경로는 경로별 최빈 엔드포인트와 순위.</li>
   <li><b>공개 통계 대조:</b> OR-고정 측정값의 순위를 같은 엔드포인트의 공개 1주 통계(본 실행 시점 재수집)와 비교. 제공사 가중평균 값은 쓰지 않음.</li>
-  <li><b>구간 분해:</b> 경로 × 모델마다 L 작업으로 TTFT<sub>content</sub> = a + b × (usage prompt 토큰) 최소제곱 회귀. 서버 쪽 고정 지연 = a − RTT 중앙값. 검증: OR-고정 경로에서 이 값과 Broadcast(<code>router_ms</code>, 제공사 기준 TTFT)의 중앙값 차이가 ±20% 이내면 M의 분해값을 결과로 채택, 아니면 "검증되지 않은 추정"으로 표기.</li>
+  <li><b>길이에 따른 관측 지연 (탐색):</b> 경로 × 모델마다 L·Z의 첫 토큰 시간(TTFT<sub>any</sub>) 중앙값과 입력 토큰에 대한 최소제곱 기울기를 "관측 지연 증가율"로 보고. reasoning 토큰은 있는데 스트림에 reasoning 내용이 없는 엔드포인트는 제외. 서버 내부(prefill·대기열·내부 네트워크)로 분해하지 않으며, Broadcast 구간 시간은 OpenRouter 기술 통계로만 사용.</li>
+  <li><b>캐시 대조:</b> 경로별 ② ÷ ① 첫 답변 시간의 기하평균 비율과 ②의 캐시 적중률. W2 턴별 캐시 적중률도 보고.</li>
   <li><b>품질 점검:</b> 같은 문항에 대한 Mango와 각 고정 엔드포인트의 정답 여부를 짝지어 비교(McNemar 검정, 차이의 95% 구간). 같은 모델에서 정답률이 6경로 중앙값보다 10%p 이상 낮은 경로는 성능 결과에 표시. 4비트 계열과 8비트의 차이는 탐색적으로 보고(신고 양자화 기준).</li>
-  <li><b>부 비교 (탐색):</b> M vs OR-고정 각각, 부하 조건, p90, 실패 반영 처리량. 위 3~5와 같은 방법, 보정 없이 95% 구간.</li>
+  <li><b>부 비교 (탐색):</b> M vs OR-고정 각각(W2는 8세션), 부하 조건, p90, 실패 반영 처리량. 같은 통계량, 보정 없이 95% 구간.</li>
 </ol>
 
 <h2><span class="no">10</span>재현에 필요한 산출물</h2>

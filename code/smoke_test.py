@@ -29,6 +29,7 @@ import httpx
 from openai import AsyncOpenAI
 
 MANGO_BASE = "https://api.mangoboost.io/v1"
+REQUEST_DEADLINE_S = 300  # 요청 전체(연결~스트림 끝) 마감
 OR_BASE = "https://openrouter.ai/api/v1"
 
 # OpenRouter slug와 고정 대상 제공사(OpenRouter provider slug). Mango 모델 ID는 실행 시 /v1/models로 확인해 채운다.
@@ -117,36 +118,41 @@ async def call_once(client: AsyncOpenAI, name: str, arm: dict, kind: str, max_to
     reasoning_chars = 0
     usage = finish = resp_id = None
     try:
-        stream = await client.chat.completions.create(**kwargs, extra_body=extra or None)
-        async for ch in stream:
-            now = time.perf_counter_ns()
-            n_chunks += 1
-            resp_id = resp_id or getattr(ch, "id", None)
-            if getattr(ch, "usage", None):
-                usage = ch.usage.model_dump()
-            for c in ch.choices or []:
-                d = c.delta
-                dd = d.model_dump() if d else {}
-                has_reason = bool(dd.get("reasoning") or dd.get("reasoning_content"))
-                has_content = bool(dd.get("content"))
-                has_tool = bool(dd.get("tool_calls"))
-                if (has_reason or has_content or has_tool) and first_any is None:
-                    first_any = now
-                if (has_content or has_tool) and first_content is None:
-                    first_content = now
-                if has_reason:
-                    reasoning_chars += len(dd.get("reasoning") or dd.get("reasoning_content") or "")
-                if has_content:
-                    text_parts.append(dd["content"])
-                if has_tool:
-                    for tc in dd["tool_calls"]:
-                        fn = (tc or {}).get("function") or {}
-                        if fn.get("arguments"):
-                            tool_args.append(fn["arguments"])
-                if c.finish_reason:
-                    finish = c.finish_reason
-            last = now
-        rec["ok"] = finish not in (None, "length") and (kind != "tool" or bool(tool_args))
+        # httpx.Timeout은 연결·읽기 단계별 제한이라 요청 전체 시간을 보장하지 않으므로, 요청 전체를 마감으로 감싼다.
+        async with asyncio.timeout(REQUEST_DEADLINE_S):
+            stream = await client.chat.completions.create(**kwargs, extra_body=extra or None)
+            async for ch in stream:
+                now = time.perf_counter_ns()
+                n_chunks += 1
+                resp_id = resp_id or getattr(ch, "id", None)
+                if getattr(ch, "usage", None):
+                    usage = ch.usage.model_dump()
+                for c in ch.choices or []:
+                    d = c.delta
+                    dd = d.model_dump() if d else {}
+                    has_reason = bool(dd.get("reasoning") or dd.get("reasoning_content"))
+                    has_content = bool(dd.get("content"))
+                    has_tool = bool(dd.get("tool_calls"))
+                    if (has_reason or has_content or has_tool) and first_any is None:
+                        first_any = now
+                    if (has_content or has_tool) and first_content is None:
+                        first_content = now
+                    if has_reason:
+                        reasoning_chars += len(dd.get("reasoning") or dd.get("reasoning_content") or "")
+                    if has_content:
+                        text_parts.append(dd["content"])
+                    if has_tool:
+                        for tc in dd["tool_calls"]:
+                            fn = (tc or {}).get("function") or {}
+                            if fn.get("arguments"):
+                                tool_args.append(fn["arguments"])
+                    if c.finish_reason:
+                        finish = c.finish_reason
+                last = now
+            rec["ok"] = finish not in (None, "length") and (kind != "tool" or bool(tool_args))
+    except TimeoutError:
+        rec["error"] = f"DeadlineExceeded: 요청 전체 마감 {REQUEST_DEADLINE_S}초 초과"
+        rec["status"] = None
     except Exception as e:  # 실패도 결과로 기록
         rec["error"] = f"{type(e).__name__}: {str(e)[:300]}"
         rec["status"] = getattr(e, "status_code", None)

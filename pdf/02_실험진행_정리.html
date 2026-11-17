@@ -64,19 +64,19 @@
 <div class="stats">
   <div class="stat"><b>4 모델 × 12 경로</b><span>Mango 직접 1 + OpenRouter 11</span></div>
   <div class="stat"><b>회차 8회 + 2회</b><span>본 측정 8회(6시간 간격) + 파일럿 1 + 품질 점검 1</span></div>
-  <div class="stat"><b>약 26,200건</b><span>전체 API 호출</span></div>
-  <div class="stat"><b>$100~215</b><span>예상 비용 · 상한 $250 권장</span></div>
+  <div class="stat"><b>약 27,000건</b><span>전체 API 호출 (W2 세션 32 기준)</span></div>
+  <div class="stat"><b>$105~225</b><span>예상 비용 · 상한 $250 권장</span></div>
 </div>
 
 <h2><span class="no">1</span>전체 일정과 반복 횟수</h2>
 <p>회차 시작 시각을 <b>T</b>라 하면, 본 측정은 T부터 6시간 간격으로 8회 돌립니다. 하루 4회(예: KST 03·09·15·21시)로 미국·유럽·아시아 업무 시간대의 부하를 모두 담기 위함입니다.</p>
 <div class="tl">
   <div class="s">사전 준비</div><div>계정·키·충전, 서울 VM(AWS 서울 권장: Mango API가 Google Cloud를 경유하므로 같은 사업자 회피) 설치, OpenRouter Broadcast 연결, Mango 콘솔 잔액 기록 ①</div><div class="n">호출 0</div>
-  <div class="s">파일럿</div><div>12경로 × 작업별 5건(W2는 1세션). 기록·비용·소요 시간 확인 후 합격 기준을 넘으면 설정 동결(v1.0)</div><div class="n">약 1,100</div>
+  <div class="s">파일럿</div><div>12경로 × 작업별 5건 + M·OR-기본 W2 같은 세션 6개씩(W2 세션 수 산정) + 로컬 모의 스트림 서버로 측정기·요청 마감 검증. 합격하면 세션 수 n 확정 후 설정 동결(v1.0)</div><div class="n">약 1,600</div>
   <div class="s">품질 점검 회차</div><div>본 회차와 겹치지 않는 시간에 1회. 정답 문항 400개 × 6경로(Mango + OpenRouter 고정 5) × 4모델. 약 2시간</div><div class="n">9,600</div>
-  <div class="s">단계 1 · 1~4회차</div><div>T, T+6h, T+12h, T+18h. 성능 비교(실험 A)와 제공사 선택(실험 B)을 한 루프로. 회차당 약 1시간 30분 · 끝나면 Mango 잔액 기록 ②</div><div class="n">2,952 × 4 = 11,808</div>
-  <div class="s">단계 2 · 5~8회차</div><div>T+24h ~ T+42h. 제공사 선택만 반복(OpenRouter 기본·정렬 경로) · 끝나면 Mango 잔액 기록 ③</div><div class="n">920 × 4 = 3,680</div>
-  <div class="s" style="border-bottom:none">합계</div><div style="font-weight:700">약 2일 + 파일럿·품질 점검</div><div class="n" style="font-weight:700">약 26,200</div>
+  <div class="s">단계 1 · 1~4회차</div><div>T, T+6h, T+12h, T+18h. 성능 비교(실험 A)와 제공사 선택(실험 B)을 한 루프로. 회차당 약 1시간 30분 · 끝나면 Mango 잔액 기록 ②</div><div class="n">3,200 × 4 = 12,800</div>
+  <div class="s">단계 2 · 5~8회차</div><div>T+24h ~ T+42h. 제공사 선택만 반복(OpenRouter 기본·정렬 경로) · 끝나면 Mango 잔액 기록 ③</div><div class="n">760 × 4 = 3,040</div>
+  <div class="s" style="border-bottom:none">합계</div><div style="font-weight:700">약 2일 + 파일럿·품질 점검</div><div class="n" style="font-weight:700">약 27,000</div>
 </div>
 
 <h2><span class="no">2</span>모델과 호출 경로</h2>
@@ -160,17 +160,17 @@ def heappush(heap, item):
     …
 Write a function `top_k(stream, k)` that returns the k largest
 items from an iterable using only the functions above.</pre></td></tr>
-  <tr><td><b>W2</b> 에이전트 대화<br><span class="muted">세션 8개 × 10턴</span></td><td>시스템 문구 + 코드 문맥 약 16k로 시작, 매 턴 도구 호출·결과(1.5k)가 쌓여 약 30k까지. 이전 턴은 미리 만든 고정 기록</td><td><pre>[system] ID: … / You are a coding agent. Tools: read_file, search_code, run_tests.
+  <tr><td><b>W2</b> 에이전트 대화<br><span class="muted">세션 풀 48개 × 10턴</span></td><td>시스템 문구 + 코드 문맥 약 16k로 시작, 매 턴 도구 호출·결과(1.5k)가 쌓여 약 30k까지. 이전 턴은 미리 만든 고정 기록</td><td><pre>[system] ID: … / You are a coding agent. Tools: read_file, search_code, run_tests.
 [user]   [Lib/json 패키지 일부 약 16k토큰] Find why dumps() fails on Decimal.
 [assistant, 고정] tool_call read_file("Lib/json/encoder.py")
 [tool, 고정]      [encoder.py 일부 약 1.5k토큰]
-[user]   Now propose a patch.            ← 턴 2 (앞부분은 캐시 적중)
+[user]   Now propose a patch.            ← 턴 2 (앞부분 캐시 적중 여부는 usage로 확인)
 …                                         ← 턴 10까지</pre></td></tr>
   <tr><td><b>W3</b> 도구 호출<br><span class="muted">풀 200개</span></td><td>원천 발췌 + 도구 사용 지시, 약 2k토큰 + 도구 3개</td><td><pre>[Doc/library/pathlib.rst 발췌 약 1.8k토큰]
 Check whether the examples in this section still pass.
 Use the tools to locate and run the relevant tests.
 → 기대: run_tests 또는 search_code 함수 호출 (JSON 인자)</pre></td></tr>
-  <tr><td><b>L</b> 입력 길이 단계<br><span class="muted">길이별 16개</span></td><td>1k / 10k / 32k 토큰, 출력 16토큰. 서버 처리(prefill) 속도와 고정 지연 분해용</td><td><pre>[원천 발췌 정확히 10,000토큰]
+  <tr><td><b>L</b> 입력 길이 단계<br><span class="muted">길이별 16개</span></td><td>1k / 10k / 32k 토큰, 출력 상한 64. 첫 토큰 시간만 써서 길이에 따른 관측 지연을 봄(탐색, 서버 분해 아님)</td><td><pre>[원천 발췌 정확히 10,000토큰]
 Answer with one word: does this text define a class?</pre></td></tr>
   <tr><td><b>Z</b> 최소 요청</td><td>출력 1토큰. 순수 오버헤드</td><td><pre>Reply with OK.</pre></td></tr>
   <tr><td><b>Q</b> 품질 점검<br><span class="muted">400문항</span></td><td>어려운 수학(MATH) 200, 전문 지식 객관식(MMLU-Pro) 150, 도구 호출 정확도(BFCL) 50. 정답 자동 채점</td><td><pre>수학 형식: "Find all real x such that … . Put the final answer in \boxed{}."
@@ -183,17 +183,17 @@ Answer with one word: does this text define a class?</pre></td></tr>
 <h3>단계 1 회차 (1~4회차) · 모델 1개 기준</h3>
 <table>
   <tr><th>경로</th><th class="num">W1</th><th class="num">W3</th><th class="num">W2</th><th class="num">L</th><th class="num">Z</th><th class="num">부하</th><th class="num">합계</th></tr>
-  <tr><td>M (Mango)</td><td class="num">15</td><td class="num">15</td><td class="num">20</td><td class="num">12</td><td class="num">8</td><td class="num">24</td><td class="num">94</td></tr>
-  <tr><td>OR-기본</td><td class="num">75</td><td class="num">75</td><td class="num">20</td><td class="num">12</td><td class="num">8</td><td class="num">24</td><td class="num">214</td></tr>
-  <tr><td>OR-고정 × 5 (각각)</td><td class="num">15</td><td class="num">15</td><td class="num">20</td><td class="num">12</td><td class="num">8</td><td class="num">–</td><td class="num">70 × 5 = 350</td></tr>
-  <tr><td>OR-정렬 3 + 접미사 2 (각각)</td><td class="num">8</td><td class="num">8</td><td class="num">–</td><td class="num">–</td><td class="num">–</td><td class="num">–</td><td class="num">16 × 5 = 80</td></tr>
-  <tr class="total"><td>모델 1개</td><td colspan="6" class="num">Mango 94 + OpenRouter 644</td><td class="num">738</td></tr>
-  <tr class="total"><td>4개 모델</td><td colspan="6" class="num"></td><td class="num">2,952</td></tr>
+  <tr><td>M (Mango)</td><td class="num">15</td><td class="num">15</td><td class="num">80</td><td class="num">6</td><td class="num">8</td><td class="num">24</td><td class="num">152</td></tr>
+  <tr><td>OR-기본</td><td class="num">75</td><td class="num">75</td><td class="num">80</td><td class="num">6</td><td class="num">8</td><td class="num">24</td><td class="num">268</td></tr>
+  <tr><td>OR-고정 × 5 (각각)</td><td class="num">15</td><td class="num">15</td><td class="num">20</td><td class="num">6</td><td class="num">8</td><td class="num">–</td><td class="num">68 × 5 = 340</td></tr>
+  <tr><td>OR-정렬 3 + 접미사 2 (각각)</td><td class="num">4</td><td class="num">4</td><td class="num">–</td><td class="num">–</td><td class="num">–</td><td class="num">–</td><td class="num">8 × 5 = 40</td></tr>
+  <tr class="total"><td>모델 1개</td><td colspan="6" class="num">Mango 152 + OpenRouter 648</td><td class="num">800</td></tr>
+  <tr class="total"><td>4개 모델</td><td colspan="6" class="num"></td><td class="num">3,200</td></tr>
 </table>
-<p class="muted">W2는 2세션 × 10턴. L은 길이 3단계 × 4건. 부하는 W1 24건을 동시 4건씩 6묶음으로 본 루프 뒤에 따로. 작업자마다 준비 호출(Z) 1건은 분석 제외.</p>
+<p class="muted">W2는 M·OR-기본이 같은 세션 8개(n/4) × 10턴, OR-고정은 그중 2세션. 주 비교용 W1 공통 질문은 앞 15개이고 OR-기본의 나머지 60건은 라우팅 분석 전용. L은 길이 3단계 × 2건. 부하는 W1 24건을 동시 4건씩 6묶음으로 본 루프 뒤에. M·OR-고정에 캐시 대조 4건씩 포함(같은 6턴 입력을 새 nonce와 같은 nonce로 재전송). 준비 호출(Z) 1건은 분석 제외.</p>
 
 <div class="two">
-<div class="card"><h4>단계 2 회차 (5~8회차) · 모델 1개</h4><p>OR-기본 W1 75 + W3 75 = 150, 정렬·접미사 5경로 × 16 = 80 → <b>230건</b>, 4개 모델 <b>920건</b>. Mango 호출 없음.</p></div>
+<div class="card"><h4>단계 2 회차 (5~8회차) · 모델 1개</h4><p>OR-기본 W1 75 + W3 75 = 150, 정렬·접미사 5경로 × 8 = 40 → <b>190건</b>, 4개 모델 <b>760건</b>. Mango 호출 없음.</p></div>
 <div class="card"><h4>품질 점검 회차 · 1회</h4><p>Q 400문항 × 6경로(M + OR-고정 5) × 4모델 = <b>9,600건</b>. 모델당 Mango 400, OpenRouter 2,000.</p></div>
 </div>
 
@@ -211,17 +211,17 @@ Answer with one word: does this text define a class?</pre></td></tr>
 <p>게시가 기준 추정입니다. Mango는 간이 테스트에서 실제 청구가 할인 전 단가와 일치해 할인 전 단가로 계산했습니다. <b>가장 큰 불확실성은 reasoning 출력 길이</b>로, 요청당 평균 출력 1,000토큰을 가정했습니다. 파일럿에서 실측해 다시 계산합니다.</p>
 <table>
   <tr><th>단계</th><th class="num">호출</th><th>토큰 규모 (대략)</th><th class="num">예상 비용</th></tr>
-  <tr><td>파일럿</td><td class="num">약 1,100</td><td>소량</td><td class="num">$3~8</td></tr>
+  <tr><td>파일럿</td><td class="num">약 1,600</td><td>W2 세션 산정분 포함</td><td class="num">$5~12</td></tr>
   <tr><td>품질 점검 회차</td><td class="num">9,600</td><td>입력 약 2M + 출력 약 10M (어려운 문항이라 reasoning이 김)</td><td class="num">$35~90</td></tr>
-  <tr><td>단계 1 · 4회차</td><td class="num">11,808</td><td>출력 약 12M, W2 입력 약 51M(대부분 캐시), L 입력 약 19M(캐시 없음)</td><td class="num">$48~92</td></tr>
-  <tr><td>단계 2 · 4회차</td><td class="num">3,680</td><td>입력 약 5.5M + 출력 약 3.7M</td><td class="num">$10~20</td></tr>
+  <tr><td>단계 1 · 4회차</td><td class="num">12,800</td><td>출력 약 13M, W2 입력 약 96M(대부분 캐시), L 약 9.6M·캐시 대조 약 5M(캐시 없음)</td><td class="num">$51~100</td></tr>
+  <tr><td>단계 2 · 4회차</td><td class="num">3,040</td><td>입력 약 4.5M + 출력 약 3M</td><td class="num">$8~16</td></tr>
   <tr><td>서울 VM</td><td class="num">–</td><td>소형 인스턴스 약 4일</td><td class="num">$2~5</td></tr>
-  <tr class="total"><td>합계</td><td class="num">약 26,200</td><td></td><td class="num">$100~215</td></tr>
+  <tr class="total"><td>합계</td><td class="num">약 27,000</td><td>W2 세션이 48로 늘면 최대 약 +$15</td><td class="num">$105~225</td></tr>
 </table>
 
 <div class="two">
 <div class="card"><h4>지불처별 나눔 (추정)</h4><ul>
-  <li><b>OpenRouter:</b> 약 $80~175. 모델별로는 Kimi가 절반 이상(출력 단가 100만 토큰당 약 $9~10)</li>
+  <li><b>OpenRouter:</b> 약 $85~185. 모델별로는 Kimi가 절반 이상(출력 단가 100만 토큰당 약 $9~10)</li>
   <li><b>Mango:</b> 약 $15~35. 실험 A와 품질 점검에서 6경로 중 1경로</li>
   <li><b>클라우드 VM:</b> $2~5</li></ul></div>
 <div class="card"><h4>준비할 금액</h4><ul>
@@ -234,8 +234,9 @@ Answer with one word: does this text define a class?</pre></td></tr>
 <h2><span class="no">8</span>결과를 판정하는 방법</h2>
 <table>
   <tr><th style="width:24%">항목</th><th>방법</th></tr>
-  <tr><td>주 비교 (16개)</td><td>모델 4 × 지표 4, Mango vs OR-기본. 지표: 에이전트 대화 2~10턴의 첫 답변 시간, 짧은 요청의 생성 속도, 성공률, 세션당 비용</td></tr>
-  <tr><td>판정 기준</td><td>Mango ÷ 비교 대상의 중앙값 비율, 보정한 신뢰구간(99.69%)이 전체 0.90 미만이면 우위, 1.10 초과면 열위, 0.90~1.10 안이면 동등, 그 외 판정 불가 (처리량·성공률은 반대 방향)</td></tr>
+  <tr><td>주 비교 (16개)</td><td>모델 4 × 지표 4, Mango vs OR-기본. 지표: 에이전트 대화 2~10턴의 첫 답변 시간(세션 쌍), 짧은 요청의 생성 속도(공통 질문 쌍), 성공률(공통 작업 1/3씩 가중), 세션당 비용</td></tr>
+  <tr><td>통계량</td><td>짝 단위(세션·질문)별 Mango ÷ OR-기본 로그 비율 평균의 지수(기하평균 비율). 성공률은 절대 차이(%p). 회차를 층으로 짝 단위를 재표본하는 부트스트랩</td></tr>
+  <tr><td>판정 기준</td><td>보정한 신뢰구간(99.69%) 기준. 응답 시간·비용 비율은 전체 0.90 미만 우위, 1.10 초과 열위, 0.90~1.10 안 동등(처리량은 반대). <b>성공률은 차이 +2%p 초과 우위, −2%p 미만 열위, ±2%p 안 동등.</b> 그 외 판정 불가. 실패율·실패 유형 함께 보고</td></tr>
   <tr><td>품질</td><td>같은 문항의 정답 여부를 Mango와 각 엔드포인트끼리 짝지어 비교. 약 5~6%p 차이까지 구분</td></tr>
   <tr><td>제공사 선택</td><td>OR-기본의 응답 엔드포인트·제공사 비율을 30일 점유율(제공사 단위)과 비교</td></tr>
   <tr><td>비용 검증</td><td>Mango 콘솔 잔액 3회(시작 직전, 1일차 후, 종료 후) 기록, 구간별 실제 차감액과 계산값 대조</td></tr>
