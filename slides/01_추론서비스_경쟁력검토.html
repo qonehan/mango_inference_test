@@ -371,10 +371,10 @@ svg text{font-family:var(--sans)}
 <section class="slide">
   <div class="tag">실험 결과 ③ 비용 분해</div>
   <h2>DeepSeek·GLM-5.3의 비용 열위는 단가에서 옵니다</h2>
-  <p class="lead">세션당 비용 = 단가 × 토큰량 × 성공 수. 값은 Mango ÷ OpenRouter 기본이고, 1보다 크면 Mango가 비쌉니다.</p>
+  <p class="lead">세션당 비용 비율 = 단가 효과 × 토큰량 효과 × 성공 세션 효과. 값은 Mango ÷ OpenRouter 기본이고, 1보다 크면 Mango가 비쌉니다. 성공 세션 효과는 Mango의 성공 세션이 적을수록 1보다 커집니다. 각 효과는 반올림 값이라 곱이 P4와 조금 다를 수 있습니다.</p>
   <div class="body">
     <table style="font-size:15px">
-      <tr><th style="width:26%">모델 (Mango ÷ OR 기본)</th><th class="num">단가</th><th class="num">× 토큰량</th><th class="num">× 성공 수</th><th class="num">= 세션당 비용 (P4)</th></tr>
+      <tr><th style="width:26%">모델 (Mango ÷ OR 기본)</th><th class="num">단가</th><th class="num">× 토큰량</th><th class="num">× 성공 세션</th><th class="num">= 세션당 비용 (P4)</th></tr>
       <tr><td>DeepSeek V4.1 Flash</td><td class="num" style="color:#c2410c">1.73</td><td class="num">0.98</td><td class="num">1.03</td><td class="num"><b style="color:#c2410c">1.73</b></td></tr>
       <tr><td>GLM-5.3</td><td class="num" style="color:#c2410c">1.66</td><td class="num" style="color:#c2410c">1.20</td><td class="num" style="color:#c2410c">1.15</td><td class="num"><b style="color:#c2410c">2.29</b></td></tr>
       <tr><td>GLM-5.3 Flash</td><td class="num">0.98</td><td class="num" style="color:#1f8a5b">0.89</td><td class="num">1.00</td><td class="num"><b>0.88</b></td></tr>
@@ -522,7 +522,7 @@ svg text{font-family:var(--sans)}
       <tr><th style="width:170px">경로</th><th class="num" style="width:190px">비율 (추정)</th><th>Mango가 OpenRouter에 올라간다면 (추론)</th></tr>
       <tr><td><b>기본 라우팅</b></td><td class="num">상한 8~15%</td><td>보정 가격(실효 가격+속도+첫 토큰+오류)으로 경쟁. GLM-5.3 Flash는 속도 우위에 단가도 비슷해 유리. DeepSeek·GLM-5.3은 단가 1.7배를 속도로 얼마나 상쇄하는지가 공식 미공개라 알 수 없음</td></tr>
       <tr><td><b>처리량 우선</b></td><td class="num">상한 0.5~2%</td><td>정렬은 공개 통계 기준이라 15쪽 순위가 기준입니다. 공개 기준 처리속도는 GLM-5.3 Flash 1위, DeepSeek 2위(1위 Baseten Fast), GLM-5.3 6위, Kimi 11위라 1위 후보는 GLM-5.3 Flash 정도. 경로 자체도 작음</td></tr>
-      <tr><td><b>지연 우선</b></td><td class="num">상한 4~6%<br><span class="note">(GLM-5.3 최대 42%)</span></td><td>첫 토큰은 네 모델 모두 Mango가 35~39% 빨랐지만, 서울에서 가까운 지리 효과가 섞여 있음</td></tr>
+      <tr><td><b>지연 우선</b></td><td class="num">상한 4~6%<br><span class="note">(GLM-5.3 최대 42%)</span></td><td>추론을 포함한 첫 토큰은 네 모델 모두 Mango가 35~39% 빨랐지만(판정표 P1과 다른 지표), 서울에서 가까운 지리 효과가 섞여 있음</td></tr>
       <tr><td><b>가격 우선</b></td><td class="num">상한 4~8%<br><span class="note">(GLM-5.3 최대 42%)</span></td><td>정렬 1위(Wafer·Relace)의 실사용 단가보다 Mango가 1.5~3.5배 비싸(공식 30% 할인을 적용해도 1.1~2.5배) 1위가 될 수 없음</td></tr>
       <tr><td><b>그 밖 (직접 지정 등)</b></td><td class="num">하한 51~80%</td><td>이름·계약·계정 설정이 좌우(추론). Moonshot·Alibaba 사례(18쪽)처럼 성능·가격으로 설명되지 않는 몫이 있고, 설정이 다른 기본 라우팅 사용자도 섞여 있음. 이번 실험으로는 나눌 수 없음</td></tr>
     </table>
@@ -570,7 +570,7 @@ svg text{font-family:var(--sans)}
       <tr><td><b>경로 비율</b></td><td>정책별 비중 추정의 신뢰도가 낮음. 우리 계정의 기본 배분이 대표적이라는 보장이 없음</td><td>기본 라우팅 표본 1,000건 이상(여러 시간대), 두 번째 계정, OpenRouter 문의·사용자 인터뷰</td></tr>
       <tr><td><b>품질</b></td><td>25문항 점검이라 판정용이 아니고, 추론 설정이 양쪽 달라 품질과 섞여 있음</td><td>정식 품질 평가 설계</td></tr>
     </table>
-    <p class="note" style="margin:0"><b>재측정 비용:</b> 1회 약 $38(OpenRouter $19.6 + Mango $18.4). 남은 잔액은 Mango $2.88·OpenRouter $5.97이라 충전이 필요합니다. 재측정 일정은 정해지지 않았습니다.</p>
+    <p class="note" style="margin:0"><b>재측정 비용:</b> 1회 약 $38(OpenRouter $19.6 + Mango $18.4). 재측정 일정은 정해지지 않았습니다.</p>
   </div>
   <div class="foot"><span class="src">근거: docs/09 9~12절 · docs/10 · docs/11_2회실험_설계_초안</span><span class="pg"></span></div>
 </section>
