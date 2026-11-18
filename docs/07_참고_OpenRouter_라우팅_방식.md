@@ -123,7 +123,27 @@ OpenRouter 공식 문서 두 개를 읽고, 한 요청이 어느 제공사로 �
 | `sort`(요청 또는 계정 기본값), `:floor`, `:nitro` | 미적용 | 두 문서 |
 | BYOK | 미적용 | 두 문서 |
 | `preferred_*` 선호 조건 | 문서상 명시 없음. 미달 엔드포인트를 뒤로 미는 정렬로 설명됨 | Provider Routing |
-| 모델 라우터(Auto Router 등) | 별도 계층. 모델을 고른 뒤 제공사 선택은 위 규칙을 따른다고 추정 (문서 미확인) | - |
+| 모델 라우터(Auto Router 등) | 적용. 라우터가 모델을 고른 뒤 그 모델의 제공사는 직접 요청과 같은 규칙(기본 배분과 `provider` 설정)으로 고름 | Routers 개요·Auto Router (5-1절) |
+
+
+### 5-1. 모델 라우터와 모델 폴백 (2026-11-18 추가)
+
+라우터는 제공사가 아니라 **모델**을 고르는 장치입니다. 모델이 정해지면 그 모델의 제공사는 직접 요청과 같은 규칙으로 고릅니다. Routers 개요 문서에 "라우터가 모델을 고르면 직접 요청과 같은 방식으로 사용자의 제공사 선호에 따라 제공사를 고른다"고 적혀 있습니다. Auto Router 문서도 `provider.max_price`가 라우터가 고른 모델의 엔드포인트에 적용된다고 밝힙니다. 라우터 수수료는 없고, 선택된 모델의 요금만 청구됩니다.
+
+| 라우터 | 모델 ID | 동작 | 설정 |
+|---|---|---|---|
+| Auto Router | `openrouter/auto` | 요청마다 모델과 추론 강도를 고름. ① 데이터 정책·모델 기능·제공사 제한·BYOK·허용·제외 목록으로 후보를 거르고, ② 빠른 판단 모델이 요청을 11개 항목으로 평가하고, ③ 실시간 가격·캐시 상태·벤치마크를 비용 등급 안에서 저울질함. 같은 대화에서는 모델 교체를 자제하고 추론 강도부터 조정함 | `plugins: [{id: "auto-router", allowed_models, excluded_models, cost_tier}]`. 계정 기본값은 Routing 설정 화면에 저장 |
+| Auto Code / Auto Beta | `openrouter/auto-code`, `openrouter/auto-beta` | 코딩 에이전트용 Auto / 실험판(설정의 plugin id는 `auto-beta-router`) | Auto와 같음 |
+| Free Models Router | `openrouter/free` | 필요한 기능(이미지·도구 호출·구조화 출력)을 지원하는 무료 모델 중 무작위 선택 | 문서상 설정 없음 |
+| Pareto Router | `openrouter/pareto-code` | Artificial Analysis 코딩 점수로 등급을 나누고 등급 안에서 가장 싼 모델 선택. `:nitro`를 붙이면 p50 처리량이 가장 높은 모델 선택. 같은 등급 예비 모델 2개는 일시 오류나 한도 초과 때만 사용 | `min_coding_score`(0~1, 등급 선택) |
+| Fusion Router | `openrouter/fusion` | 여러 모델이 함께 답을 만드는 심층 조사용 | 미확인 |
+| 외부 라우터 | `nvidia/switchyard`, `typesafe/jev-router` 등 | 다른 회사가 만든 라우터와 합성 모델 | 미확인 |
+
+**모델 폴백**은 라우터가 아닙니다. 요청에 `models: [A, B, C]`처럼 우선순위 순서로 모델을 적으면 A의 오류(맥락 길이 초과, 검열, 요청 한도, 장애) 때 B를 시도합니다. 고르는 주체는 사용자입니다. 청구는 최종 사용된 모델 기준이며, `:free` 모델에서 유료 모델로 넘어가면 유료 요금이 붙습니다. `sort.partition`의 기본값 `"model"`이면 1순위 모델의 엔드포인트를 먼저 시도합니다.
+
+**실험과의 관계:** 1회 실험([09](09_1회실험_결과.md))는 모델 4개를 고정하고 제공사 선택만 비교해서 라우터를 측정하지 않았습니다. 라우터를 거친 요청도 모델이 정해진 뒤에는 위 제공사 규칙을 따르므로, 모델별 제공사 트래픽에서는 기본 배분이나 필터 사용자 몫에 섞여 있다고 봅니다. 예외는 Pareto Router의 `:nitro`처럼 라우터가 속도 기준으로 고르는 경우입니다.
+
+출처(2026-11-18 확인): [Routers 개요](https://openrouter.ai/docs/guides/routing/routers/overview), [Auto Router](https://openrouter.ai/docs/guides/routing/routers/auto-router), [Free Models Router](https://openrouter.ai/docs/guides/routing/routers/free-router), [Pareto Router](https://openrouter.ai/docs/guides/routing/routers/pareto-router), [Model Fallbacks](https://openrouter.ai/docs/guides/routing/model-fallbacks), [`openrouter/auto` 모델 페이지](https://openrouter.ai/openrouter/auto). Auto Code·Fusion·외부 라우터 페이지와 프리셋은 읽지 않았습니다.
 
 ## 6. 원문 대조 (2026-11-17)
 
@@ -164,9 +184,10 @@ Traffic Routing, Provider Routing, Prompt Caching 세 문서를 다시 읽고 �
 
 - 기본 배분과 사용자 지정의 실제 트래픽 비율은 공개되지 않았습니다. OpenRouter 문의나 고객 인터뷰가 필요합니다.
 - OpenRouter 사용자 이용방식 조사(공개 글 기반) 6절의 직접 호출 실험(기본, `sort: price`, `order` 고정, 프리셋 비교)으로 같은 모델에서 어느 제공사가 선택되는지 기록할 수 있습니다. 아직 실행하지 않았습니다.
-- 모델 폴백, 서비스 등급, 프리셋, 가드레일 페이지는 이번에 읽지 않았습니다.
+- 서비스 등급, 프리셋, 가드레일 페이지는 읽지 않았습니다. 모델 폴백과 라우터는 2026-11-18에 읽었습니다(5-1절). Auto Code·Fusion·외부 라우터 상세는 미확인입니다.
 
 ## 8. 변경 기록
 
 - 2026-11-16: 두 공식 문서를 읽고 신규 작성.
 - 2026-11-17: 원문 재대조. 속도를 별도 축으로 정정하고, 프롬프트 캐시 고착 규칙(6절)을 추가.
+- 2026-11-18: 모델 라우터(Auto·Free·Pareto 등)와 모델 폴백을 공식 문서로 확인해 5-1절을 추가하고, 5절 표의 라우터 행을 "추정"에서 문서 근거로 고침.
