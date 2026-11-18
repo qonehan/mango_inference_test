@@ -59,6 +59,26 @@ td.num,th.num{text-align:right;font-family:var(--mono);font-variant-numeric:tabu
 .cover .tag{color:#9ec0ef}.cover h1{font-size:46px;margin-bottom:14px}.cover .lead{color:#c9d6e8;font-size:20px}
 .cover .meta{margin-top:40px;font-size:15px;color:#a9bad2;line-height:1.8}
 .cover .foot{color:#7f93b1}
+/* 간지 */
+.divider{background:var(--navy);color:#fff;padding:44px 64px 64px}
+.divider .foot{color:#7f93b1}
+.dprog{display:flex;gap:10px;font-size:14px}
+.dprog span{padding:6px 14px;border-radius:99px;background:rgba(255,255,255,.08);color:#8fa5c6}
+.dprog span b{font-family:var(--mono);font-weight:500;margin-right:4px}
+.dprog span.on{background:var(--mango);color:#fff;font-weight:600}
+.dmain{margin-top:34px}
+.dn{font-family:var(--mono);font-size:64px;line-height:1;color:#9ec0ef;font-weight:500}
+.divider h2{font-size:44px;margin:10px 0 8px;color:#fff}
+.divider h2 .rng{font-size:18px;font-weight:500;color:#9ec0ef;margin-left:10px;font-family:var(--mono)}
+.dq{font-size:22px;color:#c9d6e8;margin:0;line-height:1.45}
+.dflow{display:grid;gap:16px;margin-top:34px}
+.dc{background:rgba(255,255,255,.08);border-radius:12px;padding:18px 20px;border-top:3px solid var(--mango)}
+.dc .pgno{font-family:var(--mono);font-size:13px;color:#9ec0ef;margin-bottom:6px}
+.dc h3{font-size:18px;margin:0 0 8px;color:#fff;font-weight:600}
+.dc p,.dc li{font-size:15px;line-height:1.55;color:#d6e0ef;margin:0}
+.dc ul{margin:0;padding-left:18px}.dc li{margin:5px 0}
+.dkey{position:absolute;left:64px;right:64px;bottom:56px;background:rgba(224,122,31,.16);border-left:4px solid var(--mango);border-radius:0 8px 8px 0;padding:12px 18px;font-size:16px;line-height:1.5;color:#fff}
+.dkey b{color:#ffb877;margin-right:8px}
 /* 섹션 지도 */
 .map{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
 .map .card{background:#fff;border:1px solid var(--line)}
@@ -103,14 +123,26 @@ svg text{font-family:var(--sans)}
   <p class="lead">OpenRouter에서 사용자가 제공사를 고르는 방식을 정리하고, 실험으로 Mango Inference의 성능·가격을 재서 같은 모델 시장에서 Mango가 받을 점유율을 가늠합니다.</p>
   <div class="body">
     <div class="map">
-      <div class="card"><div class="n">01</div><h3>분석 틀 <span class="note">3~6쪽</span></h3><p>사용자가 모델·제공사를 고르는 방법<br>공식 문서의 기본 선택 정책<br>성능·가격과 점유율의 관계<br>그래서 무엇을 예측하려 했나</p></div>
-      <div class="card"><div class="n">02</div><h3>실험 과정 <span class="note">7~9쪽</span></h3><p>무엇을 비교했나<br>무엇으로 판정했나<br>실행과 측정 신뢰성</p></div>
-      <div class="card"><div class="n">03</div><h3>결과 <span class="note">10~18쪽</span></h3><p>판정표 · 속도 · 비용<br>OpenRouter가 실제로 고른 제공사<br>공개 성능 통계 vs 실측 · 공개 기준 Mango 위치<br>경로 비율 추정<br>신규 모델 지원 시점 · 선점과 브랜드(Moonshot)</p></div>
-      <div class="card"><div class="n">04</div><h3>결론 <span class="note">19~21쪽</span></h3><p>점유율 예측에 주는 의미<br>모델별 평가<br>한계와 다음 단계</p></div>
+      <div class="card"><div class="n">01</div><h3>분석 틀 <span class="note">4~7쪽</span></h3><p>사용자가 모델·제공사를 고르는 방법<br>공식 문서의 기본 선택 정책<br>성능·가격과 점유율의 관계<br>그래서 무엇을 예측하려 했나</p></div>
+      <div class="card"><div class="n">02</div><h3>실험 과정 <span class="note">9~11쪽</span></h3><p>무엇을 비교했나<br>무엇으로 판정했나<br>실행과 측정 신뢰성</p></div>
+      <div class="card"><div class="n">03</div><h3>결과 <span class="note">13~21쪽</span></h3><p>판정표 · 속도 · 비용<br>OpenRouter가 실제로 고른 제공사<br>공개 성능 통계 vs 실측 · 공개 기준 Mango 위치<br>경로 비율 추정<br>신규 모델 지원 시점 · 선점과 브랜드(Moonshot)</p></div>
+      <div class="card"><div class="n">04</div><h3>결론 <span class="note">23~25쪽</span></h3><p>점유율 예측에 주는 의미<br>모델별 평가<br>한계와 다음 단계</p></div>
     </div>
     <div class="callout" style="margin-top:8px">대상 모델은 Mango가 서비스하는 오픈웨이트 모델 중 OpenRouter에도 있는 <b>4개</b>입니다: Kimi K3.1 Pro · GLM-5.3 · GLM-5.3-Flash · DeepSeek V4.1 Flash 1017(5번째인 Kimi-K3는 지원 종료 예정이라 제외). 같은 모델을 누가 더 싸고 빠르게 파는지가 비교의 단위입니다.</div>
   </div>
   <div class="foot"><span class="src">근거: 실험 배경 docs/01_실험계획_절차.md · OpenRouter 공개 화면(2026-11-16·17 수집)</span><span class="pg"></span></div>
+</section>
+
+<section class="slide divider">
+  <div class="dprog"><span class="on"><b>01</b> 분석 틀</span><span class=""><b>02</b> 실험 과정</span><span class=""><b>03</b> 결과</span><span class=""><b>04</b> 결론</span></div>
+  <div class="dmain">
+    <div class="dn">01</div>
+    <h2>분석 틀 <span class="rng">4~7쪽</span></h2>
+    <p class="dq">무엇을, 어떤 가정으로 예측하려는가</p>
+  </div>
+  <div class="dflow" style="grid-template-columns:repeat(4,1fr)"><div class="dc"><div class="pgno">4쪽</div><h3>사용자는 어떻게 고르나</h3><p>모델 → 제공사 순으로 고르고, 단계마다 사용자가 정하거나 OpenRouter가 정합니다</p></div><div class="dc"><div class="pgno">5쪽</div><h3>기본 선택 정책</h3><p>제공사를 고르지 않으면 가격 점수와 속도로 몫을 정해 추첨합니다</p></div><div class="dc"><div class="pgno">6쪽</div><h3>성능·가격과 점유율</h3><p>싸고 빠르고 오류가 적을수록 점유율이 높지만 설명력은 중간 이하입니다</p></div><div class="dc"><div class="pgno">7쪽</div><h3>무엇을 예측하나</h3><p>경로별 몫을 경로 비율로 합산합니다. 비어 있는 Mango 성능·가격과 경로 배분은 실험이 채웁니다</p></div></div>
+  <div class="dkey"><b>이 장의 핵심</b> 점유율은 “경로별 몫 × 경로 비율”로 추정하고, 비어 있는 값을 실험으로 채웁니다.</div>
+  <div class="foot"><span></span><span class="pg"></span></div>
 </section>
 
 <section class="slide">
@@ -164,7 +196,7 @@ svg text{font-family:var(--sans)}
       <text x="626" y="280" font-size="17" font-weight="700" fill="#9a4d0c">직접 지정</text>
       <text x="626" y="304" font-size="13.5" font-weight="600" fill="#9a4d0c">사용자가 제공사를 고정 (정책 우회)</text>
       <text x="626" y="326" font-size="12" fill="#465060">order, 자기 키(BYOK)</text>
-      <text x="930" y="304" font-size="13" fill="#465060">이름·계약·계정 설정이 좌우 (추론, 18쪽)</text>
+      <text x="930" y="304" font-size="13" fill="#465060">이름·계약·계정 설정이 좌우 (추론, 21쪽)</text>
     </svg>
     <p class="note">라우터는 제공사가 아니라 모델만 고르며 수수료가 없습니다. 모델이 정해지면 제공사는 2단계 방법 중 하나로 정해집니다. 프리셋은 1·2단계 설정을 함께 담고 요청 값이 우선합니다. Mango는 5개 모델(지원 종료 예정 Kimi-K3 포함)만 팔아서 다른 모델이 정해지면 후보가 못 됩니다. 방법별 사용자 비율은 공개되지 않았고, 이 차이가 다음 장의 점유율 구조로 이어집니다.</p>
   </div>
@@ -259,28 +291,28 @@ svg text{font-family:var(--sans)}
       <rect x="0" y="30" width="310" height="92" rx="10" fill="#fdf0e3" stroke="#e07a1f" stroke-width="2.5"/>
       <text x="16" y="60" font-size="17" font-weight="700" fill="#9a4d0c">Mango 성능·가격</text><rect x="232" y="44" width="62" height="20" rx="10" fill="#e07a1f"/><text x="263.0" y="58" text-anchor="middle" font-size="11.5" font-weight="700" fill="#fff">실험</text>
       <text x="16" y="84" font-size="12.5" fill="#465060">Mango 직접 호출로 속도·비용 측정</text>
-      <text x="16" y="104" font-size="12.5" fill="#465060">(10~12쪽)</text>
+      <text x="16" y="104" font-size="12.5" fill="#465060">(13~15쪽)</text>
       <rect x="0" y="138" width="310" height="92" rx="10" fill="#eef3fb" stroke="#2f6fd0" stroke-width="1.5"/>
       <text x="16" y="168" font-size="17" font-weight="700" fill="#1d3557">경쟁 제공사 성능·가격</text><rect x="232" y="152" width="62" height="20" rx="10" fill="#e07a1f"/><text x="263.0" y="166" text-anchor="middle" font-size="11.5" font-weight="700" fill="#fff">실험</text>
       <text x="16" y="192" font-size="12.5" fill="#465060">OpenRouter 공개 통계로 수집하고,</text>
-      <text x="16" y="212" font-size="12.5" fill="#465060">같은 조건 실측으로 차이 확인 (14·15쪽)</text>
+      <text x="16" y="212" font-size="12.5" fill="#465060">같은 조건 실측으로 차이 확인 (17·18쪽)</text>
       <rect x="0" y="246" width="310" height="92" rx="10" fill="#fff" stroke="#e07a1f" stroke-width="1.5" stroke-dasharray="5 4"/>
       <text x="16" y="276" font-size="17" font-weight="700" fill="#465060">사용자 경로 비율</text><rect x="232" y="260" width="62" height="20" rx="10" fill="#e07a1f"/><text x="263.0" y="274" text-anchor="middle" font-size="11.5" font-weight="700" fill="#fff">실험</text>
       <text x="16" y="300" font-size="12.5" fill="#465060">공개되지 않음 → 실험에서 본 경로별 배분과</text>
-      <text x="16" y="320" font-size="12.5" fill="#465060">공개 요청 수를 맞춰 범위로 추정 (16쪽)</text>
+      <text x="16" y="320" font-size="12.5" fill="#465060">공개 요청 수를 맞춰 범위로 추정 (19쪽)</text>
       <rect x="380" y="30" width="400" height="308" rx="12" fill="#f3f5f8"/>
       <text x="396" y="54" font-size="13" font-weight="600" fill="#465060">경로마다 Mango가 받는 몫이 다릅니다</text><rect x="660" y="40" width="104" height="20" rx="10" fill="#e07a1f"/><text x="712.0" y="54" text-anchor="middle" font-size="11.5" font-weight="700" fill="#fff">실험으로 확인</text>
       <rect x="396" y="68" width="368" height="76" rx="8" fill="#fff"/>
       <text x="412" y="96" font-size="15" font-weight="700" fill="#1d3557">기본 라우팅</text>
       <text x="412" y="119" font-size="12.5" fill="#465060">보정 가격·속도·오류 점수에 비례해 나눔</text>
-      <text x="412" y="136" font-size="12" fill="#9a4d0c">실측: 모델당 14~22곳으로 분산 (13쪽)</text>
+      <text x="412" y="136" font-size="12" fill="#9a4d0c">실측: 모델당 14~22곳으로 분산 (16쪽)</text>
       <rect x="396" y="156" width="368" height="76" rx="8" fill="#fff"/>
       <text x="412" y="184" font-size="15" font-weight="700" fill="#1d3557">가격·처리량·지연 정렬</text>
       <text x="412" y="207" font-size="12.5" fill="#465060">고른 지표 1위부터 시도, 1위가 독식</text>
-      <text x="412" y="224" font-size="12" fill="#9a4d0c">실측: 기준마다 다른 1위 (13쪽)</text>
+      <text x="412" y="224" font-size="12" fill="#9a4d0c">실측: 기준마다 다른 1위 (16쪽)</text>
       <rect x="396" y="244" width="368" height="76" rx="8" fill="#fff"/>
       <text x="412" y="272" font-size="15" font-weight="700" fill="#1d3557">직접 지정 (order·BYOK)</text>
-      <text x="412" y="295" font-size="12.5" fill="#465060">이름·계약·설정이 좌우 (추론, 18쪽 사례)</text>
+      <text x="412" y="295" font-size="12.5" fill="#465060">이름·계약·설정이 좌우 (추론, 21쪽 사례)</text>
       <text x="412" y="312" font-size="12" fill="#7a8494">실험으로 직접 볼 수 없음</text>
       <path d="M310,76 L340,76 L340,184 M310,184 L340,184 M340,150 L376,150" stroke="#465060" stroke-width="2.5" fill="none"/>
       <path d="M340,150 L376,150" stroke="#465060" stroke-width="2.5" fill="none" marker-end="url(#ah1)"/>
@@ -290,13 +322,25 @@ svg text{font-family:var(--sans)}
       <text x="1006" y="142" text-anchor="middle" font-size="22" font-weight="700" fill="#fff">Mango 점유율</text>
       <text x="1006" y="168" text-anchor="middle" font-size="13" fill="#fdf0e3">OpenRouter에 올라간다면, 모델별</text>
       <text x="1006" y="208" text-anchor="middle" font-size="14" font-weight="600" fill="#fff">= Σ 경로 비율 × 경로별 몫</text>
-      <text x="1006" y="236" text-anchor="middle" font-size="12" fill="#fdf0e3">추정 결과 19쪽</text>
+      <text x="1006" y="236" text-anchor="middle" font-size="12" fill="#fdf0e3">추정 결과 23쪽</text>
       <path d="M155,340 L155,366 L1006,366 L1006,282" stroke="#e07a1f" stroke-width="2" stroke-dasharray="6 4" fill="none" marker-end="url(#ah1m)"/>
       <text x="580" y="386" text-anchor="middle" font-size="12.5" fill="#465060">경로 비율이 합산의 가중치가 됩니다</text>
     </svg>
-    <div class="callout"><b>실험을 통해 다음을 확인합니다.</b> ① Mango의 성능·가격(10~12쪽) ② OpenRouter가 경로별로 실제 어디로 보내는지(13쪽) ③ 공개 통계가 실제 작업 성능과 얼마나 맞는지(14·15쪽) ④ 경로 비율의 범위(16쪽)</div>
+    <div class="callout"><b>실험을 통해 다음을 확인합니다.</b> ① Mango의 성능·가격(13~15쪽) ② OpenRouter가 경로별로 실제 어디로 보내는지(16쪽) ③ 공개 통계가 실제 작업 성능과 얼마나 맞는지(17·18쪽) ④ 경로 비율의 범위(19쪽)</div>
   </div>
   <div class="foot"><span class="src">정책 근거: OpenRouter Traffic Routing 문서 · 실험 근거: docs/09_1회실험_결과 4·8·12절</span><span class="pg"></span></div>
+</section>
+
+<section class="slide divider">
+  <div class="dprog"><span class=""><b>01</b> 분석 틀</span><span class="on"><b>02</b> 실험 과정</span><span class=""><b>03</b> 결과</span><span class=""><b>04</b> 결론</span></div>
+  <div class="dmain">
+    <div class="dn">02</div>
+    <h2>실험 과정 <span class="rng">9~11쪽</span></h2>
+    <p class="dq">그 빈칸을 어떻게 공정하게 채웠는가</p>
+  </div>
+  <div class="dflow" style="grid-template-columns:repeat(3,1fr)"><div class="dc"><div class="pgno">9쪽</div><h3>무엇을 비교했나</h3><p>같은 모델 4개를 Mango 직접 호출과 OpenRouter의 여러 요청 방식으로 같은 조건에서 보냈습니다</p></div><div class="dc"><div class="pgno">10쪽</div><h3>무엇으로 판정했나</h3><p>판정 지표 3개와 판정 규칙을 실행 전에 고정했습니다</p></div><div class="dc"><div class="pgno">11쪽</div><h3>믿을 수 있나</h3><p>4,528건을 3시간 동안 보냈고, 측정값과 청구액이 외부 기록과 맞았습니다</p></div></div>
+  <div class="dkey"><b>이 장의 핵심</b> 같은 조건·사전 고정 규칙으로 재고, 외부 기록과 대조해 측정을 검증했습니다.</div>
+  <div class="foot"><span></span><span class="pg"></span></div>
 </section>
 
 <section class="slide">
@@ -339,11 +383,23 @@ svg text{font-family:var(--sans)}
     </div>
     <div class="cols c3">
       <div class="card"><h3>측정 환경</h3><p>AWS 서울 VM 한 대, 자동 재시도 없음. Mango(Google Cloud 경유)와 OpenRouter(Cloudflare)가 쓰지 않는 망 사업자를 골랐습니다.</p></div>
-      <div class="card"><h3>비교 대상</h3><p>모델 4개마다 OpenRouter 기본 경로, 정렬·접미사 5경로, 고정 엔드포인트 5곳(설계 당시 11-16 수집의 30일 점유율 상위. 선정 오류는 21쪽).</p></div>
+      <div class="card"><h3>비교 대상</h3><p>모델 4개마다 OpenRouter 기본 경로, 정렬·접미사 5경로, 고정 엔드포인트 5곳(설계 당시 11-16 수집의 30일 점유율 상위. 선정 오류는 25쪽).</p></div>
       <div class="card"><h3>측정기 검증</h3><p>OpenRouter 엔드포인트 63곳에서 우리 측정과 OpenRouter 기록의 순위상관이 0.96~0.97. 첫 토큰은 서울→OpenRouter 왕복 때문에 약 23% 길게 잽니다.</p></div>
     </div>
   </div>
   <div class="foot"><span class="src">근거: docs/09 1·6·8절 · results/run1_20261117/check.json</span><span class="pg"></span></div>
+</section>
+
+<section class="slide divider">
+  <div class="dprog"><span class=""><b>01</b> 분석 틀</span><span class=""><b>02</b> 실험 과정</span><span class="on"><b>03</b> 결과</span><span class=""><b>04</b> 결론</span></div>
+  <div class="dmain">
+    <div class="dn">03</div>
+    <h2>결과 <span class="rng">13~21쪽</span></h2>
+    <p class="dq">Mango는 어디서 이기고 지는가, 그것이 몫으로 이어지는가</p>
+  </div>
+  <div class="dflow" style="grid-template-columns:repeat(3,1fr)"><div class="dc"><div class="pgno">13~15쪽</div><h3>A. 실험 직접 비교</h3><ul><li>판정 12개: 우위 5 · 열위 2 · 판정 불가 5</li><li>생성 속도는 세 모델에서 Mango가 1위</li><li>DeepSeek·GLM-5.3의 비용 열위는 단가에서 옵니다</li></ul></div><div class="dc"><div class="pgno">16~19쪽</div><h3>B. OpenRouter는 어떻게 고르나</h3><ul><li>기본 경로는 14~22곳으로 분산, 정렬 경로는 기준마다 1위가 다름</li><li>공개 통계는 속도 순서만 대체로 맞고, 공개 기준 Mango는 속도 최상위·가격 중간</li><li>자동 정책으로 설명되는 몫은 일부(추정)</li></ul></div><div class="dc"><div class="pgno">20~21쪽</div><h3>C. 시장 진입 조건</h3><ul><li>Mango는 가중치 공개 2~57일 뒤 지원, 이미 14~33곳이 판매 중</li><li>먼저 판 공식 개발사도 2주 만에 점유율 100% → 13%</li></ul></div></div>
+  <div class="dkey"><b>이 장의 핵심</b> 속도는 분명한 강점이고 가격·신규 모델 지원은 약점입니다. 성능이 몫으로 이어지는 자동 경로는 일부입니다.</div>
+  <div class="foot"><span></span><span class="pg"></span></div>
 </section>
 
 <section class="slide">
@@ -363,7 +419,7 @@ svg text{font-family:var(--sans)}
   <p class="lead">설계 때 고른 OpenRouter 고정 엔드포인트 5곳과 비교한 생성 속도입니다(괄호는 첫 조각까지 ms). 경로당 6건의 중앙값이라 순위만 참고합니다.</p>
   <div class="body">
     <svg viewBox="0 0 1150 385" width="100%" style="max-height:380px"><text x="20" y="24" font-size="13" font-weight="700" fill="#141a23">DeepSeek V4.1 Flash</text><text x="560" y="24" font-size="10.5" text-anchor="end" fill="#7a8494">tok/s (첫 조각 ms)</text><text x="170" y="49" font-size="11.5" text-anchor="end" fill="#e07a1f" font-weight="700">Mango</text><rect x="178" y="36" width="274.1" height="17" rx="3" fill="#e07a1f"/><text x="458.1" y="49" font-size="11.5" fill="#141a23" font-weight="600">509 <tspan fill="#7a8494" font-weight="400">(341)</tspan></text><text x="170" y="73" font-size="11.5" text-anchor="end" fill="#6b4fbb" font-weight="500">wafer/us</text><rect x="178" y="60" width="190.6" height="17" rx="3" fill="#6b4fbb"/><text x="374.6" y="73" font-size="11.5" fill="#141a23" font-weight="600">354 <tspan fill="#7a8494" font-weight="400">(350)</tspan></text><text x="170" y="97" font-size="11.5" text-anchor="end" fill="#6b4fbb" font-weight="500">together</text><rect x="178" y="84" width="152.9" height="17" rx="3" fill="#6b4fbb"/><text x="336.9" y="97" font-size="11.5" fill="#141a23" font-weight="600">284 <tspan fill="#7a8494" font-weight="400">(714)</tspan></text><text x="170" y="121" font-size="11.5" text-anchor="end" fill="#6b4fbb" font-weight="500">deepseek</text><rect x="178" y="108" width="107.2" height="17" rx="3" fill="#6b4fbb"/><text x="291.2" y="121" font-size="11.5" fill="#141a23" font-weight="600">199 <tspan fill="#7a8494" font-weight="400">(679)</tspan></text><text x="170" y="145" font-size="11.5" text-anchor="end" fill="#6b4fbb" font-weight="500">inference-net/us</text><rect x="178" y="132" width="68.9" height="17" rx="3" fill="#6b4fbb"/><text x="252.9" y="145" font-size="11.5" fill="#141a23" font-weight="600">128 <tspan fill="#7a8494" font-weight="400">(888)</tspan></text><text x="170" y="169" font-size="11.5" text-anchor="end" fill="#6b4fbb" font-weight="500">deepinfra/fp8</text><rect x="178" y="156" width="50.1" height="17" rx="3" fill="#6b4fbb"/><text x="234.1" y="169" font-size="11.5" fill="#141a23" font-weight="600">93 <tspan fill="#7a8494" font-weight="400">(701)</tspan></text><text x="590" y="24" font-size="13" font-weight="700" fill="#141a23">GLM-5.3</text><text x="1130" y="24" font-size="10.5" text-anchor="end" fill="#7a8494">tok/s (첫 조각 ms)</text><text x="740" y="49" font-size="11.5" text-anchor="end" fill="#e07a1f" font-weight="700">Mango</text><rect x="748" y="36" width="103.9" height="17" rx="3" fill="#e07a1f"/><text x="857.9" y="49" font-size="11.5" fill="#141a23" font-weight="600">193 <tspan fill="#7a8494" font-weight="400">(452)</tspan></text><text x="740" y="73" font-size="11.5" text-anchor="end" fill="#6b4fbb" font-weight="500">decart/fp4</text><rect x="748" y="60" width="68.4" height="17" rx="3" fill="#6b4fbb"/><text x="822.4" y="73" font-size="11.5" fill="#141a23" font-weight="600">127 <tspan fill="#7a8494" font-weight="400">(877)</tspan></text><text x="740" y="97" font-size="11.5" text-anchor="end" fill="#6b4fbb" font-weight="500">inference-net/us</text><rect x="748" y="84" width="61.4" height="17" rx="3" fill="#6b4fbb"/><text x="815.4" y="97" font-size="11.5" fill="#141a23" font-weight="600">114 <tspan fill="#7a8494" font-weight="400">(829)</tspan></text><text x="740" y="121" font-size="11.5" text-anchor="end" fill="#6b4fbb" font-weight="500">wafer/us</text><rect x="748" y="108" width="57.1" height="17" rx="3" fill="#6b4fbb"/><text x="811.1" y="121" font-size="11.5" fill="#141a23" font-weight="600">106 <tspan fill="#7a8494" font-weight="400">(402)</tspan></text><text x="740" y="145" font-size="11.5" text-anchor="end" fill="#6b4fbb" font-weight="500">siliconflow/fp8</text><rect x="748" y="132" width="56.5" height="17" rx="3" fill="#6b4fbb"/><text x="810.5" y="145" font-size="11.5" fill="#141a23" font-weight="600">105 <tspan fill="#7a8494" font-weight="400">(1884)</tspan></text><text x="740" y="169" font-size="11.5" text-anchor="end" fill="#6b4fbb" font-weight="500">z-ai/fp8</text><rect x="748" y="156" width="50.6" height="17" rx="3" fill="#6b4fbb"/><text x="804.6" y="169" font-size="11.5" fill="#141a23" font-weight="600">94 <tspan fill="#7a8494" font-weight="400">(2479)</tspan></text><text x="20" y="209" font-size="13" font-weight="700" fill="#141a23">GLM-5.3 Flash</text><text x="560" y="209" font-size="10.5" text-anchor="end" fill="#7a8494">tok/s (첫 조각 ms)</text><text x="170" y="234" font-size="11.5" text-anchor="end" fill="#e07a1f" font-weight="700">Mango</text><rect x="178" y="221" width="174.5" height="17" rx="3" fill="#e07a1f"/><text x="358.5" y="234" font-size="11.5" fill="#141a23" font-weight="600">324 <tspan fill="#7a8494" font-weight="400">(421)</tspan></text><text x="170" y="258" font-size="11.5" text-anchor="end" fill="#6b4fbb" font-weight="500">coreweave/nvfp4</text><rect x="178" y="245" width="121.7" height="17" rx="3" fill="#6b4fbb"/><text x="305.7" y="258" font-size="11.5" fill="#141a23" font-weight="600">226 <tspan fill="#7a8494" font-weight="400">(707)</tspan></text><text x="170" y="282" font-size="11.5" text-anchor="end" fill="#6b4fbb" font-weight="500">together</text><rect x="178" y="269" width="110.4" height="17" rx="3" fill="#6b4fbb"/><text x="294.4" y="282" font-size="11.5" fill="#141a23" font-weight="600">205 <tspan fill="#7a8494" font-weight="400">(671)</tspan></text><text x="170" y="306" font-size="11.5" text-anchor="end" fill="#6b4fbb" font-weight="500">inference-net/us</text><rect x="178" y="293" width="82.9" height="17" rx="3" fill="#6b4fbb"/><text x="266.9" y="306" font-size="11.5" fill="#141a23" font-weight="600">154 <tspan fill="#7a8494" font-weight="400">(766)</tspan></text><text x="170" y="330" font-size="11.5" text-anchor="end" fill="#6b4fbb" font-weight="500">open-inference/fp4</text><rect x="178" y="317" width="68.4" height="17" rx="3" fill="#6b4fbb"/><text x="252.4" y="330" font-size="11.5" fill="#141a23" font-weight="600">127 <tspan fill="#7a8494" font-weight="400">(1252)</tspan></text><text x="170" y="354" font-size="11.5" text-anchor="end" fill="#6b4fbb" font-weight="500">z-ai/fp8</text><rect x="178" y="341" width="33.4" height="17" rx="3" fill="#6b4fbb"/><text x="217.4" y="354" font-size="11.5" fill="#141a23" font-weight="600">62 <tspan fill="#7a8494" font-weight="400">(1882)</tspan></text><text x="590" y="209" font-size="13" font-weight="700" fill="#141a23">Kimi K3.1 Pro</text><text x="1130" y="209" font-size="10.5" text-anchor="end" fill="#7a8494">tok/s (첫 조각 ms)</text><text x="740" y="234" font-size="11.5" text-anchor="end" fill="#6b4fbb" font-weight="500">inference-net/mxfp4</text><rect x="748" y="221" width="92.6" height="17" rx="3" fill="#6b4fbb"/><text x="846.6" y="234" font-size="11.5" fill="#141a23" font-weight="600">172 <tspan fill="#7a8494" font-weight="400">(783)</tspan></text><text x="740" y="258" font-size="11.5" text-anchor="end" fill="#e07a1f" font-weight="700">Mango</text><rect x="748" y="245" width="64.1" height="17" rx="3" fill="#e07a1f"/><text x="818.1" y="258" font-size="11.5" fill="#141a23" font-weight="600">119 <tspan fill="#7a8494" font-weight="400">(471)</tspan></text><text x="740" y="282" font-size="11.5" text-anchor="end" fill="#6b4fbb" font-weight="500">wafer/us</text><rect x="748" y="269" width="54.9" height="17" rx="3" fill="#6b4fbb"/><text x="808.9" y="282" font-size="11.5" fill="#141a23" font-weight="600">102 <tspan fill="#7a8494" font-weight="400">(619)</tspan></text><text x="740" y="306" font-size="11.5" text-anchor="end" fill="#6b4fbb" font-weight="500">modal/mxfp4</text><rect x="748" y="293" width="52.2" height="17" rx="3" fill="#6b4fbb"/><text x="806.2" y="306" font-size="11.5" fill="#141a23" font-weight="600">97 <tspan fill="#7a8494" font-weight="400">(643)</tspan></text><text x="740" y="330" font-size="11.5" text-anchor="end" fill="#6b4fbb" font-weight="500">together</text><rect x="748" y="317" width="26.4" height="17" rx="3" fill="#6b4fbb"/><text x="780.4" y="330" font-size="11.5" fill="#141a23" font-weight="600">49 <tspan fill="#7a8494" font-weight="400">(1079)</tspan></text><text x="740" y="354" font-size="11.5" text-anchor="end" fill="#6b4fbb" font-weight="500">moonshotai/mxfp4</text><rect x="748" y="341" width="16.7" height="17" rx="3" fill="#6b4fbb"/><text x="770.7" y="354" font-size="11.5" fill="#141a23" font-weight="600">31 <tspan fill="#7a8494" font-weight="400">(1949)</tspan></text></svg>
-    <div class="callout"><b>의미:</b> DeepSeek·GLM-5.3·GLM-5.3 Flash에서 Mango는 OpenRouter의 어떤 고정 제공사보다 빨랐습니다(2위 대비 1.4~1.5배). Kimi는 InferenceNet(172 tok/s)이 Mango(119)보다 빠릅니다. <b>비교 기준의 한계:</b> 5곳은 11-16 수집의 30일 점유율로 골라 최근 1주 상위 5곳과 다릅니다. 최근 1주 1위 Alibaba(Kimi), 5위 Together(GLM-5.3), 5위 Cohere(GLM-5.3 Flash)가 빠졌고, 1주 15위 SiliconFlow(GLM-5.3)가 들어갔습니다. 빠진 곳의 공개 처리속도는 비교한 곳보다 느리거나 비슷해 순위 결론은 유지될 것으로 봅니다(추정). 공개 통계 전체(40곳 이상)와 비교한 15쪽에서는 GLM-5.3이 6위입니다.</div>
+    <div class="callout"><b>의미:</b> DeepSeek·GLM-5.3·GLM-5.3 Flash에서 Mango는 OpenRouter의 어떤 고정 제공사보다 빨랐습니다(2위 대비 1.4~1.5배). Kimi는 InferenceNet(172 tok/s)이 Mango(119)보다 빠릅니다. <b>비교 기준의 한계:</b> 5곳은 11-16 수집의 30일 점유율로 골라 최근 1주 상위 5곳과 다릅니다. 최근 1주 1위 Alibaba(Kimi), 5위 Together(GLM-5.3), 5위 Cohere(GLM-5.3 Flash)가 빠졌고, 1주 15위 SiliconFlow(GLM-5.3)가 들어갔습니다. 빠진 곳의 공개 처리속도는 비교한 곳보다 느리거나 비슷해 순위 결론은 유지될 것으로 봅니다(추정). 공개 통계 전체(40곳 이상)와 비교한 18쪽에서는 GLM-5.3이 6위입니다.</div>
   </div>
   <div class="foot"><span class="src">근거: docs/09 9·11절 · results/run1_20261117/analysis/explore_run1.txt (고정 경로당 6건)</span><span class="pg"></span></div>
 </section>
@@ -427,7 +483,7 @@ svg text{font-family:var(--sans)}
         <tr><td>GLM-5.3 Flash</td><td>Particle AI <b>1</b>/14</td><td>InferenceNet <b style="color:#c2410c">4</b>/14 · 실측 1위 Modal</td></tr>
         <tr><td>Kimi K3.1 Pro</td><td>River <b style="color:#c2410c">8</b>/14 · 실측 1위 DigitalOcean</td><td>InferenceNet <b style="color:#c2410c">12</b>/14 · 실측 1위 Wafer</td></tr>
       </table>
-      <div class="callout" style="font-size:13.5px;padding:10px 14px"><b>측정기는 맞고, 공개 수치가 다른 것을 잽니다.</b> 같은 요청의 OpenRouter 기록과는 생성 속도 1.00배, 첫 토큰 1.23배(서울 왕복)로 일치합니다. 공개값은 전체 사용자 요청이 섞인 값이라 실측 생성 속도가 공개의 <b>1.54배</b>(0.84~2.67), 첫 토큰이 <b>1.37배</b>(0.71~3.99)입니다. 그래서 Mango는 공개 수치가 아니라 같은 조건 실측끼리 비교했습니다(10~11쪽). 공개 1위를 고르는 <span class="k">sort:latency</span>도 긴 맥락 작업에선 더 느릴 수 있습니다.</div>
+      <div class="callout" style="font-size:13.5px;padding:10px 14px"><b>측정기는 맞고, 공개 수치가 다른 것을 잽니다.</b> 같은 요청의 OpenRouter 기록과는 생성 속도 1.00배, 첫 토큰 1.23배(서울 왕복)로 일치합니다. 공개값은 전체 사용자 요청이 섞인 값이라 실측 생성 속도가 공개의 <b>1.54배</b>(0.84~2.67), 첫 토큰이 <b>1.37배</b>(0.71~3.99)입니다. 그래서 Mango는 공개 수치가 아니라 같은 조건 실측끼리 비교했습니다(13~14쪽). 공개 1위를 고르는 <span class="k">sort:latency</span>도 긴 맥락 작업에선 더 느릴 수 있습니다.</div>
     </div>
     <p class="note" style="margin:-6px 0 0;font-size:12px;white-space:nowrap"><b>측정 방식 동일 여부는 미확정:</b> OpenRouter는 공개 지연·처리량의 측정 구간(첫 토큰·추론 토큰 포함 여부 등)을 공식 문서에 밝히지 않습니다. 공개 throughput은 첫 토큰 시간을 포함한 값으로 보입니다(추정).</p>
   </div>
@@ -520,6 +576,18 @@ svg text{font-family:var(--sans)}
   <div class="foot"><span class="src">근거: docs/10 4절 · data/openrouter_recollect_20261117/kimi_official_share_periods.csv, kimi_provider_share_daily.csv · 성능·가격: 3D 자료(공개 1주 평균)</span><span class="pg"></span></div>
 </section>
 
+<section class="slide divider">
+  <div class="dprog"><span class=""><b>01</b> 분석 틀</span><span class=""><b>02</b> 실험 과정</span><span class=""><b>03</b> 결과</span><span class="on"><b>04</b> 결론</span></div>
+  <div class="dmain">
+    <div class="dn">04</div>
+    <h2>결론 <span class="rng">23~25쪽</span></h2>
+    <p class="dq">점유율 예측과 투자 검토에 무엇을 말해 주는가</p>
+  </div>
+  <div class="dflow" style="grid-template-columns:repeat(3,1fr)"><div class="dc"><div class="pgno">23쪽</div><h3>점유율 예측</h3><p>성능으로 몫을 얻을 수 있는 경로는 전체 트래픽의 일부입니다</p></div><div class="dc"><div class="pgno">24쪽</div><h3>모델별 평가</h3><p>속도는 모델에 따라 분명한 강점이고, 가격과 신규 모델 지원 속도는 약점입니다</p></div><div class="dc"><div class="pgno">25쪽</div><h3>한계와 다음 단계</h3><p>한 시간대 1회 측정이라 일반화하지 않고, 한계를 메워 다시 잽니다</p></div></div>
+  <div class="dkey"><b>이 장의 핵심</b> 성능만으로 점유율을 예측하기 어렵습니다. 한계를 메우는 재측정이 다음 단계입니다.</div>
+  <div class="foot"><span></span><span class="pg"></span></div>
+</section>
+
 <section class="slide">
   <div class="tag">결론 ① 점유율 예측에 주는 의미</div>
   <h2>Mango가 성능으로 몫을 얻을 수 있는 경로는 전체 트래픽의 일부입니다</h2>
@@ -528,14 +596,14 @@ svg text{font-family:var(--sans)}
     <table style="font-size:14.5px">
       <tr><th style="width:170px">경로</th><th class="num" style="width:190px">비율 (추정)</th><th>Mango가 OpenRouter에 올라간다면 (추론)</th></tr>
       <tr><td><b>기본 라우팅</b></td><td class="num">상한 8~15%</td><td>보정 가격(실효 가격+속도+첫 토큰+오류)으로 경쟁. GLM-5.3 Flash는 속도 우위에 단가도 비슷해 유리. DeepSeek·GLM-5.3은 단가 1.7배를 속도로 얼마나 상쇄하는지가 공식 미공개라 알 수 없음</td></tr>
-      <tr><td><b>처리량 우선</b></td><td class="num">상한 0.5~2%</td><td>정렬은 공개 통계 기준이라 15쪽 순위가 기준입니다. 공개 기준 처리속도는 GLM-5.3 Flash 1위, DeepSeek 2위(1위 Baseten Fast), GLM-5.3 6위, Kimi 11위라 1위 후보는 GLM-5.3 Flash 정도. 경로 자체도 작음</td></tr>
+      <tr><td><b>처리량 우선</b></td><td class="num">상한 0.5~2%</td><td>정렬은 공개 통계 기준이라 18쪽 순위가 기준입니다. 공개 기준 처리속도는 GLM-5.3 Flash 1위, DeepSeek 2위(1위 Baseten Fast), GLM-5.3 6위, Kimi 11위라 1위 후보는 GLM-5.3 Flash 정도. 경로 자체도 작음</td></tr>
       <tr><td><b>지연 우선</b></td><td class="num">상한 4~6%<br><span class="note">(GLM-5.3 최대 42%)</span></td><td>추론을 포함한 첫 토큰은 네 모델 모두 Mango가 35~39% 빨랐지만(판정표 P1과 다른 지표), 서울에서 가까운 지리 효과가 섞여 있음</td></tr>
       <tr><td><b>가격 우선</b></td><td class="num">상한 4~8%<br><span class="note">(GLM-5.3 최대 42%)</span></td><td>정렬 1위(Wafer·Relace)의 실사용 단가보다 Mango가 1.5~3.5배 비싸(공식 30% 할인을 적용해도 1.1~2.5배) 1위가 될 수 없음</td></tr>
-      <tr><td><b>그 밖 (직접 지정 등)</b></td><td class="num">하한 51~80%</td><td>이름·계약·계정 설정이 좌우(추론). Moonshot·Alibaba 사례(18쪽)처럼 성능·가격으로 설명되지 않는 몫이 있고, 설정이 다른 기본 라우팅 사용자도 섞여 있음. 이번 실험으로는 나눌 수 없음</td></tr>
+      <tr><td><b>그 밖 (직접 지정 등)</b></td><td class="num">하한 51~80%</td><td>이름·계약·계정 설정이 좌우(추론). Moonshot·Alibaba 사례(21쪽)처럼 성능·가격으로 설명되지 않는 몫이 있고, 설정이 다른 기본 라우팅 사용자도 섞여 있음. 이번 실험으로는 나눌 수 없음</td></tr>
     </table>
     <div class="callout"><b>결론:</b> 성능·가격만으로 Mango의 점유율을 예측하기는 어렵습니다. 점유율의 큰 부분이 직접 지정 쪽에 있고, 성능 우위가 몫으로 이어지는 자동 경로는 합쳐도 일부입니다(추정, 범위 넓음).</div>
   </div>
-  <div class="foot"><span class="src">근거: 이 자료 10~18쪽 · docs/09 3·12절 · docs/07 3절 (경로별 몫은 추론)</span><span class="pg"></span></div>
+  <div class="foot"><span class="src">근거: 이 자료 13~21쪽 · docs/09 3·12절 · docs/07 3절 (경로별 몫은 추론)</span><span class="pg"></span></div>
 </section>
 
 <section class="slide">
@@ -553,11 +621,11 @@ svg text{font-family:var(--sans)}
     <div class="cols c4" style="gap:14px">
       <div class="card"><h3>차별화</h3><p>Mango가 내세우는 빠른 생성은 3개 모델에서 확인됐습니다. 다만 모든 모델은 아니고, Kimi는 OpenRouter 고정 제공사 중 inference.net보다 느렸습니다.</p></div>
       <div class="card"><h3>가격</h3><p>DeepSeek·GLM-5.3은 OpenRouter 기본이 고르는 제공사보다 비싸고, 30% 할인을 적용해도 마찬가지입니다. 가격만으로는 이기기 어렵고 “속도 대비 가격” 포지셔닝이 필요합니다.</p></div>
-      <div class="card"><h3>지원 시점</h3><p>가중치 공개 후 2~57일 뒤 등록해, 이미 14~33곳이 팔던 시장에 들어갔습니다. 공식 개발사의 선점 효과도 2주 만에 사라졌습니다(17·18쪽).</p></div>
+      <div class="card"><h3>지원 시점</h3><p>가중치 공개 후 2~57일 뒤 등록해, 이미 14~33곳이 팔던 시장에 들어갔습니다. 공식 개발사의 선점 효과도 2주 만에 사라졌습니다(20·21쪽).</p></div>
       <div class="card"><h3>품질</h3><p>25문항 점검에서 모델별 정답 수 차이는 0~3개로 이상 징후는 없습니다. 이 표본으로 품질 동등을 판단할 수는 없습니다.</p></div>
     </div>
   </div>
-  <div class="foot"><span class="src">근거: docs/09 1·6·9·10절 · docs/10 3·4·6절 · 이 자료 17·18쪽</span><span class="pg"></span></div>
+  <div class="foot"><span class="src">근거: docs/09 1·6·9·10절 · docs/10 3·4·6절 · 이 자료 20·21쪽</span><span class="pg"></span></div>
 </section>
 
 <section class="slide">
