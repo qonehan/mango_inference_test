@@ -1,0 +1,135 @@
+﻿model,provider,slug,official,rank,tokens_30d,share_pct,source
+Kimi K3.1 Pro,Moonshot AI,moonshotai,공식,1,6463500000000,57.35,엔드포인트 차트
+Kimi K3.1 Pro,inference.net,inference-net,,2,958800000000,8.51,엔드포인트 차트
+Kimi K3.1 Pro,Alibaba Cloud Int.,alibaba,,3,930560000000,8.26,엔드포인트 차트
+Kimi K3.1 Pro,Modal,modal,,4,608310000000,5.4,엔드포인트 차트 + 제공사 페이지
+Kimi K3.1 Pro,Wafer,wafer,,5,523230847000,4.64,엔드포인트 차트
+Kimi K3.1 Pro,Together,together,,6,426090000000,3.78,엔드포인트 차트
+Kimi K3.1 Pro,Relace,relace,,7,304719300000,2.7,엔드포인트 차트 + 제공사 페이지
+Kimi K3.1 Pro,Parasail,parasail,,8,197597000000,1.75,엔드포인트 차트
+Kimi K3.1 Pro,DigitalOcean,digitalocean,,9,180010000000,1.6,엔드포인트 차트
+Kimi K3.1 Pro,Morph,morph,,10,170330000000,1.51,엔드포인트 차트 + 제공사 페이지
+Kimi K3.1 Pro,Fireworks,fireworks,,11,164340000000,1.46,엔드포인트 차트
+Kimi K3.1 Pro,PrimaLabs,primalabs,,12,75100000000,0.67,엔드포인트 차트
+Kimi K3.1 Pro,Nebius Token Factory,nebius,,13,46669000000,0.41,엔드포인트 차트 + 제공사 페이지
+Kimi K3.1 Pro,River,river,,14,44930000000,0.4,엔드포인트 차트
+Kimi K3.1 Pro,Decart,decart,,15,33300000000,0.3,엔드포인트 차트
+Kimi K3.1 Pro,AkashML,akashml,,16,31447000000,0.28,엔드포인트 차트
+Kimi K3.1 Pro,Sail Research,sail-research,,17,30820000000,0.27,엔드포인트 차트
+Kimi K3.1 Pro,DeepInfra,deepinfra,,18,9510000000,0.08,엔드포인트 차트
+Kimi K3.1 Pro,(미귀속),,,,70375853000,0.62,모델 합계 − 제공사 합
+GLM-5.3-Flash,Together,together,,1,8966000000000,15.95,엔드포인트 차트
+GLM-5.3-Flash,inference.net,inference-net,,2,5913000000000,10.52,엔드포인트 차트
+GLM-5.3-Flash,Open Inference,open-inference,,3,4334100000000,7.71,제공사 페이지
+GLM-5.3-Flash,CoreWeave,coreweave,,4,4103020000000,7.3,엔드포인트 차트
+GLM-5.3-Flash,Z.ai,z-ai,공식,5,3643100000000,6.48,엔드포인트 차트
+GLM-5.3-Flash,Wafer,wafer,,6,3081000000000,5.48,엔드포인트 차트
+GLM-5.3-Flash,Fireworks,fireworks,,7,2433100000000,4.33,엔드포인트 차트
+GLM-5.3-Flash,DigitalOcean,digitalocean,,8,2284000000000,4.06,엔드포인트 차트
+GLM-5.3-Flash,Baseten,baseten,,9,2074710000000,3.69,엔드포인트 차트
+GLM-5.3-Flash,Cohere,cohere,,10,2030620000000,3.61,엔드포인트 차트
+GLM-5.3-Flash,Relace,relace,,11,1955000000000,3.48,제공사 페이지
+GLM-5.3-Flash,NovitaAI,novita,,12,1540300000000,2.74,엔드포인트 차트
+GLM-5.3-Flash,Particle AI,particle-ai,,13,1516720000000,2.7,엔드포인트 차트
+GLM-5.3-Flash,Modal,modal,,14,1393119000000,2.48,제공사 페이지
+GLM-5.3-Flash,Crusoe,crusoe,,15,1246120000000,2.22,엔드포인트 차트
+GLM-5.3-Flash,Reka AI,reka,,16,956850000000,1.7,엔드포인트 차트 + 제공사 페이지
+GLM-5.3-Flash,DeepInfra,deepinfra,,17,951800000000,1.69,엔드포인트 차트
+GLM-5.3-Flash,Friendli,friendli,,18,750800000000,1.34,엔드포인트 차트
+GLM-5.3-Flash,Morph,morph,,19,726330000000,1.29,제공사 페이지
+GLM-5.3-Flash,NEAR AI,near-ai,,20,696100000000,1.24,제공사 페이지
+GLM-5.3-Flash,Parasail,parasail,,21,660410000000,1.18,엔드포인트 차트
+GLM-5.3-Flash,Makora,makora,,22,570450000000,1.02,제공사 페이지
+GLM-5.3-Flash,Venice,venice,,23,441340000000,0.79,엔드포인트 차트
+GLM-5.3-Flash,Inceptron,inceptron,,24,417810000000,0.74,제공사 페이지
+GLM-5.3-Flash,StreamLake,streamlake,,25,317560000000,0.57,엔드포인트 차트
+GLM-5.3-Flash,GMICloud,gmicloud,,26,314500000000,0.56,엔드포인트 차트
+GLM-5.3-Flash,SiliconFlow,siliconflow,,27,247133000000,0.44,엔드포인트 차트
+GLM-5.3-Flash,Mistral,mistral,,28,233280000000,0.42,엔드포인트 차트 + 제공사 페이지
+GLM-5.3-Flash,NextBit,nextbit,,29,220975000000,0.39,제공사 페이지
+GLM-5.3-Flash,River,river,,30,174637860000,0.31,엔드포인트 차트
+GLM-5.3-Flash,Sail Research,sail-research,,31,151506400000,0.27,엔드포인트 차트
+GLM-5.3-Flash,DekaLLM,dekallm,,32,87940000000,0.16,제공사 페이지
+GLM-5.3-Flash,AtlasCloud,atlas-cloud,,33,67897400000,0.12,엔드포인트 차트
+GLM-5.3-Flash,KT,kt,,34,43640000000,0.08,제공사 페이지
+GLM-5.3-Flash,Nebius Token Factory,nebius,,35,24400900000,0.04,엔드포인트 차트 + 제공사 페이지
+GLM-5.3-Flash,Tenstorrent,tenstorrent,,36,15634080000,0.03,제공사 페이지
+GLM-5.3-Flash,Darkbloom,darkbloom,,37,2428370000,0.0,엔드포인트 차트
+GLM-5.3-Flash,(미귀속),,,,1611167990000,2.87,모델 합계 − 제공사 합
+GLM-5.3,Wafer,wafer,,1,4274800000000,24.23,엔드포인트 차트
+GLM-5.3,inference.net,inference-net,,2,3633500000000,20.59,엔드포인트 차트
+GLM-5.3,Z.ai,z-ai,공식,3,1708700000000,9.68,엔드포인트 차트
+GLM-5.3,SiliconFlow,siliconflow,,4,1014010000000,5.75,엔드포인트 차트
+GLM-5.3,Decart,decart,,5,954470000000,5.41,엔드포인트 차트
+GLM-5.3,Fireworks,fireworks,,6,842810000000,4.78,엔드포인트 차트
+GLM-5.3,Together,together,,7,485650000000,2.75,엔드포인트 차트
+GLM-5.3,Baseten (fp4),baseten,,8,411940000000,2.33,엔드포인트 차트
+GLM-5.3,Modal,modal,,9,367799000000,2.08,엔드포인트 차트
+GLM-5.3,Inceptron,inceptron,,10,352850000000,2.0,엔드포인트 차트
+GLM-5.3,Sail Research,sail-research,,11,309610000000,1.75,엔드포인트 차트
+GLM-5.3,CoreWeave,coreweave,,12,279686000000,1.59,엔드포인트 차트
+GLM-5.3,NovitaAI,novita,,13,265390000000,1.5,엔드포인트 차트
+GLM-5.3,Tenstorrent,tenstorrent,,14,248004000000,1.41,제공사 페이지
+GLM-5.3,Mistral,mistral,,15,225382000000,1.28,엔드포인트 차트
+GLM-5.3,Crusoe,crusoe,,16,217109000000,1.23,엔드포인트 차트
+GLM-5.3,Morph,morph,,17,208459000000,1.18,엔드포인트 차트
+GLM-5.3,Alibaba Cloud Int.,alibaba,,18,187070000000,1.06,엔드포인트 차트
+GLM-5.3,DeepInfra,deepinfra,,19,147062000000,0.83,엔드포인트 차트
+GLM-5.3,Makora,makora,,20,135341000000,0.77,엔드포인트 차트
+GLM-5.3,Parasail,parasail,,21,135120000000,0.77,엔드포인트 차트
+GLM-5.3,DigitalOcean,digitalocean,,22,129736000000,0.74,엔드포인트 차트
+GLM-5.3,Baidu Qianfan,baidu,,23,96325000000,0.55,엔드포인트 차트
+GLM-5.3,Cloudflare,cloudflare,,24,89746000000,0.51,엔드포인트 차트
+GLM-5.3,Amazon Bedrock,amazon-bedrock,,25,89409500000,0.51,엔드포인트 차트
+GLM-5.3,AkashML,akashml,,26,50602000000,0.29,엔드포인트 차트
+GLM-5.3,Friendli,friendli,,27,26729000000,0.15,엔드포인트 차트
+GLM-5.3,ModelRun [by Modular],modelrun,,28,23086583850,0.13,제공사 페이지
+GLM-5.3,GMICloud,gmicloud,,29,19525800000,0.11,엔드포인트 차트
+GLM-5.3,Cohere,cohere,,30,7284828000,0.04,엔드포인트 차트
+GLM-5.3,Venice,venice,,31,6273900000,0.04,엔드포인트 차트
+GLM-5.3,Nebius Token Factory,nebius,,32,1234000000,0.01,제공사 페이지
+GLM-5.3,SambaNova,sambanova,,33,828400000,0.0,엔드포인트 차트
+GLM-5.3,Featherless,featherless,,34,410743000,0.0,엔드포인트 차트
+GLM-5.3,Doubleword,doubleword,,35,132900000,0.0,엔드포인트 차트
+GLM-5.3,AtlasCloud,atlas-cloud,,36,0,0.0,제공사 페이지
+GLM-5.3,(미귀속),,,,697583345150,3.95,모델 합계 − 제공사 합
+DeepSeek V4.1 Flash 1017,DeepSeek,deepseek,공식,1,51856000000000,24.8,엔드포인트 차트 + 제공사 페이지
+DeepSeek V4.1 Flash 1017,DeepInfra,deepinfra,,2,24235000000000,11.59,엔드포인트 차트
+DeepSeek V4.1 Flash 1017,Together,together,,3,19950000000000,9.54,엔드포인트 차트
+DeepSeek V4.1 Flash 1017,inference.net,inference-net,,4,17795000000000,8.51,엔드포인트 차트
+DeepSeek V4.1 Flash 1017,Wafer,wafer,,5,16539900000000,7.91,엔드포인트 차트
+DeepSeek V4.1 Flash 1017,Relace,relace,,6,14636900000000,7.0,엔드포인트 차트
+DeepSeek V4.1 Flash 1017,Morph,morph,,7,9853100000000,4.71,엔드포인트 차트
+DeepSeek V4.1 Flash 1017,DigitalOcean,digitalocean,,8,8289500000000,3.96,엔드포인트 차트
+DeepSeek V4.1 Flash 1017,Fireworks,fireworks,,9,5670600000000,2.71,엔드포인트 차트
+DeepSeek V4.1 Flash 1017,Open Inference,open-inference,,10,4669000000000,2.23,엔드포인트 차트 + 제공사 페이지
+DeepSeek V4.1 Flash 1017,Prime Intellect,primeintellect,,11,3047300000000,1.46,엔드포인트 차트
+DeepSeek V4.1 Flash 1017,Ionstream,ionstream,,12,2491240000000,1.19,엔드포인트 차트
+DeepSeek V4.1 Flash 1017,Crusoe,crusoe,,13,2454290000000,1.17,엔드포인트 차트
+DeepSeek V4.1 Flash 1017,Cohere,cohere,,14,2288640000000,1.09,엔드포인트 차트
+DeepSeek V4.1 Flash 1017,Cloudflare,cloudflare,,15,2223400000000,1.06,엔드포인트 차트
+DeepSeek V4.1 Flash 1017,Particle AI,particle-ai,,16,2064170000000,0.99,엔드포인트 차트
+DeepSeek V4.1 Flash 1017,Alibaba Cloud Int.,alibaba,,17,2029660000000,0.97,엔드포인트 차트
+DeepSeek V4.1 Flash 1017,Parasail,parasail,,18,1962900000000,0.94,엔드포인트 차트
+DeepSeek V4.1 Flash 1017,StepFun,stepfun,,19,1960000000000,0.94,엔드포인트 차트
+DeepSeek V4.1 Flash 1017,Baseten,baseten,,20,1892280000000,0.91,엔드포인트 차트
+DeepSeek V4.1 Flash 1017,NovitaAI,novita,,21,1490420000000,0.71,엔드포인트 차트
+DeepSeek V4.1 Flash 1017,Modal,modal,,22,1489074000000,0.71,엔드포인트 차트 + 제공사 페이지
+DeepSeek V4.1 Flash 1017,Sail Research,sail-research,,23,1375569040000,0.66,엔드포인트 차트
+DeepSeek V4.1 Flash 1017,CoreWeave,coreweave,,24,1299620000000,0.62,엔드포인트 차트
+DeepSeek V4.1 Flash 1017,StreamLake,streamlake,,25,996130000000,0.48,엔드포인트 차트
+DeepSeek V4.1 Flash 1017,Mistral,mistral,,26,878790000000,0.42,엔드포인트 차트 + 제공사 페이지
+DeepSeek V4.1 Flash 1017,SiliconFlow,siliconflow,,27,867345000000,0.41,엔드포인트 차트
+DeepSeek V4.1 Flash 1017,River,river,,28,648696200000,0.31,엔드포인트 차트
+DeepSeek V4.1 Flash 1017,Makora,makora,,29,536350000000,0.26,제공사 페이지
+DeepSeek V4.1 Flash 1017,ModelRun [by Modular],modelrun,,30,510991000000,0.24,제공사 페이지
+DeepSeek V4.1 Flash 1017,Baidu Qianfan,baidu,,31,505113000000,0.24,엔드포인트 차트
+DeepSeek V4.1 Flash 1017,AtlasCloud,atlas-cloud,,32,466800000000,0.22,엔드포인트 차트 + 제공사 페이지
+DeepSeek V4.1 Flash 1017,DekaLLM,dekallm,,33,306550227000,0.15,엔드포인트 차트 + 제공사 페이지
+DeepSeek V4.1 Flash 1017,Nebius Token Factory,nebius,,34,257909700000,0.12,엔드포인트 차트 + 제공사 페이지
+DeepSeek V4.1 Flash 1017,GMICloud,gmicloud,,35,231814530000,0.11,엔드포인트 차트
+DeepSeek V4.1 Flash 1017,Venice,venice,,36,62170000000,0.03,엔드포인트 차트
+DeepSeek V4.1 Flash 1017,PrimaLabs,primalabs,,37,4616100000,0.0,엔드포인트 차트
+DeepSeek V4.1 Flash 1017,NEAR AI,near-ai,,38,1004200000,0.0,엔드포인트 차트 + 제공사 페이지
+DeepSeek V4.1 Flash 1017,Ambient,ambient,,39,408000000,0.0,엔드포인트 차트
+DeepSeek V4.1 Flash 1017,(미귀속),,,,1252949003000,0.6,모델 합계 − 제공사 합

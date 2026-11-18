@@ -1,0 +1,5 @@
+﻿period,start,end,days,model_tokens_per_day_B,moonshot_tokens_per_day_B,moonshot_share_pct,providers_active,top3
+단독 판매 (공식 API 출시~가중치 공개 전),2026-10-23,2026-11-03,12,339.6,339.7,100.0,1,Moonshot AI 100.0%
+가중치 공개 첫 주,2026-11-04,2026-11-09,6,658.8,329.5,50.0,16,Moonshot AI 50.0%; inference.net 12.3%; Modal 8.6%
+최근 1주,2026-11-10,2026-11-16,7,463.2,58.6,12.7,18,Alibaba Cloud Int. 21.9%; inference.net 14.5%; Wafer 12.7%
+30일 전체 (출시 후),2026-10-23,2026-11-16,25,450.8,258.5,57.4,18,Moonshot AI 57.4%; inference.net 8.5%; Alibaba Cloud Int. 8.3%

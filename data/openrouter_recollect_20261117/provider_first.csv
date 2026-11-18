@@ -1,0 +1,130 @@
+﻿model,provider,slug,first_observed,chart_first,note
+Kimi K3.1 Pro,AkashML,akashml,2026-11-05,,
+Kimi K3.1 Pro,Alibaba Cloud Int.,alibaba,2026-11-04,,
+Kimi K3.1 Pro,Decart,decart,2026-11-11,,
+Kimi K3.1 Pro,DeepInfra,deepinfra,2026-11-05,,
+Kimi K3.1 Pro,DigitalOcean,digitalocean,2026-11-07,,
+Kimi K3.1 Pro,Fireworks,fireworks,2026-11-05,,
+Kimi K3.1 Pro,inference.net,inference-net,2026-11-04,,
+Kimi K3.1 Pro,Modal,modal,2026-11-04,,
+Kimi K3.1 Pro,Moonshot AI,moonshotai,2026-10-23,,관측 범위 시작일과 같음(그 이전 진입 가능)
+Kimi K3.1 Pro,Morph,morph,2026-11-05,,
+Kimi K3.1 Pro,Nebius Token Factory,nebius,2026-11-04,,
+Kimi K3.1 Pro,Parasail,parasail,2026-11-04,,
+Kimi K3.1 Pro,PrimaLabs,primalabs,2026-11-05,,
+Kimi K3.1 Pro,Relace,relace,2026-11-04,,
+Kimi K3.1 Pro,River,river,2026-11-13,,
+Kimi K3.1 Pro,Sail Research,sail-research,2026-11-05,,
+Kimi K3.1 Pro,Together,together,2026-11-04,,
+Kimi K3.1 Pro,Wafer,wafer,2026-11-04,,
+GLM-5.3-Flash,AtlasCloud,atlas-cloud,2026-10-18,September 14,관측 범위 시작일과 같음(그 이전 진입 가능)
+GLM-5.3-Flash,Baseten,baseten,2026-10-18,August 26,관측 범위 시작일과 같음(그 이전 진입 가능)
+GLM-5.3-Flash,Cohere,cohere,2026-10-22,October 22,
+GLM-5.3-Flash,CoreWeave,coreweave,2026-10-18,September 4,관측 범위 시작일과 같음(그 이전 진입 가능)
+GLM-5.3-Flash,Crusoe,crusoe,2026-10-18,September 8,관측 범위 시작일과 같음(그 이전 진입 가능)
+GLM-5.3-Flash,Darkbloom,darkbloom,2026-10-24,October 24,
+GLM-5.3-Flash,DeepInfra,deepinfra,2026-10-18,August 26,관측 범위 시작일과 같음(그 이전 진입 가능)
+GLM-5.3-Flash,DekaLLM,dekallm,2026-11-11,,
+GLM-5.3-Flash,DigitalOcean,digitalocean,2026-10-18,August 28,관측 범위 시작일과 같음(그 이전 진입 가능)
+GLM-5.3-Flash,Fireworks,fireworks,2026-10-18,August 29,관측 범위 시작일과 같음(그 이전 진입 가능)
+GLM-5.3-Flash,Friendli,friendli,2026-10-18,September 27,관측 범위 시작일과 같음(그 이전 진입 가능)
+GLM-5.3-Flash,GMICloud,gmicloud,2026-10-18,August 26,관측 범위 시작일과 같음(그 이전 진입 가능)
+GLM-5.3-Flash,Inceptron,inceptron,2026-10-18,,관측 범위 시작일과 같음(그 이전 진입 가능)
+GLM-5.3-Flash,inference.net,inference-net,2026-10-18,September 16,관측 범위 시작일과 같음(그 이전 진입 가능)
+GLM-5.3-Flash,KT,kt,2026-11-11,,
+GLM-5.3-Flash,Makora,makora,2026-10-18,,관측 범위 시작일과 같음(그 이전 진입 가능)
+GLM-5.3-Flash,Mistral,mistral,2026-10-24,November 6,
+GLM-5.3-Flash,Modal,modal,2026-10-18,,관측 범위 시작일과 같음(그 이전 진입 가능)
+GLM-5.3-Flash,Morph,morph,2026-10-18,,관측 범위 시작일과 같음(그 이전 진입 가능)
+GLM-5.3-Flash,NEAR AI,near-ai,2026-10-18,,관측 범위 시작일과 같음(그 이전 진입 가능)
+GLM-5.3-Flash,Nebius Token Factory,nebius,2026-10-23,October 23,
+GLM-5.3-Flash,NextBit,nextbit,2026-10-18,,관측 범위 시작일과 같음(그 이전 진입 가능)
+GLM-5.3-Flash,NovitaAI,novita,2026-10-18,August 26,관측 범위 시작일과 같음(그 이전 진입 가능)
+GLM-5.3-Flash,Open Inference,open-inference,2026-10-18,,관측 범위 시작일과 같음(그 이전 진입 가능)
+GLM-5.3-Flash,Parasail,parasail,2026-10-18,August 27,관측 범위 시작일과 같음(그 이전 진입 가능)
+GLM-5.3-Flash,Particle AI,particle-ai,2026-10-28,October 28,
+GLM-5.3-Flash,Reka AI,reka,2026-10-18,November 15,관측 범위 시작일과 같음(그 이전 진입 가능)
+GLM-5.3-Flash,Relace,relace,2026-10-18,,관측 범위 시작일과 같음(그 이전 진입 가능)
+GLM-5.3-Flash,River,river,2026-11-10,November 10,
+GLM-5.3-Flash,Sail Research,sail-research,2026-10-18,September 2,관측 범위 시작일과 같음(그 이전 진입 가능)
+GLM-5.3-Flash,SiliconFlow,siliconflow,2026-10-18,August 29,관측 범위 시작일과 같음(그 이전 진입 가능)
+GLM-5.3-Flash,StreamLake,streamlake,2026-10-18,September 1,관측 범위 시작일과 같음(그 이전 진입 가능)
+GLM-5.3-Flash,Tenstorrent,tenstorrent,2026-10-30,,
+GLM-5.3-Flash,Together,together,2026-10-18,August 27,관측 범위 시작일과 같음(그 이전 진입 가능)
+GLM-5.3-Flash,Venice,venice,2026-10-18,August 27,관측 범위 시작일과 같음(그 이전 진입 가능)
+GLM-5.3-Flash,Wafer,wafer,2026-10-18,August 27,관측 범위 시작일과 같음(그 이전 진입 가능)
+GLM-5.3-Flash,Z.ai,z-ai,2026-10-18,August 26,관측 범위 시작일과 같음(그 이전 진입 가능)
+GLM-5.3,AkashML,akashml,2026-10-18,August 28,관측 범위 시작일과 같음(그 이전 진입 가능)
+GLM-5.3,Alibaba Cloud Int.,alibaba,2026-10-18,September 15,관측 범위 시작일과 같음(그 이전 진입 가능)
+GLM-5.3,Amazon Bedrock,amazon-bedrock,2026-10-21,October 21,
+GLM-5.3,Baidu Qianfan,baidu,2026-10-18,September 14,관측 범위 시작일과 같음(그 이전 진입 가능)
+GLM-5.3,Baseten (fp4),baseten,2026-10-18,August 28,관측 범위 시작일과 같음(그 이전 진입 가능)
+GLM-5.3,Cloudflare,cloudflare,2026-10-18,August 28,관측 범위 시작일과 같음(그 이전 진입 가능)
+GLM-5.3,Cohere,cohere,2026-11-12,November 12,
+GLM-5.3,CoreWeave,coreweave,2026-10-18,October 16,관측 범위 시작일과 같음(그 이전 진입 가능)
+GLM-5.3,Crusoe,crusoe,2026-10-18,September 6,관측 범위 시작일과 같음(그 이전 진입 가능)
+GLM-5.3,Decart,decart,2026-10-18,August 31,관측 범위 시작일과 같음(그 이전 진입 가능)
+GLM-5.3,DeepInfra,deepinfra,2026-10-18,August 28,관측 범위 시작일과 같음(그 이전 진입 가능)
+GLM-5.3,DigitalOcean,digitalocean,2026-10-18,August 28,관측 범위 시작일과 같음(그 이전 진입 가능)
+GLM-5.3,Doubleword,doubleword,2026-11-14,November 14,
+GLM-5.3,Featherless,featherless,2026-11-13,November 13,
+GLM-5.3,Fireworks,fireworks,2026-10-18,August 28,관측 범위 시작일과 같음(그 이전 진입 가능)
+GLM-5.3,Friendli,friendli,2026-10-18,August 28,관측 범위 시작일과 같음(그 이전 진입 가능)
+GLM-5.3,GMICloud,gmicloud,2026-10-18,August 28,관측 범위 시작일과 같음(그 이전 진입 가능)
+GLM-5.3,Inceptron,inceptron,2026-10-18,September 1,관측 범위 시작일과 같음(그 이전 진입 가능)
+GLM-5.3,inference.net,inference-net,2026-10-18,September 16,관측 범위 시작일과 같음(그 이전 진입 가능)
+GLM-5.3,Makora,makora,2026-10-18,September 1,관측 범위 시작일과 같음(그 이전 진입 가능)
+GLM-5.3,Mistral,mistral,2026-10-18,September 16,관측 범위 시작일과 같음(그 이전 진입 가능)
+GLM-5.3,Modal,modal,2026-10-18,August 28,관측 범위 시작일과 같음(그 이전 진입 가능)
+GLM-5.3,ModelRun [by Modular],modelrun,2026-10-18,,관측 범위 시작일과 같음(그 이전 진입 가능)
+GLM-5.3,Morph,morph,2026-10-18,August 29,관측 범위 시작일과 같음(그 이전 진입 가능)
+GLM-5.3,Nebius Token Factory,nebius,2026-10-22,,
+GLM-5.3,NovitaAI,novita,2026-10-18,August 29,관측 범위 시작일과 같음(그 이전 진입 가능)
+GLM-5.3,Parasail,parasail,2026-10-18,August 28,관측 범위 시작일과 같음(그 이전 진입 가능)
+GLM-5.3,Sail Research,sail-research,2026-10-18,September 1,관측 범위 시작일과 같음(그 이전 진입 가능)
+GLM-5.3,SambaNova,sambanova,2026-11-10,November 10,
+GLM-5.3,SiliconFlow,siliconflow,2026-10-18,September 19,관측 범위 시작일과 같음(그 이전 진입 가능)
+GLM-5.3,Tenstorrent,tenstorrent,2026-10-18,,관측 범위 시작일과 같음(그 이전 진입 가능)
+GLM-5.3,Together,together,2026-10-18,August 29,관측 범위 시작일과 같음(그 이전 진입 가능)
+GLM-5.3,Venice,venice,2026-10-18,August 31,관측 범위 시작일과 같음(그 이전 진입 가능)
+GLM-5.3,Wafer,wafer,2026-10-18,September 1,관측 범위 시작일과 같음(그 이전 진입 가능)
+GLM-5.3,Z.ai,z-ai,2026-10-18,August 20,관측 범위 시작일과 같음(그 이전 진입 가능)
+DeepSeek V4.1 Flash 1017,Alibaba Cloud Int.,alibaba,2026-10-23,,
+DeepSeek V4.1 Flash 1017,Ambient,ambient,2026-11-16,,
+DeepSeek V4.1 Flash 1017,AtlasCloud,atlas-cloud,2026-10-19,,
+DeepSeek V4.1 Flash 1017,Baidu Qianfan,baidu,2026-10-22,,
+DeepSeek V4.1 Flash 1017,Baseten,baseten,2026-10-17,,관측 범위 시작일과 같음(그 이전 진입 가능)
+DeepSeek V4.1 Flash 1017,Cloudflare,cloudflare,2026-10-17,,관측 범위 시작일과 같음(그 이전 진입 가능)
+DeepSeek V4.1 Flash 1017,Cohere,cohere,2026-10-28,,
+DeepSeek V4.1 Flash 1017,CoreWeave,coreweave,2026-11-04,,
+DeepSeek V4.1 Flash 1017,Crusoe,crusoe,2026-10-18,,관측 범위 시작일과 같음(그 이전 진입 가능)
+DeepSeek V4.1 Flash 1017,DeepInfra,deepinfra,2026-10-17,,관측 범위 시작일과 같음(그 이전 진입 가능)
+DeepSeek V4.1 Flash 1017,DeepSeek,deepseek,2026-10-18,,관측 범위 시작일과 같음(그 이전 진입 가능)
+DeepSeek V4.1 Flash 1017,DekaLLM,dekallm,2026-11-03,,
+DeepSeek V4.1 Flash 1017,DigitalOcean,digitalocean,2026-10-22,,
+DeepSeek V4.1 Flash 1017,Fireworks,fireworks,2026-10-18,,관측 범위 시작일과 같음(그 이전 진입 가능)
+DeepSeek V4.1 Flash 1017,GMICloud,gmicloud,2026-10-19,,
+DeepSeek V4.1 Flash 1017,inference.net,inference-net,2026-10-17,,관측 범위 시작일과 같음(그 이전 진입 가능)
+DeepSeek V4.1 Flash 1017,Ionstream,ionstream,2026-10-21,,
+DeepSeek V4.1 Flash 1017,Makora,makora,2026-10-21,,
+DeepSeek V4.1 Flash 1017,Mistral,mistral,2026-10-29,,
+DeepSeek V4.1 Flash 1017,Modal,modal,2026-10-22,,
+DeepSeek V4.1 Flash 1017,ModelRun [by Modular],modelrun,2026-10-29,,
+DeepSeek V4.1 Flash 1017,Morph,morph,2026-10-17,,관측 범위 시작일과 같음(그 이전 진입 가능)
+DeepSeek V4.1 Flash 1017,NEAR AI,near-ai,2026-10-31,,
+DeepSeek V4.1 Flash 1017,Nebius Token Factory,nebius,2026-10-22,,
+DeepSeek V4.1 Flash 1017,NovitaAI,novita,2026-10-20,,
+DeepSeek V4.1 Flash 1017,Open Inference,open-inference,2026-10-21,,
+DeepSeek V4.1 Flash 1017,Parasail,parasail,2026-10-17,,관측 범위 시작일과 같음(그 이전 진입 가능)
+DeepSeek V4.1 Flash 1017,Particle AI,particle-ai,2026-10-28,,
+DeepSeek V4.1 Flash 1017,PrimaLabs,primalabs,2026-11-05,,
+DeepSeek V4.1 Flash 1017,Prime Intellect,primeintellect,2026-10-18,,관측 범위 시작일과 같음(그 이전 진입 가능)
+DeepSeek V4.1 Flash 1017,Relace,relace,2026-10-17,,관측 범위 시작일과 같음(그 이전 진입 가능)
+DeepSeek V4.1 Flash 1017,River,river,2026-11-09,,
+DeepSeek V4.1 Flash 1017,Sail Research,sail-research,2026-10-21,,
+DeepSeek V4.1 Flash 1017,SiliconFlow,siliconflow,2026-10-20,,
+DeepSeek V4.1 Flash 1017,StepFun,stepfun,2026-11-02,,
+DeepSeek V4.1 Flash 1017,StreamLake,streamlake,2026-10-26,,
+DeepSeek V4.1 Flash 1017,Together,together,2026-10-19,,
+DeepSeek V4.1 Flash 1017,Venice,venice,2026-10-29,,
+DeepSeek V4.1 Flash 1017,Wafer,wafer,2026-10-18,,관측 범위 시작일과 같음(그 이전 진입 가능)

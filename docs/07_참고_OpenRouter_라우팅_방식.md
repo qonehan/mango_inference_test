@@ -145,6 +145,17 @@ OpenRouter 공식 문서 두 개를 읽고, 한 요청이 어느 제공사로 �
 
 출처(2026-11-18 확인): [Routers 개요](https://openrouter.ai/docs/guides/routing/routers/overview), [Auto Router](https://openrouter.ai/docs/guides/routing/routers/auto-router), [Free Models Router](https://openrouter.ai/docs/guides/routing/routers/free-router), [Pareto Router](https://openrouter.ai/docs/guides/routing/routers/pareto-router), [Model Fallbacks](https://openrouter.ai/docs/guides/routing/model-fallbacks), [`openrouter/auto` 모델 페이지](https://openrouter.ai/openrouter/auto). Auto Code·Fusion·외부 라우터 페이지와 프리셋은 읽지 않았습니다.
 
+### 5-2. 프리셋과 모델 접미사 (2026-11-18 추가)
+
+모델을 정하는 방법은 모델 ID 직접 지정, 모델 폴백, 모델 라우터, 프리셋 네 가지입니다. 공식 문서에서 계정 기본 모델이나 앱 기본 모델 설정은 찾지 못했습니다(앱 기본값은 앱이 모델 ID를 대신 넣는 것으로 봅니다).
+
+- **프리셋:** 모델(단일 또는 폴백 목록), 제공사 선호(정렬·포함·제외), 시스템 프롬프트, 생성 파라미터, 도구를 한 이름으로 저장합니다. `"model": "@preset/이름"`, `"preset": "@preset/이름"`, `"model": "모델@preset/이름"`으로 지정합니다(접두사 없는 이름은 무시). 요청 값과 프리셋 값은 얕게 병합되어 요청 값이 우선하고, API 호출은 항상 최신 버전을 씁니다.
+- **모델 자체를 바꾸는 접미사:** `:free`(무료 등급 별도 항목), `:batch`(배치 가격). `:thinking`과 `:extended`는 폐기됨. 해당 항목이 없는 모델에 붙이면 기본 모델로 넘어가지 않고 실패합니다.
+- **제공사 정렬만 바꾸는 접미사:** `:nitro`(처리량 정렬, priority 등급 허용), `:floor`(가격 정렬, flex 등급 허용), `:exacto`(도구 호출 신뢰도 신호로 정렬). `:nitro`·`:floor`는 해당 등급 엔드포인트가 쓰이면 기본가와 다른 요금이 붙을 수 있습니다. `:online`은 폐기됨.
+- **폴백의 정렬:** `sort.partition` 기본값 `"model"`은 모델별로 묶어 정렬하고, `"none"`은 모든 모델의 엔드포인트를 합쳐 정렬합니다(Provider Selection 문서).
+
+출처(2026-11-18 확인): [Presets](https://openrouter.ai/docs/guides/features/presets), [Model Variants](https://openrouter.ai/docs/guides/routing/model-variants), [Model Fallbacks](https://openrouter.ai/docs/guides/routing/model-fallbacks), [Provider Selection](https://openrouter.ai/docs/guides/routing/provider-selection). 하위 에이전트가 읽은 요약이므로 중요한 수치를 인용할 때는 원문 재확인이 필요합니다.
+
 ## 6. 원문 대조 (2026-11-17)
 
 Traffic Routing, Provider Routing, Prompt Caching 세 문서를 다시 읽고 위 내용과 대조했습니다. 세 페이지 모두 갱신일 표시가 없습니다.
@@ -182,12 +193,13 @@ Traffic Routing, Provider Routing, Prompt Caching 세 문서를 다시 읽고 �
 
 ## 7. 남은 확인
 
-- 기본 배분과 사용자 지정의 실제 트래픽 비율은 공개되지 않았습니다. OpenRouter 문의나 고객 인터뷰가 필요합니다.
-- OpenRouter 사용자 이용방식 조사(공개 글 기반) 6절의 직접 호출 실험(기본, `sort: price`, `order` 고정, 프리셋 비교)으로 같은 모델에서 어느 제공사가 선택되는지 기록할 수 있습니다. 아직 실행하지 않았습니다.
-- 서비스 등급, 프리셋, 가드레일 페이지는 읽지 않았습니다. 모델 폴백과 라우터는 2026-11-18에 읽었습니다(5-1절). Auto Code·Fusion·외부 라우터 상세는 미확인입니다.
+- 기본 배분과 사용자 지정의 실제 트래픽 비율은 공개되지 않았습니다. 1회 실험 관측으로 범위만 추정했습니다([09 12절](09_1회실험_결과.md#12-openrouter-전체-트래픽의-정책별-비중-추정-2026-11-18-추가), 신뢰도 낮음). OpenRouter 문의나 사용자 인터뷰가 필요합니다.
+- OpenRouter 사용자 이용방식 조사(공개 글 기반) 6절의 직접 호출 실험(기본, `sort: price`, `order` 고정, 프리셋 비교)으로 같은 모델에서 어느 제공사가 선택되는지 기록할 수 있습니다. 기본·정렬·접미사·`order` 고정은 1회 실험에서 실행했고([09 4절](09_1회실험_결과.md)), 프리셋 비교는 하지 않았습니다.
+- 서비스 등급, 가드레일 페이지는 읽지 않았습니다. 모델 폴백·라우터·프리셋은 2026-11-18에 읽었습니다(5-1·5-2절). Auto Code·Fusion·외부 라우터 상세는 미확인입니다.
 
 ## 8. 변경 기록
 
 - 2026-11-16: 두 공식 문서를 읽고 신규 작성.
 - 2026-11-17: 원문 재대조. 속도를 별도 축으로 정정하고, 프롬프트 캐시 고착 규칙(6절)을 추가.
 - 2026-11-18: 모델 라우터(Auto·Free·Pareto 등)와 모델 폴백을 공식 문서로 확인해 5-1절을 추가하고, 5절 표의 라우터 행을 "추정"에서 문서 근거로 고침.
+- 2026-11-18: 프리셋과 모델 접미사(5-2절)를 공식 문서로 확인해 추가. 7절을 1회 실험 결과에 맞게 갱신.

@@ -1,0 +1,630 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>추론 서비스 경쟁력 검토</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* 16:9 고정 슬라이드(1280×720). 화면 폭에 맞춰 축소하고, 인쇄 시 한 장씩 한 쪽. PPTX 전환을 고려해 슬라이드마다 독립 구성 */
+:root{
+  --bg:#e9ecf1;--paper:#ffffff;--ink:#141a23;--ink2:#465060;--muted:#7a8494;--line:#dfe3ea;--soft:#f3f5f8;
+  --navy:#1d3557;--blue:#2f6fd0;--mango:#e07a1f;--mango-soft:#fdf0e3;--off:#6b4fbb;--good:#1f8a5b;--bad:#c2410c;
+  --s1:#1d3557;--s2:#3c6fa8;--s3:#6f9bcf;--s4:#a4c0e2;--s5:#cfdcee;--oth:#d9dde3;--un:#f0f1f3;
+  --sans:'IBM Plex Sans KR',system-ui,-apple-system,'Malgun Gothic',sans-serif;--mono:'IBM Plex Mono',ui-monospace,monospace;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--bg);font-family:var(--sans);color:var(--ink);padding:24px 16px 48px}
+.deck{display:flex;flex-direction:column;align-items:center;gap:24px}
+.frame{width:100%;max-width:1280px}
+.slide{width:1280px;height:720px;background:var(--paper);position:relative;overflow:hidden;transform-origin:top left;
+  box-shadow:0 1px 3px rgba(20,26,35,.08),0 8px 24px rgba(20,26,35,.06);padding:56px 64px 64px;display:flex;flex-direction:column}
+.tag{font-size:13px;font-weight:600;letter-spacing:.04em;color:var(--blue);margin-bottom:10px}
+h1{font-size:34px;line-height:1.25;margin:0 0 6px;font-weight:700;letter-spacing:-.01em}
+h2{font-size:28px;line-height:1.3;margin:0 0 6px;font-weight:700;letter-spacing:-.01em}
+.lead{font-size:17px;color:var(--ink2);margin:0 0 22px;line-height:1.55}
+.body{flex:1;min-height:0;display:flex;flex-direction:column;gap:16px}
+.foot{position:absolute;left:64px;right:64px;bottom:22px;display:flex;justify-content:space-between;font-size:11.5px;color:var(--muted);gap:24px}
+.foot .src{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.cols{display:grid;gap:20px}
+.c2{grid-template-columns:1fr 1fr}.c3{grid-template-columns:repeat(3,1fr)}.c4{grid-template-columns:repeat(4,1fr)}
+.card{background:var(--soft);border-radius:10px;padding:16px 18px}
+.card h3{font-size:15px;margin:0 0 8px;font-weight:600}
+.card p,.card li{font-size:14px;line-height:1.55;color:var(--ink2);margin:0}
+.tight3 .card{padding:11px 14px}.tight3 .card h3{font-size:14px;margin-bottom:5px}.tight3 .card p{font-size:12.8px;line-height:1.5}
+ul.tight{margin:0;padding-left:18px}ul.tight li{margin:3px 0}
+table{border-collapse:collapse;width:100%;font-size:13.5px}
+th,td{padding:7px 10px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top;line-height:1.45}
+th{font-weight:600;color:var(--ink2);font-size:12.5px;background:var(--soft)}
+td.num,th.num{text-align:right;font-family:var(--mono);font-variant-numeric:tabular-nums}
+.mango{color:var(--mango);font-weight:600}
+.pill{display:inline-block;font-size:11.5px;padding:2px 8px;border-radius:99px;background:var(--soft);color:var(--ink2);font-weight:500}
+.pill.m{background:var(--mango-soft);color:var(--mango)}
+.pill.o{background:#efeafb;color:var(--off)}
+.note{font-size:12.5px;color:var(--muted);line-height:1.5}
+.callout{border-left:4px solid var(--mango);background:var(--mango-soft);padding:12px 16px;border-radius:0 8px 8px 0;font-size:15px;line-height:1.55}
+.callout b{color:#9a4d0c}
+.blank{border:2px dashed #c6ccd6;border-radius:12px;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:16px;text-align:center;line-height:1.6;padding:20px}
+.open{flex:none;display:inline-block;background:var(--navy);color:#fff;text-decoration:none;font-size:14px;font-weight:600;padding:10px 18px;border-radius:8px}
+.open:hover{background:var(--blue)}
+.k{font-family:var(--mono);font-size:12.5px;background:#eef1f5;padding:1px 5px;border-radius:4px;color:#2b3442}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.stat{border:1px solid var(--line);border-radius:10px;padding:13px 16px}
+.stat b{display:block;font-size:28px;line-height:1.15;font-family:var(--mono);color:var(--navy)}
+.stat span{font-size:12.8px;color:var(--ink2);line-height:1.4;display:block;margin-top:4px}
+.pill.g{background:#e6f4ed;color:var(--good)}.pill.b{background:#fdeee6;color:var(--bad)}.pill.n{background:#eceef2;color:#5a6575}
+/* 표지 */
+.cover{background:var(--navy);color:#fff;justify-content:center}
+.cover .tag{color:#9ec0ef}.cover h1{font-size:46px;margin-bottom:14px}.cover .lead{color:#c9d6e8;font-size:20px}
+.cover .meta{margin-top:40px;font-size:15px;color:#a9bad2;line-height:1.8}
+.cover .foot{color:#7f93b1}
+/* 섹션 지도 */
+.map{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.map .card{background:#fff;border:1px solid var(--line)}
+.map .n{font-size:28px;font-weight:700;color:var(--blue);font-family:var(--mono)}
+/* 막대 */
+.bar{display:flex;height:30px;border-radius:5px;overflow:hidden}
+.bar span{display:flex;align-items:center;justify-content:center;font-size:11.5px;color:#fff;white-space:nowrap;overflow:hidden}
+.legend{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:12px;color:var(--ink2)}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:5px;vertical-align:-1px}
+/* 흐름도 */
+.flow{display:flex;align-items:stretch;gap:0}
+.flow .st{flex:1;background:var(--soft);border-radius:10px;padding:14px 16px;position:relative}
+.flow .ar{width:30px;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:22px}
+.flow .st h3{margin:0 0 6px;font-size:15px}
+.flow .st p{margin:0;font-size:13px;color:var(--ink2);line-height:1.5}
+svg text{font-family:var(--sans)}
+.shots{display:grid;grid-template-columns:1fr 1fr;gap:24px;flex:1;min-height:0}
+.shots figure{margin:0;display:flex;flex-direction:column;gap:10px;min-height:0}
+.shots img{width:100%;max-height:440px;object-fit:contain;object-position:top;border:1px solid var(--line);border-radius:8px;background:#fff}
+.shots figcaption{font-size:13px;line-height:1.5;color:var(--ink2)}
+@media print{
+  @page{size:1280px 720px;margin:0}
+  body{background:none;padding:0}
+  .deck{gap:0}
+  .frame{max-width:none;height:auto!important}
+  .slide{box-shadow:none;transform:none!important;break-after:page}
+}
+</style>
+</head>
+<body>
+<div class="deck" id="deck">
+
+<section class="slide cover">
+  <h1>MangoBoost 추론 서비스<br>경쟁력 검토</h1>
+  <div class="meta">2026-11-18<br>자료 기준일: 2026-11-17~18 — OpenRouter 화면 수집·Mango API 재조회(11-17), 실측 실험(11-17 23:50~11-18 03:02 KST), 공식 문서 확인(11-18)</div>
+  <div class="foot"><span>qonehan/mango_inference_test · 공개 자료</span><span></span></div>
+</section>
+
+<section class="slide">
+  <div class="tag">검토 질문</div>
+  <h2>사용자는 무엇을 보고 추론 서비스를 고르는가</h2>
+  <p class="lead">OpenRouter에서 사용자가 제공사를 고르는 방식을 정리하고, 실험으로 Mango Inference의 성능·가격을 재서 같은 모델 시장에서 Mango가 받을 점유율을 가늠합니다.</p>
+  <div class="body">
+    <div class="map">
+      <div class="card"><div class="n">01</div><h3>분석 틀 <span class="note">3~6쪽</span></h3><p>사용자가 모델·제공사를 고르는 방법<br>공식 문서의 기본 선택 정책<br>성능·가격과 점유율의 관계<br>그래서 무엇을 예측하려 했나</p></div>
+      <div class="card"><div class="n">02</div><h3>실험 과정 <span class="note">7~9쪽</span></h3><p>무엇을 비교했나<br>무엇으로 판정했나<br>실행과 측정 신뢰성</p></div>
+      <div class="card"><div class="n">03</div><h3>결과 <span class="note">10~18쪽</span></h3><p>판정표 · 속도 · 비용<br>OpenRouter가 실제로 고른 제공사<br>공개 성능 통계 vs 실측 · 공개 기준 Mango 위치<br>경로 비율 추정<br>신규 모델 지원 시점 · 선점과 브랜드(Moonshot)</p></div>
+      <div class="card"><div class="n">04</div><h3>결론 <span class="note">19~21쪽</span></h3><p>점유율 예측에 주는 의미<br>모델별 평가<br>한계와 다음 단계</p></div>
+    </div>
+    <div class="callout" style="margin-top:8px">대상 모델은 Mango가 서비스하는 오픈웨이트 모델 중 OpenRouter에도 있는 <b>4개</b>입니다: Kimi K3.1 Pro · GLM-5.3 · GLM-5.3-Flash · DeepSeek V4.1 Flash 1017(5번째인 Kimi-K3는 지원 종료 예정이라 제외). 같은 모델을 누가 더 싸고 빠르게 파는지가 비교의 단위입니다.</div>
+  </div>
+  <div class="foot"><span class="src">근거: 실험 배경 docs/01_실험계획_절차.md · OpenRouter 공개 화면(2026-11-16·17 수집)</span><span class="pg"></span></div>
+</section>
+
+<section class="slide">
+  <div class="tag">분석 틀 ① 사용자가 실제로 쓰는 방법</div>
+  <h2>모델과 제공사를 누가 정하느냐에 따라 정책이 점유율에 미치는 범위가 달라집니다</h2>
+  <p class="lead">사용자는 먼저 모델을, 그다음 제공사를 정합니다. 각 단계마다 사용자가 직접 정하거나 OpenRouter가 정합니다.</p>
+  <div class="body">
+    <svg viewBox="0 0 1152 372" width="100%" style="flex:1;min-height:0" role="img" aria-label="1단계로 모델을 정하는 네 방법과 2단계로 제공사를 정하는 세 방법">
+      <defs><marker id="ah2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#465060"/></marker></defs>
+      <text x="0" y="16" font-size="14" font-weight="700" fill="#2f6fd0">1단계 · 모델 정하기</text>
+      <text x="610" y="16" font-size="14" font-weight="700" fill="#2f6fd0">2단계 · 제공사 정하기</text>
+      <text x="930" y="16" font-size="14" font-weight="700" fill="#2f6fd0">Mango에 주는 의미</text>
+      <rect x="0" y="30" width="330" height="72" rx="10" fill="#1d3557"/>
+      <text x="16" y="58" font-size="17" font-weight="700" fill="#fff">모델 직접 지정</text>
+      <text x="16" y="78" font-size="12.5" fill="#c9d6e8">모델 ID 하나 (앱 기본값 포함)</text>
+      <text x="16" y="94" font-size="12.5" fill="#9ec0ef">:free·:batch는 별도 모델 항목</text>
+      <path d="M330,66 L394,66.0" stroke="#7a8494" stroke-width="1.8" fill="none"/>
+      <rect x="0" y="114" width="330" height="72" rx="10" fill="#1d3557"/>
+      <text x="16" y="142" font-size="17" font-weight="700" fill="#fff">모델 폴백 목록</text>
+      <text x="16" y="162" font-size="12.5" fill="#c9d6e8">models: [A, B, C] 순서로 지정</text>
+      <text x="16" y="178" font-size="12.5" fill="#9ec0ef">A가 오류일 때 B로 넘어감</text>
+      <path d="M330,150 L394,150.0" stroke="#7a8494" stroke-width="1.8" fill="none"/>
+      <rect x="0" y="198" width="330" height="72" rx="10" fill="#1d3557"/>
+      <text x="16" y="226" font-size="17" font-weight="700" fill="#fff">모델 라우터</text>
+      <text x="16" y="246" font-size="12.5" fill="#c9d6e8">openrouter/auto 등을 지정</text>
+      <text x="16" y="262" font-size="12.5" fill="#9ec0ef">라우터가 요청마다 모델 선택</text>
+      <path d="M330,234 L394,234.0" stroke="#7a8494" stroke-width="1.8" fill="none"/>
+      <rect x="0" y="282" width="330" height="72" rx="10" fill="#1d3557"/>
+      <text x="16" y="310" font-size="17" font-weight="700" fill="#fff">프리셋</text>
+      <text x="16" y="330" font-size="12.5" fill="#c9d6e8">@preset/이름을 지정</text>
+      <text x="16" y="346" font-size="12.5" fill="#9ec0ef">모델(또는 목록)과 제공사 선호를 함께 저장</text>
+      <path d="M330,318 L394,318.0" stroke="#7a8494" stroke-width="1.8" fill="none"/>
+      <rect x="394" y="30" width="170" height="324" rx="12" fill="#f3f5f8" stroke="#c6ccd6"/>
+      <text x="479" y="178" text-anchor="middle" font-size="18" font-weight="700" fill="#141a23">모델 확정</text>
+      <text x="479" y="202" text-anchor="middle" font-size="12.5" fill="#465060">라우터는 여기서</text>
+      <text x="479" y="220" text-anchor="middle" font-size="12.5" fill="#465060">모델만 고릅니다</text>
+      <path d="M564,79 L606,79" stroke="#465060" stroke-width="2" fill="none" marker-end="url(#ah2)"/>
+      <rect x="610" y="30" width="300" height="98" rx="10" fill="#e8f0fb"/>
+      <text x="626" y="60" font-size="17" font-weight="700" fill="#1d3557">기본</text>
+      <text x="626" y="84" font-size="13.5" font-weight="600" fill="#1d3557">OpenRouter 정책이 자동 배분</text>
+      <text x="626" y="106" font-size="12" fill="#465060">보정 가격이 낮은 곳이 몫</text>
+      <text x="930" y="84" font-size="13" fill="#465060">Mango의 성능·가격이 그대로 효과</text>
+      <path d="M564,189 L606,189" stroke="#465060" stroke-width="2" fill="none" marker-end="url(#ah2)"/>
+      <rect x="610" y="140" width="300" height="98" rx="10" fill="#e8f0fb"/>
+      <text x="626" y="170" font-size="17" font-weight="700" fill="#1d3557">필터·정렬</text>
+      <text x="626" y="194" font-size="13.5" font-weight="600" fill="#1d3557">조건에 맞는 곳만 남겨 배분, 또는 정렬 1위</text>
+      <text x="626" y="216" font-size="12" fill="#465060">only·ignore·max_price, sort, :nitro·:floor·:exacto</text>
+      <text x="930" y="194" font-size="13" fill="#465060">조건에 맞아야 후보, 정렬 1위가 독식</text>
+      <path d="M564,299 L606,299" stroke="#465060" stroke-width="2" fill="none" marker-end="url(#ah2)"/>
+      <rect x="610" y="250" width="300" height="98" rx="10" fill="#fdf0e3"/>
+      <text x="626" y="280" font-size="17" font-weight="700" fill="#9a4d0c">직접 지정</text>
+      <text x="626" y="304" font-size="13.5" font-weight="600" fill="#9a4d0c">사용자가 제공사를 고정 (정책 우회)</text>
+      <text x="626" y="326" font-size="12" fill="#465060">order, 자기 키(BYOK)</text>
+      <text x="930" y="304" font-size="13" fill="#465060">이름·계약·계정 설정이 좌우 (추론, 18쪽)</text>
+    </svg>
+    <p class="note">라우터는 제공사가 아니라 모델만 고르며 수수료가 없습니다. 모델이 정해지면 제공사는 2단계 방법 중 하나로 정해집니다. 프리셋은 1·2단계 설정을 함께 담고 요청 값이 우선합니다. Mango는 5개 모델(지원 종료 예정 Kimi-K3 포함)만 팔아서 다른 모델이 정해지면 후보가 못 됩니다. 방법별 사용자 비율은 공개되지 않았고, 이 차이가 다음 장의 점유율 구조로 이어집니다.</p>
+  </div>
+  <div class="foot"><span class="src">근거: docs/07_참고_OpenRouter_라우팅_방식 5-1·5-2절 · OpenRouter Routers·Presets·Model Variants·Model Fallbacks 문서 (확인 2026-11-18)</span><span class="pg"></span></div>
+</section>
+
+<section class="slide">
+  <div class="tag">분석 틀 ② 공식 문서의 기본 제공사 선택 정책</div>
+  <h2>제공사를 고르지 않으면, OpenRouter가 가격 점수와 속도로 몫을 정해 추첨합니다</h2>
+  <p class="lead">같은 모델을 파는 제공사가 여럿일 때, 요청 한 건이 어디로 갈지는 아래 세 단계로 정해집니다(기본 배분, Traffic Routing 문서).</p>
+  <div class="body" style="gap:14px">
+    <div class="flow" style="align-items:stretch">
+      <div class="st" style="flex:1.05">
+        <h3>① 제공사마다 ‘보정 가격’을 매깁니다</h3>
+        <p style="margin-bottom:6px">실제 단가에 품질 문제를 돈으로 환산해 더합니다. 낮을수록 유리합니다.</p>
+        <table style="font-size:12.5px;background:#fff;border-radius:6px">
+          <tr><td style="width:42%"><b>실효 단가</b></td><td>최근 30분 실제 청구액, 캐시 반영</td></tr>
+          <tr><td>+ 첫 토큰이 늦음</td><td>대기 시간만큼 가산</td></tr>
+          <tr><td>+ 오류율</td><td>1%면 약 +8%</td></tr>
+          <tr><td>+ 도구 호출 형식 오류</td><td>정상 95%면 약 +5%</td></tr>
+          <tr><td>+ 429 거절 대기</td><td>보통 작음</td></tr>
+        </table>
+      </div>
+      <div class="ar">→</div>
+      <div class="st">
+        <h3>② 속도와 맞바꿔 경쟁권을 나눕니다</h3>
+        <p>빠른 곳은 조금 비싸도 경쟁권 안에 듭니다. 경쟁선의 정확한 모양은 공개되지 않았습니다.</p>
+        <svg viewBox="0 0 262 150" width="100%" style="display:block">
+        <path d="M24,16 L24,136 L250,136" stroke="#7a8494" stroke-width="1.5" fill="none"/>
+        <path d="M24,108 C90,100 140,78 186,18 L24,18 Z" fill="#e3ecf9"/>
+        <path d="M24,108 C90,100 140,78 186,18" stroke="#1d3557" stroke-width="2.5" fill="none"/>
+        <circle cx="52" cy="62" r="5.5" fill="#2f6fd0"/><circle cx="80" cy="80" r="5.5" fill="#2f6fd0"/><circle cx="112" cy="56" r="5.5" fill="#2f6fd0"/><circle cx="60" cy="92" r="5.5" fill="#2f6fd0"/><circle cx="142" cy="50" r="5.5" fill="#2f6fd0"/><circle cx="176" cy="104" r="5.5" fill="#c6ccd6"/><circle cx="205" cy="82" r="5.5" fill="#c6ccd6"/><circle cx="150" cy="118" r="5.5" fill="#c6ccd6"/><circle cx="226" cy="120" r="5.5" fill="#c6ccd6"/><circle cx="110" cy="124" r="5.5" fill="#c6ccd6"/>
+        <text x="32" y="34" font-size="11" font-weight="700" fill="#1d3557">경쟁권: 대부분 나눠 받음</text>
+        <text x="246" y="66" font-size="11" text-anchor="end" fill="#7a8494">밖: 탐색용 소량</text>
+        <text x="137" y="149" font-size="10.5" text-anchor="middle" fill="#465060">보정 가격 → 비쌈</text>
+        <text x="30" y="10" font-size="10.5" fill="#465060">↑ 빠름</text>
+      </svg>
+      </div>
+      <div class="ar">→</div>
+      <div class="st">
+        <h3>③ 요청마다 몫에 비례해 추첨합니다</h3>
+        <p style="margin-bottom:10px">경쟁권 안쪽이 대부분의 몫을 나눠 갖고, 요청 한 건마다 그 비율대로 한 곳을 뽑습니다.</p>
+        <div class="bar" style="height:26px"><span style="width:38%;background:#1d3557">A 38%</span><span style="width:27%;background:#3c6fa8">B 27%</span><span style="width:19%;background:#6f9bcf">C 19%</span><span style="width:10%;background:#a4c0e2">D</span><span style="width:6%;background:#d9dde3"></span></div>
+        <p class="note" style="margin:4px 0 10px">몫은 가상 예시입니다. 실제 공식은 공개되지 않았습니다.</p>
+        <p><b>실패하면</b> 남은 곳에서 같은 방식으로 다시 뽑습니다. <b>같은 대화</b>는 캐시가 쌓이면 같은 제공사에 고정됩니다.</p>
+      </div>
+    </div>
+    <div class="cols c3" style="gap:16px">
+      <div class="card"><h3>이 배분을 쓰지 않는 요청</h3><p>사용자가 <span class="k">sort</span>(가격·처리량·지연 순), <span class="k">:floor</span>·<span class="k">:nitro</span>, <span class="k">order</span>(순서 지정), 자기 키(BYOK)를 쓰거나 필터로 1곳만 남기면, 추첨 없이 지정한 순서대로 보냅니다.</p></div>
+      <div class="card"><h3>안전장치</h3><p>오류·품질·429가 같은 모델의 다른 제공사보다 훨씬 나쁘면 회복할 때까지 0으로 내립니다. 429나 지연이 급등하면 몫을 잠시 줄입니다.</p></div>
+      <div class="card" style="background:var(--mango-soft)"><h3>Mango에 주는 의미 (추론)</h3><p>표시 가격이 아니라 <b>캐시를 반영한 실효 단가·속도·첫 토큰·오류</b>가 몫을 정합니다. 그래서 이 값들을 실험으로 직접 쟀습니다.</p></div>
+    </div>
+  </div>
+  <div class="foot"><span class="src">근거: OpenRouter Traffic Routing·Provider Routing·Prompt Caching 문서(확인 2026-11-17) · docs/07 2·3·6절</span><span class="pg"></span></div>
+</section>
+
+<section class="slide">
+  <div class="tag">분석 틀 ③ 성능·가격과 점유율의 관계</div>
+  <h2>싸고 빠르고 오류가 적을수록 점유율이 높지만, 설명력은 중간 이하입니다</h2>
+  <p class="lead">제공사별 가격·성능과 최근 1주(11-10~11-16) 점유율의 순위 상관입니다(−1~+1, 굵은 파란 글씨는 절댓값 0.4 이상).</p>
+  <div class="body">
+    <table>
+      <tr><th>모델</th><th class="num" style="width:84px;white-space:nowrap">제공사 수</th><th class="num">가격(낮을수록 좋음)</th><th class="num">처리속도</th><th class="num">첫 토큰 지연(낮을수록 좋음)</th><th class="num">툴 호출 오류율</th><th class="num">구조화 출력 오류율</th><th class="num">캐시 적중률</th></tr>
+      <tr><td><b>DeepSeek V4.1 Flash</b></td><td class="num">37</td><td class="num" style="font-weight:700;color:#1d3557">−0.48</td><td class="num" style="color:#7a8494">+0.18</td><td class="num" style="color:#7a8494">−0.37</td><td class="num" style="color:#7a8494">−0.36</td><td class="num" style="font-weight:700;color:#1d3557">−0.45</td><td class="num" style="font-weight:700;color:#1d3557">+0.53</td></tr><tr><td><b>GLM-5.3</b></td><td class="num">31</td><td class="num" style="font-weight:700;color:#1d3557">−0.42</td><td class="num" style="color:#7a8494">+0.35</td><td class="num" style="color:#7a8494">−0.20</td><td class="num" style="color:#7a8494">−0.17</td><td class="num" style="font-weight:700;color:#1d3557">−0.42</td><td class="num" style="font-weight:700;color:#1d3557">+0.75</td></tr><tr><td><b>GLM-5.3-Flash</b></td><td class="num">37</td><td class="num" style="color:#7a8494">−0.14</td><td class="num" style="font-weight:700;color:#1d3557">+0.59</td><td class="num" style="font-weight:700;color:#1d3557">−0.57</td><td class="num" style="color:#7a8494">+0.13</td><td class="num" style="color:#7a8494">−0.31</td><td class="num" style="font-weight:700;color:#1d3557">+0.42</td></tr><tr><td><b>Kimi K3.1 Pro</b></td><td class="num">18</td><td class="num" style="color:#7a8494">−0.23</td><td class="num" style="color:#7a8494">+0.13</td><td class="num" style="color:#7a8494">−0.06</td><td class="num" style="color:#7a8494">−0.26</td><td class="num" style="font-weight:700;color:#1d3557">−0.42</td><td class="num" style="font-weight:700;color:#1d3557">+0.64</td></tr>
+    </table>
+    <div class="cols c3">
+      <div class="card"><h3>관찰</h3><p>가격(−0.14~−0.48)·첫 토큰(−0.06~−0.57)·구조화 오류율(−0.31~−0.45)은 낮을수록, 처리속도(+0.13~+0.59)는 높을수록 점유율이 높은 방향으로 네 모델이 같습니다. 크기는 대부분 0.6 미만입니다. 캐시 적중률은 많이 쓰일수록 높아지는 결과일 수 있습니다(추론).</p></div>
+      <div class="card"><h3>툴 오류율은 왜 약한가</h3><p>정책은 신뢰성 오류(5xx·타임아웃, 1% ≈ 가격 +8%)를 무겁게, 툴 형식 오류(1%p ≈ +1%)는 가볍게 봅니다. 툴 오류는 중앙값 0.2~0.9%로 차이가 작고, DeepSeek 공식(4.1%, 1주 1위)처럼 높아도 상위인 곳이 있습니다. <b>신뢰성(가용성)은 아직 수집하지 않았습니다.</b> 그 밖에 경로 비율·필터 조건·캐시 고착·직접 지정도 공개 통계로 분리할 수 없습니다.</p></div>
+      <div class="card" style="background:var(--mango-soft)"><h3>그래서 필요한 것</h3><p><b>① Mango의 성능을 직접 측정</b>합니다.<br><b>② 기본·필터 경로로 제공사가 어떻게 선택되는지 실험</b>해 모르는 요소를 채웁니다.<br><b>③ 제공사별 가용성(신뢰성) 지표</b>를 수집해 오류율의 영향을 다시 봅니다.</p></div>
+    </div>
+    <div style="display:flex;justify-content:space-between;align-items:center;gap:20px">
+      <p class="note" style="margin:0">스피어만 순위 상관. 최근 1주 점유율 0 초과, 표준 등급 엔드포인트만(18~37곳). 가격은 캐시를 반영한 가중 실사용 단가. 30일 점유율은 신규 모델(Kimi·DeepSeek)에서 제공사마다 진입 시점이 달라 쓰지 않았습니다. 상관은 인과가 아닙니다. 재현: code/calc_share_correlation.py</p>
+      <a class="open" href="02_제공사_성능가격점유율_3D.html" target="_blank" rel="noopener">3D 자료 열기 ↗</a>
+    </div>
+  </div>
+  <div class="foot"><span class="src">자료: slides/02_제공사_성능가격점유율_3D.html · data/openrouter_recollect_20261117/share_7d.csv · 수집일 2026-11-17</span><span class="pg"></span></div>
+</section>
+
+<section class="slide">
+  <div class="tag">분석 틀 ④ 그래서 무엇을 예측하려 했나</div>
+  <h2>실험으로 Mango 성능과 경로별 배분을 재서, 점유율을 예측하려 했습니다</h2>
+  <p class="lead">경로마다 점유율을 나누는 기준이 달라서, 경로별 몫을 경로 비율로 합산해 추정합니다. 주황 표시가 실험이 채운 부분입니다.</p>
+  <div class="body">
+    <svg viewBox="0 0 1152 392" width="100%" style="flex:1;min-height:0" role="img" aria-label="Mango와 경쟁사의 성능·가격이 사용자 경로별 규칙을 거쳐 경로별 몫이 되고, 경로 비율로 합산되어 Mango 점유율이 되는 구조. 실험은 Mango 성능·가격, 경쟁사 공개값 검증, 경로별 실제 배분 관측, 경로 비율 추정에 쓰임">
+      <defs>
+        <marker id="ah1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#465060"/></marker>
+        <marker id="ah1m" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e07a1f"/></marker>
+      </defs>
+      <text x="0" y="16" font-size="14" font-weight="700" fill="#2f6fd0">입력</text>
+      <text x="380" y="16" font-size="14" font-weight="700" fill="#2f6fd0">사용자 경로별 규칙</text>
+      <text x="860" y="16" font-size="14" font-weight="700" fill="#2f6fd0">목표</text>
+      <rect x="0" y="30" width="310" height="92" rx="10" fill="#fdf0e3" stroke="#e07a1f" stroke-width="2.5"/>
+      <text x="16" y="60" font-size="17" font-weight="700" fill="#9a4d0c">Mango 성능·가격</text><rect x="232" y="44" width="62" height="20" rx="10" fill="#e07a1f"/><text x="263.0" y="58" text-anchor="middle" font-size="11.5" font-weight="700" fill="#fff">실험</text>
+      <text x="16" y="84" font-size="12.5" fill="#465060">Mango 직접 호출로 속도·비용 측정</text>
+      <text x="16" y="104" font-size="12.5" fill="#465060">(10~12쪽)</text>
+      <rect x="0" y="138" width="310" height="92" rx="10" fill="#eef3fb" stroke="#2f6fd0" stroke-width="1.5"/>
+      <text x="16" y="168" font-size="17" font-weight="700" fill="#1d3557">경쟁 제공사 성능·가격</text><rect x="232" y="152" width="62" height="20" rx="10" fill="#e07a1f"/><text x="263.0" y="166" text-anchor="middle" font-size="11.5" font-weight="700" fill="#fff">실험</text>
+      <text x="16" y="192" font-size="12.5" fill="#465060">OpenRouter 공개 통계로 수집하고,</text>
+      <text x="16" y="212" font-size="12.5" fill="#465060">같은 조건 실측으로 차이 확인 (14·15쪽)</text>
+      <rect x="0" y="246" width="310" height="92" rx="10" fill="#fff" stroke="#e07a1f" stroke-width="1.5" stroke-dasharray="5 4"/>
+      <text x="16" y="276" font-size="17" font-weight="700" fill="#465060">사용자 경로 비율</text><rect x="232" y="260" width="62" height="20" rx="10" fill="#e07a1f"/><text x="263.0" y="274" text-anchor="middle" font-size="11.5" font-weight="700" fill="#fff">실험</text>
+      <text x="16" y="300" font-size="12.5" fill="#465060">공개되지 않음 → 실험에서 본 경로별 배분과</text>
+      <text x="16" y="320" font-size="12.5" fill="#465060">공개 요청 수를 맞춰 범위로 추정 (16쪽)</text>
+      <rect x="380" y="30" width="400" height="308" rx="12" fill="#f3f5f8"/>
+      <text x="396" y="54" font-size="13" font-weight="600" fill="#465060">경로마다 Mango가 받는 몫이 다릅니다</text><rect x="660" y="40" width="104" height="20" rx="10" fill="#e07a1f"/><text x="712.0" y="54" text-anchor="middle" font-size="11.5" font-weight="700" fill="#fff">실험으로 확인</text>
+      <rect x="396" y="68" width="368" height="76" rx="8" fill="#fff"/>
+      <text x="412" y="96" font-size="15" font-weight="700" fill="#1d3557">기본 라우팅</text>
+      <text x="412" y="119" font-size="12.5" fill="#465060">보정 가격·속도·오류 점수에 비례해 나눔</text>
+      <text x="412" y="136" font-size="12" fill="#9a4d0c">실측: 모델당 14~22곳으로 분산 (13쪽)</text>
+      <rect x="396" y="156" width="368" height="76" rx="8" fill="#fff"/>
+      <text x="412" y="184" font-size="15" font-weight="700" fill="#1d3557">가격·처리량·지연 정렬</text>
+      <text x="412" y="207" font-size="12.5" fill="#465060">고른 지표 1위부터 시도, 1위가 독식</text>
+      <text x="412" y="224" font-size="12" fill="#9a4d0c">실측: 기준마다 다른 1위 (13쪽)</text>
+      <rect x="396" y="244" width="368" height="76" rx="8" fill="#fff"/>
+      <text x="412" y="272" font-size="15" font-weight="700" fill="#1d3557">직접 지정 (order·BYOK)</text>
+      <text x="412" y="295" font-size="12.5" fill="#465060">이름·계약·설정이 좌우 (추론, 18쪽 사례)</text>
+      <text x="412" y="312" font-size="12" fill="#7a8494">실험으로 직접 볼 수 없음</text>
+      <path d="M310,76 L340,76 L340,184 M310,184 L340,184 M340,150 L376,150" stroke="#465060" stroke-width="2.5" fill="none"/>
+      <path d="M340,150 L376,150" stroke="#465060" stroke-width="2.5" fill="none" marker-end="url(#ah1)"/>
+      <path d="M780,184 L856,184" stroke="#465060" stroke-width="2.5" fill="none" marker-end="url(#ah1)"/>
+      <text x="818" y="172" text-anchor="middle" font-size="12" fill="#465060">합산</text>
+      <rect x="860" y="92" width="292" height="184" rx="12" fill="#e07a1f"/>
+      <text x="1006" y="142" text-anchor="middle" font-size="22" font-weight="700" fill="#fff">Mango 점유율</text>
+      <text x="1006" y="168" text-anchor="middle" font-size="13" fill="#fdf0e3">OpenRouter에 올라간다면, 모델별</text>
+      <text x="1006" y="208" text-anchor="middle" font-size="14" font-weight="600" fill="#fff">= Σ 경로 비율 × 경로별 몫</text>
+      <text x="1006" y="236" text-anchor="middle" font-size="12" fill="#fdf0e3">추정 결과 19쪽</text>
+      <path d="M155,340 L155,366 L1006,366 L1006,282" stroke="#e07a1f" stroke-width="2" stroke-dasharray="6 4" fill="none" marker-end="url(#ah1m)"/>
+      <text x="580" y="386" text-anchor="middle" font-size="12.5" fill="#465060">경로 비율이 합산의 가중치가 됩니다</text>
+    </svg>
+    <div class="callout"><b>실험을 통해 다음을 확인합니다.</b> ① Mango의 성능·가격(10~12쪽) ② OpenRouter가 경로별로 실제 어디로 보내는지(13쪽) ③ 공개 통계가 실제 작업 성능과 얼마나 맞는지(14·15쪽) ④ 경로 비율의 범위(16쪽)</div>
+  </div>
+  <div class="foot"><span class="src">정책 근거: OpenRouter Traffic Routing 문서 · 실험 근거: docs/09_1회실험_결과 4·8·12절</span><span class="pg"></span></div>
+</section>
+
+<section class="slide">
+  <div class="tag">실험 과정 ① 무엇을 비교했나</div>
+  <h2>같은 모델 4개를 Mango 직접 호출과 OpenRouter의 여러 요청 방식으로 같은 조건에서 보냈습니다</h2>
+  <p class="lead">앞 장의 빈칸인 Mango 성능·가격과, 경로마다 OpenRouter가 어느 제공사를 고르는지를 한 실험에서 함께 쟀습니다.</p>
+  <div class="body">
+    <svg viewBox="0 0 1150 445" width="100%" style="background:var(--soft);border-radius:10px;max-height:400px"><rect x="20" y="190" width="130" height="70" rx="8" fill="#e8f0fb" stroke="#2f6fd0"/><text x="85.0" y="222.0" font-size="13" text-anchor="middle" fill="#141a23" font-weight="600">측정 VM</text><text x="85.0" y="239.0" font-size="11" text-anchor="middle" fill="#465060" font-weight="400">서울 m6i.large</text><rect x="230" y="60" width="190" height="70" rx="8" fill="#e07a1f22" stroke="#e07a1f"/><text x="325.0" y="92.0" font-size="14" text-anchor="middle" fill="#141a23" font-weight="600">Mango 직접</text><text x="325.0" y="109.0" font-size="12" text-anchor="middle" fill="#465060" font-weight="400">api.mangoboost.io · M 1,988건</text><rect x="230" y="290" width="190" height="70" rx="8" fill="#efeafb" stroke="#6b4fbb"/><text x="325.0" y="322.0" font-size="14" text-anchor="middle" fill="#141a23" font-weight="600">OpenRouter</text><text x="325.0" y="339.0" font-size="12" text-anchor="middle" fill="#465060" font-weight="400">6가지 요청 방식</text><line x1="150.0" y1="215.0" x2="230.0" y2="95.0" stroke="#e07a1f" stroke-width="1.6"/><polygon points="230.0,95.0 229.4,102.0 223.8,98.2" fill="#e07a1f"/><line x1="150.0" y1="240.0" x2="230.0" y2="325.0" stroke="#6b4fbb" stroke-width="1.6"/><polygon points="230.0,325.0 223.3,322.8 228.2,318.2" fill="#6b4fbb"/><rect x="520" y="150" width="500" height="46" rx="8" fill="#f6f2fd" stroke="#6b4fbb"/><text x="770.0" y="170.0" font-size="12.5" text-anchor="middle" fill="#141a23" font-weight="600">OR-기본</text><text x="770.0" y="187.0" font-size="10.5" text-anchor="middle" fill="#465060" font-weight="400">provider 설정 없음 + session_id · 1,980건</text><line x1="420.0" y1="325.0" x2="520.0" y2="173.0" stroke="#6b4fbb" stroke-width="1.6"/><polygon points="520.0,173.0 519.4,180.0 513.8,176.3" fill="#6b4fbb"/><rect x="520" y="206" width="500" height="46" rx="8" fill="#eceef2" stroke="#8b94a3"/><text x="770.0" y="226.0" font-size="12.5" text-anchor="middle" fill="#141a23" font-weight="600">OR-기본 대조</text><text x="770.0" y="243.0" font-size="10.5" text-anchor="middle" fill="#465060" font-weight="400">OR-기본에서 session_id만 뺌 · 240건</text><line x1="420.0" y1="325.0" x2="520.0" y2="229.0" stroke="#8b94a3" stroke-width="1.6"/><polygon points="520.0,229.0 517.9,235.7 513.2,230.8" fill="#8b94a3"/><rect x="520" y="262" width="500" height="46" rx="8" fill="#f6f2fd" stroke="#6b4fbb"/><text x="770.0" y="282.0" font-size="12.5" text-anchor="middle" fill="#141a23" font-weight="600">OR-고정 ×5</text><text x="770.0" y="299.0" font-size="10.5" text-anchor="middle" fill="#465060" font-weight="400">provider.order=[엔드포인트], 폴백 없음 · 120건</text><line x1="420.0" y1="325.0" x2="520.0" y2="285.0" stroke="#6b4fbb" stroke-width="1.6"/><polygon points="520.0,285.0 515.5,290.4 513.0,284.2" fill="#6b4fbb"/><rect x="520" y="318" width="500" height="46" rx="8" fill="#f6f2fd" stroke="#6b4fbb"/><text x="770.0" y="338.0" font-size="12.5" text-anchor="middle" fill="#141a23" font-weight="600">OR-정렬 ×3</text><text x="770.0" y="355.0" font-size="10.5" text-anchor="middle" fill="#465060" font-weight="400">provider.sort = price | throughput | latency · 120건</text><line x1="420.0" y1="325.0" x2="520.0" y2="341.0" stroke="#6b4fbb" stroke-width="1.6"/><polygon points="520.0,341.0 513.4,343.3 514.5,336.7" fill="#6b4fbb"/><rect x="520" y="374" width="500" height="46" rx="8" fill="#f6f2fd" stroke="#6b4fbb"/><text x="770.0" y="394.0" font-size="12.5" text-anchor="middle" fill="#141a23" font-weight="600">OR-접미사 ×2</text><text x="770.0" y="411.0" font-size="10.5" text-anchor="middle" fill="#465060" font-weight="400">모델명 + :floor / :nitro · 80건</text><line x1="420.0" y1="325.0" x2="520.0" y2="397.0" stroke="#6b4fbb" stroke-width="1.6"/><polygon points="520.0,397.0 513.1,396.1 517.0,390.7" fill="#6b4fbb"/><text x="20" y="28" font-size="14" text-anchor="start" fill="#1d3557" font-weight="700">모델 4개 × 13경로 = 52개 호출 단위 (4,528건 = 모델당 1,132 × 4)</text><text x="520" y="128" font-size="12.5" text-anchor="start" fill="#6b4fbb" font-weight="600">OpenRouter 안의 요청 방식 (4모델 합 호출 수)</text></svg>
+    <p class="note">질문은 세 종류입니다: 짧은 단일 요청(W1), 도구를 쓰며 10번 이어 가는 대화(W2), 도구 호출 정확성(W3). OR-기본 대조는 대화 고착 설정(session_id) 효과를 보려는 조건입니다.</p>
+  </div>
+  <div class="foot"><span class="src">근거: code/config/run1.yaml · results/run1_20261117 raw.jsonl.gz 집계</span><span class="pg"></span></div>
+</section>
+
+<section class="slide">
+  <div class="tag">실험 과정 ② 무엇으로 판정했나</div>
+  <h2>판정 지표 3개와 판정 규칙을 실행 전에 고정했습니다</h2>
+  <p class="lead">모든 값은 같은 모델의 “Mango ÷ OpenRouter 기본” 비율입니다. 구간 전체가 기준을 넘을 때만 우위·열위로 판정합니다.</p>
+  <div class="body">
+    <table>
+      <tr><th style="width:70px">지표</th><th style="width:260px">이름</th><th>정의</th><th style="width:170px">표본</th></tr>
+      <tr><td><b>P1</b></td><td>답변 첫 토큰 시간 (작을수록 좋음)</td><td>대화(W2) 2~10턴에서 요청부터 첫 답변 글자까지</td><td>대화 40세션</td></tr>
+      <tr><td><b>P2</b></td><td>생성 속도 (클수록 좋음)</td><td>단일 요청(W1)의 초당 출력 토큰</td><td>공통 질문 40쌍</td></tr>
+      <tr><td><b>P4</b></td><td>성공 세션당 비용 (작을수록 좋음)</td><td>실패 요청의 청구까지 포함한 대화 1세션 비용</td><td>대화 40세션</td></tr>
+    </table>
+    <svg viewBox="0 0 1150 360" width="100%" height="270" style="background:var(--soft);border-radius:10px"><rect x="504.6" y="60.0" width="105.1" height="220" rx="3" fill="#dfe3ea" /><line x1="559.7" y1="52.0" x2="559.7" y2="290.0" stroke="#7a8494" stroke-width="1.6" stroke-dasharray="4 3"/><text x="559.7328095445856" y="46" font-size="13" text-anchor="middle" fill="#465060" font-weight="700">동등 범위 0.90~1.10</text><text x="196.8289485857471" y="312" font-size="12.5" text-anchor="middle" fill="#7a8494" font-weight="400">0.5</text><text x="559.7328095445856" y="312" font-size="12.5" text-anchor="middle" fill="#7a8494" font-weight="400">1</text><text x="922.636670503424" y="312" font-size="12.5" text-anchor="middle" fill="#7a8494" font-weight="400">2</text><line x1="246.7" y1="100.0" x2="442.9" y2="100.0" stroke="#1f8a5b" stroke-width="5"/><circle cx="344.8" cy="100" r="6" fill="#1f8a5b"/><text x="80" y="88" font-size="13" text-anchor="start" fill="#141a23" font-weight="600">예시 ① 구간 전체가 0.90 미만</text><text x="456.90386095883855" y="105" font-size="13.5" text-anchor="start" fill="#1f8a5b" font-weight="700">Mango 우위 (P1·P4)</text><line x1="409.1" y1="152.0" x2="585.3" y2="152.0" stroke="#8b94a3" stroke-width="5"/><circle cx="497.2" cy="152" r="6" fill="#8b94a3"/><text x="80" y="140" font-size="13" text-anchor="start" fill="#141a23" font-weight="600">예시 ② 구간이 경계에 걸침</text><text x="599.2773684066716" y="157" font-size="13.5" text-anchor="start" fill="#8b94a3" font-weight="700">판정 불가</text><line x1="521.7" y1="204.0" x2="595.2" y2="204.0" stroke="#2f6fd0" stroke-width="5"/><circle cx="558.4" cy="204" r="6" fill="#2f6fd0"/><text x="80" y="192" font-size="13" text-anchor="start" fill="#141a23" font-weight="600">예시 ③ 구간 전체가 0.90~1.10 안</text><text x="609.1561445115823" y="209" font-size="13.5" text-anchor="start" fill="#2f6fd0" font-weight="700">동등</text><line x1="676.6" y1="256.0" x2="837.5" y2="256.0" stroke="#c2410c" stroke-width="5"/><circle cx="757.1" cy="256" r="6" fill="#c2410c"/><text x="80" y="244" font-size="13" text-anchor="start" fill="#141a23" font-weight="600">예시 ④ 구간 전체가 1.10 초과</text><text x="851.5483246978552" y="261" font-size="13.5" text-anchor="start" fill="#c2410c" font-weight="700">Mango 열위 (P1·P4)</text><text x="80" y="340" font-size="13" text-anchor="start" fill="#465060" font-weight="400">비율 = Mango ÷ OR 기본. 구간은 부트스트랩 10,000회로 얻은 99.6875% 구간. P2(생성 속도)는 클수록 좋아 방향이 반대입니다.</text></svg>
+  </div>
+  <div class="foot"><span class="src">근거: docs/09 2절 · docs/02_실험_프로토콜 2절 (P3는 추정만, 부트스트랩 10,000회, 다중 비교 보정 99.6875% 구간)</span><span class="pg"></span></div>
+</section>
+
+<section class="slide">
+  <div class="tag">실험 과정 ③ 실행과 측정 신뢰성</div>
+  <h2>4,528건을 3시간 동안 보냈고, 측정값과 청구액이 외부 기록과 맞았습니다</h2>
+  <p class="lead">결과를 믿을 수 있는지부터 확인했습니다. 사전에 정한 측정 품질 기준을 모두 통과했습니다.</p>
+  <div class="body">
+    <div class="stats">
+      <div class="stat"><b>4,528건</b><span>모두 전송·기록, 필수 값 결측 0</span></div>
+      <div class="stat"><b>3시간 12분</b><span>2026-11-17 23:50 ~ 11-18 03:02 (KST)</span></div>
+      <div class="stat"><b>1.00배</b><span>생성 속도: 우리 측정 ÷ OpenRouter 기록 (같은 요청)</span></div>
+      <div class="stat"><b>약 $38</b><span>총비용(OpenRouter $19.6 + Mango $18.4). Mango 몫은 콘솔 사용액과 센트 단위까지 일치</span></div>
+    </div>
+    <div class="cols c3">
+      <div class="card"><h3>측정 환경</h3><p>AWS 서울 VM 한 대, 자동 재시도 없음. Mango(Google Cloud 경유)와 OpenRouter(Cloudflare)가 쓰지 않는 망 사업자를 골랐습니다.</p></div>
+      <div class="card"><h3>비교 대상</h3><p>모델 4개마다 OpenRouter 기본 경로, 정렬·접미사 5경로, 고정 엔드포인트 5곳(설계 당시 11-16 수집의 30일 점유율 상위. 선정 오류는 21쪽).</p></div>
+      <div class="card"><h3>측정기 검증</h3><p>OpenRouter 엔드포인트 63곳에서 우리 측정과 OpenRouter 기록의 순위상관이 0.96~0.97. 첫 토큰은 서울→OpenRouter 왕복 때문에 약 23% 길게 잽니다.</p></div>
+    </div>
+  </div>
+  <div class="foot"><span class="src">근거: docs/09 1·6·8절 · results/run1_20261117/check.json</span><span class="pg"></span></div>
+</section>
+
+<section class="slide">
+  <div class="tag">실험 결과 ① 판정표</div>
+  <h2>확증 판정 12개: Mango 우위 5, 열위 2, 판정 불가 5</h2>
+  <p class="lead">점과 막대는 Mango ÷ OpenRouter 기본의 비율과 구간입니다. 회색 띠(0.90~1.10)가 동등 범위입니다.</p>
+  <div class="body">
+    <svg id="forest" viewBox="0 0 1150 380" width="100%" style="background:var(--soft);border-radius:10px"></svg>
+    <div class="callout"><b>속도는 강점, 가격은 일부 모델에서 약점입니다.</b> DeepSeek·GLM-5.3 Flash는 첫 토큰·생성 속도 모두 우위, GLM-5.3은 생성 속도만 우위입니다. 비용은 DeepSeek(1.73배)·GLM-5.3(2.29배)에서 열위입니다.</div>
+  </div>
+  <div class="foot"><span class="src">근거: docs/09 2절 · results/run1_20261117/analysis/primary.json (부트스트랩 10,000회, 시드 20261116)</span><span class="pg"></span></div>
+</section>
+
+<section class="slide">
+  <div class="tag">실험 결과 ② OpenRouter 제공사와의 속도 비교</div>
+  <h2>고정 제공사 5곳과 직접 비교하면, 생성 속도는 세 모델에서 Mango가 1위입니다</h2>
+  <p class="lead">설계 때 고른 OpenRouter 고정 엔드포인트 5곳과 비교한 생성 속도입니다(괄호는 첫 조각까지 ms). 경로당 6건의 중앙값이라 순위만 참고합니다.</p>
+  <div class="body">
+    <svg viewBox="0 0 1150 385" width="100%" style="max-height:380px"><text x="20" y="24" font-size="13" font-weight="700" fill="#141a23">DeepSeek V4.1 Flash</text><text x="560" y="24" font-size="10.5" text-anchor="end" fill="#7a8494">tok/s (첫 조각 ms)</text><text x="170" y="49" font-size="11.5" text-anchor="end" fill="#e07a1f" font-weight="700">Mango</text><rect x="178" y="36" width="274.1" height="17" rx="3" fill="#e07a1f"/><text x="458.1" y="49" font-size="11.5" fill="#141a23" font-weight="600">509 <tspan fill="#7a8494" font-weight="400">(341)</tspan></text><text x="170" y="73" font-size="11.5" text-anchor="end" fill="#6b4fbb" font-weight="500">wafer/us</text><rect x="178" y="60" width="190.6" height="17" rx="3" fill="#6b4fbb"/><text x="374.6" y="73" font-size="11.5" fill="#141a23" font-weight="600">354 <tspan fill="#7a8494" font-weight="400">(350)</tspan></text><text x="170" y="97" font-size="11.5" text-anchor="end" fill="#6b4fbb" font-weight="500">together</text><rect x="178" y="84" width="152.9" height="17" rx="3" fill="#6b4fbb"/><text x="336.9" y="97" font-size="11.5" fill="#141a23" font-weight="600">284 <tspan fill="#7a8494" font-weight="400">(714)</tspan></text><text x="170" y="121" font-size="11.5" text-anchor="end" fill="#6b4fbb" font-weight="500">deepseek</text><rect x="178" y="108" width="107.2" height="17" rx="3" fill="#6b4fbb"/><text x="291.2" y="121" font-size="11.5" fill="#141a23" font-weight="600">199 <tspan fill="#7a8494" font-weight="400">(679)</tspan></text><text x="170" y="145" font-size="11.5" text-anchor="end" fill="#6b4fbb" font-weight="500">inference-net/us</text><rect x="178" y="132" width="68.9" height="17" rx="3" fill="#6b4fbb"/><text x="252.9" y="145" font-size="11.5" fill="#141a23" font-weight="600">128 <tspan fill="#7a8494" font-weight="400">(888)</tspan></text><text x="170" y="169" font-size="11.5" text-anchor="end" fill="#6b4fbb" font-weight="500">deepinfra/fp8</text><rect x="178" y="156" width="50.1" height="17" rx="3" fill="#6b4fbb"/><text x="234.1" y="169" font-size="11.5" fill="#141a23" font-weight="600">93 <tspan fill="#7a8494" font-weight="400">(701)</tspan></text><text x="590" y="24" font-size="13" font-weight="700" fill="#141a23">GLM-5.3</text><text x="1130" y="24" font-size="10.5" text-anchor="end" fill="#7a8494">tok/s (첫 조각 ms)</text><text x="740" y="49" font-size="11.5" text-anchor="end" fill="#e07a1f" font-weight="700">Mango</text><rect x="748" y="36" width="103.9" height="17" rx="3" fill="#e07a1f"/><text x="857.9" y="49" font-size="11.5" fill="#141a23" font-weight="600">193 <tspan fill="#7a8494" font-weight="400">(452)</tspan></text><text x="740" y="73" font-size="11.5" text-anchor="end" fill="#6b4fbb" font-weight="500">decart/fp4</text><rect x="748" y="60" width="68.4" height="17" rx="3" fill="#6b4fbb"/><text x="822.4" y="73" font-size="11.5" fill="#141a23" font-weight="600">127 <tspan fill="#7a8494" font-weight="400">(877)</tspan></text><text x="740" y="97" font-size="11.5" text-anchor="end" fill="#6b4fbb" font-weight="500">inference-net/us</text><rect x="748" y="84" width="61.4" height="17" rx="3" fill="#6b4fbb"/><text x="815.4" y="97" font-size="11.5" fill="#141a23" font-weight="600">114 <tspan fill="#7a8494" font-weight="400">(829)</tspan></text><text x="740" y="121" font-size="11.5" text-anchor="end" fill="#6b4fbb" font-weight="500">wafer/us</text><rect x="748" y="108" width="57.1" height="17" rx="3" fill="#6b4fbb"/><text x="811.1" y="121" font-size="11.5" fill="#141a23" font-weight="600">106 <tspan fill="#7a8494" font-weight="400">(402)</tspan></text><text x="740" y="145" font-size="11.5" text-anchor="end" fill="#6b4fbb" font-weight="500">siliconflow/fp8</text><rect x="748" y="132" width="56.5" height="17" rx="3" fill="#6b4fbb"/><text x="810.5" y="145" font-size="11.5" fill="#141a23" font-weight="600">105 <tspan fill="#7a8494" font-weight="400">(1884)</tspan></text><text x="740" y="169" font-size="11.5" text-anchor="end" fill="#6b4fbb" font-weight="500">z-ai/fp8</text><rect x="748" y="156" width="50.6" height="17" rx="3" fill="#6b4fbb"/><text x="804.6" y="169" font-size="11.5" fill="#141a23" font-weight="600">94 <tspan fill="#7a8494" font-weight="400">(2479)</tspan></text><text x="20" y="209" font-size="13" font-weight="700" fill="#141a23">GLM-5.3 Flash</text><text x="560" y="209" font-size="10.5" text-anchor="end" fill="#7a8494">tok/s (첫 조각 ms)</text><text x="170" y="234" font-size="11.5" text-anchor="end" fill="#e07a1f" font-weight="700">Mango</text><rect x="178" y="221" width="174.5" height="17" rx="3" fill="#e07a1f"/><text x="358.5" y="234" font-size="11.5" fill="#141a23" font-weight="600">324 <tspan fill="#7a8494" font-weight="400">(421)</tspan></text><text x="170" y="258" font-size="11.5" text-anchor="end" fill="#6b4fbb" font-weight="500">coreweave/nvfp4</text><rect x="178" y="245" width="121.7" height="17" rx="3" fill="#6b4fbb"/><text x="305.7" y="258" font-size="11.5" fill="#141a23" font-weight="600">226 <tspan fill="#7a8494" font-weight="400">(707)</tspan></text><text x="170" y="282" font-size="11.5" text-anchor="end" fill="#6b4fbb" font-weight="500">together</text><rect x="178" y="269" width="110.4" height="17" rx="3" fill="#6b4fbb"/><text x="294.4" y="282" font-size="11.5" fill="#141a23" font-weight="600">205 <tspan fill="#7a8494" font-weight="400">(671)</tspan></text><text x="170" y="306" font-size="11.5" text-anchor="end" fill="#6b4fbb" font-weight="500">inference-net/us</text><rect x="178" y="293" width="82.9" height="17" rx="3" fill="#6b4fbb"/><text x="266.9" y="306" font-size="11.5" fill="#141a23" font-weight="600">154 <tspan fill="#7a8494" font-weight="400">(766)</tspan></text><text x="170" y="330" font-size="11.5" text-anchor="end" fill="#6b4fbb" font-weight="500">open-inference/fp4</text><rect x="178" y="317" width="68.4" height="17" rx="3" fill="#6b4fbb"/><text x="252.4" y="330" font-size="11.5" fill="#141a23" font-weight="600">127 <tspan fill="#7a8494" font-weight="400">(1252)</tspan></text><text x="170" y="354" font-size="11.5" text-anchor="end" fill="#6b4fbb" font-weight="500">z-ai/fp8</text><rect x="178" y="341" width="33.4" height="17" rx="3" fill="#6b4fbb"/><text x="217.4" y="354" font-size="11.5" fill="#141a23" font-weight="600">62 <tspan fill="#7a8494" font-weight="400">(1882)</tspan></text><text x="590" y="209" font-size="13" font-weight="700" fill="#141a23">Kimi K3.1 Pro</text><text x="1130" y="209" font-size="10.5" text-anchor="end" fill="#7a8494">tok/s (첫 조각 ms)</text><text x="740" y="234" font-size="11.5" text-anchor="end" fill="#6b4fbb" font-weight="500">inference-net/mxfp4</text><rect x="748" y="221" width="92.6" height="17" rx="3" fill="#6b4fbb"/><text x="846.6" y="234" font-size="11.5" fill="#141a23" font-weight="600">172 <tspan fill="#7a8494" font-weight="400">(783)</tspan></text><text x="740" y="258" font-size="11.5" text-anchor="end" fill="#e07a1f" font-weight="700">Mango</text><rect x="748" y="245" width="64.1" height="17" rx="3" fill="#e07a1f"/><text x="818.1" y="258" font-size="11.5" fill="#141a23" font-weight="600">119 <tspan fill="#7a8494" font-weight="400">(471)</tspan></text><text x="740" y="282" font-size="11.5" text-anchor="end" fill="#6b4fbb" font-weight="500">wafer/us</text><rect x="748" y="269" width="54.9" height="17" rx="3" fill="#6b4fbb"/><text x="808.9" y="282" font-size="11.5" fill="#141a23" font-weight="600">102 <tspan fill="#7a8494" font-weight="400">(619)</tspan></text><text x="740" y="306" font-size="11.5" text-anchor="end" fill="#6b4fbb" font-weight="500">modal/mxfp4</text><rect x="748" y="293" width="52.2" height="17" rx="3" fill="#6b4fbb"/><text x="806.2" y="306" font-size="11.5" fill="#141a23" font-weight="600">97 <tspan fill="#7a8494" font-weight="400">(643)</tspan></text><text x="740" y="330" font-size="11.5" text-anchor="end" fill="#6b4fbb" font-weight="500">together</text><rect x="748" y="317" width="26.4" height="17" rx="3" fill="#6b4fbb"/><text x="780.4" y="330" font-size="11.5" fill="#141a23" font-weight="600">49 <tspan fill="#7a8494" font-weight="400">(1079)</tspan></text><text x="740" y="354" font-size="11.5" text-anchor="end" fill="#6b4fbb" font-weight="500">moonshotai/mxfp4</text><rect x="748" y="341" width="16.7" height="17" rx="3" fill="#6b4fbb"/><text x="770.7" y="354" font-size="11.5" fill="#141a23" font-weight="600">31 <tspan fill="#7a8494" font-weight="400">(1949)</tspan></text></svg>
+    <div class="callout"><b>의미:</b> DeepSeek·GLM-5.3·GLM-5.3 Flash에서 Mango는 OpenRouter의 어떤 고정 제공사보다 빨랐습니다(2위 대비 1.4~1.5배). Kimi는 InferenceNet(172 tok/s)이 Mango(119)보다 빠릅니다. <b>비교 기준의 한계:</b> 5곳은 11-16 수집의 30일 점유율로 골라 최근 1주 상위 5곳과 다릅니다. 최근 1주 1위 Alibaba(Kimi), 5위 Together(GLM-5.3), 5위 Cohere(GLM-5.3 Flash)가 빠졌고, 1주 15위 SiliconFlow(GLM-5.3)가 들어갔습니다. 빠진 곳의 공개 처리속도는 비교한 곳보다 느리거나 비슷해 순위 결론은 유지될 것으로 봅니다(추정). 공개 통계 전체(40곳 이상)와 비교한 15쪽에서는 GLM-5.3이 6위입니다.</div>
+  </div>
+  <div class="foot"><span class="src">근거: docs/09 9·11절 · results/run1_20261117/analysis/explore_run1.txt (고정 경로당 6건)</span><span class="pg"></span></div>
+</section>
+
+<section class="slide">
+  <div class="tag">실험 결과 ③ 비용 분해</div>
+  <h2>DeepSeek·GLM-5.3의 비용 열위는 단가에서 옵니다</h2>
+  <p class="lead">세션당 비용 = 단가 × 토큰량 × 성공 수. 값은 Mango ÷ OpenRouter 기본이고, 1보다 크면 Mango가 비쌉니다.</p>
+  <div class="body">
+    <table style="font-size:15px">
+      <tr><th style="width:26%">모델 (Mango ÷ OR 기본)</th><th class="num">단가</th><th class="num">× 토큰량</th><th class="num">× 성공 수</th><th class="num">= 세션당 비용 (P4)</th></tr>
+      <tr><td>DeepSeek V4.1 Flash</td><td class="num" style="color:#c2410c">1.73</td><td class="num">0.98</td><td class="num">1.03</td><td class="num"><b style="color:#c2410c">1.73</b></td></tr>
+      <tr><td>GLM-5.3</td><td class="num" style="color:#c2410c">1.66</td><td class="num" style="color:#c2410c">1.20</td><td class="num" style="color:#c2410c">1.15</td><td class="num"><b style="color:#c2410c">2.29</b></td></tr>
+      <tr><td>GLM-5.3 Flash</td><td class="num">0.98</td><td class="num" style="color:#1f8a5b">0.89</td><td class="num">1.00</td><td class="num"><b>0.88</b></td></tr>
+      <tr><td>Kimi K3.1 Pro</td><td class="num">1.00</td><td class="num" style="color:#1f8a5b">0.91</td><td class="num">1.00</td><td class="num"><b>0.91</b></td></tr>
+    </table>
+    <div class="callout"><b>핵심:</b> Mango 정가가 OpenRouter 기본이 실제로 고른 제공사들의 실효 단가보다 DeepSeek 1.73배, GLM-5.3 1.66배 높습니다. GLM-5.3은 추론이 상한까지 가는 폭주 출력이 더해졌습니다. GLM-5.3 Flash·Kimi는 점추정상 Mango가 싸지만 판정 불가입니다.</div>
+    <p class="note">파일럿에서 보였던 Mango의 캐시 우위는 클라이언트 설정 차이였습니다. OpenRouter에 대화 고착(session_id)을 보내자 2턴 캐시 적중률이 19%에서 79%로 올랐습니다(Mango 90%).</p>
+    <p class="note"><b>할인 민감도:</b> Mango 공식 페이지의 30% 할인은 이번 API 청구에 적용되지 않았습니다(콘솔 대조). 적용된다면 세션당 비용은 DeepSeek 1.73 → 약 1.21, GLM-5.3 2.29 → 약 1.60, GLM-5.3 Flash 0.88 → 약 0.61, Kimi 0.91 → 약 0.64입니다(단순 0.7배 환산). DeepSeek·GLM-5.3은 할인을 받아도 더 비쌉니다.</p>
+  </div>
+  <div class="foot"><span class="src">근거: docs/09 1·3-3·3-5·6절</span><span class="pg"></span></div>
+</section>
+
+<section class="slide">
+  <div class="tag">실험 결과 ④ OpenRouter는 어디로 보냈나</div>
+  <h2>기본 경로는 14~22곳으로 나눠 보냈고, 정렬 경로는 기준마다 다른 1위를 골랐습니다</h2>
+  <p class="lead">OpenRouter 응답 기록에서 실제로 처리한 엔드포인트를 집계했습니다(이 시간대 관측).</p>
+  <div class="body">
+    <div class="cols c2" style="align-items:start">
+      <table>
+        <tr><th colspan="2">기본 경로: 주요 제공사 (요청 비중)</th></tr>
+        <tr><td style="width:150px">DeepSeek V4.1 Flash</td><td>StepFun 15% · Relace 13% · Morph 11%</td></tr>
+        <tr><td>GLM-5.3</td><td>Wafer 20% · Decart 14%</td></tr>
+        <tr><td>GLM-5.3 Flash</td><td>InferenceNet 20%</td></tr>
+        <tr><td>Kimi K3.1 Pro</td><td>InferenceNet 24% · Modal 19% · Wafer 16%</td></tr>
+      </table>
+      <table>
+        <tr><th colspan="2">정렬·접미사 경로: 첫 시도 1위</th></tr>
+        <tr><td style="width:170px"><span class="k">sort:price</span> · <span class="k">:floor</span></td><td>Wafer (DeepSeek·GLM-5.3) / Relace (GLM-5.3 Flash·Kimi)</td></tr>
+        <tr><td><span class="k">sort:latency</span></td><td>대부분 InferenceNet (GLM-5.3은 Wafer)</td></tr>
+        <tr><td><span class="k">sort:throughput</span> · <span class="k">:nitro</span></td><td>BaseTen·Alibaba·Particle AI·River·Moonshot AI 등으로 분산</td></tr>
+      </table>
+    </div>
+    <div class="callout"><b>공개 통계 순위와 실제 작업 순위는 다를 수 있습니다.</b> <span class="k">sort:latency</span>는 공개 통계상 가장 빠른 InferenceNet을 골랐지만, 우리 작업(DeepSeek V4.1 Flash)에서는 InferenceNet의 첫 조각이 670ms로 Wafer(382ms)보다 늦었습니다. 정렬은 전체 트래픽 기준의 통계를 따릅니다.</div>
+  </div>
+  <div class="foot"><span class="src">근거: docs/09 4·8절 · analysis/routing.csv · analysis/compare_or_stats.txt</span><span class="pg"></span></div>
+</section>
+
+<section class="slide">
+  <div class="tag">실험 결과 ⑤ OpenRouter 공개 성능 통계 vs 실측</div>
+  <h2>공개 통계는 생성 속도 순서는 대체로 맞지만, 절대값과 첫 토큰 순위는 우리 작업과 다릅니다</h2>
+  <p class="lead">실험 중 30분마다 8회 저장한 OpenRouter 공개 성능(30분 창 p50)과, 그 엔드포인트가 처리한 우리 요청(10건 이상)의 실측 중앙값입니다.</p>
+  <div class="body" style="gap:8px">
+    <div class="cols c2" style="gap:20px"><svg viewBox="0 0 560 258" width="100%" style="background:var(--soft);border-radius:10px"><text x="56" y="18" font-size="13" font-weight="700" fill="#141a23">생성 속도 (tok/s, 엔드포인트별 중앙값)</text><text x="546" y="18" font-size="11.5" text-anchor="end" fill="#465060">순위상관 0.72</text><line x1="56.0" y1="26" x2="56.0" y2="220" stroke="#dfe3ea"/><text x="56.0" y="235" font-size="10.5" text-anchor="middle" fill="#7a8494">0</text><line x1="178.5" y1="26" x2="178.5" y2="220" stroke="#dfe3ea"/><text x="178.5" y="235" font-size="10.5" text-anchor="middle" fill="#7a8494">50</text><line x1="301.0" y1="26" x2="301.0" y2="220" stroke="#dfe3ea"/><text x="301.0" y="235" font-size="10.5" text-anchor="middle" fill="#7a8494">100</text><line x1="423.5" y1="26" x2="423.5" y2="220" stroke="#dfe3ea"/><text x="423.5" y="235" font-size="10.5" text-anchor="middle" fill="#7a8494">150</text><line x1="546.0" y1="26" x2="546.0" y2="220" stroke="#dfe3ea"/><text x="546.0" y="235" font-size="10.5" text-anchor="middle" fill="#7a8494">200</text><line x1="56" y1="220.0" x2="546" y2="220.0" stroke="#dfe3ea"/><text x="50" y="223.5" font-size="10.5" text-anchor="end" fill="#7a8494">0</text><line x1="56" y1="171.5" x2="546" y2="171.5" stroke="#dfe3ea"/><text x="50" y="175.0" font-size="10.5" text-anchor="end" fill="#7a8494">80</text><line x1="56" y1="123.0" x2="546" y2="123.0" stroke="#dfe3ea"/><text x="50" y="126.5" font-size="10.5" text-anchor="end" fill="#7a8494">160</text><line x1="56" y1="74.5" x2="546" y2="74.5" stroke="#dfe3ea"/><text x="50" y="78.0" font-size="10.5" text-anchor="end" fill="#7a8494">240</text><line x1="56" y1="26.0" x2="546" y2="26.0" stroke="#dfe3ea"/><text x="50" y="29.5" font-size="10.5" text-anchor="end" fill="#7a8494">320</text><line x1="56.0" y1="220.0" x2="546.0" y2="98.8" stroke="#7a8494" stroke-width="1.4" stroke-dasharray="4 3"/><text x="414.8" y="145.7" font-size="10.5" fill="#7a8494" stroke="#f3f5f8" stroke-width="3.5" paint-order="stroke">실측 = 공개</text><line x1="56.0" y1="220.0" x2="546.0" y2="33.0" stroke="#e07a1f" stroke-width="1.4" stroke-dasharray="1 0"/><text x="402.8" y="79.3" font-size="10.5" text-anchor="end" fill="#e07a1f" font-weight="600" stroke="#f3f5f8" stroke-width="3.5" paint-order="stroke">중앙값: 실측 = 공개 × 1.54</text><circle cx="354.9" cy="133.5" r="4" fill="#1d3557" fill-opacity=".78" stroke="#fff" stroke-width=".8"/><circle cx="253.2" cy="112.7" r="4" fill="#1f8a5b" fill-opacity=".78" stroke="#fff" stroke-width=".8"/><circle cx="276.5" cy="99.0" r="4" fill="#2f6fd0" fill-opacity=".78" stroke="#fff" stroke-width=".8"/><circle cx="261.8" cy="143.1" r="4" fill="#1d3557" fill-opacity=".78" stroke="#fff" stroke-width=".8"/><circle cx="225.0" cy="184.9" r="4" fill="#1d3557" fill-opacity=".78" stroke="#fff" stroke-width=".8"/><circle cx="216.5" cy="145.1" r="4" fill="#6b4fbb" fill-opacity=".78" stroke="#fff" stroke-width=".8"/><circle cx="255.7" cy="145.0" r="4" fill="#2f6fd0" fill-opacity=".78" stroke="#fff" stroke-width=".8"/><circle cx="505.6" cy="38.5" r="4" fill="#1d3557" fill-opacity=".78" stroke="#fff" stroke-width=".8"/><circle cx="379.4" cy="91.1" r="4" fill="#1f8a5b" fill-opacity=".78" stroke="#fff" stroke-width=".8"/><circle cx="345.1" cy="131.2" r="4" fill="#1f8a5b" fill-opacity=".78" stroke="#fff" stroke-width=".8"/><circle cx="339.0" cy="149.0" r="4" fill="#1f8a5b" fill-opacity=".78" stroke="#fff" stroke-width=".8"/><circle cx="440.7" cy="83.6" r="4" fill="#1d3557" fill-opacity=".78" stroke="#fff" stroke-width=".8"/><circle cx="218.9" cy="161.2" r="4" fill="#1f8a5b" fill-opacity=".78" stroke="#fff" stroke-width=".8"/><circle cx="244.7" cy="148.5" r="4" fill="#2f6fd0" fill-opacity=".78" stroke="#fff" stroke-width=".8"/><circle cx="334.1" cy="128.8" r="4" fill="#1d3557" fill-opacity=".78" stroke="#fff" stroke-width=".8"/><circle cx="297.3" cy="125.8" r="4" fill="#6b4fbb" fill-opacity=".78" stroke="#fff" stroke-width=".8"/><circle cx="275.3" cy="157.7" r="4" fill="#6b4fbb" fill-opacity=".78" stroke="#fff" stroke-width=".8"/><circle cx="316.9" cy="142.9" r="4" fill="#6b4fbb" fill-opacity=".78" stroke="#fff" stroke-width=".8"/><circle cx="250.8" cy="147.4" r="4" fill="#2f6fd0" fill-opacity=".78" stroke="#fff" stroke-width=".8"/><circle cx="388.0" cy="50.6" r="4" fill="#1f8a5b" fill-opacity=".78" stroke="#fff" stroke-width=".8"/><circle cx="255.7" cy="156.3" r="4" fill="#6b4fbb" fill-opacity=".78" stroke="#fff" stroke-width=".8"/><circle cx="305.9" cy="133.4" r="4" fill="#2f6fd0" fill-opacity=".78" stroke="#fff" stroke-width=".8"/><circle cx="325.5" cy="127.7" r="4" fill="#1f8a5b" fill-opacity=".78" stroke="#fff" stroke-width=".8"/><circle cx="279.0" cy="145.3" r="4" fill="#1f8a5b" fill-opacity=".78" stroke="#fff" stroke-width=".8"/><circle cx="277.1" cy="132.6" r="4" fill="#2f6fd0" fill-opacity=".78" stroke="#fff" stroke-width=".8"/><circle cx="468.8" cy="62.4" r="4" fill="#1d3557" fill-opacity=".78" stroke="#fff" stroke-width=".8"/><circle cx="367.1" cy="94.2" r="4" fill="#1d3557" fill-opacity=".78" stroke="#fff" stroke-width=".8"/><circle cx="302.2" cy="111.9" r="4" fill="#1d3557" fill-opacity=".78" stroke="#fff" stroke-width=".8"/><circle cx="350.0" cy="129.1" r="4" fill="#1d3557" fill-opacity=".78" stroke="#fff" stroke-width=".8"/><circle cx="293.6" cy="148.6" r="4" fill="#1f8a5b" fill-opacity=".78" stroke="#fff" stroke-width=".8"/><circle cx="275.3" cy="123.7" r="4" fill="#1f8a5b" fill-opacity=".78" stroke="#fff" stroke-width=".8"/><circle cx="233.6" cy="130.8" r="4" fill="#2f6fd0" fill-opacity=".78" stroke="#fff" stroke-width=".8"/><circle cx="400.2" cy="82.4" r="4" fill="#1d3557" fill-opacity=".78" stroke="#fff" stroke-width=".8"/><circle cx="256.9" cy="130.1" r="4" fill="#6b4fbb" fill-opacity=".78" stroke="#fff" stroke-width=".8"/><circle cx="306.5" cy="54.6" r="4" fill="#6b4fbb" fill-opacity=".78" stroke="#fff" stroke-width=".8"/><circle cx="427.2" cy="111.8" r="4" fill="#1d3557" fill-opacity=".78" stroke="#fff" stroke-width=".8"/><circle cx="308.4" cy="140.4" r="4" fill="#6b4fbb" fill-opacity=".78" stroke="#fff" stroke-width=".8"/><circle cx="210.3" cy="167.6" r="4" fill="#6b4fbb" fill-opacity=".78" stroke="#fff" stroke-width=".8"/><circle cx="425.9" cy="50.5" r="4" fill="#1d3557" fill-opacity=".78" stroke="#fff" stroke-width=".8"/><circle cx="336.5" cy="115.7" r="4" fill="#1d3557" fill-opacity=".78" stroke="#fff" stroke-width=".8"/><circle cx="335.3" cy="122.3" r="4" fill="#1d3557" fill-opacity=".78" stroke="#fff" stroke-width=".8"/><circle cx="254.5" cy="138.9" r="4" fill="#2f6fd0" fill-opacity=".78" stroke="#fff" stroke-width=".8"/><circle cx="309.6" cy="62.6" r="4" fill="#2f6fd0" fill-opacity=".78" stroke="#fff" stroke-width=".8"/><circle cx="303.4" cy="109.9" r="4" fill="#6b4fbb" fill-opacity=".78" stroke="#fff" stroke-width=".8"/><circle cx="241.0" cy="157.1" r="4" fill="#2f6fd0" fill-opacity=".78" stroke="#fff" stroke-width=".8"/><circle cx="316.9" cy="130.5" r="4" fill="#1d3557" fill-opacity=".78" stroke="#fff" stroke-width=".8"/><circle cx="363.5" cy="93.0" r="4" fill="#1f8a5b" fill-opacity=".78" stroke="#fff" stroke-width=".8"/><circle cx="285.1" cy="157.2" r="4" fill="#1f8a5b" fill-opacity=".78" stroke="#fff" stroke-width=".8"/><circle cx="394.1" cy="82.7" r="4" fill="#1d3557" fill-opacity=".78" stroke="#fff" stroke-width=".8"/><circle cx="253.2" cy="135.4" r="4" fill="#2f6fd0" fill-opacity=".78" stroke="#fff" stroke-width=".8"/><circle cx="220.2" cy="147.8" r="4" fill="#2f6fd0" fill-opacity=".78" stroke="#fff" stroke-width=".8"/><circle cx="357.4" cy="85.8" r="4" fill="#1f8a5b" fill-opacity=".78" stroke="#fff" stroke-width=".8"/><circle cx="285.1" cy="89.8" r="4" fill="#2f6fd0" fill-opacity=".78" stroke="#fff" stroke-width=".8"/><circle cx="277.7" cy="86.8" r="4" fill="#2f6fd0" fill-opacity=".78" stroke="#fff" stroke-width=".8"/><circle cx="352.4" cy="110.4" r="4" fill="#1f8a5b" fill-opacity=".78" stroke="#fff" stroke-width=".8"/><circle cx="301.6" cy="132.9" r="4" fill="#6b4fbb" fill-opacity=".78" stroke="#fff" stroke-width=".8"/><circle cx="303.4" cy="97.2" r="4" fill="#6b4fbb" fill-opacity=".78" stroke="#fff" stroke-width=".8"/><circle cx="307.1" cy="145.7" r="4" fill="#6b4fbb" fill-opacity=".78" stroke="#fff" stroke-width=".8"/><circle cx="423.5" cy="72.7" r="4" fill="#1d3557" fill-opacity=".78" stroke="#fff" stroke-width=".8"/><circle cx="232.4" cy="143.7" r="4" fill="#6b4fbb" fill-opacity=".78" stroke="#fff" stroke-width=".8"/><circle cx="221.4" cy="153.7" r="4" fill="#2f6fd0" fill-opacity=".78" stroke="#fff" stroke-width=".8"/><circle cx="274.1" cy="151.2" r="4" fill="#2f6fd0" fill-opacity=".78" stroke="#fff" stroke-width=".8"/><circle cx="352.4" cy="37.7" r="4" fill="#2f6fd0" fill-opacity=".78" stroke="#fff" stroke-width=".8"/><text x="301.0" y="250" font-size="11.5" text-anchor="middle" fill="#465060">공개 통계 p50 throughput</text><text x="14" y="123.0" font-size="11.5" text-anchor="middle" fill="#465060" transform="rotate(-90 14 123.0)">우리 실측 decode</text></svg><svg viewBox="0 0 560 258" width="100%" style="background:var(--soft);border-radius:10px"><text x="56" y="18" font-size="13" font-weight="700" fill="#141a23">첫 토큰 (ms, 로그 눈금)</text><text x="546" y="18" font-size="11.5" text-anchor="end" fill="#465060">순위상관 0.58</text><line x1="103.1" y1="26" x2="103.1" y2="220" stroke="#dfe3ea"/><text x="103.1" y="235" font-size="10.5" text-anchor="middle" fill="#7a8494">200</text><line x1="252.9" y1="26" x2="252.9" y2="220" stroke="#dfe3ea"/><text x="252.9" y="235" font-size="10.5" text-anchor="middle" fill="#7a8494">500</text><line x1="366.3" y1="26" x2="366.3" y2="220" stroke="#dfe3ea"/><text x="366.3" y="235" font-size="10.5" text-anchor="middle" fill="#7a8494">1,000</text><line x1="479.7" y1="26" x2="479.7" y2="220" stroke="#dfe3ea"/><text x="479.7" y="235" font-size="10.5" text-anchor="middle" fill="#7a8494">2,000</text><line x1="56" y1="201.4" x2="546" y2="201.4" stroke="#dfe3ea"/><text x="50" y="204.9" font-size="10.5" text-anchor="end" fill="#7a8494">200</text><line x1="56" y1="142.0" x2="546" y2="142.0" stroke="#dfe3ea"/><text x="50" y="145.5" font-size="10.5" text-anchor="end" fill="#7a8494">500</text><line x1="56" y1="97.1" x2="546" y2="97.1" stroke="#dfe3ea"/><text x="50" y="100.6" font-size="10.5" text-anchor="end" fill="#7a8494">1,000</text><line x1="56" y1="52.3" x2="546" y2="52.3" stroke="#dfe3ea"/><text x="50" y="55.8" font-size="10.5" text-anchor="end" fill="#7a8494">2,000</text><line x1="56.0" y1="220.0" x2="546.0" y2="26.0" stroke="#7a8494" stroke-width="1.4" stroke-dasharray="4 3"/><text x="414.8" y="93.3" font-size="10.5" fill="#7a8494" stroke="#f3f5f8" stroke-width="3.5" paint-order="stroke">실측 = 공개</text><line x1="56.0" y1="199.6" x2="494.4" y2="26.0" stroke="#e07a1f" stroke-width="1.4" stroke-dasharray="1 0"/><text x="365.6" y="68.6" font-size="10.5" text-anchor="end" fill="#e07a1f" font-weight="600" stroke="#f3f5f8" stroke-width="3.5" paint-order="stroke">중앙값: 실측 = 공개 × 1.37</text><circle cx="125.9" cy="123.1" r="4" fill="#1d3557" fill-opacity=".78" stroke="#fff" stroke-width=".8"/><circle cx="326.6" cy="78.7" r="4" fill="#1f8a5b" fill-opacity=".78" stroke="#fff" stroke-width=".8"/><circle cx="221.9" cy="95.8" r="4" fill="#2f6fd0" fill-opacity=".78" stroke="#fff" stroke-width=".8"/><circle cx="336.7" cy="108.9" r="4" fill="#1d3557" fill-opacity=".78" stroke="#fff" stroke-width=".8"/><circle cx="300.6" cy="90.4" r="4" fill="#1d3557" fill-opacity=".78" stroke="#fff" stroke-width=".8"/><circle cx="460.3" cy="82.2" r="4" fill="#6b4fbb" fill-opacity=".78" stroke="#fff" stroke-width=".8"/><circle cx="236.6" cy="58.9" r="4" fill="#2f6fd0" fill-opacity=".78" stroke="#fff" stroke-width=".8"/><circle cx="269.6" cy="119.0" r="4" fill="#1d3557" fill-opacity=".78" stroke="#fff" stroke-width=".8"/><circle cx="297.4" cy="100.7" r="4" fill="#1f8a5b" fill-opacity=".78" stroke="#fff" stroke-width=".8"/><circle cx="193.9" cy="108.2" r="4" fill="#1f8a5b" fill-opacity=".78" stroke="#fff" stroke-width=".8"/><circle cx="298.0" cy="92.2" r="4" fill="#1f8a5b" fill-opacity=".78" stroke="#fff" stroke-width=".8"/><circle cx="203.1" cy="159.5" r="4" fill="#1d3557" fill-opacity=".78" stroke="#fff" stroke-width=".8"/><circle cx="345.3" cy="49.2" r="4" fill="#1f8a5b" fill-opacity=".78" stroke="#fff" stroke-width=".8"/><circle cx="115.6" cy="147.8" r="4" fill="#2f6fd0" fill-opacity=".78" stroke="#fff" stroke-width=".8"/><circle cx="131.5" cy="125.1" r="4" fill="#1d3557" fill-opacity=".78" stroke="#fff" stroke-width=".8"/><circle cx="324.0" cy="97.6" r="4" fill="#6b4fbb" fill-opacity=".78" stroke="#fff" stroke-width=".8"/><circle cx="345.6" cy="113.6" r="4" fill="#6b4fbb" fill-opacity=".78" stroke="#fff" stroke-width=".8"/><circle cx="312.7" cy="112.9" r="4" fill="#6b4fbb" fill-opacity=".78" stroke="#fff" stroke-width=".8"/><circle cx="212.1" cy="99.2" r="4" fill="#2f6fd0" fill-opacity=".78" stroke="#fff" stroke-width=".8"/><circle cx="287.6" cy="99.9" r="4" fill="#1f8a5b" fill-opacity=".78" stroke="#fff" stroke-width=".8"/><circle cx="321.4" cy="118.1" r="4" fill="#6b4fbb" fill-opacity=".78" stroke="#fff" stroke-width=".8"/><circle cx="313.9" cy="102.8" r="4" fill="#2f6fd0" fill-opacity=".78" stroke="#fff" stroke-width=".8"/><circle cx="213.5" cy="102.3" r="4" fill="#1f8a5b" fill-opacity=".78" stroke="#fff" stroke-width=".8"/><circle cx="232.4" cy="120.9" r="4" fill="#1f8a5b" fill-opacity=".78" stroke="#fff" stroke-width=".8"/><circle cx="312.2" cy="127.8" r="4" fill="#2f6fd0" fill-opacity=".78" stroke="#fff" stroke-width=".8"/><circle cx="318.2" cy="86.9" r="4" fill="#1d3557" fill-opacity=".78" stroke="#fff" stroke-width=".8"/><circle cx="402.5" cy="72.6" r="4" fill="#1d3557" fill-opacity=".78" stroke="#fff" stroke-width=".8"/><circle cx="424.9" cy="69.6" r="4" fill="#1d3557" fill-opacity=".78" stroke="#fff" stroke-width=".8"/><circle cx="274.9" cy="117.9" r="4" fill="#1d3557" fill-opacity=".78" stroke="#fff" stroke-width=".8"/><circle cx="248.1" cy="113.8" r="4" fill="#1f8a5b" fill-opacity=".78" stroke="#fff" stroke-width=".8"/><circle cx="363.8" cy="77.7" r="4" fill="#1f8a5b" fill-opacity=".78" stroke="#fff" stroke-width=".8"/><circle cx="269.3" cy="96.0" r="4" fill="#2f6fd0" fill-opacity=".78" stroke="#fff" stroke-width=".8"/><circle cx="352.9" cy="104.3" r="4" fill="#1d3557" fill-opacity=".78" stroke="#fff" stroke-width=".8"/><circle cx="350.7" cy="117.5" r="4" fill="#6b4fbb" fill-opacity=".78" stroke="#fff" stroke-width=".8"/><circle cx="435.8" cy="52.2" r="4" fill="#6b4fbb" fill-opacity=".78" stroke="#fff" stroke-width=".8"/><circle cx="226.7" cy="149.3" r="4" fill="#1d3557" fill-opacity=".78" stroke="#fff" stroke-width=".8"/><circle cx="306.7" cy="74.4" r="4" fill="#6b4fbb" fill-opacity=".78" stroke="#fff" stroke-width=".8"/><circle cx="417.4" cy="90.2" r="4" fill="#6b4fbb" fill-opacity=".78" stroke="#fff" stroke-width=".8"/><circle cx="318.9" cy="116.6" r="4" fill="#1d3557" fill-opacity=".78" stroke="#fff" stroke-width=".8"/><circle cx="421.5" cy="95.0" r="4" fill="#1d3557" fill-opacity=".78" stroke="#fff" stroke-width=".8"/><circle cx="365.8" cy="101.5" r="4" fill="#1d3557" fill-opacity=".78" stroke="#fff" stroke-width=".8"/><circle cx="210.6" cy="106.5" r="4" fill="#2f6fd0" fill-opacity=".78" stroke="#fff" stroke-width=".8"/><circle cx="308.4" cy="69.9" r="4" fill="#2f6fd0" fill-opacity=".78" stroke="#fff" stroke-width=".8"/><circle cx="340.8" cy="85.7" r="4" fill="#6b4fbb" fill-opacity=".78" stroke="#fff" stroke-width=".8"/><circle cx="354.9" cy="85.3" r="4" fill="#2f6fd0" fill-opacity=".78" stroke="#fff" stroke-width=".8"/><circle cx="423.5" cy="90.4" r="4" fill="#1d3557" fill-opacity=".78" stroke="#fff" stroke-width=".8"/><circle cx="292.7" cy="93.6" r="4" fill="#1f8a5b" fill-opacity=".78" stroke="#fff" stroke-width=".8"/><circle cx="227.8" cy="104.2" r="4" fill="#1f8a5b" fill-opacity=".78" stroke="#fff" stroke-width=".8"/><circle cx="328.5" cy="113.0" r="4" fill="#1d3557" fill-opacity=".78" stroke="#fff" stroke-width=".8"/><circle cx="166.9" cy="140.9" r="4" fill="#2f6fd0" fill-opacity=".78" stroke="#fff" stroke-width=".8"/><circle cx="500.4" cy="34.6" r="4" fill="#2f6fd0" fill-opacity=".78" stroke="#fff" stroke-width=".8"/><circle cx="253.6" cy="113.9" r="4" fill="#1f8a5b" fill-opacity=".78" stroke="#fff" stroke-width=".8"/><circle cx="263.8" cy="76.7" r="4" fill="#2f6fd0" fill-opacity=".78" stroke="#fff" stroke-width=".8"/><circle cx="254.0" cy="127.6" r="4" fill="#2f6fd0" fill-opacity=".78" stroke="#fff" stroke-width=".8"/><circle cx="335.4" cy="62.2" r="4" fill="#1f8a5b" fill-opacity=".78" stroke="#fff" stroke-width=".8"/><circle cx="329.0" cy="90.9" r="4" fill="#6b4fbb" fill-opacity=".78" stroke="#fff" stroke-width=".8"/><circle cx="437.0" cy="84.2" r="4" fill="#6b4fbb" fill-opacity=".78" stroke="#fff" stroke-width=".8"/><circle cx="409.1" cy="95.9" r="4" fill="#6b4fbb" fill-opacity=".78" stroke="#fff" stroke-width=".8"/><circle cx="366.0" cy="118.3" r="4" fill="#1d3557" fill-opacity=".78" stroke="#fff" stroke-width=".8"/><circle cx="413.3" cy="66.0" r="4" fill="#6b4fbb" fill-opacity=".78" stroke="#fff" stroke-width=".8"/><circle cx="414.5" cy="81.6" r="4" fill="#2f6fd0" fill-opacity=".78" stroke="#fff" stroke-width=".8"/><circle cx="302.4" cy="101.3" r="4" fill="#2f6fd0" fill-opacity=".78" stroke="#fff" stroke-width=".8"/><circle cx="255.8" cy="119.5" r="4" fill="#2f6fd0" fill-opacity=".78" stroke="#fff" stroke-width=".8"/><text x="301.0" y="250" font-size="11.5" text-anchor="middle" fill="#465060">공개 통계 p50 지연</text><text x="14" y="123.0" font-size="11.5" text-anchor="middle" fill="#465060" transform="rotate(-90 14 123.0)">우리 실측 첫 토큰</text></svg></div>
+    <div class="legend" style="margin-top:-4px"><span><i style="background:#1d3557;border-radius:50%"></i>DeepSeek V4.1 Flash 18곳</span><span><i style="background:#2f6fd0;border-radius:50%"></i>GLM-5.3 17곳</span><span><i style="background:#1f8a5b;border-radius:50%"></i>GLM-5.3 Flash 14곳</span><span><i style="background:#6b4fbb;border-radius:50%"></i>Kimi K3.1 Pro 14곳</span><span style="color:#7a8494">· 점 하나 = 엔드포인트 하나 · Mango는 OpenRouter에 없어 공개 통계가 없음</span></div>
+    <div class="cols" style="grid-template-columns:1.05fr 1fr;gap:20px;align-items:start">
+      <table style="font-size:12px;white-space:nowrap">
+        <tr><th style="width:27%">공개 1위의 실측 순위</th><th>생성 속도</th><th>첫 토큰</th></tr>
+        <tr><td>DeepSeek V4.1 Flash</td><td>Together <b>1</b>/18</td><td>InferenceNet <b style="color:#c2410c">4</b>/18 · 실측 1위 Wafer</td></tr>
+        <tr><td>GLM-5.3</td><td>Parasail <b>1</b>/17</td><td>Wafer <b>1</b>/17</td></tr>
+        <tr><td>GLM-5.3 Flash</td><td>Particle AI <b>1</b>/14</td><td>InferenceNet <b style="color:#c2410c">4</b>/14 · 실측 1위 Modal</td></tr>
+        <tr><td>Kimi K3.1 Pro</td><td>River <b style="color:#c2410c">8</b>/14 · 실측 1위 DigitalOcean</td><td>InferenceNet <b style="color:#c2410c">12</b>/14 · 실측 1위 Wafer</td></tr>
+      </table>
+      <div class="callout" style="font-size:13.5px;padding:10px 14px"><b>측정기는 맞고, 공개 수치가 다른 것을 잽니다.</b> 같은 요청의 OpenRouter 기록과는 생성 속도 1.00배, 첫 토큰 1.23배(서울 왕복)로 일치합니다. 공개값은 전체 사용자 요청이 섞인 값이라 실측 생성 속도가 공개의 <b>1.54배</b>(0.84~2.67), 첫 토큰이 <b>1.37배</b>(0.71~3.99)입니다. 그래서 Mango는 공개 수치가 아니라 같은 조건 실측끼리 비교했습니다(10~11쪽). 공개 1위를 고르는 <span class="k">sort:latency</span>도 긴 맥락 작업에선 더 느릴 수 있습니다.</div>
+    </div>
+    <p class="note" style="margin:-6px 0 0;font-size:12px;white-space:nowrap"><b>측정 방식 동일 여부는 미확정:</b> OpenRouter는 공개 지연·처리량의 측정 구간(첫 토큰·추론 토큰 포함 여부 등)을 공식 문서에 밝히지 않습니다. 공개 throughput은 첫 토큰 시간을 포함한 값으로 보입니다(추정).</p>
+  </div>
+  <div class="foot"><span class="src">근거: docs/09 8절 · results/run1_20261117/or_stats.jsonl.gz (11-17 23:50~11-18 03:21 KST, 8회) · code/compare_or_stats.py</span><span class="pg"></span></div>
+</section>
+
+<section class="slide">
+  <div class="tag">실험 결과 ⑥ Mango를 공개 통계 위에 놓으면</div>
+  <h2>공개 지표로 환산하면 속도는 두 모델에서 최상위지만, 가격은 중간(9~26위)입니다</h2>
+  <p class="lead">OpenRouter 성능 화면의 6개 지표에 Mango 실측을 환산해 넣었습니다. 순위는 Fast·Flex 등급을 포함한 공개 1주 평균 중 순위입니다.</p>
+  <div class="body" style="gap:10px">
+    <style>
+      .mp td,.mp th{padding:4px 9px} .mp th{font-family:var(--sans)} .mp td.num{text-align:center} .mp .sub{font-size:11.5px;color:var(--muted)}
+      .mp .v{font-family:var(--mono);font-size:12.5px;color:var(--ink2);margin-top:1px} .mp .s{font-size:11px;color:var(--muted);line-height:1.35}
+      .mp td.m{font-weight:600;font-size:13.5px;vertical-align:middle} .mp td.j{width:24%} .mp tr.pr td{background:#fafbfc}
+    </style>
+    <table class="mp">
+      <tr><th style="width:13%">지표</th><th class="num" style="text-align:center">DeepSeek V4.1 Flash</th><th class="num" style="text-align:center">GLM-5.3 Flash</th><th class="num" style="text-align:center">GLM-5.3</th><th class="num" style="text-align:center">Kimi K3.1 Pro</th><th>판단</th></tr>
+      <tr><td class="m">처리속도</td><td class="num"><b style="color:#1f8a5b;font-size:15px">2위</b><span class="sub">/47곳</span><div class="v">337 tok/s<span class="s"> · 표준만 1위</span></div></td><td class="num"><b style="color:#1f8a5b;font-size:15px">1위</b><span class="sub">/40곳</span><div class="v">203 tok/s<span class="s"> · 표준만 1위</span></div></td><td class="num"><b style="color:#141a23;font-size:15px">6위</b><span class="sub">/41곳</span><div class="v">106 tok/s<span class="s"> · 표준만 3위</span></div></td><td class="num"><b style="color:#c2410c;font-size:15px">11위</b><span class="sub">/21곳</span><div class="v">60 tok/s<span class="s"> · 표준만 10위</span></div></td><td class="j"><span class="pill g">환산 가능</span><div class="s">엔드포인트 10~15곳 실측÷공개 비율로 환산</div></td></tr><tr><td class="m">첫 토큰 지연</td><td class="num"><b style="color:#141a23;font-size:15px">7위</b><span class="sub">/44곳</span><div class="v">0.55초<span class="s"> · 표준만 6위</span></div></td><td class="num"><b style="color:#141a23;font-size:15px">4위</b><span class="sub">/40곳</span><div class="v">0.42초<span class="s"> · 표준만 4위</span></div></td><td class="num"><b style="color:#141a23;font-size:15px">8위</b><span class="sub">/39곳</span><div class="v">0.42초<span class="s"> · 표준만 8위</span></div></td><td class="num"><b style="color:#1f8a5b;font-size:15px">1위</b><span class="sub">/21곳</span><div class="v">0.73초<span class="s"> · 표준만 1위</span></div></td><td class="j"><span class="pill g">환산 가능</span><div class="s">Mango는 서울 직접 호출, 지리 효과 섞임</div></td></tr><tr><td class="m">전체 응답시간</td><td class="num"><b style="color:#1f8a5b;font-size:15px">2위</b><span class="sub">/41곳</span><div class="v">1.62초<span class="s"> · 표준만 1위</span></div></td><td class="num"><b style="color:#1f8a5b;font-size:15px">1위</b><span class="sub">/39곳</span><div class="v">1.14초<span class="s"> · 표준만 1위</span></div></td><td class="num"><b style="color:#141a23;font-size:15px">6위</b><span class="sub">/38곳</span><div class="v">1.95초<span class="s"> · 표준만 6위</span></div></td><td class="num"><b style="color:#1f8a5b;font-size:15px">3위</b><span class="sub">/21곳</span><div class="v">5.40초<span class="s"> · 표준만 2위</span></div></td><td class="j"><span class="pill g">환산 가능</span><div class="s">출력 길이에 좌우, 범위 넓음</div></td></tr><tr><td class="m">캐시 적중률</td><td class="num"><b style="color:#141a23;font-size:15px">4위</b><span class="sub">/41곳</span><div class="v">95.1%<span class="s"> · 표준만 2위</span></div></td><td class="num"><b style="color:#141a23;font-size:15px">7위</b><span class="sub">/39곳</span><div class="v">85.6%<span class="s"> · 표준만 7위</span></div></td><td class="num"><b style="color:#141a23;font-size:15px">8위</b><span class="sub">/38곳</span><div class="v">91.3%<span class="s"> · 표준만 7위</span></div></td><td class="num"><b style="color:#1f8a5b;font-size:15px">1위</b><span class="sub">/21곳</span><div class="v">95.5%<span class="s"> · 표준만 1위</span></div></td><td class="j"><span class="pill n">참고만</span><div class="s">정의 미공개, 멀티턴 작업이라 높게 나옴</div></td></tr><tr><td class="m">툴 호출 오류율</td><td class="num"><div class="v">오류 1건/440건</div><div class="s">상한 1.3% · 공개 0.60%</div></td><td class="num"><div class="v">오류 0건/440건</div><div class="s">상한 0.8% · 공개 0.83%</div></td><td class="num"><div class="v">오류 0건/419건</div><div class="s">상한 0.9% · 공개 0.96%</div></td><td class="num"><div class="v">오류 0건/440건</div><div class="s">상한 0.8% · 공개 0.19%</div></td><td class="j"><span class="pill b">표본 부족</span><div class="s">95% 상한 0.8~1.3%가 공개 중앙값과 겹쳐 순위 못 정함</div></td></tr><tr><td class="m">구조화 출력 오류율</td><td class="num"><div class="v">—</div><div class="s">공개 중앙 1.91%</div></td><td class="num"><div class="v">—</div><div class="s">공개 중앙 1.69%</div></td><td class="num"><div class="v">—</div><div class="s">공개 중앙 4.58%</div></td><td class="num"><div class="v">—</div><div class="s">공개 중앙 1.81%</div></td><td class="j"><span class="pill b">미측정</span><div class="s">실험에서 구조화 출력을 요청하지 않음</div></td></tr><tr class="pr"><td class="m">가격 (가중, 싼 순)</td><td class="num"><b style="font-size:15px">26위</b><span class="sub">/47곳</span><div class="v">$0.0303/1M</div></td><td class="num"><b style="font-size:15px">22위</b><span class="sub">/40곳</span><div class="v">$0.0591/1M</div></td><td class="num"><b style="font-size:15px">19위</b><span class="sub">/41곳</span><div class="v">$0.322/1M</div></td><td class="num"><b style="font-size:15px">9위</b><span class="sub">/21곳</span><div class="v">$0.423/1M</div></td><td class="j"><span class="pill n">정가 기준</span><div class="s">정가에 제공사 캐시 적중률 적용</div></td></tr>
+    </table>
+    <div class="callout" style="font-size:13.5px;padding:9px 14px"><b>속도 우위는 공개 기준으로도 유지됩니다.</b> DeepSeek·GLM-5.3 Flash는 처리속도·응답시간 1~2위(DeepSeek 처리속도 1위는 Baseten Fast 등급), GLM-5.3은 6위, Kimi는 처리속도 중위권이지만 첫 토큰·캐시 1위입니다. <b>가격은 정가 기준 중간</b>(DeepSeek 26위/47·GLM-5.3 Flash 22위/40·GLM-5.3 19위/41·Kimi 9위/21)이라 가격으로 우위를 주장하기는 어렵습니다. 툴 오류는 모델당 약 430건에 0~1건이라 가릴 수 없습니다(GLM-5.3의 출력 상한 잘림 8건은 제외).</div>
+  </div>
+  <div class="foot"><span class="src">근거: slides/02_제공사_성능가격점유율_3D (Mango 예상 위치) · docs/10 5절 · 공개 1주 평균(2026-11-16·17 수집) · 1회 실험 기반 추정</span><span class="pg"></span></div>
+</section>
+
+<section class="slide">
+  <div class="tag">실험 결과 ⑦ 경로 비율 추정</div>
+  <h2>OpenRouter 트래픽 가운데 자동 정책으로 설명되는 몫은 일부입니다 (추정)</h2>
+  <p class="lead">실험 중(11-17 23:50~11-18 03:21 KST, 30분마다 8회) 공개 성능 페이지에 잡힌 엔드포인트별 전체 요청 수를, 정책마다 우리가 관측한 첫 시도 분포로 맞춘 범위입니다(선형계획). 30일·1주 토큰 점유율은 쓰지 않았습니다.</p>
+  <div class="body">
+    <table style="font-size:14.5px">
+      <tr><th style="width:24%">모델</th><th class="num">기본 라우팅 (상한)</th><th class="num">가격 우선 (상한)</th><th class="num">처리량 우선 (상한)</th><th class="num">지연 우선 (상한)</th><th class="num">그 밖, 직접 지정 등 (하한)</th></tr>
+      <tr><td>DeepSeek V4.1 Flash</td><td class="num">8%</td><td class="num">8%</td><td class="num">1%</td><td class="num">4%</td><td class="num"><b>80%</b></td></tr>
+      <tr><td>GLM-5.3</td><td class="num">8%</td><td class="num" colspan="1">42%*</td><td class="num">0.5%</td><td class="num">42%*</td><td class="num"><b>51%</b></td></tr>
+      <tr><td>GLM-5.3 Flash</td><td class="num">15%</td><td class="num">8%</td><td class="num">2%</td><td class="num">6%</td><td class="num"><b>70%</b></td></tr>
+      <tr><td>Kimi K3.1 Pro</td><td class="num">14%</td><td class="num">4%</td><td class="num">1%</td><td class="num">5%</td><td class="num"><b>79%</b></td></tr>
+    </table>
+    <p class="note">* GLM-5.3은 가격 우선과 지연 우선이 모두 Wafer로 가서 둘을 합쳐 최대 42%입니다. 자동 정책의 하한은 모두 0%입니다.</p>
+    <div class="callout"><b>신뢰도 낮음, 방향만 씁니다.</b> 직접 지정은 어떤 분포도 흉내 낼 수 있어 상한만 정해지고, 우리 계정의 기본 배분이 다른 사용자와 같다는 보장이 없으며, 한국 새벽 약 4시간의 관측입니다. 그래도 “OpenRouter 사용자 대부분이 기본값을 쓴다”는 가정은 이번 데이터와 맞지 않습니다.</div>
+  </div>
+  <div class="foot"><span class="src">근거: docs/09 12절 · results/run1_20261117/analysis/policy_mix.json · code/estimate_policy_mix.py</span><span class="pg"></span></div>
+</section>
+
+<section class="slide">
+  <div class="tag">결과 ⑧ 경쟁력 항목: 신규 모델 지원 시점 (공개 데이터)</div>
+  <h2>Mango는 가중치 공개 후 2~57일 뒤에 지원했고, 그때 이미 14~33곳이 팔고 있었습니다</h2>
+  <p class="lead">오픈웨이트 모델은 가중치가 공개되는 날 경쟁이 시작됩니다. 모델마다 Mango 등록 시점과, 그때까지 OpenRouter에서 사용량이 잡힌 제공사 수를 비교했습니다.</p>
+  <div class="body" style="gap:12px">
+    <svg viewBox="0 0 1152 206" width="100%" style="display:block" role="img" aria-label="가중치 공개일 기준 Mango 등록 시점: GLM-5.3 2일, Kimi 6일, DeepSeek 16일, GLM-5.3-Flash 57일"><line x1="202.5" x2="202.5" y1="24" y2="184" stroke="#dfe3ea" stroke-width="1"/><text x="202.5" y="200" font-size="11" text-anchor="middle" fill="#7a8494">-14일</text><line x1="377.6" x2="377.6" y1="24" y2="184" stroke="#465060" stroke-width="1.5"/><text x="377.6" y="200" font-size="11" text-anchor="middle" fill="#7a8494">0일</text><line x1="465.1" x2="465.1" y1="24" y2="184" stroke="#dfe3ea" stroke-width="1"/><text x="465.1" y="200" font-size="11" text-anchor="middle" fill="#7a8494">+7일</text><line x1="552.7" x2="552.7" y1="24" y2="184" stroke="#dfe3ea" stroke-width="1"/><text x="552.7" y="200" font-size="11" text-anchor="middle" fill="#7a8494">+14일</text><line x1="752.8" x2="752.8" y1="24" y2="184" stroke="#dfe3ea" stroke-width="1"/><text x="752.8" y="200" font-size="11" text-anchor="middle" fill="#7a8494">+30일</text><line x1="940.4" x2="940.4" y1="24" y2="184" stroke="#dfe3ea" stroke-width="1"/><text x="940.4" y="200" font-size="11" text-anchor="middle" fill="#7a8494">+45일</text><line x1="1128.0" x2="1128.0" y1="24" y2="184" stroke="#dfe3ea" stroke-width="1"/><text x="1128.0" y="200" font-size="11" text-anchor="middle" fill="#7a8494">+60일</text><text x="381.6" y="18" font-size="11.5" font-weight="700" fill="#465060">가중치 공개 = 0일 (누구나 서비스 가능)</text><text x="178" y="49" font-size="13" font-weight="600" text-anchor="end" fill="#141a23">Kimi K3.1 Pro</text><rect x="227.5" y="37" width="150.1" height="14" rx="3" fill="#cfc3ef"/><rect x="377.6" y="41" width="75.0" height="6" rx="3" fill="#a4c0e2"/><circle cx="452.6" cy="44" r="7" fill="#e07a1f"/><text x="464.6" y="49" font-size="12.5" text-anchor="start" fill="#9a4d0c" font-weight="700">Mango +6일 · 그때 이미 16곳 / 18곳</text><text x="178" y="87" font-size="13" font-weight="600" text-anchor="end" fill="#141a23">GLM-5.3</text><rect x="202.5" y="75" width="175.1" height="14" rx="3" fill="#cfc3ef"/><rect x="377.6" y="79" width="25.0" height="6" rx="3" fill="#a4c0e2"/><circle cx="402.6" cy="82" r="7" fill="#e07a1f"/><text x="414.6" y="87" font-size="12.5" text-anchor="start" fill="#9a4d0c" font-weight="700">Mango +2일 · 그때 이미 14곳 이상 / 35곳</text><text x="178" y="125" font-size="13" font-weight="600" text-anchor="end" fill="#141a23">DeepSeek V4.1 Flash 1017</text><rect x="377.6" y="117" width="200.1" height="6" rx="3" fill="#a4c0e2"/><circle cx="577.7" cy="120" r="7" fill="#e07a1f"/><text x="589.7" y="125" font-size="12.5" text-anchor="start" fill="#9a4d0c" font-weight="700">Mango +16일 · 그때 이미 33곳 / 39곳</text><text x="178" y="163" font-size="13" font-weight="600" text-anchor="end" fill="#141a23">GLM-5.3-Flash</text><rect x="377.6" y="155" width="712.9" height="6" rx="3" fill="#a4c0e2"/><circle cx="1090.5" cy="158" r="7" fill="#e07a1f"/><text x="1078.5" y="150" font-size="12.5" text-anchor="end" fill="#9a4d0c" font-weight="700">Mango +57일 · 그때 이미 28곳 이상 / 37곳</text></svg>
+    <div class="legend" style="margin-top:-6px"><span><i style="background:#cfc3ef"></i>공식 개발사 단독 판매(가중치 공개 전, 자사 API만)</span><span><i style="background:#a4c0e2"></i>가중치 공개 후 Mango 등록까지</span><span><i style="background:#e07a1f;border-radius:50%"></i>Mango 등록(API created) · 그때 사용량이 잡힌 OpenRouter 제공사 수 / 30일 전체</span></div>
+    <div class="cols c3" style="gap:16px">
+      <div class="card"><h3>경쟁은 며칠 안에 채워집니다</h3><p>DeepSeek 1017은 공개 당일 7곳, 이틀 안에 15곳, 일주일 안에 26곳이 사용량을 기록했습니다. Kimi K3.1 Pro도 공개 후 이틀 안에 15곳입니다.</p></div>
+      <div class="card"><h3>Mango는 모델마다 편차가 큽니다</h3><p>GLM-5.3(2일)은 빨랐지만, DeepSeek 1017(16일)과 GLM-5.3-Flash(57일)는 경쟁 제공사 대부분이 들어온 뒤였습니다. 신규 모델을 빠르게 올리는 체계가 상시로 갖춰졌다고 보기는 어렵습니다(추론).</p></div>
+      <div class="card" style="background:var(--mango-soft)"><h3>확인할 점</h3><p>API 등록일(created)이 실제 판매 시작일인지 확인되지 않았습니다. 2026-10-09 AMD 블로그의 Mango 모델 목록과 등록일이 맞지 않습니다. Mango에 모델별 출시일을 확인해야 합니다.</p></div>
+    </div>
+  </div>
+  <div class="foot"><span class="src">근거: docs/10 3절 · data/openrouter_recollect_20261117/provider_first.csv · Mango GET /v1/models created (2026-11-17)</span><span class="pg"></span></div>
+</section>
+
+<section class="slide">
+  <div class="tag">결과 ⑨ 선점과 브랜드: Kimi K3.1 Pro 공식 개발사 Moonshot 사례 (공개 데이터)</div>
+  <h2>먼저 판 공식 개발사도 가중치 공개 2주 만에 점유율이 100%에서 13%로 내려왔습니다</h2>
+  <p class="lead" style="margin-bottom:14px">사용자가 브랜드를 보는지, 가격·성능을 보는지를 같은 모델을 먼저 판 곳과 나중에 들어온 곳의 점유율 변화로 확인했습니다.</p>
+  <div class="body" style="gap:10px">
+    <div class="cols" style="grid-template-columns:1.18fr 1fr;gap:20px;align-items:start">
+      <svg viewBox="0 0 640 300" width="100%" style="display:block;background:var(--soft);border-radius:10px;max-height:236px" role="img" aria-label="Kimi K3.1 Pro 일별 제공사 점유율: Moonshot 단독 100%에서 최근 10% 안팎으로"><rect x="44.0" y="26" width="277.9" height="234" fill="#efeafb"/><text x="183.0" y="42" font-size="11.5" text-anchor="middle" fill="#6b4fbb" font-weight="700">단독 판매 12일</text><line x1="44" x2="624" y1="260.0" y2="260.0" stroke="#dfe3ea"/><text x="38" y="264.0" font-size="10.5" text-anchor="end" fill="#7a8494">0%</text><line x1="44" x2="624" y1="201.5" y2="201.5" stroke="#dfe3ea"/><text x="38" y="205.5" font-size="10.5" text-anchor="end" fill="#7a8494">25%</text><line x1="44" x2="624" y1="143.0" y2="143.0" stroke="#dfe3ea"/><text x="38" y="147.0" font-size="10.5" text-anchor="end" fill="#7a8494">50%</text><line x1="44" x2="624" y1="84.5" y2="84.5" stroke="#dfe3ea"/><text x="38" y="88.5" font-size="10.5" text-anchor="end" fill="#7a8494">75%</text><line x1="44" x2="624" y1="26.0" y2="26.0" stroke="#dfe3ea"/><text x="38" y="30.0" font-size="10.5" text-anchor="end" fill="#7a8494">100%</text><text x="44.0" y="275" font-size="10.5" text-anchor="middle" fill="#7a8494">10-23</text><text x="261.5" y="275" font-size="10.5" text-anchor="middle" fill="#7a8494">11-01</text><text x="334.0" y="275" font-size="10.5" text-anchor="middle" fill="#7a8494">11-04</text><text x="479.0" y="275" font-size="10.5" text-anchor="middle" fill="#7a8494">11-10</text><text x="624.0" y="275" font-size="10.5" text-anchor="middle" fill="#7a8494">11-16</text><line x1="334.0" x2="334.0" y1="26" y2="260" stroke="#465060" stroke-dasharray="4 3" stroke-width="1.5"/><text x="338.0" y="38" font-size="10.5" fill="#465060" font-weight="600">가중치 공개 11-04</text><line x1="479.0" x2="479.0" y1="26" y2="260" stroke="#e07a1f" stroke-dasharray="4 3" stroke-width="1.5"/><text x="483.0" y="52" font-size="10.5" fill="#e07a1f" font-weight="600">Mango 등록 11-10</text><polyline points="44.0,26.0 68.2,26.0 92.3,26.0 116.5,26.0 140.7,26.2 164.8,26.0 189.0,26.0 213.2,26.0 237.3,26.0 261.5,26.0 285.7,26.0 309.8,26.2 334.0,77.5 358.2,170.4 382.3,179.5 406.5,136.2 430.7,143.7 454.8,150.7 479.0,195.7 503.2,245.3 527.3,239.6 551.5,236.1 575.7,232.4 599.8,225.6 624.0,234.7" fill="none" stroke="#6b4fbb" stroke-width="3" stroke-linejoin="round"/><polyline points="44.0,260.0 68.2,260.0 92.3,260.0 116.5,260.0 140.7,260.0 164.8,260.0 189.0,260.0 213.2,260.0 237.3,260.0 261.5,260.0 285.7,260.0 309.8,260.0 334.0,258.4 358.2,244.3 382.3,229.3 406.5,243.2 430.7,252.5 454.8,250.9 479.0,232.6 503.2,171.5 527.3,199.9 551.5,227.5 575.7,235.0 599.8,211.8 624.0,192.4" fill="none" stroke="#c2410c" stroke-width="2" stroke-linejoin="round"/><polyline points="44.0,260.0 68.2,260.0 92.3,260.0 116.5,260.0 140.7,260.0 164.8,260.0 189.0,260.0 213.2,260.0 237.3,260.0 261.5,260.0 285.7,260.0 309.8,260.0 334.0,260.0 358.2,253.4 382.3,258.4 406.5,255.3 430.7,249.7 454.8,246.9 479.0,238.5 503.2,245.7 527.3,246.2 551.5,217.6 575.7,217.2 599.8,216.7 624.0,225.8" fill="none" stroke="#1f8a5b" stroke-width="2" stroke-linejoin="round"/><polyline points="44.0,260.0 68.2,260.0 92.3,260.0 116.5,260.0 140.7,260.0 164.8,260.0 189.0,260.0 213.2,260.0 237.3,260.0 261.5,260.0 285.7,260.0 309.8,260.0 334.0,250.2 358.2,196.6 382.3,227.5 406.5,236.4 430.7,235.0 454.8,234.0 479.0,225.1 503.2,219.1 527.3,237.1 551.5,219.1 575.7,220.5 599.8,236.4 624.0,227.7" fill="none" stroke="#2f6fd0" stroke-width="2" stroke-linejoin="round"/><rect x="44" y="286" width="12" height="4" fill="#6b4fbb"/><text x="60" y="291" font-size="11" fill="#465060">Moonshot(공식)</text><rect x="194" y="286" width="12" height="4" fill="#c2410c"/><text x="210" y="291" font-size="11" fill="#465060">Alibaba Cloud</text><rect x="353" y="286" width="12" height="4" fill="#1f8a5b"/><text x="369" y="291" font-size="11" fill="#465060">Wafer</text><rect x="440" y="286" width="12" height="4" fill="#2f6fd0"/><text x="456" y="291" font-size="11" fill="#465060">inference.net</text><text x="624" y="291" font-size="10.5" text-anchor="end" fill="#7a8494">일별 토큰 점유율</text></svg>
+      <table style="font-size:12.8px">
+        <tr><th>기간</th><th class="num">Moonshot 점유율</th><th class="num">Moonshot 하루 토큰</th><th class="num">제공사</th></tr>
+        <tr><td><b>단독 판매</b> <span class="note">10-23~11-03</span></td><td class="num">100%</td><td class="num">약 3,400억</td><td class="num">1곳</td></tr>
+        <tr><td><b>가중치 공개 첫 주</b> <span class="note">11-04~11-09</span></td><td class="num">50.0%</td><td class="num">약 3,300억</td><td class="num">16곳</td></tr>
+        <tr><td><b>최근 1주</b> <span class="note">11-10~11-16</span></td><td class="num"><b>12.7%</b></td><td class="num"><b>약 590억 (−83%)</b></td><td class="num">18곳</td></tr>
+        <tr><td><b>30일 전체</b> <span class="note">10-23~11-16</span></td><td class="num">57.4%</td><td class="num">약 2,600억</td><td class="num">18곳</td></tr>
+        <tr><td colspan="4" class="note" style="border:0;padding-top:8px">최근 1주 상위: Alibaba Cloud 21.9% · inference.net 14.5% · Wafer 12.7% · Moonshot 12.7%. 모델 전체 하루 토큰은 단독 기간 약 3,400억 → 최근 1주 약 4,600억.</td></tr>
+      </table>
+    </div>
+    <div class="cols c3 tight3" style="gap:12px">
+      <div class="card"><h3>① 선점 효과는 컸지만 짧았습니다</h3><p>단독 기간에는 전량을 가져갔고, 그 12일 때문에 30일 점유율이 57%로 보입니다. 공개 후 모델 수요는 늘었는데 Moonshot 물량은 83% 줄었습니다. Moonshot은 28 tok/s·첫 토큰 2.9초로 가장 느린 축이고, 실효 단가($0.53/1M)도 중앙값($0.42)보다 높습니다.</p></div>
+      <div class="card"><h3>② 이름이 덜 알려진 곳도 가격·속도로 올라옵니다</h3><p>최근 1주 3위 Wafer(12.7%)는 실효 단가가 가장 싼 곳($0.26)이고 첫 토큰이 0.8초로 빠릅니다. 2위 inference.net(14.5%)도 빠르고 싼 편입니다.</p></div>
+      <div class="card"><h3>③ 성능·가격으로 설명되지 않는 1위도 있습니다</h3><p>1위 Alibaba Cloud(21.9%)는 29 tok/s·첫 토큰 3.2초로 느리고 가격도 중간인데, 일별 점유율이 3~38%로 출렁입니다. 대형 클라우드의 이름이나 소수 대량 사용자의 직접 지정으로 보입니다(추론).</p></div>
+    </div>
+    <div class="callout" style="font-size:14px;padding:9px 14px"><b>Mango 시사점(추론):</b> 재판매자인 Mango에는 단독 판매 기간이 없습니다. 대신 공개 후 2주 안에 시장이 재편되므로 브랜드가 없어도 가격·속도로 몫을 얻을 여지는 있습니다. Mango는 재편이 한창이던 11-10에 등록했지만, 그때 이미 16곳이 들어와 있었습니다.</div>
+  </div>
+  <div class="foot"><span class="src">근거: docs/10 4절 · data/openrouter_recollect_20261117/kimi_official_share_periods.csv, kimi_provider_share_daily.csv · 성능·가격: 3D 자료(공개 1주 평균)</span><span class="pg"></span></div>
+</section>
+
+<section class="slide">
+  <div class="tag">결론 ① 점유율 예측에 주는 의미</div>
+  <h2>Mango가 성능으로 몫을 얻을 수 있는 경로는 전체 트래픽의 일부입니다</h2>
+  <p class="lead">분석 틀 ④의 “경로 비율 × 경로별 몫”에 이번 결과를 넣으면 아래와 같습니다. 경로별 Mango의 몫은 실측을 바탕으로 한 추론입니다.</p>
+  <div class="body">
+    <table style="font-size:14.5px">
+      <tr><th style="width:170px">경로</th><th class="num" style="width:190px">비율 (추정)</th><th>Mango가 OpenRouter에 올라간다면 (추론)</th></tr>
+      <tr><td><b>기본 라우팅</b></td><td class="num">상한 8~15%</td><td>보정 가격(실효 가격+속도+첫 토큰+오류)으로 경쟁. GLM-5.3 Flash는 속도 우위에 단가도 비슷해 유리. DeepSeek·GLM-5.3은 단가 1.7배를 속도로 얼마나 상쇄하는지가 공식 미공개라 알 수 없음</td></tr>
+      <tr><td><b>처리량 우선</b></td><td class="num">상한 0.5~2%</td><td>정렬은 공개 통계 기준이라 15쪽 순위가 기준입니다. 공개 기준 처리속도는 GLM-5.3 Flash 1위, DeepSeek 2위(1위 Baseten Fast), GLM-5.3 6위, Kimi 11위라 1위 후보는 GLM-5.3 Flash 정도. 경로 자체도 작음</td></tr>
+      <tr><td><b>지연 우선</b></td><td class="num">상한 4~6%<br><span class="note">(GLM-5.3 최대 42%)</span></td><td>첫 토큰은 네 모델 모두 Mango가 35~39% 빨랐지만, 서울에서 가까운 지리 효과가 섞여 있음</td></tr>
+      <tr><td><b>가격 우선</b></td><td class="num">상한 4~8%<br><span class="note">(GLM-5.3 최대 42%)</span></td><td>정렬 1위(Wafer·Relace)의 실사용 단가보다 Mango가 1.5~3.5배 비싸(공식 30% 할인을 적용해도 1.1~2.5배) 1위가 될 수 없음</td></tr>
+      <tr><td><b>그 밖 (직접 지정 등)</b></td><td class="num">하한 51~80%</td><td>이름·계약·계정 설정이 좌우(추론). Moonshot·Alibaba 사례(18쪽)처럼 성능·가격으로 설명되지 않는 몫이 있고, 설정이 다른 기본 라우팅 사용자도 섞여 있음. 이번 실험으로는 나눌 수 없음</td></tr>
+    </table>
+    <div class="callout"><b>결론:</b> 성능·가격만으로 Mango의 점유율을 예측하기는 어렵습니다. 점유율의 큰 부분이 직접 지정 쪽에 있고, 성능 우위가 몫으로 이어지는 자동 경로는 합쳐도 일부입니다(추정, 범위 넓음).</div>
+  </div>
+  <div class="foot"><span class="src">근거: 이 자료 10~18쪽 · docs/09 3·12절 · docs/07 3절 (경로별 몫은 추론)</span><span class="pg"></span></div>
+</section>
+
+<section class="slide">
+  <div class="tag">결론 ② 모델별 평가</div>
+  <h2>속도는 모델에 따라 분명한 강점이고, 가격과 신규 모델 지원 속도는 약점입니다</h2>
+  <p class="lead">속도·비용은 이번 1회 실험(한국 새벽, 서울), 지원 시점은 공개 데이터 기준의 평가입니다.</p>
+  <div class="body">
+    <table>
+      <tr><th style="width:190px">모델</th><th style="width:170px">속도 판정</th><th style="width:200px">비용 판정</th><th>한 줄 평가</th></tr>
+      <tr><td><b>DeepSeek V4.1 Flash</b></td><td><span class="pill g">P1·P2 우위</span></td><td><span class="pill b">P4 열위 1.73</span></td><td>속도 프리미엄 상품. “2배 이상 빠르지만 1.7배 비싸다”</td></tr>
+      <tr><td><b>GLM-5.3 Flash</b></td><td><span class="pill g">P1·P2 우위</span></td><td><span class="pill n">판정 불가 0.88</span></td><td>속도가 분명히 우세하고 비용도 불리하지 않은 유일한 모델</td></tr>
+      <tr><td><b>GLM-5.3</b></td><td><span class="pill g">P2 우위</span> <span class="pill n">P1 불가</span></td><td><span class="pill b">P4 열위 2.29</span></td><td>정가가 높고 추론 폭주까지 더해져 가격 경쟁력이 약함</td></tr>
+      <tr><td><b>Kimi K3.1 Pro</b></td><td><span class="pill n">판정 불가</span></td><td><span class="pill n">판정 불가 0.91</span></td><td>첫 토큰만 빠르고, 생성 속도·비용 모두 OpenRouter 기본과 비슷</td></tr>
+    </table>
+    <div class="cols c4" style="gap:14px">
+      <div class="card"><h3>차별화</h3><p>Mango가 내세우는 빠른 생성은 3개 모델에서 확인됐습니다. 다만 모든 모델은 아니고, Kimi는 OpenRouter 고정 제공사 중 inference.net보다 느렸습니다.</p></div>
+      <div class="card"><h3>가격</h3><p>DeepSeek·GLM-5.3은 OpenRouter 기본이 고르는 제공사보다 비싸고, 30% 할인을 적용해도 마찬가지입니다. 가격만으로는 이기기 어렵고 “속도 대비 가격” 포지셔닝이 필요합니다.</p></div>
+      <div class="card"><h3>지원 시점</h3><p>가중치 공개 후 2~57일 뒤 등록해, 이미 14~33곳이 팔던 시장에 들어갔습니다. 공식 개발사의 선점 효과도 2주 만에 사라졌습니다(17·18쪽).</p></div>
+      <div class="card"><h3>품질</h3><p>25문항 점검에서 모델별 정답 수 차이는 0~3개로 이상 징후는 없습니다. 이 표본으로 품질 동등을 판단할 수는 없습니다.</p></div>
+    </div>
+  </div>
+  <div class="foot"><span class="src">근거: docs/09 1·6·9·10절 · docs/10 3·4·6절 · 이 자료 17·18쪽</span><span class="pg"></span></div>
+</section>
+
+<section class="slide">
+  <div class="tag">결론 ③ 한계와 다음 단계</div>
+  <h2>한 시간대 1회 측정이라 일반화하지 않습니다</h2>
+  <p class="lead">결과를 넓게 쓰기 전에 아래 한계를 메워야 합니다.</p>
+  <div class="body">
+    <table style="font-size:13.5px">
+      <tr><th style="width:130px">한계</th><th>내용</th><th style="width:360px">다음 단계</th></tr>
+      <tr><td><b>시간대·지역</b></td><td>한국 새벽 한 시간대 서울 측정. 미국 피크 시간의 OpenRouter 혼잡과 Mango 부하 대응은 알 수 없음</td><td>다른 시간대·날에 반복 측정</td></tr>
+      <tr><td><b>지리 효과</b></td><td>Mango 접속 지점은 가깝고 OpenRouter 제공사는 대부분 미국이라, 첫 토큰 차이의 일부는 거리 때문</td><td>측정 지역 추가</td></tr>
+      <tr><td><b>긴 입력</b></td><td>32k 입력에서는 Mango 첫 토큰 우위가 줄거나 뒤집힘(GLM-5.3 2,611 대 1,352ms, 모델당 1건). OpenRouter 실사용은 입력 97~99%·캐시 적중 83~93%의 긴 맥락 작업이 대부분</td><td>입력 길이별(1k·10k·32k 이상) 측정 표본 확대</td></tr>
+      <tr><td><b>표본</b></td><td>대화 40세션으로는 동등 판정이 어렵고, 판정 불가 일부는 표본 부족일 수 있음</td><td>세션 수 확대</td></tr>
+      <tr><td><b>가격 조건</b></td><td>공식 30% 할인은 이번 청구에 미적용. 볼륨 할인·계약가는 미확인</td><td>할인 조건·기간과 계약 단가를 Mango에 확인</td></tr>
+      <tr><td><b>지원 시점</b></td><td>Mango API 등록일이 실제 판매 시작일인지 미확인(AMD 블로그 목록과 불일치)</td><td>Mango에 모델별 출시일 확인</td></tr>
+      <tr><td><b>고정 비교 대상</b></td><td>설계 오류: 고정 5곳을 30일 점유율(11-16 수집, Kimi 미귀속 8%)로 골라, 최근 1주 상위 5곳 중 Kimi Alibaba(1위)·GLM-5.3 Together·Flash Cohere가 빠지고 1주 15위 SiliconFlow가 들어감. 판정표·비용(OR 기본 대비)은 영향 없음</td><td>다음 회차는 실행 직전 최근 1주 점유율·미귀속 5% 이하 수집으로 재선정(docs/11)</td></tr>
+      <tr><td><b>경로 비율</b></td><td>정책별 비중 추정의 신뢰도가 낮음. 우리 계정의 기본 배분이 대표적이라는 보장이 없음</td><td>기본 라우팅 표본 1,000건 이상(여러 시간대), 두 번째 계정, OpenRouter 문의·사용자 인터뷰</td></tr>
+      <tr><td><b>품질</b></td><td>25문항 점검이라 판정용이 아니고, 추론 설정이 양쪽 달라 품질과 섞여 있음</td><td>정식 품질 평가 설계</td></tr>
+    </table>
+    <p class="note" style="margin:0"><b>재측정 비용:</b> 1회 약 $38(OpenRouter $19.6 + Mango $18.4). 남은 잔액은 Mango $2.88·OpenRouter $5.97이라 충전이 필요합니다. 재측정 일정은 정해지지 않았습니다.</p>
+  </div>
+  <div class="foot"><span class="src">근거: docs/09 9~12절 · docs/10 · docs/11_2회실험_설계_초안</span><span class="pg"></span></div>
+</section>
+
+</div>
+
+<script>
+// 판정표 forest plot (22번 문서 2절의 값)
+(function(){
+  const D=[
+    ['DeepSeek V4.1 Flash','P1',0.5097,0.43,0.60,'g'],['GLM-5.3','P1',0.8422,0.71,1.00,'n'],['GLM-5.3 Flash','P1',0.4377,0.37,0.52,'g'],['Kimi K3.1 Pro','P1',0.8249,0.70,0.97,'n'],
+    ['DeepSeek V4.1 Flash','P2',2.5816,2.09,3.27,'g'],['GLM-5.3','P2',1.3983,1.17,1.73,'g'],['GLM-5.3 Flash','P2',2.5136,2.00,3.22,'g'],['Kimi K3.1 Pro','P2',0.9313,0.72,1.25,'n'],
+    ['DeepSeek V4.1 Flash','P4',1.7341,1.31,2.22,'b'],['GLM-5.3','P4',2.2903,1.61,3.60,'b'],['GLM-5.3 Flash','P4',0.8750,0.81,0.95,'n'],['Kimi K3.1 Pro','P4',0.9100,0.81,1.02,'n']
+  ];
+  const lab={P1:'P1 답변 시작 (작을수록 좋음)',P2:'P2 생성 속도 (클수록 좋음)',P4:'P4 세션당 비용 (작을수록 좋음)'};
+  const col={g:'#1f8a5b',b:'#c2410c',n:'#8b94a3'}, txt={g:'Mango 우위',b:'Mango 열위',n:'판정 불가'};
+  const L=240,R=980,T=40,rowH=22,gap=8,hdr=18; const lo=Math.log(0.3),hi=Math.log(4.0);
+  const X=v=>L+(Math.log(v)-lo)/(hi-lo)*(R-L);
+  let s=''; let y=T; let g=null;
+  // 동등 범위 띠
+  const bandTop=T-12, bandBot=T+12*rowH+3*hdr+2*gap+4;
+  s+=`<rect x="${X(0.9)}" y="${bandTop}" width="${X(1.1)-X(0.9)}" height="${bandBot-bandTop}" fill="#dfe3ea" opacity=".75"/>`;
+  s+=`<line x1="${X(1)}" x2="${X(1)}" y1="${bandTop}" y2="${bandBot}" stroke="#7a8494" stroke-dasharray="4 3"/>`;
+  [0.3,0.5,1,2,4].forEach(v=>{s+=`<text x="${X(v)}" y="${bandBot+16}" font-size="11.5" text-anchor="middle" fill="#7a8494">${v}</text>`;});
+  s+=`<text x="${X(1)}" y="${bandTop-1}" font-size="10.5" text-anchor="middle" fill="#7a8494">동등 범위 0.90~1.10</text>`;
+  D.forEach((d,i)=>{
+    if(d[1]!==g){ if(g!==null) y+=gap; g=d[1]; s+=`<text x="12" y="${y+12}" font-size="12.5" font-weight="700" fill="#1d3557">${lab[g]}</text>`; y+=hdr; }
+    const cy=y+rowH/2;
+    s+=`<text x="238" y="${cy+4}" font-size="12.5" text-anchor="end" fill="#141a23">${d[0]}</text>`;
+    s+=`<line x1="${X(d[3])}" x2="${X(d[4])}" y1="${cy}" y2="${cy}" stroke="${col[d[5]]}" stroke-width="3"/>`;
+    s+=`<line x1="${X(d[3])}" x2="${X(d[3])}" y1="${cy-5}" y2="${cy+5}" stroke="${col[d[5]]}" stroke-width="2"/><line x1="${X(d[4])}" x2="${X(d[4])}" y1="${cy-5}" y2="${cy+5}" stroke="${col[d[5]]}" stroke-width="2"/>`;
+    s+=`<circle cx="${X(d[2])}" cy="${cy}" r="5" fill="${col[d[5]]}"/>`;
+    s+=`<text x="1000" y="${cy+4}" font-size="12" fill="${col[d[5]]}" font-weight="600">${d[2].toFixed(2)} · ${txt[d[5]]}</text>`;
+    y+=rowH;
+  });
+  document.getElementById('forest').innerHTML=s;
+})();
+
+// 쪽 번호
+document.querySelectorAll('.slide').forEach((s,i,a)=>{const p=s.querySelector('.pg'); if(p) p.textContent=(i+1)+' / '+a.length;});
+
+// 화면 폭에 맞춰 축소
+function fit(){
+  document.querySelectorAll('.slide').forEach(s=>{
+    let f=s.parentElement;
+    if(!f.classList.contains('frame')){f=document.createElement('div');f.className='frame';s.parentNode.insertBefore(f,s);f.appendChild(s);}
+    const k=Math.min(1,f.clientWidth/1280);
+    s.style.transform=k<1?`scale(${k})`:'';
+    f.style.height=(720*k)+'px';
+  });
+}
+window.addEventListener('resize',fit); fit();
+window.addEventListener('beforeprint',()=>document.querySelectorAll('.slide').forEach(s=>{s.style.transform='';s.parentElement.style.height='auto'}));
+window.addEventListener('afterprint',fit);
+</script>
+</body>
+</html>
