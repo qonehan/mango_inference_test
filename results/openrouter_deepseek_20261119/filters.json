@@ -1,0 +1,49 @@
+{
+  "regions": [
+    "모든 위치",
+    "BOM (Mumbai, India)",
+    "ICN (Seoul, South Korea)",
+    "NRT (Tokyo, Japan)",
+    "SIN (Singapore, Singapore)",
+    "AMS (Amsterdam, Netherlands)",
+    "ARN (Stockholm, Sweden)",
+    "CDG (Paris, France)",
+    "FRA (Frankfurt, Germany)",
+    "HEL (Helsinki, Finland)",
+    "LHR (London, United Kingdom)",
+    "OSL (Oslo, Norway)",
+    "WAW (Warsaw, Poland)",
+    "ATL (Atlanta, United States)",
+    "CMH (Columbus, United States)",
+    "DFW (Dallas, United States)",
+    "EWR (Newark, United States)",
+    "IAD (Ashburn, United States)",
+    "LAX (Los Angeles, United States)",
+    "ORD (Chicago, United States)",
+    "PDX (Portland, United States)",
+    "PHX (Phoenix, United States)",
+    "SEA (Seattle, United States)",
+    "SJC (San Jose, United States)",
+    "YYZ (Toronto, Canada)",
+    "GRU (São Paulo, Brazil)"
+  ],
+  "efforts": [
+    "전체",
+    "없음",
+    "낮음",
+    "높음",
+    "최대"
+  ],
+  "percentiles": [
+    "P50",
+    "P75",
+    "P90",
+    "P95",
+    "P99"
+  ],
+  "periods": [
+    "3일",
+    "1주"
+  ],
+  "source": "https://openrouter.ai/ko/deepseek/deepseek-v4.1-flash-1017#performance"
+}

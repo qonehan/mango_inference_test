@@ -1,0 +1,28 @@
+﻿region,tps_providers,tps_providers_cov80,tps_best_cov80,tps_best_mean,ttft_ms_providers,ttft_ms_providers_cov80,ttft_ms_best_cov80,ttft_ms_best_mean,e2e_ms_providers,e2e_ms_providers_cov80,e2e_ms_best_cov80,e2e_ms_best_mean
+AMS,46,27,Baseten (Fast),442.7,46,28,inference.net (US),350.5,46,28,Baseten (Fast),1314.6
+ARN,47,21,Mistral,218,47,22,inference.net (US),320.1,47,22,inference.net,2106.6
+ATL,44,18,Together,218.5,45,19,inference.net (US),207.8,45,19,DigitalOcean,2419.7
+BOM,47,16,Baseten (Fast),263.4,47,18,inference.net,479.2,47,18,inference.net,1632.5
+CDG,47,27,Together,207.0,47,29,Baseten (Fast),308.2,47,29,Baseten (Fast),881.8
+CMH,45,16,Together,209.1,45,17,inference.net,299.7,45,17,Parasail,1110.2
+DEN,43,8,DigitalOcean,179.5,44,10,Wafer (US),304.5,44,10,Together,1944.1
+DFW,46,20,Together,191.7,46,20,inference.net (US),257.2,46,20,Together,1660.6
+EWR,46,28,Baseten (Fast),646.8,46,31,inference.net (US),196.3,46,31,Baseten (Fast),933.2
+FRA,46,36,Together,201.7,46,37,inference.net (US),340.6,46,37,Baseten (Fast),1157.0
+GRU,50,20,Together,190.1,50,20,inference.net (US),432.7,50,20,Together,2574.8
+HEL,45,21,Together,202.6,45,22,inference.net (US),387.4,45,22,Morph,2205.9
+IAD,49,35,Baseten (Fast),668.4,50,35,inference.net (US),163.1,50,35,Baseten (Fast),914.9
+ICN,48,24,Baseten (Fast),365.8,48,24,Wafer (US),368.6,48,24,Baseten (Fast),1424.5
+LAX,46,26,Together,202.1,50,26,Wafer (US),216.8,50,26,Wafer (US),2115.1
+LHR,47,21,Together,200.0,47,23,inference.net (US),343.0,47,23,Morph,1747.7
+NRT,47,26,CoreWeave,202.5,48,27,Wafer (US),410.4,48,27,GMICloud,1858.9
+ORD,50,32,Mistral,199.7,50,33,inference.net (US),197.9,50,33,Baseten (Fast),886.6
+OSL,38,4,Crusoe,229.1,40,4,Crusoe,515.0,40,4,Wafer (US),4234.1
+PDX,47,28,Baseten (Fast),562.7,47,29,Wafer (US),274.0,47,29,DigitalOcean,1880.6
+PHX,41,13,Together,203.0,41,13,Wafer,207.0,41,13,Together,2669.5
+SEA,47,28,Baseten (Fast),455.2,47,28,inference.net (US),303.2,47,28,Baseten (Fast),1034.8
+SIN,49,29,Relace,193.2,49,31,Baseten (Fast),401.2,49,31,Baseten (Fast),916.5
+SJC,46,31,Together,215.2,46,31,Wafer (US),254.1,46,31,Fireworks (US),2100.5
+WAW,43,20,Together,191.3,43,20,inference.net (US),380.4,43,20,Wafer (US),2179.9
+YYZ,44,16,Together,201.0,44,16,inference.net (US),272.9,44,16,Together,2001.7
+all,50,42,Baseten (Fast),469.8,50,42,inference.net (US),232.0,50,42,Baseten (Fast),1002.9

@@ -1,0 +1,1313 @@
+{
+ "method": "사용자 위치(OpenRouter 관측 위치)·제공사(엔드포인트)·시간대가 성능 차이를 얼마나 설명하는지 분해.\n\n데이터: raw.jsonl.gz, P50·추론 강도 전체·3일(1시간 단위). '모든 위치'는 제외하고 27개 관측 위치만 사용.\n모형: log(값) = 엔드포인트 효과 + 위치 효과 + 시각(KST 시) 효과 + 잔차 (가법, 교대 평균으로 적합).\n  각 요인 제거 시 늘어나는 제곱합으로 기여 비율을 낸다(순서 의존을 줄이려 '단독 R²'와 '고유 기여'를 함께 출력).\n추가: 엔드포인트마다 위치별 평균(3일 중 절반 이상 관측된 위치만)의 최대/최소 비, 위치 효과(배율).\n출력: location_effect_20261119.json",
+ "metrics": {
+  "tps": {
+   "n": 56685,
+   "r2_full": 0.6056,
+   "alone_r2": {
+    "endpoint": 0.5911,
+    "colo": 0.016,
+    "hour_kst": 0.0042
+   },
+   "unique_r2": {
+    "endpoint": 0.5854,
+    "colo": 0.0102,
+    "hour_kst": 0.0043
+   },
+   "colo_factor": {
+    "WAW": 0.927,
+    "FRA": 0.948,
+    "SIN": 0.949,
+    "NRT": 0.953,
+    "BOM": 0.954,
+    "GRU": 0.967,
+    "SEA": 0.97,
+    "LHR": 0.972,
+    "HEL": 0.978,
+    "AMS": 0.979,
+    "DFW": 0.979,
+    "ICN": 0.987,
+    "IAD": 0.993,
+    "EWR": 0.994,
+    "CDG": 0.996,
+    "LAX": 1.011,
+    "ATL": 1.017,
+    "CMH": 1.018,
+    "SJC": 1.019,
+    "DEN": 1.034,
+    "PDX": 1.042,
+    "ORD": 1.053,
+    "YYZ": 1.053,
+    "ARN": 1.055,
+    "PHX": 1.068,
+    "OSL": 1.107
+   },
+   "hour_factor": {
+    "0": 0.959,
+    "1": 0.946,
+    "2": 0.992,
+    "3": 0.995,
+    "4": 1.012,
+    "5": 1.018,
+    "6": 1.007,
+    "7": 0.99,
+    "8": 1.033,
+    "9": 0.992,
+    "10": 0.98,
+    "11": 1.006,
+    "12": 0.99,
+    "13": 1.037,
+    "14": 1.058,
+    "15": 0.998,
+    "16": 0.99,
+    "17": 0.99,
+    "18": 0.994,
+    "19": 1.023,
+    "20": 1.029,
+    "21": 1.012,
+    "22": 0.998,
+    "23": 0.958
+   },
+   "within_endpoint_colo_ratio": {
+    "endpoints": 36,
+    "median": 1.407,
+    "p25": 1.341,
+    "p75": 1.676,
+    "rows": [
+     {
+      "endpoint": "Open Inference",
+      "n_colos": 23,
+      "min_colo": "BOM",
+      "min": 132.7,
+      "max_colo": "ORD",
+      "max": 156.3,
+      "ratio": 1.178,
+      "icn": 148.0
+     },
+     {
+      "endpoint": "Baseten",
+      "n_colos": 11,
+      "min_colo": "NRT",
+      "min": 109.5,
+      "max_colo": "ARN",
+      "max": 129.3,
+      "ratio": 1.18,
+      "icn": 125.5
+     },
+     {
+      "endpoint": "Alibaba Cloud Int.",
+      "n_colos": 25,
+      "min_colo": "ATL",
+      "min": 108.1,
+      "max_colo": "SIN",
+      "max": 129.5,
+      "ratio": 1.197,
+      "icn": 129.3
+     },
+     {
+      "endpoint": "River",
+      "n_colos": 26,
+      "min_colo": "ICN",
+      "min": 97.3,
+      "max_colo": "ORD",
+      "max": 118.2,
+      "ratio": 1.215,
+      "icn": 97.3
+     },
+     {
+      "endpoint": "Modal",
+      "n_colos": 20,
+      "min_colo": "WAW",
+      "min": 119.4,
+      "max_colo": "PDX",
+      "max": 153.3,
+      "ratio": 1.283,
+      "icn": 137.4
+     },
+     {
+      "endpoint": "CoreWeave",
+      "n_colos": 22,
+      "min_colo": "SIN",
+      "min": 157.5,
+      "max_colo": "NRT",
+      "max": 202.5,
+      "ratio": 1.285,
+      "icn": 167.7
+     },
+     {
+      "endpoint": "Morph",
+      "n_colos": 26,
+      "min_colo": "LHR",
+      "min": 99.5,
+      "max_colo": "ORD",
+      "max": 128.4,
+      "ratio": 1.291,
+      "icn": 115.5
+     },
+     {
+      "endpoint": "Wafer",
+      "n_colos": 25,
+      "min_colo": "FRA",
+      "min": 127.4,
+      "max_colo": "PDX",
+      "max": 166.5,
+      "ratio": 1.307,
+      "icn": 150.4
+     },
+     {
+      "endpoint": "ModelRun [by Modular]",
+      "n_colos": 23,
+      "min_colo": "FRA",
+      "min": 115.6,
+      "max_colo": "DFW",
+      "max": 152.9,
+      "ratio": 1.322,
+      "icn": 143.8
+     },
+     {
+      "endpoint": "Ionstream",
+      "n_colos": 24,
+      "min_colo": "FRA",
+      "min": 135.1,
+      "max_colo": "ORD",
+      "max": 181.1,
+      "ratio": 1.341,
+      "icn": 152.3
+     },
+     {
+      "endpoint": "Nebius Token Factory",
+      "n_colos": 20,
+      "min_colo": "PDX",
+      "min": 155.0,
+      "max_colo": "NRT",
+      "max": 208.1,
+      "ratio": 1.343,
+      "icn": 176.1
+     },
+     {
+      "endpoint": "DeepInfra (Flex)",
+      "n_colos": 12,
+      "min_colo": "AMS",
+      "min": 63.1,
+      "max_colo": "FRA",
+      "max": 86.4,
+      "ratio": 1.369,
+      "icn": null
+     },
+     {
+      "endpoint": "inference.net (US)",
+      "n_colos": 25,
+      "min_colo": "SIN",
+      "min": 105.6,
+      "max_colo": "PDX",
+      "max": 145.1,
+      "ratio": 1.374,
+      "icn": 112.0
+     },
+     {
+      "endpoint": "Cohere",
+      "n_colos": 26,
+      "min_colo": "OSL",
+      "min": 118.8,
+      "max_colo": "ORD",
+      "max": 163.7,
+      "ratio": 1.378,
+      "icn": 149.1
+     },
+     {
+      "endpoint": "Together",
+      "n_colos": 26,
+      "min_colo": "NRT",
+      "min": 158.2,
+      "max_colo": "DEN",
+      "max": 218.4,
+      "ratio": 1.38,
+      "icn": 177.3
+     },
+     {
+      "endpoint": "inference.net",
+      "n_colos": 25,
+      "min_colo": "BOM",
+      "min": 102.1,
+      "max_colo": "ORD",
+      "max": 142.4,
+      "ratio": 1.395,
+      "icn": 110.5
+     },
+     {
+      "endpoint": "Particle AI",
+      "n_colos": 13,
+      "min_colo": "SJC",
+      "min": 91.1,
+      "max_colo": "EWR",
+      "max": 127.6,
+      "ratio": 1.401,
+      "icn": null
+     },
+     {
+      "endpoint": "DeepInfra (Priority)",
+      "n_colos": 25,
+      "min_colo": "DEN",
+      "min": 80.3,
+      "max_colo": "OSL",
+      "max": 112.7,
+      "ratio": 1.404,
+      "icn": 87.4
+     },
+     {
+      "endpoint": "NovitaAI",
+      "n_colos": 21,
+      "min_colo": "IAD",
+      "min": 78.5,
+      "max_colo": "DFW",
+      "max": 110.4,
+      "ratio": 1.407,
+      "icn": 100.6
+     },
+     {
+      "endpoint": "DigitalOcean",
+      "n_colos": 26,
+      "min_colo": "NRT",
+      "min": 133.6,
+      "max_colo": "ORD",
+      "max": 189.5,
+      "ratio": 1.419,
+      "icn": 138.0
+     },
+     {
+      "endpoint": "Makora",
+      "n_colos": 14,
+      "min_colo": "FRA",
+      "min": 84.2,
+      "max_colo": "LAX",
+      "max": 120.9,
+      "ratio": 1.437,
+      "icn": 103.7
+     },
+     {
+      "endpoint": "Fireworks Spot",
+      "n_colos": 10,
+      "min_colo": "DFW",
+      "min": 69.5,
+      "max_colo": "PDX",
+      "max": 102.0,
+      "ratio": 1.468,
+      "icn": null
+     },
+     {
+      "endpoint": "Relace",
+      "n_colos": 26,
+      "min_colo": "ATL",
+      "min": 127.7,
+      "max_colo": "SIN",
+      "max": 193.0,
+      "ratio": 1.511,
+      "icn": 178.6
+     },
+     {
+      "endpoint": "StepFun",
+      "n_colos": 25,
+      "min_colo": "NRT",
+      "min": 103.0,
+      "max_colo": "ORD",
+      "max": 157.8,
+      "ratio": 1.532,
+      "icn": 125.7
+     },
+     {
+      "endpoint": "Particle AI (Flex)",
+      "n_colos": 14,
+      "min_colo": "HEL",
+      "min": 79.7,
+      "max_colo": "YYZ",
+      "max": 125.5,
+      "ratio": 1.574,
+      "icn": null
+     },
+     {
+      "endpoint": "Wafer (US)",
+      "n_colos": 26,
+      "min_colo": "WAW",
+      "min": 105.1,
+      "max_colo": "PDX",
+      "max": 166.6,
+      "ratio": 1.585,
+      "icn": 147.4
+     },
+     {
+      "endpoint": "DeepInfra",
+      "n_colos": 26,
+      "min_colo": "NRT",
+      "min": 65.4,
+      "max_colo": "OSL",
+      "max": 108.5,
+      "ratio": 1.661,
+      "icn": 87.6
+     },
+     {
+      "endpoint": "Cloudflare",
+      "n_colos": 18,
+      "min_colo": "ATL",
+      "min": 59.3,
+      "max_colo": "CDG",
+      "max": 99.4,
+      "ratio": 1.676,
+      "icn": null
+     },
+     {
+      "endpoint": "Fireworks (US)",
+      "n_colos": 12,
+      "min_colo": "WAW",
+      "min": 108.8,
+      "max_colo": "SJC",
+      "max": 191.6,
+      "ratio": 1.761,
+      "icn": null
+     },
+     {
+      "endpoint": "Crusoe",
+      "n_colos": 23,
+      "min_colo": "DFW",
+      "min": 129.7,
+      "max_colo": "OSL",
+      "max": 229.0,
+      "ratio": 1.765,
+      "icn": 172.3
+     },
+     {
+      "endpoint": "Parasail",
+      "n_colos": 13,
+      "min_colo": "SIN",
+      "min": 103.7,
+      "max_colo": "ATL",
+      "max": 190.3,
+      "ratio": 1.836,
+      "icn": 152.9
+     },
+     {
+      "endpoint": "Prime Intellect",
+      "n_colos": 24,
+      "min_colo": "NRT",
+      "min": 71.8,
+      "max_colo": "HEL",
+      "max": 134.5,
+      "ratio": 1.874,
+      "icn": 126.2
+     },
+     {
+      "endpoint": "DeepSeek",
+      "n_colos": 23,
+      "min_colo": "SEA",
+      "min": 71.0,
+      "max_colo": "ICN",
+      "max": 139.6,
+      "ratio": 1.966,
+      "icn": 139.6
+     },
+     {
+      "endpoint": "Fireworks",
+      "n_colos": 20,
+      "min_colo": "DFW",
+      "min": 118.7,
+      "max_colo": "OSL",
+      "max": 250.4,
+      "ratio": 2.11,
+      "icn": 145.4
+     },
+     {
+      "endpoint": "Mistral",
+      "n_colos": 24,
+      "min_colo": "DFW",
+      "min": 127.2,
+      "max_colo": "OSL",
+      "max": 306.2,
+      "ratio": 2.407,
+      "icn": 167.1
+     },
+     {
+      "endpoint": "Baseten (Fast)",
+      "n_colos": 13,
+      "min_colo": "BOM",
+      "min": 263.4,
+      "max_colo": "IAD",
+      "max": 667.5,
+      "ratio": 2.534,
+      "icn": 365.8
+     }
+    ]
+   }
+  },
+  "ttft": {
+   "n": 58152,
+   "r2_full": 0.6482,
+   "alone_r2": {
+    "endpoint": 0.5914,
+    "colo": 0.0555,
+    "hour_kst": 0.0024
+   },
+   "unique_r2": {
+    "endpoint": 0.5903,
+    "colo": 0.0549,
+    "hour_kst": 0.0017
+   },
+   "colo_factor": {
+    "PHX": 0.711,
+    "ORD": 0.789,
+    "IAD": 0.825,
+    "SJC": 0.833,
+    "CMH": 0.886,
+    "DFW": 0.897,
+    "PDX": 0.901,
+    "LAX": 0.908,
+    "ATL": 0.923,
+    "EWR": 0.94,
+    "DEN": 0.959,
+    "YYZ": 0.976,
+    "FRA": 1.004,
+    "CDG": 1.004,
+    "SEA": 1.01,
+    "LHR": 1.017,
+    "HEL": 1.048,
+    "ARN": 1.094,
+    "ICN": 1.103,
+    "AMS": 1.121,
+    "WAW": 1.126,
+    "NRT": 1.142,
+    "SIN": 1.161,
+    "GRU": 1.195,
+    "OSL": 1.31,
+    "BOM": 1.433
+   },
+   "hour_factor": {
+    "0": 1.048,
+    "1": 1.051,
+    "2": 1.005,
+    "3": 1.03,
+    "4": 1.021,
+    "5": 0.998,
+    "6": 0.988,
+    "7": 0.991,
+    "8": 0.993,
+    "9": 0.991,
+    "10": 0.997,
+    "11": 0.997,
+    "12": 0.981,
+    "13": 0.956,
+    "14": 0.974,
+    "15": 0.998,
+    "16": 1.007,
+    "17": 1.014,
+    "18": 1.016,
+    "19": 0.96,
+    "20": 0.972,
+    "21": 0.976,
+    "22": 0.988,
+    "23": 1.054
+   },
+   "within_endpoint_colo_ratio": {
+    "endpoints": 36,
+    "median": 2.745,
+    "p25": 2.082,
+    "p75": 3.415,
+    "rows": [
+     {
+      "endpoint": "ModelRun [by Modular]",
+      "n_colos": 23,
+      "min_colo": "IAD",
+      "min": 633.7,
+      "max_colo": "NRT",
+      "max": 1091.6,
+      "ratio": 1.723,
+      "icn": 889.0
+     },
+     {
+      "endpoint": "Morph",
+      "n_colos": 26,
+      "min_colo": "ORD",
+      "min": 416.1,
+      "max_colo": "OSL",
+      "max": 718.5,
+      "ratio": 1.727,
+      "icn": 618.6
+     },
+     {
+      "endpoint": "Prime Intellect",
+      "n_colos": 24,
+      "min_colo": "ORD",
+      "min": 745.9,
+      "max_colo": "WAW",
+      "max": 1306.6,
+      "ratio": 1.752,
+      "icn": 820.6
+     },
+     {
+      "endpoint": "NovitaAI",
+      "n_colos": 22,
+      "min_colo": "PDX",
+      "min": 1256.9,
+      "max_colo": "HEL",
+      "max": 2240.3,
+      "ratio": 1.782,
+      "icn": 1520.0
+     },
+     {
+      "endpoint": "DeepSeek",
+      "n_colos": 23,
+      "min_colo": "PDX",
+      "min": 841.0,
+      "max_colo": "EWR",
+      "max": 1533.8,
+      "ratio": 1.824,
+      "icn": 912.6
+     },
+     {
+      "endpoint": "River",
+      "n_colos": 26,
+      "min_colo": "PHX",
+      "min": 744.5,
+      "max_colo": "NRT",
+      "max": 1392.8,
+      "ratio": 1.871,
+      "icn": 1061.5
+     },
+     {
+      "endpoint": "Cloudflare",
+      "n_colos": 18,
+      "min_colo": "ORD",
+      "min": 1795.2,
+      "max_colo": "SEA",
+      "max": 3385.6,
+      "ratio": 1.886,
+      "icn": null
+     },
+     {
+      "endpoint": "Fireworks Spot",
+      "n_colos": 10,
+      "min_colo": "PDX",
+      "min": 2135.2,
+      "max_colo": "DFW",
+      "max": 4185.9,
+      "ratio": 1.96,
+      "icn": null
+     },
+     {
+      "endpoint": "Mistral",
+      "n_colos": 24,
+      "min_colo": "OSL",
+      "min": 993.2,
+      "max_colo": "NRT",
+      "max": 1961.5,
+      "ratio": 1.975,
+      "icn": 1951.6
+     },
+     {
+      "endpoint": "Modal",
+      "n_colos": 22,
+      "min_colo": "ORD",
+      "min": 540.7,
+      "max_colo": "GRU",
+      "max": 1125.9,
+      "ratio": 2.082,
+      "icn": 700.1
+     },
+     {
+      "endpoint": "DeepInfra (Priority)",
+      "n_colos": 25,
+      "min_colo": "LAX",
+      "min": 745.6,
+      "max_colo": "GRU",
+      "max": 1576.3,
+      "ratio": 2.114,
+      "icn": 1002.2
+     },
+     {
+      "endpoint": "Makora",
+      "n_colos": 16,
+      "min_colo": "PHX",
+      "min": 432.8,
+      "max_colo": "ICN",
+      "max": 922.4,
+      "ratio": 2.131,
+      "icn": 922.4
+     },
+     {
+      "endpoint": "DeepInfra",
+      "n_colos": 26,
+      "min_colo": "DFW",
+      "min": 583.5,
+      "max_colo": "SIN",
+      "max": 1307.1,
+      "ratio": 2.24,
+      "icn": 910.9
+     },
+     {
+      "endpoint": "Parasail",
+      "n_colos": 15,
+      "min_colo": "ORD",
+      "min": 389.5,
+      "max_colo": "BOM",
+      "max": 923.0,
+      "ratio": 2.37,
+      "icn": 737.3
+     },
+     {
+      "endpoint": "Alibaba Cloud Int.",
+      "n_colos": 25,
+      "min_colo": "PHX",
+      "min": 732.5,
+      "max_colo": "LAX",
+      "max": 1766.7,
+      "ratio": 2.412,
+      "icn": 804.1
+     },
+     {
+      "endpoint": "Baseten",
+      "n_colos": 12,
+      "min_colo": "PDX",
+      "min": 611.5,
+      "max_colo": "NRT",
+      "max": 1489.6,
+      "ratio": 2.436,
+      "icn": 1016.3
+     },
+     {
+      "endpoint": "Relace",
+      "n_colos": 26,
+      "min_colo": "SIN",
+      "min": 445.4,
+      "max_colo": "DEN",
+      "max": 1210.6,
+      "ratio": 2.718,
+      "icn": 579.2
+     },
+     {
+      "endpoint": "Fireworks",
+      "n_colos": 21,
+      "min_colo": "NRT",
+      "min": 782.1,
+      "max_colo": "EWR",
+      "max": 2135.4,
+      "ratio": 2.73,
+      "icn": 1239.5
+     },
+     {
+      "endpoint": "Crusoe",
+      "n_colos": 23,
+      "min_colo": "LHR",
+      "min": 401.2,
+      "max_colo": "BOM",
+      "max": 1101.2,
+      "ratio": 2.745,
+      "icn": 971.7
+     },
+     {
+      "endpoint": "Particle AI (Flex)",
+      "n_colos": 16,
+      "min_colo": "SJC",
+      "min": 542.9,
+      "max_colo": "SIN",
+      "max": 1495.2,
+      "ratio": 2.754,
+      "icn": null
+     },
+     {
+      "endpoint": "CoreWeave",
+      "n_colos": 22,
+      "min_colo": "PDX",
+      "min": 379.5,
+      "max_colo": "SEA",
+      "max": 1060.3,
+      "ratio": 2.794,
+      "icn": 756.1
+     },
+     {
+      "endpoint": "Open Inference",
+      "n_colos": 23,
+      "min_colo": "CMH",
+      "min": 589.4,
+      "max_colo": "BOM",
+      "max": 1672.4,
+      "ratio": 2.837,
+      "icn": 1050.8
+     },
+     {
+      "endpoint": "Nebius Token Factory",
+      "n_colos": 20,
+      "min_colo": "NRT",
+      "min": 626.7,
+      "max_colo": "BOM",
+      "max": 1782.8,
+      "ratio": 2.844,
+      "icn": 1334.5
+     },
+     {
+      "endpoint": "Wafer",
+      "n_colos": 25,
+      "min_colo": "PHX",
+      "min": 207.1,
+      "max_colo": "BOM",
+      "max": 640.4,
+      "ratio": 3.093,
+      "icn": 370.2
+     },
+     {
+      "endpoint": "Wafer (US)",
+      "n_colos": 26,
+      "min_colo": "LAX",
+      "min": 216.2,
+      "max_colo": "BOM",
+      "max": 674.7,
+      "ratio": 3.121,
+      "icn": 368.1
+     },
+     {
+      "endpoint": "inference.net",
+      "n_colos": 25,
+      "min_colo": "IAD",
+      "min": 203.1,
+      "max_colo": "ICN",
+      "max": 653.9,
+      "ratio": 3.219,
+      "icn": 653.9
+     },
+     {
+      "endpoint": "Fireworks (US)",
+      "n_colos": 12,
+      "min_colo": "SJC",
+      "min": 542.6,
+      "max_colo": "WAW",
+      "max": 1821.2,
+      "ratio": 3.357,
+      "icn": null
+     },
+     {
+      "endpoint": "Ionstream",
+      "n_colos": 24,
+      "min_colo": "PHX",
+      "min": 377.8,
+      "max_colo": "BOM",
+      "max": 1290.3,
+      "ratio": 3.415,
+      "icn": 932.1
+     },
+     {
+      "endpoint": "DeepInfra (Flex)",
+      "n_colos": 14,
+      "min_colo": "ATL",
+      "min": 2086.9,
+      "max_colo": "SJC",
+      "max": 7366.9,
+      "ratio": 3.53,
+      "icn": null
+     },
+     {
+      "endpoint": "DigitalOcean",
+      "n_colos": 26,
+      "min_colo": "ATL",
+      "min": 393.8,
+      "max_colo": "NRT",
+      "max": 1407.3,
+      "ratio": 3.573,
+      "icn": 1210.0
+     },
+     {
+      "endpoint": "inference.net (US)",
+      "n_colos": 25,
+      "min_colo": "IAD",
+      "min": 163.7,
+      "max_colo": "ICN",
+      "max": 640.2,
+      "ratio": 3.911,
+      "icn": 640.2
+     },
+     {
+      "endpoint": "StepFun",
+      "n_colos": 26,
+      "min_colo": "PHX",
+      "min": 545.4,
+      "max_colo": "OSL",
+      "max": 2456.3,
+      "ratio": 4.503,
+      "icn": 1481.0
+     },
+     {
+      "endpoint": "Particle AI",
+      "n_colos": 15,
+      "min_colo": "LAX",
+      "min": 485.9,
+      "max_colo": "PDX",
+      "max": 2326.7,
+      "ratio": 4.788,
+      "icn": 643.9
+     },
+     {
+      "endpoint": "Cohere",
+      "n_colos": 26,
+      "min_colo": "PHX",
+      "min": 348.1,
+      "max_colo": "OSL",
+      "max": 1743.3,
+      "ratio": 5.008,
+      "icn": 964.6
+     },
+     {
+      "endpoint": "Baseten (Fast)",
+      "n_colos": 14,
+      "min_colo": "IAD",
+      "min": 209.3,
+      "max_colo": "BOM",
+      "max": 1144.3,
+      "ratio": 5.467,
+      "icn": 477.5
+     },
+     {
+      "endpoint": "Together",
+      "n_colos": 26,
+      "min_colo": "DFW",
+      "min": 349.4,
+      "max_colo": "OSL",
+      "max": 6618.7,
+      "ratio": 18.942,
+      "icn": 790.4
+     }
+    ]
+   }
+  },
+  "e2e": {
+   "n": 58152,
+   "r2_full": 0.3744,
+   "alone_r2": {
+    "endpoint": 0.3343,
+    "colo": 0.0311,
+    "hour_kst": 0.0033
+   },
+   "unique_r2": {
+    "endpoint": 0.3401,
+    "colo": 0.0368,
+    "hour_kst": 0.0032
+   },
+   "colo_factor": {
+    "DFW": 0.846,
+    "CMH": 0.866,
+    "IAD": 0.891,
+    "DEN": 0.897,
+    "FRA": 0.915,
+    "SJC": 0.917,
+    "ATL": 0.927,
+    "CDG": 0.927,
+    "PHX": 0.942,
+    "HEL": 0.949,
+    "LHR": 0.953,
+    "NRT": 0.96,
+    "LAX": 0.96,
+    "PDX": 0.974,
+    "EWR": 0.976,
+    "AMS": 0.977,
+    "SEA": 0.979,
+    "GRU": 1.003,
+    "YYZ": 1.007,
+    "ORD": 1.027,
+    "WAW": 1.027,
+    "ARN": 1.072,
+    "SIN": 1.1,
+    "ICN": 1.198,
+    "BOM": 1.346,
+    "OSL": 1.642
+   },
+   "hour_factor": {
+    "0": 1.042,
+    "1": 1.034,
+    "2": 1.034,
+    "3": 1.051,
+    "4": 1.02,
+    "5": 0.999,
+    "6": 0.988,
+    "7": 0.997,
+    "8": 0.982,
+    "9": 0.977,
+    "10": 0.953,
+    "11": 0.971,
+    "12": 0.983,
+    "13": 0.966,
+    "14": 0.962,
+    "15": 1.028,
+    "16": 1.039,
+    "17": 1.042,
+    "18": 1.045,
+    "19": 0.948,
+    "20": 0.96,
+    "21": 0.962,
+    "22": 0.983,
+    "23": 1.047
+   },
+   "within_endpoint_colo_ratio": {
+    "endpoints": 36,
+    "median": 2.968,
+    "p25": 2.548,
+    "p75": 4.364,
+    "rows": [
+     {
+      "endpoint": "Relace",
+      "n_colos": 26,
+      "min_colo": "FRA",
+      "min": 2548.0,
+      "max_colo": "ORD",
+      "max": 4718.6,
+      "ratio": 1.852,
+      "icn": 3321.6
+     },
+     {
+      "endpoint": "Modal",
+      "n_colos": 22,
+      "min_colo": "CMH",
+      "min": 2961.8,
+      "max_colo": "ORD",
+      "max": 5538.9,
+      "ratio": 1.87,
+      "icn": 3883.3
+     },
+     {
+      "endpoint": "Open Inference",
+      "n_colos": 23,
+      "min_colo": "IAD",
+      "min": 5915.3,
+      "max_colo": "SIN",
+      "max": 11622.5,
+      "ratio": 1.965,
+      "icn": 8225.8
+     },
+     {
+      "endpoint": "Cloudflare",
+      "n_colos": 18,
+      "min_colo": "ATL",
+      "min": 5877.0,
+      "max_colo": "SEA",
+      "max": 11647.6,
+      "ratio": 1.982,
+      "icn": null
+     },
+     {
+      "endpoint": "Wafer",
+      "n_colos": 25,
+      "min_colo": "FRA",
+      "min": 2182.9,
+      "max_colo": "ICN",
+      "max": 4479.3,
+      "ratio": 2.052,
+      "icn": 4479.3
+     },
+     {
+      "endpoint": "River",
+      "n_colos": 26,
+      "min_colo": "FRA",
+      "min": 3528.6,
+      "max_colo": "ORD",
+      "max": 7384.8,
+      "ratio": 2.093,
+      "icn": 5728.5
+     },
+     {
+      "endpoint": "Ionstream",
+      "n_colos": 24,
+      "min_colo": "IAD",
+      "min": 2625.5,
+      "max_colo": "ORD",
+      "max": 5922.6,
+      "ratio": 2.256,
+      "icn": 5305.4
+     },
+     {
+      "endpoint": "NovitaAI",
+      "n_colos": 22,
+      "min_colo": "PDX",
+      "min": 3240.9,
+      "max_colo": "ORD",
+      "max": 7480.3,
+      "ratio": 2.308,
+      "icn": 6634.1
+     },
+     {
+      "endpoint": "StepFun",
+      "n_colos": 26,
+      "min_colo": "CMH",
+      "min": 3467.0,
+      "max_colo": "OSL",
+      "max": 8393.9,
+      "ratio": 2.421,
+      "icn": 6976.3
+     },
+     {
+      "endpoint": "Mistral",
+      "n_colos": 24,
+      "min_colo": "CDG",
+      "min": 3290.7,
+      "max_colo": "OSL",
+      "max": 8383.5,
+      "ratio": 2.548,
+      "icn": 6715.5
+     },
+     {
+      "endpoint": "Fireworks Spot",
+      "n_colos": 10,
+      "min_colo": "CDG",
+      "min": 8022.8,
+      "max_colo": "CMH",
+      "max": 21458.7,
+      "ratio": 2.675,
+      "icn": null
+     },
+     {
+      "endpoint": "inference.net",
+      "n_colos": 25,
+      "min_colo": "BOM",
+      "min": 1635.3,
+      "max_colo": "ORD",
+      "max": 4382.5,
+      "ratio": 2.68,
+      "icn": 4341.3
+     },
+     {
+      "endpoint": "DeepSeek",
+      "n_colos": 23,
+      "min_colo": "SEA",
+      "min": 2406.1,
+      "max_colo": "BOM",
+      "max": 6772.2,
+      "ratio": 2.815,
+      "icn": 6564.2
+     },
+     {
+      "endpoint": "Nebius Token Factory",
+      "n_colos": 20,
+      "min_colo": "NRT",
+      "min": 2308.9,
+      "max_colo": "BOM",
+      "max": 6523.7,
+      "ratio": 2.825,
+      "icn": 5795.6
+     },
+     {
+      "endpoint": "Fireworks (US)",
+      "n_colos": 12,
+      "min_colo": "SEA",
+      "min": 1992.4,
+      "max_colo": "WAW",
+      "max": 5741.2,
+      "ratio": 2.881,
+      "icn": null
+     },
+     {
+      "endpoint": "Prime Intellect",
+      "n_colos": 24,
+      "min_colo": "NRT",
+      "min": 2799.4,
+      "max_colo": "ICN",
+      "max": 8104.7,
+      "ratio": 2.895,
+      "icn": 8104.7
+     },
+     {
+      "endpoint": "ModelRun [by Modular]",
+      "n_colos": 23,
+      "min_colo": "FRA",
+      "min": 2342.7,
+      "max_colo": "ICN",
+      "max": 6851.5,
+      "ratio": 2.925,
+      "icn": 6851.5
+     },
+     {
+      "endpoint": "DigitalOcean",
+      "n_colos": 26,
+      "min_colo": "DFW",
+      "min": 1757.0,
+      "max_colo": "DEN",
+      "max": 5188.8,
+      "ratio": 2.953,
+      "icn": 4506.4
+     },
+     {
+      "endpoint": "Cohere",
+      "n_colos": 26,
+      "min_colo": "PDX",
+      "min": 2170.1,
+      "max_colo": "BOM",
+      "max": 6440.1,
+      "ratio": 2.968,
+      "icn": 4834.5
+     },
+     {
+      "endpoint": "inference.net (US)",
+      "n_colos": 25,
+      "min_colo": "IAD",
+      "min": 1841.5,
+      "max_colo": "ICN",
+      "max": 5577.8,
+      "ratio": 3.029,
+      "icn": 5577.8
+     },
+     {
+      "endpoint": "Fireworks",
+      "n_colos": 21,
+      "min_colo": "HEL",
+      "min": 2979.6,
+      "max_colo": "OSL",
+      "max": 9768.7,
+      "ratio": 3.279,
+      "icn": 4465.3
+     },
+     {
+      "endpoint": "Particle AI",
+      "n_colos": 15,
+      "min_colo": "SIN",
+      "min": 2604.1,
+      "max_colo": "PDX",
+      "max": 8833.9,
+      "ratio": 3.392,
+      "icn": 4656.2
+     },
+     {
+      "endpoint": "Baseten",
+      "n_colos": 12,
+      "min_colo": "PDX",
+      "min": 2973.1,
+      "max_colo": "NRT",
+      "max": 10230.3,
+      "ratio": 3.441,
+      "icn": 7446.9
+     },
+     {
+      "endpoint": "DeepInfra",
+      "n_colos": 26,
+      "min_colo": "DFW",
+      "min": 2622.6,
+      "max_colo": "OSL",
+      "max": 9620.5,
+      "ratio": 3.668,
+      "icn": 4993.7
+     },
+     {
+      "endpoint": "Particle AI (Flex)",
+      "n_colos": 16,
+      "min_colo": "ARN",
+      "min": 2665.0,
+      "max_colo": "SIN",
+      "max": 9867.0,
+      "ratio": 3.702,
+      "icn": null
+     },
+     {
+      "endpoint": "Wafer (US)",
+      "n_colos": 26,
+      "min_colo": "IAD",
+      "min": 1188.2,
+      "max_colo": "SIN",
+      "max": 4631.2,
+      "ratio": 3.898,
+      "icn": 3869.7
+     },
+     {
+      "endpoint": "Morph",
+      "n_colos": 26,
+      "min_colo": "LHR",
+      "min": 1693.1,
+      "max_colo": "BOM",
+      "max": 7087.3,
+      "ratio": 4.186,
+      "icn": 3965.7
+     },
+     {
+      "endpoint": "Baseten (Fast)",
+      "n_colos": 14,
+      "min_colo": "CDG",
+      "min": 883.6,
+      "max_colo": "SJC",
+      "max": 3855.6,
+      "ratio": 4.364,
+      "icn": 1430.0
+     },
+     {
+      "endpoint": "DeepInfra (Priority)",
+      "n_colos": 25,
+      "min_colo": "SEA",
+      "min": 3661.6,
+      "max_colo": "OSL",
+      "max": 16129.3,
+      "ratio": 4.405,
+      "icn": 6750.7
+     },
+     {
+      "endpoint": "Alibaba Cloud Int.",
+      "n_colos": 25,
+      "min_colo": "ORD",
+      "min": 3231.3,
+      "max_colo": "IAD",
+      "max": 14282.9,
+      "ratio": 4.42,
+      "icn": 6958.3
+     },
+     {
+      "endpoint": "Makora",
+      "n_colos": 16,
+      "min_colo": "FRA",
+      "min": 2489.5,
+      "max_colo": "ORD",
+      "max": 12121.0,
+      "ratio": 4.869,
+      "icn": 6200.0
+     },
+     {
+      "endpoint": "Crusoe",
+      "n_colos": 23,
+      "min_colo": "DFW",
+      "min": 2121.9,
+      "max_colo": "OSL",
+      "max": 10622.1,
+      "ratio": 5.006,
+      "icn": 4581.3
+     },
+     {
+      "endpoint": "DeepInfra (Flex)",
+      "n_colos": 14,
+      "min_colo": "ATL",
+      "min": 6408.4,
+      "max_colo": "EWR",
+      "max": 38974.4,
+      "ratio": 6.082,
+      "icn": null
+     },
+     {
+      "endpoint": "CoreWeave",
+      "n_colos": 22,
+      "min_colo": "DFW",
+      "min": 2026.7,
+      "max_colo": "SJC",
+      "max": 16706.2,
+      "ratio": 8.243,
+      "icn": 4143.8
+     },
+     {
+      "endpoint": "Together",
+      "n_colos": 26,
+      "min_colo": "DFW",
+      "min": 1663.1,
+      "max_colo": "OSL",
+      "max": 15824.0,
+      "ratio": 9.515,
+      "icn": 3684.2
+     },
+     {
+      "endpoint": "Parasail",
+      "n_colos": 15,
+      "min_colo": "CMH",
+      "min": 1111.6,
+      "max_colo": "CDG",
+      "max": 16427.2,
+      "ratio": 14.778,
+      "icn": 4388.2
+     }
+    ]
+   }
+  }
+ }
+}

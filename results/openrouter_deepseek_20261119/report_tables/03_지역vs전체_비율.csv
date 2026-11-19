@@ -1,0 +1,2438 @@
+﻿metric,region,provider,region_mean,all_mean,ratio
+tps,AMS,StepFun,125.9,136.1,0.925
+tps,AMS,Modal,132.7,136.6,0.972
+tps,AMS,River,116.2,110.3,1.053
+tps,AMS,Makora,96.6,98.0,0.986
+tps,AMS,Open Inference,147.5,148.9,0.991
+tps,AMS,Alibaba Cloud Int.,117.3,122.5,0.958
+tps,AMS,Parasail,143.1,150.1,0.953
+tps,AMS,Wafer,142.7,148.8,0.959
+tps,AMS,Baseten (Fast),442.7,469.8,0.942
+tps,AMS,Particle AI,111.1,99.9,1.112
+tps,AMS,DeepInfra (Flex),62.9,76.1,0.827
+tps,AMS,Morph,120.6,117.1,1.03
+tps,AMS,Cloudflare,76.2,88.6,0.86
+tps,AMS,DeepInfra,86.2,91.4,0.942
+tps,AMS,inference.net (US),131.2,135.2,0.97
+tps,AMS,NovitaAI,86.6,94.1,0.92
+tps,AMS,Relace,151.7,154.9,0.979
+tps,AMS,DeepSeek,126.3,118.8,1.063
+tps,AMS,DeepInfra (Priority),96.9,100.1,0.968
+tps,AMS,Crusoe,194.2,179.3,1.083
+tps,AMS,DekaLLM,107.8,106.3,1.014
+tps,AMS,StreamLake,67.1,57.7,1.164
+tps,AMS,Wafer (US),127.3,147.2,0.864
+tps,AMS,Cohere,133.0,142.5,0.933
+tps,AMS,DigitalOcean,162.1,167.9,0.965
+tps,AMS,inference.net,131.3,124.8,1.052
+tps,AMS,Ionstream,148.5,154.8,0.959
+tps,AMS,Together,197.9,195.4,1.013
+tps,AMS,Mistral,183.7,172.9,1.062
+tps,AMS,Prime Intellect,115.9,104.8,1.107
+tps,AMS,Particle AI (Flex),98.9,106.5,0.928
+tps,AMS,CoreWeave,182.6,183.4,0.995
+tps,AMS,GMICloud,144.1,152.4,0.945
+tps,AMS,Fireworks,144.5,148.8,0.971
+tps,AMS,Nebius Token Factory,181.6,181.6,1.0
+tps,AMS,ModelRun [by Modular],138.2,140.0,0.988
+tps,ARN,Fireworks (US),168.3,163.9,1.027
+tps,ARN,StepFun,135.6,136.1,0.996
+tps,ARN,Modal,135.5,136.6,0.992
+tps,ARN,River,116.1,110.3,1.053
+tps,ARN,Open Inference,150.6,148.9,1.012
+tps,ARN,Alibaba Cloud Int.,124.7,122.5,1.018
+tps,ARN,Wafer,147.8,148.8,0.993
+tps,ARN,Morph,120.4,117.1,1.028
+tps,ARN,DeepInfra,99.2,91.4,1.085
+tps,ARN,inference.net (US),134.8,135.2,0.997
+tps,ARN,Relace,161.8,154.9,1.045
+tps,ARN,DeepSeek,126.0,118.8,1.06
+tps,ARN,DeepInfra (Priority),100.2,100.1,1.001
+tps,ARN,Baseten,129.3,116.7,1.108
+tps,ARN,Crusoe,200.9,179.3,1.121
+tps,ARN,Wafer (US),148.5,147.2,1.009
+tps,ARN,Cohere,138.1,142.5,0.969
+tps,ARN,Fireworks,200.1,148.8,1.345
+tps,ARN,DigitalOcean,172.0,167.9,1.024
+tps,ARN,inference.net,127.3,124.8,1.02
+tps,ARN,Ionstream,147.2,154.8,0.951
+tps,ARN,Together,195.1,195.4,0.998
+tps,ARN,Mistral,218,172.9,1.261
+tps,ARN,Prime Intellect,115.9,104.8,1.106
+tps,ARN,NovitaAI,100.2,94.1,1.065
+tps,ARN,CoreWeave,165.1,183.4,0.9
+tps,ARN,Cloudflare,98.9,88.6,1.116
+tps,ARN,Morph (Fast),156.1,168.4,0.927
+tps,ARN,ModelRun [by Modular],144.4,140.0,1.032
+tps,ATL,River,110.2,110.3,0.999
+tps,ATL,Open Inference,147.2,148.9,0.988
+tps,ATL,Alibaba Cloud Int.,108.2,122.5,0.883
+tps,ATL,Parasail,190.3,150.1,1.268
+tps,ATL,Wafer,156.4,148.8,1.051
+tps,ATL,Morph,120.9,117.1,1.033
+tps,ATL,Cloudflare,59.5,88.6,0.672
+tps,ATL,DeepInfra,87.7,91.4,0.959
+tps,ATL,inference.net (US),138.9,135.2,1.027
+tps,ATL,Relace,127.9,154.9,0.826
+tps,ATL,DeepInfra (Priority),93.0,100.1,0.929
+tps,ATL,Crusoe,167.0,179.3,0.932
+tps,ATL,Wafer (US),161.1,147.2,1.094
+tps,ATL,Cohere,149.3,142.5,1.048
+tps,ATL,DigitalOcean,182.9,167.9,1.089
+tps,ATL,inference.net,142.3,124.8,1.14
+tps,ATL,Ionstream,167.6,154.8,1.083
+tps,ATL,Together,218.5,195.4,1.118
+tps,ATL,Prime Intellect,112.1,104.8,1.07
+tps,ATL,Modal,134.5,136.6,0.985
+tps,ATL,Mistral,184.9,172.9,1.07
+tps,ATL,StepFun,140.3,136.1,1.031
+tps,ATL,CoreWeave,200.8,183.4,1.095
+tps,ATL,NovitaAI,94.5,94.1,1.004
+tps,ATL,Nebius Token Factory,198.0,181.6,1.09
+tps,ATL,ModelRun [by Modular],146.3,140.0,1.045
+tps,BOM,River,103.6,110.3,0.939
+tps,BOM,Open Inference,132.7,148.9,0.891
+tps,BOM,Alibaba Cloud Int.,126.9,122.5,1.036
+tps,BOM,Wafer,136.4,148.8,0.917
+tps,BOM,Baseten (Fast),263.4,469.8,0.561
+tps,BOM,Particle AI,95.7,99.9,0.958
+tps,BOM,Morph,123.8,117.1,1.057
+tps,BOM,DeepInfra,99.0,91.4,1.082
+tps,BOM,inference.net (US),116,135.2,0.858
+tps,BOM,NovitaAI,91.3,94.1,0.97
+tps,BOM,Relace,184.5,154.9,1.191
+tps,BOM,DeepInfra (Priority),89.7,100.1,0.897
+tps,BOM,Crusoe,179,179.3,0.998
+tps,BOM,Wafer (US),136.1,147.2,0.925
+tps,BOM,Cohere,130.8,142.5,0.918
+tps,BOM,DigitalOcean,145.5,167.9,0.866
+tps,BOM,inference.net,102.5,124.8,0.821
+tps,BOM,Ionstream,144.6,154.8,0.934
+tps,BOM,Together,186.7,195.4,0.955
+tps,BOM,Mistral,180.2,172.9,1.042
+tps,BOM,Prime Intellect,114.0,104.8,1.089
+tps,BOM,CoreWeave,159.1,183.4,0.868
+tps,BOM,StepFun,120.5,136.1,0.885
+tps,BOM,DeepSeek,139.5,118.8,1.174
+tps,BOM,AtlasCloud,118.4,81.3,1.457
+tps,BOM,Morph (Fast),126.7,168.4,0.752
+tps,BOM,Nebius Token Factory,162.0,181.6,0.892
+tps,CDG,Modal,127.5,136.6,0.933
+tps,CDG,Fireworks Spot,87.1,85.3,1.021
+tps,CDG,River,109.9,110.3,0.996
+tps,CDG,Makora,100.0,98.0,1.02
+tps,CDG,Open Inference,141.7,148.9,0.952
+tps,CDG,Alibaba Cloud Int.,112.3,122.5,0.917
+tps,CDG,Wafer,138.8,148.8,0.933
+tps,CDG,Baseten (Fast),479.3,469.8,1.02
+tps,CDG,Particle AI,98.2,99.9,0.983
+tps,CDG,Morph,117.8,117.1,1.006
+tps,CDG,DeepInfra,99.7,91.4,1.091
+tps,CDG,inference.net (US),132.6,135.2,0.981
+tps,CDG,Particle AI (Flex),85.9,106.5,0.807
+tps,CDG,Relace,149.3,154.9,0.964
+tps,CDG,DeepSeek,113.6,118.8,0.956
+tps,CDG,DeepInfra (Priority),95.5,100.1,0.954
+tps,CDG,Crusoe,200.7,179.3,1.12
+tps,CDG,Wafer (US),132.3,147.2,0.898
+tps,CDG,Cohere,134.4,142.5,0.943
+tps,CDG,Fireworks,147.2,148.8,0.99
+tps,CDG,DigitalOcean,152.4,167.9,0.908
+tps,CDG,inference.net,131.9,124.8,1.057
+tps,CDG,Ionstream,141.9,154.8,0.917
+tps,CDG,Together,207.0,195.4,1.059
+tps,CDG,Mistral,181.4,172.9,1.049
+tps,CDG,Prime Intellect,111.6,104.8,1.065
+tps,CDG,DeepInfra (Flex),82.6,76.1,1.086
+tps,CDG,AtlasCloud,144.0,81.3,1.771
+tps,CDG,StepFun,129.2,136.1,0.95
+tps,CDG,CoreWeave,157.6,183.4,0.859
+tps,CDG,Parasail,147.4,150.1,0.982
+tps,CDG,Cloudflare,99.8,88.6,1.127
+tps,CDG,NovitaAI,96.3,94.1,1.023
+tps,CDG,StreamLake,71.7,57.7,1.244
+tps,CDG,Nebius Token Factory,182.9,181.6,1.007
+tps,CDG,ModelRun [by Modular],145.0,140.0,1.036
+tps,CMH,Fireworks Spot,102.8,85.3,1.205
+tps,CMH,River,105.2,110.3,0.953
+tps,CMH,Open Inference,154.5,148.9,1.038
+tps,CMH,Wafer,150.3,148.8,1.01
+tps,CMH,Morph,117.1,117.1,1.0
+tps,CMH,DeepInfra,98.8,91.4,1.081
+tps,CMH,inference.net (US),119.2,135.2,0.882
+tps,CMH,Relace,148.5,154.9,0.959
+tps,CMH,DeepSeek,109.2,118.8,0.919
+tps,CMH,DeepInfra (Priority),101.8,100.1,1.018
+tps,CMH,Crusoe,163.1,179.3,0.91
+tps,CMH,Wafer (US),155.3,147.2,1.055
+tps,CMH,Cohere,145.2,142.5,1.018
+tps,CMH,DigitalOcean,182.3,167.9,1.086
+tps,CMH,inference.net,142.6,124.8,1.143
+tps,CMH,Ionstream,153.9,154.8,0.994
+tps,CMH,Together,209.1,195.4,1.07
+tps,CMH,Mistral,142.5,172.9,0.824
+tps,CMH,Fireworks,192.8,148.8,1.296
+tps,CMH,StepFun,140.1,136.1,1.029
+tps,CMH,CoreWeave,179.7,183.4,0.98
+tps,CMH,Prime Intellect,119.0,104.8,1.136
+tps,CMH,Modal,131.9,136.6,0.966
+tps,CMH,Alibaba Cloud Int.,111.8,122.5,0.912
+tps,CMH,Nebius Token Factory,165.2,181.6,0.909
+tps,CMH,ModelRun [by Modular],141.6,140.0,1.012
+tps,DEN,River,108.0,110.3,0.979
+tps,DEN,Wafer,147.2,148.8,0.989
+tps,DEN,Morph,127.7,117.1,1.091
+tps,DEN,DeepInfra,96.3,91.4,1.053
+tps,DEN,inference.net (US),139.4,135.2,1.031
+tps,DEN,Relace,137.2,154.9,0.886
+tps,DEN,DeepSeek,117.4,118.8,0.988
+tps,DEN,DeepInfra (Priority),80.4,100.1,0.804
+tps,DEN,StreamLake,75.3,57.7,1.306
+tps,DEN,Wafer (US),164.3,147.2,1.116
+tps,DEN,Cohere,144.9,142.5,1.016
+tps,DEN,DigitalOcean,179.5,167.9,1.069
+tps,DEN,inference.net,134.6,124.8,1.079
+tps,DEN,Together,219.3,195.4,1.122
+tps,DEN,StepFun,136.2,136.1,1.001
+tps,DEN,Alibaba Cloud Int.,127.8,122.5,1.043
+tps,DFW,Fireworks (US),123.7,163.9,0.755
+tps,DFW,Fireworks Spot,70.9,85.3,0.831
+tps,DFW,River,112.7,110.3,1.021
+tps,DFW,Open Inference,148.8,148.9,0.999
+tps,DFW,Alibaba Cloud Int.,124.7,122.5,1.018
+tps,DFW,Wafer,162.2,148.8,1.09
+tps,DFW,Morph,126.2,117.1,1.078
+tps,DFW,Cloudflare,89.2,88.6,1.007
+tps,DFW,DeepInfra,86.7,91.4,0.948
+tps,DFW,inference.net (US),134.8,135.2,0.997
+tps,DFW,Relace,140.5,154.9,0.907
+tps,DFW,DeepSeek,115.6,118.8,0.973
+tps,DFW,DeepInfra (Priority),91.9,100.1,0.918
+tps,DFW,Crusoe,128.9,179.3,0.719
+tps,DFW,Wafer (US),163.7,147.2,1.112
+tps,DFW,Cohere,148.9,142.5,1.045
+tps,DFW,Fireworks,118.9,148.8,0.799
+tps,DFW,DigitalOcean,149.8,167.9,0.892
+tps,DFW,inference.net,135.1,124.8,1.083
+tps,DFW,Ionstream,172.0,154.8,1.111
+tps,DFW,Together,191.7,195.4,0.981
+tps,DFW,Mistral,128.0,172.9,0.74
+tps,DFW,Prime Intellect,110.8,104.8,1.057
+tps,DFW,StepFun,143.6,136.1,1.056
+tps,DFW,CoreWeave,175.4,183.4,0.956
+tps,DFW,Baseten,126.1,116.7,1.081
+tps,DFW,NovitaAI,110.1,94.1,1.17
+tps,DFW,Nebius Token Factory,186.5,181.6,1.027
+tps,DFW,ModelRun [by Modular],153.3,140.0,1.095
+tps,EWR,Fireworks (US),157.7,163.9,0.962
+tps,EWR,Modal,133.5,136.6,0.978
+tps,EWR,River,108.9,110.3,0.987
+tps,EWR,Makora,100.9,98.0,1.029
+tps,EWR,Open Inference,153.6,148.9,1.032
+tps,EWR,Alibaba Cloud Int.,113.9,122.5,0.93
+tps,EWR,Parasail,154.1,150.1,1.026
+tps,EWR,Wafer,150.3,148.8,1.01
+tps,EWR,Baseten (Fast),646.8,469.8,1.377
+tps,EWR,Particle AI,127.6,99.9,1.277
+tps,EWR,DeepInfra (Flex),77.2,76.1,1.014
+tps,EWR,Morph,117.4,117.1,1.003
+tps,EWR,Cloudflare,74.8,88.6,0.844
+tps,EWR,DeepInfra,81.2,91.4,0.887
+tps,EWR,inference.net (US),138.2,135.2,1.022
+tps,EWR,Particle AI (Flex),101.3,106.5,0.951
+tps,EWR,NovitaAI,82.5,94.1,0.876
+tps,EWR,Relace,135.7,154.9,0.876
+tps,EWR,DeepSeek,108.7,118.8,0.915
+tps,EWR,DeepInfra (Priority),93.4,100.1,0.934
+tps,EWR,Baseten,118.9,116.7,1.019
+tps,EWR,Crusoe,174.7,179.3,0.975
+tps,EWR,DekaLLM,101.6,106.3,0.956
+tps,EWR,Wafer (US),152.0,147.2,1.033
+tps,EWR,Cohere,143.0,142.5,1.004
+tps,EWR,Fireworks,123.2,148.8,0.828
+tps,EWR,DigitalOcean,184.3,167.9,1.098
+tps,EWR,inference.net,131.9,124.8,1.056
+tps,EWR,Ionstream,161.6,154.8,1.044
+tps,EWR,Together,190.0,195.4,0.972
+tps,EWR,Mistral,154.2,172.9,0.892
+tps,EWR,Prime Intellect,110.1,104.8,1.051
+tps,EWR,CoreWeave,181.3,183.4,0.989
+tps,EWR,GMICloud,151.2,152.4,0.992
+tps,EWR,StepFun,139.2,136.1,1.023
+tps,EWR,Nebius Token Factory,172.7,181.6,0.951
+tps,EWR,ModelRun [by Modular],143.4,140.0,1.024
+tps,FRA,Fireworks (US),151.2,163.9,0.923
+tps,FRA,StepFun,114.2,136.1,0.839
+tps,FRA,Modal,128.5,136.6,0.941
+tps,FRA,Fireworks Spot,83.4,85.3,0.977
+tps,FRA,SiliconFlow,81.0,73.8,1.098
+tps,FRA,River,103.4,110.3,0.937
+tps,FRA,Makora,83.6,98.0,0.853
+tps,FRA,Open Inference,139.3,148.9,0.936
+tps,FRA,Alibaba Cloud Int.,115.2,122.5,0.94
+tps,FRA,CoreWeave,162.6,183.4,0.887
+tps,FRA,Parasail,139.2,150.1,0.927
+tps,FRA,Wafer,127.3,148.8,0.856
+tps,FRA,Baseten (Fast),402.9,469.8,0.858
+tps,FRA,Particle AI,103.8,99.9,1.039
+tps,FRA,DeepInfra (Flex),86.1,76.1,1.132
+tps,FRA,Morph,119.1,117.1,1.017
+tps,FRA,Cloudflare,84.9,88.6,0.959
+tps,FRA,DeepInfra,98.7,91.4,1.079
+tps,FRA,inference.net (US),130.1,135.2,0.962
+tps,FRA,Particle AI (Flex),108.9,106.5,1.023
+tps,FRA,NovitaAI,107.4,94.1,1.141
+tps,FRA,Relace,129.3,154.9,0.835
+tps,FRA,GMICloud,136,152.4,0.893
+tps,FRA,DeepSeek,103.0,118.8,0.866
+tps,FRA,DeepInfra (Priority),107.9,100.1,1.079
+tps,FRA,Baseten,116.8,116.7,1.001
+tps,FRA,Crusoe,181.9,179.3,1.015
+tps,FRA,DekaLLM,84.7,106.3,0.796
+tps,FRA,StreamLake,80.5,57.7,1.395
+tps,FRA,Wafer (US),139.0,147.2,0.944
+tps,FRA,Cohere,125.6,142.5,0.881
+tps,FRA,Fireworks,140.6,148.8,0.945
+tps,FRA,DigitalOcean,145.3,167.9,0.865
+tps,FRA,inference.net,125.6,124.8,1.006
+tps,FRA,Ionstream,135.3,154.8,0.874
+tps,FRA,Together,201.7,195.4,1.032
+tps,FRA,Mistral,166.1,172.9,0.961
+tps,FRA,Prime Intellect,106.0,104.8,1.012
+tps,FRA,Baidu Qianfan,93.8,97.9,0.958
+tps,FRA,Nebius Token Factory,184.5,181.6,1.016
+tps,FRA,Ambient,60.5,62.9,0.963
+tps,FRA,ModelRun [by Modular],116.2,140.0,0.83
+tps,GRU,StepFun,118.1,136.1,0.868
+tps,GRU,Modal,123.7,136.6,0.905
+tps,GRU,River,106.1,110.3,0.962
+tps,GRU,Open Inference,143.9,148.9,0.967
+tps,GRU,Alibaba Cloud Int.,110.5,122.5,0.902
+tps,GRU,Wafer,142.3,148.8,0.956
+tps,GRU,DeepInfra (Flex),83.9,76.1,1.102
+tps,GRU,Morph,119.7,117.1,1.022
+tps,GRU,DeepInfra,90.4,91.4,0.989
+tps,GRU,inference.net (US),131.2,135.2,0.97
+tps,GRU,Particle AI (Flex),98.2,106.5,0.922
+tps,GRU,NovitaAI,83,94.1,0.882
+tps,GRU,Relace,137.4,154.9,0.887
+tps,GRU,DeepSeek,107.1,118.8,0.901
+tps,GRU,DeepInfra (Priority),86.9,100.1,0.868
+tps,GRU,Crusoe,150.8,179.3,0.841
+tps,GRU,Wafer (US),146.5,147.2,0.995
+tps,GRU,Cohere,136.5,142.5,0.958
+tps,GRU,DigitalOcean,169.7,167.9,1.011
+tps,GRU,inference.net,135.1,124.8,1.082
+tps,GRU,Ionstream,148.5,154.8,0.959
+tps,GRU,Together,190.1,195.4,0.973
+tps,GRU,Prime Intellect,114.5,104.8,1.093
+tps,GRU,Mistral,151.4,172.9,0.875
+tps,GRU,StreamLake,58.7,57.7,1.017
+tps,GRU,Fireworks,137.8,148.8,0.926
+tps,GRU,ModelRun [by Modular],132.1,140.0,0.944
+tps,HEL,Modal,130.1,136.6,0.953
+tps,HEL,River,109.6,110.3,0.994
+tps,HEL,Open Inference,142.1,148.9,0.954
+tps,HEL,Alibaba Cloud Int.,120.6,122.5,0.984
+tps,HEL,Wafer,141.1,148.8,0.948
+tps,HEL,Morph,114.3,117.1,0.977
+tps,HEL,DeepInfra,95.9,91.4,1.049
+tps,HEL,inference.net (US),133.3,135.2,0.986
+tps,HEL,Particle AI (Flex),79.7,106.5,0.748
+tps,HEL,Relace,166,154.9,1.072
+tps,HEL,DeepSeek,97.2,118.8,0.818
+tps,HEL,DeepInfra (Priority),90.7,100.1,0.906
+tps,HEL,Crusoe,186.3,179.3,1.039
+tps,HEL,Wafer (US),137.8,147.2,0.936
+tps,HEL,Cohere,134.0,142.5,0.94
+tps,HEL,Fireworks,134.1,148.8,0.901
+tps,HEL,DigitalOcean,167.0,167.9,0.995
+tps,HEL,inference.net,122.2,124.8,0.979
+tps,HEL,Ionstream,156.6,154.8,1.012
+tps,HEL,Together,202.6,195.4,1.037
+tps,HEL,Prime Intellect,134.6,104.8,1.285
+tps,HEL,CoreWeave,173.4,183.4,0.945
+tps,HEL,Mistral,182.2,172.9,1.054
+tps,HEL,StepFun,123.2,136.1,0.905
+tps,HEL,DeepInfra (Flex),70.2,76.1,0.922
+tps,HEL,Cloudflare,69.1,88.6,0.781
+tps,HEL,NovitaAI,88.6,94.1,0.941
+tps,HEL,Nebius Token Factory,207.2,181.6,1.141
+tps,HEL,ModelRun [by Modular],140.9,140.0,1.007
+tps,IAD,Fireworks (US),175.3,163.9,1.069
+tps,IAD,StepFun,141.7,136.1,1.041
+tps,IAD,Modal,139.2,136.6,1.019
+tps,IAD,Fireworks Spot,87.2,85.3,1.021
+tps,IAD,SiliconFlow,84.3,73.8,1.143
+tps,IAD,River,106.9,110.3,0.969
+tps,IAD,Makora,95.5,98.0,0.974
+tps,IAD,Open Inference,155.2,148.9,1.042
+tps,IAD,Alibaba Cloud Int.,118.6,122.5,0.968
+tps,IAD,CoreWeave,168.9,183.4,0.921
+tps,IAD,Parasail,120.9,150.1,0.806
+tps,IAD,Wafer,145.8,148.8,0.98
+tps,IAD,Baseten (Fast),668.4,469.8,1.423
+tps,IAD,Particle AI,104.8,99.9,1.049
+tps,IAD,DeepInfra (Flex),79.8,76.1,1.049
+tps,IAD,Morph,123.2,117.1,1.052
+tps,IAD,Cloudflare,95.1,88.6,1.074
+tps,IAD,DeepInfra,91.5,91.4,1.0
+tps,IAD,inference.net (US),139.9,135.2,1.034
+tps,IAD,Particle AI (Flex),118.5,106.5,1.113
+tps,IAD,NovitaAI,78.5,94.1,0.834
+tps,IAD,Relace,141.7,154.9,0.915
+tps,IAD,GMICloud,137.1,152.4,0.9
+tps,IAD,DeepSeek,124.7,118.8,1.05
+tps,IAD,DeepInfra (Priority),102.8,100.1,1.027
+tps,IAD,Baseten,121.9,116.7,1.044
+tps,IAD,Crusoe,163.6,179.3,0.913
+tps,IAD,DekaLLM,94.3,106.3,0.887
+tps,IAD,StreamLake,57.4,57.7,0.996
+tps,IAD,Wafer (US),146.4,147.2,0.994
+tps,IAD,Cohere,142.8,142.5,1.002
+tps,IAD,Fireworks,151.8,148.8,1.021
+tps,IAD,DigitalOcean,188.2,167.9,1.121
+tps,IAD,inference.net,121.6,124.8,0.974
+tps,IAD,Ionstream,150.6,154.8,0.973
+tps,IAD,Together,201.7,195.4,1.032
+tps,IAD,Mistral,160.1,172.9,0.926
+tps,IAD,Prime Intellect,108.2,104.8,1.033
+tps,IAD,Morph (Fast),189.5,168.4,1.125
+tps,IAD,Nebius Token Factory,172.2,181.6,0.948
+tps,IAD,Ambient,60.5,62.9,0.962
+tps,IAD,ModelRun [by Modular],146.0,140.0,1.043
+tps,ICN,Modal,137.3,136.6,1.005
+tps,ICN,River,97.2,110.3,0.881
+tps,ICN,Makora,102.6,98.0,1.047
+tps,ICN,Open Inference,148.2,148.9,0.995
+tps,ICN,Alibaba Cloud Int.,129.3,122.5,1.056
+tps,ICN,CoreWeave,166.8,183.4,0.909
+tps,ICN,Parasail,152.9,150.1,1.019
+tps,ICN,Wafer,150.5,148.8,1.011
+tps,ICN,Baseten (Fast),365.8,469.8,0.779
+tps,ICN,Morph,115.4,117.1,0.986
+tps,ICN,DeepInfra,87.4,91.4,0.956
+tps,ICN,inference.net (US),112.7,135.2,0.833
+tps,ICN,Relace,178.5,154.9,1.152
+tps,ICN,DeepInfra (Priority),86.7,100.1,0.867
+tps,ICN,Baseten,125.7,116.7,1.077
+tps,ICN,Crusoe,172,179.3,0.959
+tps,ICN,Wafer (US),147.4,147.2,1.002
+tps,ICN,Cohere,149.1,142.5,1.046
+tps,ICN,DigitalOcean,137.7,167.9,0.82
+tps,ICN,inference.net,110.7,124.8,0.887
+tps,ICN,Ionstream,152.6,154.8,0.986
+tps,ICN,Together,178.5,195.4,0.913
+tps,ICN,Mistral,167.1,172.9,0.967
+tps,ICN,Prime Intellect,126.5,104.8,1.208
+tps,ICN,NovitaAI,100.9,94.1,1.072
+tps,ICN,DeepSeek,139.4,118.8,1.173
+tps,ICN,StepFun,125.7,136.1,0.924
+tps,ICN,Fireworks,145.4,148.8,0.978
+tps,ICN,Morph (Fast),187.1,168.4,1.111
+tps,ICN,Nebius Token Factory,177.1,181.6,0.975
+tps,ICN,ModelRun [by Modular],143.9,140.0,1.028
+tps,LAX,Fireworks (US),132.8,163.9,0.81
+tps,LAX,Modal,137.1,136.6,1.004
+tps,LAX,Fireworks Spot,85.7,85.3,1.004
+tps,LAX,River,108.4,110.3,0.983
+tps,LAX,Makora,120.3,98.0,1.228
+tps,LAX,Open Inference,147.0,148.9,0.988
+tps,LAX,Alibaba Cloud Int.,120.2,122.5,0.981
+tps,LAX,Wafer,151.4,148.8,1.017
+tps,LAX,Particle AI,108.6,99.9,1.087
+tps,LAX,DeepInfra (Flex),73.9,76.1,0.971
+tps,LAX,Morph,113.0,117.1,0.965
+tps,LAX,DeepInfra,99.1,91.4,1.084
+tps,LAX,inference.net (US),131.3,135.2,0.971
+tps,LAX,Particle AI (Flex),109.5,106.5,1.028
+tps,LAX,NovitaAI,98.8,94.1,1.049
+tps,LAX,Relace,141.4,154.9,0.913
+tps,LAX,DeepSeek,131.6,118.8,1.108
+tps,LAX,DeepInfra (Priority),94.0,100.1,0.939
+tps,LAX,Baseten,117.0,116.7,1.002
+tps,LAX,Crusoe,185.1,179.3,1.032
+tps,LAX,Wafer (US),160.4,147.2,1.09
+tps,LAX,Cohere,147.0,142.5,1.031
+tps,LAX,Fireworks,146.9,148.8,0.987
+tps,LAX,DigitalOcean,163.4,167.9,0.973
+tps,LAX,inference.net,131.3,124.8,1.052
+tps,LAX,Ionstream,165.5,154.8,1.069
+tps,LAX,Together,202.1,195.4,1.034
+tps,LAX,Prime Intellect,119.0,104.8,1.136
+tps,LAX,CoreWeave,185.5,183.4,1.011
+tps,LAX,Cloudflare,74.6,88.6,0.843
+tps,LAX,Mistral,177.9,172.9,1.029
+tps,LAX,StepFun,137.7,136.1,1.012
+tps,LAX,Nebius Token Factory,174.2,181.6,0.959
+tps,LAX,ModelRun [by Modular],133.7,140.0,0.955
+tps,LHR,StepFun,125.1,136.1,0.919
+tps,LHR,Modal,125.4,136.6,0.919
+tps,LHR,River,110.1,110.3,0.998
+tps,LHR,Open Inference,145.9,148.9,0.98
+tps,LHR,Alibaba Cloud Int.,117.8,122.5,0.962
+tps,LHR,Wafer,145.0,148.8,0.975
+tps,LHR,Morph,99.6,117.1,0.851
+tps,LHR,DeepInfra,84.4,91.4,0.923
+tps,LHR,inference.net (US),129.3,135.2,0.956
+tps,LHR,Relace,158.4,154.9,1.022
+tps,LHR,DeepSeek,113.9,118.8,0.959
+tps,LHR,DeepInfra (Priority),86.1,100.1,0.861
+tps,LHR,Crusoe,186.0,179.3,1.037
+tps,LHR,Wafer (US),149.9,147.2,1.018
+tps,LHR,Cohere,129.0,142.5,0.905
+tps,LHR,Fireworks,137.6,148.8,0.925
+tps,LHR,DigitalOcean,158.0,167.9,0.941
+tps,LHR,inference.net,124.0,124.8,0.993
+tps,LHR,Ionstream,146.4,154.8,0.946
+tps,LHR,Together,200.0,195.4,1.023
+tps,LHR,Prime Intellect,112.9,104.8,1.077
+tps,LHR,Makora,90.7,98.0,0.925
+tps,LHR,Mistral,178.9,172.9,1.035
+tps,LHR,CoreWeave,170.3,183.4,0.929
+tps,LHR,Cloudflare,76.9,88.6,0.868
+tps,LHR,Particle AI (Flex),101.2,106.5,0.95
+tps,LHR,Baseten (Fast),549.2,469.8,1.169
+tps,LHR,NovitaAI,89.3,94.1,0.948
+tps,LHR,Nebius Token Factory,192.9,181.6,1.062
+tps,LHR,ModelRun [by Modular],129.2,140.0,0.923
+tps,NRT,AtlasCloud,68.5,81.3,0.843
+tps,NRT,Fireworks (US),182.0,163.9,1.11
+tps,NRT,Modal,142.7,136.6,1.045
+tps,NRT,Fireworks Spot,87.6,85.3,1.027
+tps,NRT,River,100.9,110.3,0.914
+tps,NRT,Open Inference,144.9,148.9,0.973
+tps,NRT,Alibaba Cloud Int.,125.5,122.5,1.025
+tps,NRT,Wafer,147.7,148.8,0.993
+tps,NRT,Particle AI,102.6,99.9,1.027
+tps,NRT,DeepInfra (Flex),66.0,76.1,0.868
+tps,NRT,Morph,115.4,117.1,0.986
+tps,NRT,Cloudflare,78.8,88.6,0.889
+tps,NRT,DeepInfra,65.5,91.4,0.717
+tps,NRT,inference.net (US),130.6,135.2,0.966
+tps,NRT,Particle AI (Flex),99.2,106.5,0.931
+tps,NRT,Relace,165.2,154.9,1.067
+tps,NRT,GMICloud,169.7,152.4,1.114
+tps,NRT,DeepSeek,132.6,118.8,1.116
+tps,NRT,DeepInfra (Priority),84.4,100.1,0.843
+tps,NRT,Baseten,108.9,116.7,0.933
+tps,NRT,Crusoe,173.1,179.3,0.965
+tps,NRT,Wafer (US),149.4,147.2,1.015
+tps,NRT,Cohere,118.8,142.5,0.834
+tps,NRT,Fireworks,167.3,148.8,1.125
+tps,NRT,DigitalOcean,133.5,167.9,0.795
+tps,NRT,inference.net,117.3,124.8,0.94
+tps,NRT,Ionstream,161.2,154.8,1.041
+tps,NRT,Together,159.0,195.4,0.814
+tps,NRT,Prime Intellect,71.8,104.8,0.686
+tps,NRT,CoreWeave,202.5,183.4,1.104
+tps,NRT,Mistral,129.2,172.9,0.748
+tps,NRT,StepFun,103.4,136.1,0.76
+tps,NRT,NovitaAI,95.0,94.1,1.009
+tps,NRT,Morph (Fast),183.2,168.4,1.088
+tps,NRT,Nebius Token Factory,208.8,181.6,1.15
+tps,NRT,ModelRun [by Modular],127.0,140.0,0.908
+tps,ORD,Modal,148.1,136.6,1.084
+tps,ORD,River,118.2,110.3,1.071
+tps,ORD,Makora,108.2,98.0,1.104
+tps,ORD,Open Inference,156.5,148.9,1.051
+tps,ORD,Alibaba Cloud Int.,114.6,122.5,0.935
+tps,ORD,Parasail,115.3,150.1,0.768
+tps,ORD,Wafer,164.1,148.8,1.103
+tps,ORD,Baseten (Fast),462.5,469.8,0.985
+tps,ORD,Particle AI,116.3,99.9,1.164
+tps,ORD,Morph,128.2,117.1,1.095
+tps,ORD,Cloudflare,93.3,88.6,1.054
+tps,ORD,DeepInfra,96.3,91.4,1.053
+tps,ORD,inference.net (US),140.6,135.2,1.04
+tps,ORD,Particle AI (Flex),94.3,106.5,0.885
+tps,ORD,NovitaAI,103.3,94.1,1.097
+tps,ORD,Relace,167.7,154.9,1.083
+tps,ORD,GMICloud,176.0,152.4,1.155
+tps,ORD,DeepSeek,116.1,118.8,0.977
+tps,ORD,DeepInfra (Priority),100.7,100.1,1.006
+tps,ORD,Crusoe,187.4,179.3,1.045
+tps,ORD,DekaLLM,105.6,106.3,0.993
+tps,ORD,Wafer (US),160.1,147.2,1.087
+tps,ORD,Cohere,163.9,142.5,1.149
+tps,ORD,DigitalOcean,189.6,167.9,1.129
+tps,ORD,inference.net,143.2,124.8,1.147
+tps,ORD,Ionstream,181.4,154.8,1.171
+tps,ORD,Together,188.8,195.4,0.966
+tps,ORD,Mistral,199.7,172.9,1.155
+tps,ORD,Prime Intellect,129.8,104.8,1.239
+tps,ORD,Fireworks (US),167.0,163.9,1.019
+tps,ORD,StepFun,157.7,136.1,1.159
+tps,ORD,CoreWeave,181.2,183.4,0.988
+tps,ORD,Baseten,123.0,116.7,1.054
+tps,ORD,Fireworks,156.5,148.8,1.052
+tps,ORD,Baidu Qianfan,110.1,97.9,1.125
+tps,ORD,Nebius Token Factory,193.4,181.6,1.065
+tps,ORD,Morph (Fast),184.7,168.4,1.096
+tps,ORD,Ambient,60.5,62.9,0.962
+tps,ORD,ModelRun [by Modular],150.7,140.0,1.077
+tps,OSL,DeepInfra,108.2,91.4,1.183
+tps,OSL,Relace,148.8,154.9,0.961
+tps,OSL,DeepInfra (Priority),112.7,100.1,1.126
+tps,OSL,Crusoe,229.1,179.3,1.278
+tps,OSL,Wafer (US),133.9,147.2,0.91
+tps,OSL,Cohere,118.8,142.5,0.833
+tps,OSL,Fireworks,250.4,148.8,1.683
+tps,OSL,Together,213.4,195.4,1.092
+tps,OSL,Mistral,306.2,172.9,1.771
+tps,OSL,DigitalOcean,139.6,167.9,0.831
+tps,OSL,Morph,122.9,117.1,1.05
+tps,OSL,River,116.8,110.3,1.058
+tps,PDX,Fireworks (US),164.0,163.9,1.001
+tps,PDX,Modal,153.5,136.6,1.124
+tps,PDX,Fireworks Spot,102.9,85.3,1.206
+tps,PDX,River,112.7,110.3,1.021
+tps,PDX,Makora,108.3,98.0,1.105
+tps,PDX,Open Inference,154.9,148.9,1.04
+tps,PDX,Alibaba Cloud Int.,124.9,122.5,1.02
+tps,PDX,Wafer,166.8,148.8,1.121
+tps,PDX,Baseten (Fast),562.7,469.8,1.198
+tps,PDX,Particle AI,106.1,99.9,1.062
+tps,PDX,Morph,124.9,117.1,1.067
+tps,PDX,Cloudflare,84.2,88.6,0.95
+tps,PDX,DeepInfra,92.5,91.4,1.012
+tps,PDX,inference.net (US),146.0,135.2,1.079
+tps,PDX,NovitaAI,81.9,94.1,0.871
+tps,PDX,Relace,150.7,154.9,0.973
+tps,PDX,DeepSeek,116.2,118.8,0.977
+tps,PDX,DeepInfra (Priority),99.3,100.1,0.992
+tps,PDX,Baseten,116.5,116.7,0.999
+tps,PDX,Crusoe,177.9,179.3,0.992
+tps,PDX,Wafer (US),166.9,147.2,1.134
+tps,PDX,Cohere,163.5,142.5,1.147
+tps,PDX,Fireworks,158.6,148.8,1.066
+tps,PDX,DigitalOcean,156.6,167.9,0.933
+tps,PDX,inference.net,135.6,124.8,1.087
+tps,PDX,Ionstream,150.3,154.8,0.971
+tps,PDX,Together,218.5,195.4,1.118
+tps,PDX,Mistral,172.1,172.9,0.996
+tps,PDX,Prime Intellect,124.1,104.8,1.185
+tps,PDX,CoreWeave,191.1,183.4,1.042
+tps,PDX,StepFun,141.0,136.1,1.037
+tps,PDX,Parasail,178.1,150.1,1.187
+tps,PDX,Nebius Token Factory,156.5,181.6,0.862
+tps,PDX,Morph (Fast),150.2,168.4,0.892
+tps,PDX,ModelRun [by Modular],148.6,140.0,1.062
+tps,PHX,River,109.6,110.3,0.994
+tps,PHX,Makora,110.3,98.0,1.126
+tps,PHX,Alibaba Cloud Int.,121.5,122.5,0.992
+tps,PHX,Wafer,155.6,148.8,1.046
+tps,PHX,Morph,119.5,117.1,1.02
+tps,PHX,DeepInfra,99.2,91.4,1.085
+tps,PHX,inference.net (US),132.1,135.2,0.977
+tps,PHX,Relace,153.1,154.9,0.989
+tps,PHX,Wafer (US),162.0,147.2,1.1
+tps,PHX,Cohere,163.2,142.5,1.145
+tps,PHX,DigitalOcean,173.8,167.9,1.035
+tps,PHX,inference.net,138.6,124.8,1.111
+tps,PHX,Ionstream,177.5,154.8,1.146
+tps,PHX,Together,203.0,195.4,1.039
+tps,PHX,Prime Intellect,124.5,104.8,1.188
+tps,PHX,StepFun,147.6,136.1,1.085
+tps,PHX,ModelRun [by Modular],147.1,140.0,1.051
+tps,SEA,Fireworks (US),158.4,163.9,0.967
+tps,SEA,StepFun,129.4,136.1,0.951
+tps,SEA,Modal,144.3,136.6,1.057
+tps,SEA,Fireworks Spot,89.6,85.3,1.05
+tps,SEA,River,107.7,110.3,0.976
+tps,SEA,Makora,99.5,98.0,1.015
+tps,SEA,Open Inference,154.0,148.9,1.035
+tps,SEA,Alibaba Cloud Int.,115.8,122.5,0.945
+tps,SEA,Parasail,168.2,150.1,1.121
+tps,SEA,Wafer,156,148.8,1.048
+tps,SEA,Baseten (Fast),455.2,469.8,0.969
+tps,SEA,Particle AI,121.4,99.9,1.215
+tps,SEA,Morph,119.7,117.1,1.022
+tps,SEA,DeepInfra,92.0,91.4,1.006
+tps,SEA,inference.net (US),130.0,135.2,0.962
+tps,SEA,NovitaAI,105.8,94.1,1.124
+tps,SEA,Relace,143.8,154.9,0.928
+tps,SEA,DeepSeek,70.9,118.8,0.597
+tps,SEA,DeepInfra (Priority),92.7,100.1,0.927
+tps,SEA,Baseten,115.3,116.7,0.988
+tps,SEA,Crusoe,158.8,179.3,0.886
+tps,SEA,Wafer (US),154.6,147.2,1.05
+tps,SEA,Cohere,149.6,142.5,1.049
+tps,SEA,Fireworks,149.5,148.8,1.005
+tps,SEA,DigitalOcean,169.8,167.9,1.011
+tps,SEA,inference.net,135.5,124.8,1.086
+tps,SEA,Ionstream,151.5,154.8,0.979
+tps,SEA,Together,191.1,195.4,0.978
+tps,SEA,Mistral,142.4,172.9,0.824
+tps,SEA,Prime Intellect,89.5,104.8,0.854
+tps,SEA,CoreWeave,158.2,183.4,0.862
+tps,SEA,Cloudflare,76.6,88.6,0.865
+tps,SEA,Morph (Fast),134.9,168.4,0.801
+tps,SEA,Nebius Token Factory,167.2,181.6,0.92
+tps,SEA,ModelRun [by Modular],139.9,140.0,1.0
+tps,SIN,StepFun,126.9,136.1,0.933
+tps,SIN,Modal,130.8,136.6,0.958
+tps,SIN,River,104.9,110.3,0.951
+tps,SIN,Makora,88.0,98.0,0.897
+tps,SIN,Open Inference,148.9,148.9,1.0
+tps,SIN,Alibaba Cloud Int.,129.6,122.5,1.058
+tps,SIN,CoreWeave,157.6,183.4,0.859
+tps,SIN,Parasail,104.1,150.1,0.694
+tps,SIN,Wafer,144.9,148.8,0.974
+tps,SIN,Baseten (Fast),364.2,469.8,0.775
+tps,SIN,Particle AI,93.2,99.9,0.933
+tps,SIN,DeepInfra (Flex),63.1,76.1,0.83
+tps,SIN,Morph,117.5,117.1,1.004
+tps,SIN,Cloudflare,82.6,88.6,0.933
+tps,SIN,DeepInfra,91.8,91.4,1.004
+tps,SIN,inference.net (US),106.1,135.2,0.785
+tps,SIN,Particle AI (Flex),103.0,106.5,0.967
+tps,SIN,NovitaAI,92.7,94.1,0.984
+tps,SIN,Relace,193.2,154.9,1.247
+tps,SIN,GMICloud,168.6,152.4,1.106
+tps,SIN,DeepSeek,112.6,118.8,0.948
+tps,SIN,DeepInfra (Priority),89.3,100.1,0.892
+tps,SIN,Crusoe,165.2,179.3,0.921
+tps,SIN,DekaLLM,122.6,106.3,1.153
+tps,SIN,Wafer (US),152.0,147.2,1.032
+tps,SIN,Cohere,132.7,142.5,0.931
+tps,SIN,DigitalOcean,145.4,167.9,0.866
+tps,SIN,inference.net,123.2,124.8,0.987
+tps,SIN,Ionstream,151.1,154.8,0.976
+tps,SIN,Together,177.7,195.4,0.91
+tps,SIN,Mistral,145.2,172.9,0.84
+tps,SIN,Prime Intellect,110.0,104.8,1.05
+tps,SIN,Fireworks,167.6,148.8,1.127
+tps,SIN,Nebius Token Factory,161.2,181.6,0.888
+tps,SIN,ModelRun [by Modular],130.8,140.0,0.934
+tps,SIN,Ambient,63.0,62.9,1.003
+tps,SJC,Fireworks (US),191.3,163.9,1.167
+tps,SJC,Modal,140.9,136.6,1.032
+tps,SJC,Fireworks Spot,99.2,85.3,1.162
+tps,SJC,River,109.8,110.3,0.995
+tps,SJC,Makora,93.3,98.0,0.952
+tps,SJC,Open Inference,152.2,148.9,1.022
+tps,SJC,Alibaba Cloud Int.,112.9,122.5,0.922
+tps,SJC,CoreWeave,198.1,183.4,1.08
+tps,SJC,Parasail,177.7,150.1,1.184
+tps,SJC,Wafer,160.6,148.8,1.079
+tps,SJC,Particle AI,91.4,99.9,0.914
+tps,SJC,DeepInfra (Flex),70.1,76.1,0.921
+tps,SJC,Morph,112.2,117.1,0.958
+tps,SJC,Cloudflare,83.3,88.6,0.941
+tps,SJC,DeepInfra,94.2,91.4,1.03
+tps,SJC,inference.net (US),130.3,135.2,0.964
+tps,SJC,Particle AI (Flex),89.7,106.5,0.842
+tps,SJC,NovitaAI,103.6,94.1,1.101
+tps,SJC,Relace,153.2,154.9,0.989
+tps,SJC,DeepSeek,114.8,118.8,0.966
+tps,SJC,DeepInfra (Priority),99.8,100.1,0.997
+tps,SJC,Crusoe,178.9,179.3,0.998
+tps,SJC,DekaLLM,102.7,106.3,0.966
+tps,SJC,StreamLake,45.7,57.7,0.793
+tps,SJC,Wafer (US),164.9,147.2,1.12
+tps,SJC,Cohere,149.8,142.5,1.051
+tps,SJC,Fireworks,160.8,148.8,1.081
+tps,SJC,DigitalOcean,173.2,167.9,1.031
+tps,SJC,inference.net,130.6,124.8,1.046
+tps,SJC,Ionstream,163.6,154.8,1.057
+tps,SJC,Together,215.2,195.4,1.101
+tps,SJC,Mistral,178.2,172.9,1.031
+tps,SJC,Prime Intellect,117.0,104.8,1.117
+tps,SJC,StepFun,144.7,136.1,1.063
+tps,SJC,Baseten (Fast),585,469.8,1.245
+tps,SJC,Nebius Token Factory,176.9,181.6,0.974
+tps,SJC,ModelRun [by Modular],141.1,140.0,1.008
+tps,SJC,Ambient,81.6,62.9,1.298
+tps,WAW,River,108.3,110.3,0.982
+tps,WAW,Open Inference,140.8,148.9,0.946
+tps,WAW,Alibaba Cloud Int.,126.2,122.5,1.03
+tps,WAW,Wafer,137.2,148.8,0.922
+tps,WAW,Morph,117.6,117.1,1.004
+tps,WAW,Cloudflare,82.6,88.6,0.933
+tps,WAW,DeepInfra,74.6,91.4,0.816
+tps,WAW,inference.net (US),131.0,135.2,0.969
+tps,WAW,Relace,143.7,154.9,0.928
+tps,WAW,DeepSeek,113.7,118.8,0.957
+tps,WAW,DeepInfra (Priority),84.4,100.1,0.844
+tps,WAW,Crusoe,185.1,179.3,1.032
+tps,WAW,Wafer (US),105.2,147.2,0.714
+tps,WAW,Cohere,130.3,142.5,0.914
+tps,WAW,DigitalOcean,148.7,167.9,0.886
+tps,WAW,inference.net,127.0,124.8,1.017
+tps,WAW,Ionstream,156.2,154.8,1.009
+tps,WAW,Together,191.3,195.4,0.979
+tps,WAW,Prime Intellect,104.6,104.8,0.998
+tps,WAW,CoreWeave,171.6,183.4,0.935
+tps,WAW,Mistral,162.5,172.9,0.94
+tps,WAW,Fireworks (US),108.0,163.9,0.659
+tps,WAW,StepFun,118.2,136.1,0.868
+tps,WAW,Modal,119.8,136.6,0.877
+tps,WAW,Parasail,150.2,150.1,1.0
+tps,WAW,NovitaAI,85.4,94.1,0.908
+tps,WAW,ModelRun [by Modular],133,140.0,0.95
+tps,YYZ,River,111.9,110.3,1.014
+tps,YYZ,Open Inference,149.4,148.9,1.003
+tps,YYZ,Alibaba Cloud Int.,121.6,122.5,0.992
+tps,YYZ,Wafer,154.4,148.8,1.038
+tps,YYZ,DeepInfra (Flex),71.3,76.1,0.937
+tps,YYZ,Morph,126.2,117.1,1.078
+tps,YYZ,DeepInfra,98.6,91.4,1.078
+tps,YYZ,inference.net (US),140.0,135.2,1.035
+tps,YYZ,Particle AI (Flex),125.0,106.5,1.173
+tps,YYZ,Relace,135.1,154.9,0.872
+tps,YYZ,DeepSeek,135.5,118.8,1.14
+tps,YYZ,DeepInfra (Priority),98.2,100.1,0.982
+tps,YYZ,StreamLake,95.2,57.7,1.65
+tps,YYZ,Wafer (US),163.4,147.2,1.11
+tps,YYZ,Cohere,143.6,142.5,1.007
+tps,YYZ,DigitalOcean,175.8,167.9,1.047
+tps,YYZ,inference.net,142.3,124.8,1.14
+tps,YYZ,Ionstream,160.2,154.8,1.035
+tps,YYZ,Together,201.0,195.4,1.029
+tps,YYZ,Mistral,161.8,172.9,0.936
+tps,YYZ,Prime Intellect,119.4,104.8,1.139
+tps,YYZ,StepFun,144.0,136.1,1.058
+tps,YYZ,CoreWeave,182.5,183.4,0.995
+tps,YYZ,Nebius Token Factory,191.4,181.6,1.054
+tps,YYZ,ModelRun [by Modular],142.4,140.0,1.017
+ttft_ms,AMS,StepFun,1477.7,1094.1,1.351
+ttft_ms,AMS,Modal,902.5,718.6,1.256
+ttft_ms,AMS,River,1163.7,966.0,1.205
+ttft_ms,AMS,Makora,717.0,649.5,1.104
+ttft_ms,AMS,Open Inference,1030.7,877.8,1.174
+ttft_ms,AMS,Alibaba Cloud Int.,1118.0,1121.1,0.997
+ttft_ms,AMS,Parasail,695.4,497.4,1.398
+ttft_ms,AMS,Wafer,458.0,372.4,1.23
+ttft_ms,AMS,Baseten (Fast),358.2,344.3,1.04
+ttft_ms,AMS,Particle AI,681.6,614.5,1.109
+ttft_ms,AMS,DeepInfra (Flex),3025.0,5534.7,0.547
+ttft_ms,AMS,Morph,639.6,537.1,1.191
+ttft_ms,AMS,Cloudflare,2272.5,2466.9,0.921
+ttft_ms,AMS,DeepInfra,923.5,839.0,1.101
+ttft_ms,AMS,inference.net (US),350.5,232.0,1.511
+ttft_ms,AMS,Particle AI (Flex),840.5,596.9,1.408
+ttft_ms,AMS,NovitaAI,2095.6,1610.2,1.301
+ttft_ms,AMS,Relace,953.6,719.6,1.325
+ttft_ms,AMS,DeepSeek,1227.8,1176.4,1.044
+ttft_ms,AMS,DeepInfra (Priority),1187.9,1026.0,1.158
+ttft_ms,AMS,Crusoe,615.9,740.3,0.832
+ttft_ms,AMS,DekaLLM,1743.4,1442.6,1.209
+ttft_ms,AMS,StreamLake,6038.4,1769.9,3.412
+ttft_ms,AMS,Wafer (US),356.2,359.9,0.99
+ttft_ms,AMS,Cohere,1250.1,825.2,1.515
+ttft_ms,AMS,DigitalOcean,772.3,741.0,1.042
+ttft_ms,AMS,inference.net,381.9,278.2,1.373
+ttft_ms,AMS,Ionstream,922.4,763.2,1.209
+ttft_ms,AMS,Together,663.5,490.4,1.353
+ttft_ms,AMS,Mistral,1234.6,1340.5,0.921
+ttft_ms,AMS,Prime Intellect,992.8,985.3,1.008
+ttft_ms,AMS,CoreWeave,703.9,513.1,1.372
+ttft_ms,AMS,GMICloud,1533.3,982.1,1.561
+ttft_ms,AMS,Fireworks,1245.5,1239.3,1.005
+ttft_ms,AMS,Nebius Token Factory,969.4,921.0,1.053
+ttft_ms,AMS,Ambient,1028.0,945.2,1.088
+ttft_ms,AMS,ModelRun [by Modular],845.4,751.8,1.124
+ttft_ms,ARN,Fireworks (US),977.3,766.3,1.275
+ttft_ms,ARN,StepFun,1297.6,1094.1,1.186
+ttft_ms,ARN,Modal,891.7,718.6,1.241
+ttft_ms,ARN,River,894.6,966.0,0.926
+ttft_ms,ARN,Open Inference,958.1,877.8,1.091
+ttft_ms,ARN,Alibaba Cloud Int.,1063.1,1121.1,0.948
+ttft_ms,ARN,Wafer,474.6,372.4,1.274
+ttft_ms,ARN,Morph,616.5,537.1,1.148
+ttft_ms,ARN,DeepInfra,960.3,839.0,1.145
+ttft_ms,ARN,inference.net (US),320.1,232.0,1.38
+ttft_ms,ARN,Particle AI (Flex),724.6,596.9,1.214
+ttft_ms,ARN,NovitaAI,1726.0,1610.2,1.072
+ttft_ms,ARN,Relace,861.3,719.6,1.197
+ttft_ms,ARN,DeepSeek,1307.1,1176.4,1.111
+ttft_ms,ARN,DeepInfra (Priority),1138.5,1026.0,1.11
+ttft_ms,ARN,Baseten,969.7,753.5,1.287
+ttft_ms,ARN,Crusoe,609.5,740.3,0.823
+ttft_ms,ARN,Wafer (US),468.8,359.9,1.303
+ttft_ms,ARN,Cohere,1171.7,825.2,1.42
+ttft_ms,ARN,Fireworks,1028.8,1239.3,0.83
+ttft_ms,ARN,DigitalOcean,833.1,741.0,1.124
+ttft_ms,ARN,inference.net,383.0,278.2,1.377
+ttft_ms,ARN,Ionstream,1111.9,763.2,1.457
+ttft_ms,ARN,Together,766.6,490.4,1.563
+ttft_ms,ARN,Mistral,1140.0,1340.5,0.85
+ttft_ms,ARN,Prime Intellect,1062.9,985.3,1.079
+ttft_ms,ARN,CoreWeave,857.2,513.1,1.671
+ttft_ms,ARN,Cloudflare,2073.6,2466.9,0.841
+ttft_ms,ARN,Morph (Fast),1231.9,934.3,1.318
+ttft_ms,ARN,ModelRun [by Modular],856.1,751.8,1.139
+ttft_ms,ATL,River,903.6,966.0,0.935
+ttft_ms,ATL,Open Inference,840.3,877.8,0.957
+ttft_ms,ATL,Alibaba Cloud Int.,1275.6,1121.1,1.138
+ttft_ms,ATL,Parasail,539.6,497.4,1.085
+ttft_ms,ATL,Wafer,392.1,372.4,1.053
+ttft_ms,ATL,Morph,606.2,537.1,1.129
+ttft_ms,ATL,Cloudflare,2311.5,2466.9,0.937
+ttft_ms,ATL,DeepInfra,912.9,839.0,1.088
+ttft_ms,ATL,inference.net (US),207.8,232.0,0.896
+ttft_ms,ATL,Relace,1184.5,719.6,1.646
+ttft_ms,ATL,DeepInfra (Priority),861.1,1026.0,0.839
+ttft_ms,ATL,Crusoe,803.7,740.3,1.086
+ttft_ms,ATL,Wafer (US),338.6,359.9,0.941
+ttft_ms,ATL,Cohere,830.0,825.2,1.006
+ttft_ms,ATL,DigitalOcean,393.5,741.0,0.531
+ttft_ms,ATL,inference.net,293.8,278.2,1.056
+ttft_ms,ATL,Ionstream,642.3,763.2,0.842
+ttft_ms,ATL,Together,510.4,490.4,1.041
+ttft_ms,ATL,Prime Intellect,1077.4,985.3,1.093
+ttft_ms,ATL,Modal,820.6,718.6,1.142
+ttft_ms,ATL,Mistral,1459.1,1340.5,1.088
+ttft_ms,ATL,StepFun,868.8,1094.1,0.794
+ttft_ms,ATL,CoreWeave,486.5,513.1,0.948
+ttft_ms,ATL,NovitaAI,1726.7,1610.2,1.072
+ttft_ms,ATL,DeepInfra (Flex),2166.0,5534.7,0.391
+ttft_ms,ATL,Nebius Token Factory,1006.4,921.0,1.093
+ttft_ms,ATL,ModelRun [by Modular],784.2,751.8,1.043
+ttft_ms,BOM,River,1285.5,966.0,1.331
+ttft_ms,BOM,Open Inference,1672.4,877.8,1.905
+ttft_ms,BOM,Alibaba Cloud Int.,852.1,1121.1,0.76
+ttft_ms,BOM,Parasail,923.0,497.4,1.856
+ttft_ms,BOM,Wafer,640.7,372.4,1.721
+ttft_ms,BOM,Baseten (Fast),1144.3,344.3,3.324
+ttft_ms,BOM,Particle AI,791.6,614.5,1.288
+ttft_ms,BOM,Morph,714.6,537.1,1.331
+ttft_ms,BOM,DeepInfra,972.9,839.0,1.16
+ttft_ms,BOM,inference.net (US),590.5,232.0,2.545
+ttft_ms,BOM,NovitaAI,2185.4,1610.2,1.357
+ttft_ms,BOM,Relace,545.3,719.6,0.758
+ttft_ms,BOM,DeepInfra (Priority),1127.8,1026.0,1.099
+ttft_ms,BOM,Crusoe,1101.2,740.3,1.488
+ttft_ms,BOM,Wafer (US),674.7,359.9,1.875
+ttft_ms,BOM,Cohere,1562.9,825.2,1.894
+ttft_ms,BOM,DigitalOcean,1250.8,741.0,1.688
+ttft_ms,BOM,inference.net,479.2,278.2,1.722
+ttft_ms,BOM,Ionstream,1286.5,763.2,1.686
+ttft_ms,BOM,Together,863.2,490.4,1.76
+ttft_ms,BOM,Mistral,1767.2,1340.5,1.318
+ttft_ms,BOM,Prime Intellect,1152.9,985.3,1.17
+ttft_ms,BOM,CoreWeave,996.3,513.1,1.942
+ttft_ms,BOM,StepFun,1702.4,1094.1,1.556
+ttft_ms,BOM,DeepSeek,989.2,1176.4,0.841
+ttft_ms,BOM,AtlasCloud,3594.9,2487.3,1.445
+ttft_ms,BOM,Morph (Fast),2130.1,934.3,2.28
+ttft_ms,BOM,Nebius Token Factory,1758.2,921.0,1.909
+ttft_ms,CDG,Modal,810.2,718.6,1.128
+ttft_ms,CDG,Fireworks Spot,2365.5,2746.7,0.861
+ttft_ms,CDG,River,957.0,966.0,0.991
+ttft_ms,CDG,Makora,672.3,649.5,1.035
+ttft_ms,CDG,Open Inference,1048.7,877.8,1.195
+ttft_ms,CDG,Alibaba Cloud Int.,1074.8,1121.1,0.959
+ttft_ms,CDG,Wafer,451.4,372.4,1.212
+ttft_ms,CDG,Baseten (Fast),308.2,344.3,0.895
+ttft_ms,CDG,Particle AI,660.2,614.5,1.074
+ttft_ms,CDG,DeepInfra (Flex),2670.6,5534.7,0.483
+ttft_ms,CDG,Morph,521.9,537.1,0.972
+ttft_ms,CDG,DeepInfra,971.3,839.0,1.158
+ttft_ms,CDG,inference.net (US),336.8,232.0,1.452
+ttft_ms,CDG,Particle AI (Flex),748.8,596.9,1.254
+ttft_ms,CDG,Relace,968.1,719.6,1.345
+ttft_ms,CDG,DeepSeek,1187.6,1176.4,1.01
+ttft_ms,CDG,DeepInfra (Priority),1015.5,1026.0,0.99
+ttft_ms,CDG,Crusoe,551.4,740.3,0.745
+ttft_ms,CDG,Wafer (US),368.8,359.9,1.025
+ttft_ms,CDG,Cohere,784.3,825.2,0.95
+ttft_ms,CDG,Fireworks,1228.7,1239.3,0.991
+ttft_ms,CDG,DigitalOcean,867.8,741.0,1.171
+ttft_ms,CDG,inference.net,364.9,278.2,1.311
+ttft_ms,CDG,Ionstream,894.8,763.2,1.172
+ttft_ms,CDG,Together,641.0,490.4,1.307
+ttft_ms,CDG,Mistral,1024.5,1340.5,0.764
+ttft_ms,CDG,Prime Intellect,832.7,985.3,0.845
+ttft_ms,CDG,Parasail,569.1,497.4,1.144
+ttft_ms,CDG,AtlasCloud,1636.9,2487.3,0.658
+ttft_ms,CDG,StepFun,1165.5,1094.1,1.065
+ttft_ms,CDG,CoreWeave,530.9,513.1,1.035
+ttft_ms,CDG,Cloudflare,2027.6,2466.9,0.822
+ttft_ms,CDG,NovitaAI,1792.9,1610.2,1.114
+ttft_ms,CDG,StreamLake,1807.2,1769.9,1.021
+ttft_ms,CDG,Nebius Token Factory,694.2,921.0,0.754
+ttft_ms,CDG,Morph (Fast),1036.4,934.3,1.109
+ttft_ms,CDG,Ambient,1624.5,945.2,1.719
+ttft_ms,CDG,ModelRun [by Modular],786.2,751.8,1.046
+ttft_ms,CMH,Modal,650.2,718.6,0.905
+ttft_ms,CMH,Fireworks Spot,3970.0,2746.7,1.445
+ttft_ms,CMH,River,919.9,966.0,0.952
+ttft_ms,CMH,Open Inference,589.7,877.8,0.672
+ttft_ms,CMH,Parasail,439.1,497.4,0.883
+ttft_ms,CMH,Wafer,372.9,372.4,1.001
+ttft_ms,CMH,Morph,490.4,537.1,0.913
+ttft_ms,CMH,DeepInfra,909.4,839.0,1.084
+ttft_ms,CMH,inference.net (US),318,232.0,1.371
+ttft_ms,CMH,Relace,698.2,719.6,0.97
+ttft_ms,CMH,DeepSeek,1287.1,1176.4,1.094
+ttft_ms,CMH,DeepInfra (Priority),880.2,1026.0,0.858
+ttft_ms,CMH,Crusoe,689.8,740.3,0.932
+ttft_ms,CMH,Wafer (US),322.6,359.9,0.896
+ttft_ms,CMH,Cohere,759.6,825.2,0.92
+ttft_ms,CMH,DigitalOcean,532.6,741.0,0.719
+ttft_ms,CMH,inference.net,299.7,278.2,1.077
+ttft_ms,CMH,Ionstream,771.6,763.2,1.011
+ttft_ms,CMH,Together,492.1,490.4,1.003
+ttft_ms,CMH,Mistral,1477.5,1340.5,1.102
+ttft_ms,CMH,Makora,605.1,649.5,0.932
+ttft_ms,CMH,Alibaba Cloud Int.,1126.6,1121.1,1.005
+ttft_ms,CMH,Fireworks,1007.7,1239.3,0.813
+ttft_ms,CMH,StepFun,809.2,1094.1,0.74
+ttft_ms,CMH,CoreWeave,601.9,513.1,1.173
+ttft_ms,CMH,Prime Intellect,912.4,985.3,0.926
+ttft_ms,CMH,Nebius Token Factory,1103.1,921.0,1.198
+ttft_ms,CMH,ModelRun [by Modular],708.0,751.8,0.942
+ttft_ms,DEN,River,986.8,966.0,1.022
+ttft_ms,DEN,Wafer,457.1,372.4,1.228
+ttft_ms,DEN,Morph,710.9,537.1,1.323
+ttft_ms,DEN,DeepInfra,829.3,839.0,0.988
+ttft_ms,DEN,inference.net (US),364.0,232.0,1.569
+ttft_ms,DEN,Relace,1211.3,719.6,1.683
+ttft_ms,DEN,DeepSeek,1075.0,1176.4,0.914
+ttft_ms,DEN,DeepInfra (Priority),920.8,1026.0,0.897
+ttft_ms,DEN,StreamLake,1523.0,1769.9,0.861
+ttft_ms,DEN,Wafer (US),304.5,359.9,0.846
+ttft_ms,DEN,Cohere,944.4,825.2,1.145
+ttft_ms,DEN,DigitalOcean,778.1,741.0,1.05
+ttft_ms,DEN,inference.net,314.4,278.2,1.13
+ttft_ms,DEN,Together,497.2,490.4,1.014
+ttft_ms,DEN,Particle AI (Flex),643.7,596.9,1.078
+ttft_ms,DEN,StepFun,1280.2,1094.1,1.17
+ttft_ms,DEN,Alibaba Cloud Int.,996.7,1121.1,0.889
+ttft_ms,DFW,Fireworks (US),622.0,766.3,0.812
+ttft_ms,DFW,Modal,696.6,718.6,0.969
+ttft_ms,DFW,Fireworks Spot,4108.3,2746.7,1.496
+ttft_ms,DFW,River,975.1,966.0,1.009
+ttft_ms,DFW,Open Inference,771.7,877.8,0.879
+ttft_ms,DFW,Alibaba Cloud Int.,1122.5,1121.1,1.001
+ttft_ms,DFW,Wafer,314.3,372.4,0.844
+ttft_ms,DFW,Morph,523.1,537.1,0.974
+ttft_ms,DFW,Cloudflare,2524.5,2466.9,1.023
+ttft_ms,DFW,DeepInfra,588.1,839.0,0.701
+ttft_ms,DFW,inference.net (US),257.2,232.0,1.109
+ttft_ms,DFW,Relace,1200.9,719.6,1.669
+ttft_ms,DFW,DeepSeek,1209.0,1176.4,1.028
+ttft_ms,DFW,DeepInfra (Priority),948.2,1026.0,0.924
+ttft_ms,DFW,Crusoe,603.6,740.3,0.815
+ttft_ms,DFW,Wafer (US),274.5,359.9,0.763
+ttft_ms,DFW,Cohere,825.5,825.2,1.0
+ttft_ms,DFW,Fireworks,1739.0,1239.3,1.403
+ttft_ms,DFW,DigitalOcean,536.3,741.0,0.724
+ttft_ms,DFW,inference.net,299.7,278.2,1.077
+ttft_ms,DFW,Ionstream,664.4,763.2,0.871
+ttft_ms,DFW,Together,348.0,490.4,0.71
+ttft_ms,DFW,Mistral,1360.1,1340.5,1.015
+ttft_ms,DFW,Prime Intellect,1193.5,985.3,1.211
+ttft_ms,DFW,StepFun,910.9,1094.1,0.832
+ttft_ms,DFW,CoreWeave,476.6,513.1,0.929
+ttft_ms,DFW,Baseten,715.4,753.5,0.949
+ttft_ms,DFW,NovitaAI,1825.7,1610.2,1.134
+ttft_ms,DFW,Nebius Token Factory,982.5,921.0,1.067
+ttft_ms,DFW,ModelRun [by Modular],794.4,751.8,1.057
+ttft_ms,EWR,Fireworks (US),886.8,766.3,1.157
+ttft_ms,EWR,Modal,758.9,718.6,1.056
+ttft_ms,EWR,River,976.7,966.0,1.011
+ttft_ms,EWR,Makora,537.8,649.5,0.828
+ttft_ms,EWR,Open Inference,704.8,877.8,0.803
+ttft_ms,EWR,Alibaba Cloud Int.,1075.7,1121.1,0.96
+ttft_ms,EWR,Parasail,632.7,497.4,1.272
+ttft_ms,EWR,Wafer,359.5,372.4,0.966
+ttft_ms,EWR,Baseten (Fast),271.4,344.3,0.788
+ttft_ms,EWR,Particle AI,563.6,614.5,0.917
+ttft_ms,EWR,DeepInfra (Flex),6873.7,5534.7,1.242
+ttft_ms,EWR,Morph,539,537.1,1.004
+ttft_ms,EWR,Cloudflare,2461.8,2466.9,0.998
+ttft_ms,EWR,DeepInfra,736.0,839.0,0.877
+ttft_ms,EWR,inference.net (US),196.3,232.0,0.846
+ttft_ms,EWR,Particle AI (Flex),777.2,596.9,1.302
+ttft_ms,EWR,NovitaAI,1937.1,1610.2,1.203
+ttft_ms,EWR,Relace,809.0,719.6,1.124
+ttft_ms,EWR,DeepSeek,1533.7,1176.4,1.304
+ttft_ms,EWR,DeepInfra (Priority),992.3,1026.0,0.967
+ttft_ms,EWR,Baseten,816.2,753.5,1.083
+ttft_ms,EWR,Crusoe,678.2,740.3,0.916
+ttft_ms,EWR,DekaLLM,1828.0,1442.6,1.267
+ttft_ms,EWR,Wafer (US),355.1,359.9,0.987
+ttft_ms,EWR,Cohere,812.3,825.2,0.984
+ttft_ms,EWR,Fireworks,2117.0,1239.3,1.708
+ttft_ms,EWR,DigitalOcean,538.5,741.0,0.727
+ttft_ms,EWR,inference.net,317.4,278.2,1.141
+ttft_ms,EWR,Ionstream,641.5,763.2,0.841
+ttft_ms,EWR,Together,380.9,490.4,0.777
+ttft_ms,EWR,Mistral,1476.9,1340.5,1.102
+ttft_ms,EWR,Prime Intellect,787.0,985.3,0.799
+ttft_ms,EWR,CoreWeave,544.8,513.1,1.062
+ttft_ms,EWR,GMICloud,950.0,982.1,0.967
+ttft_ms,EWR,StepFun,876.8,1094.1,0.801
+ttft_ms,EWR,Nebius Token Factory,1155.8,921.0,1.255
+ttft_ms,EWR,Ambient,1205.2,945.2,1.275
+ttft_ms,EWR,ModelRun [by Modular],681.6,751.8,0.907
+ttft_ms,FRA,Fireworks (US),1205.4,766.3,1.573
+ttft_ms,FRA,StepFun,1215.0,1094.1,1.11
+ttft_ms,FRA,Modal,811.6,718.6,1.13
+ttft_ms,FRA,Fireworks Spot,2738.7,2746.7,0.997
+ttft_ms,FRA,SiliconFlow,2195.8,2431.3,0.903
+ttft_ms,FRA,River,793.4,966.0,0.821
+ttft_ms,FRA,Makora,580.7,649.5,0.894
+ttft_ms,FRA,Open Inference,973.2,877.8,1.109
+ttft_ms,FRA,Alibaba Cloud Int.,914.3,1121.1,0.816
+ttft_ms,FRA,CoreWeave,583.9,513.1,1.138
+ttft_ms,FRA,Parasail,623.4,497.4,1.253
+ttft_ms,FRA,Wafer,428.7,372.4,1.151
+ttft_ms,FRA,Baseten (Fast),380.7,344.3,1.106
+ttft_ms,FRA,Particle AI,663.2,614.5,1.079
+ttft_ms,FRA,DeepInfra (Flex),4320.6,5534.7,0.781
+ttft_ms,FRA,Morph,484.7,537.1,0.902
+ttft_ms,FRA,Cloudflare,2151.7,2466.9,0.872
+ttft_ms,FRA,DeepInfra,908.9,839.0,1.083
+ttft_ms,FRA,inference.net (US),340.6,232.0,1.468
+ttft_ms,FRA,Particle AI (Flex),628.7,596.9,1.053
+ttft_ms,FRA,NovitaAI,1860.3,1610.2,1.155
+ttft_ms,FRA,Relace,742.7,719.6,1.032
+ttft_ms,FRA,GMICloud,1346.4,982.1,1.371
+ttft_ms,FRA,DeepSeek,964.6,1176.4,0.82
+ttft_ms,FRA,DeepInfra (Priority),1186.5,1026.0,1.156
+ttft_ms,FRA,Baseten,970.3,753.5,1.288
+ttft_ms,FRA,Crusoe,446.4,740.3,0.603
+ttft_ms,FRA,DekaLLM,1362.2,1442.6,0.944
+ttft_ms,FRA,StreamLake,2734.7,1769.9,1.545
+ttft_ms,FRA,Wafer (US),379.5,359.9,1.054
+ttft_ms,FRA,Cohere,768.4,825.2,0.931
+ttft_ms,FRA,Fireworks,1298.6,1239.3,1.048
+ttft_ms,FRA,DigitalOcean,674.7,741.0,0.911
+ttft_ms,FRA,inference.net,381.7,278.2,1.372
+ttft_ms,FRA,Ionstream,736.0,763.2,0.964
+ttft_ms,FRA,Together,583.0,490.4,1.189
+ttft_ms,FRA,Mistral,1056.4,1340.5,0.788
+ttft_ms,FRA,Prime Intellect,960.6,985.3,0.975
+ttft_ms,FRA,Baidu Qianfan,1776.2,1341.9,1.324
+ttft_ms,FRA,Nebius Token Factory,698.7,921.0,0.759
+ttft_ms,FRA,Ambient,1244.8,945.2,1.317
+ttft_ms,FRA,ModelRun [by Modular],760.4,751.8,1.011
+ttft_ms,GRU,StepFun,1512.8,1094.1,1.383
+ttft_ms,GRU,Modal,1115.6,718.6,1.552
+ttft_ms,GRU,River,1168.4,966.0,1.21
+ttft_ms,GRU,Open Inference,1133.2,877.8,1.291
+ttft_ms,GRU,Alibaba Cloud Int.,1259.6,1121.1,1.124
+ttft_ms,GRU,Wafer,504.5,372.4,1.355
+ttft_ms,GRU,DeepInfra (Flex),2276.1,5534.7,0.411
+ttft_ms,GRU,Morph,694.8,537.1,1.294
+ttft_ms,GRU,DeepInfra,1187.9,839.0,1.416
+ttft_ms,GRU,inference.net (US),432.7,232.0,1.865
+ttft_ms,GRU,Particle AI (Flex),1148.3,596.9,1.924
+ttft_ms,GRU,NovitaAI,1793.3,1610.2,1.114
+ttft_ms,GRU,Relace,1171.7,719.6,1.628
+ttft_ms,GRU,DeepSeek,1123.9,1176.4,0.955
+ttft_ms,GRU,DeepInfra (Priority),1576.3,1026.0,1.536
+ttft_ms,GRU,Crusoe,1081.5,740.3,1.461
+ttft_ms,GRU,Wafer (US),501.2,359.9,1.393
+ttft_ms,GRU,Cohere,992.1,825.2,1.202
+ttft_ms,GRU,DigitalOcean,758.4,741.0,1.024
+ttft_ms,GRU,inference.net,440.3,278.2,1.583
+ttft_ms,GRU,Ionstream,907.5,763.2,1.189
+ttft_ms,GRU,Together,667.0,490.4,1.36
+ttft_ms,GRU,Prime Intellect,872.2,985.3,0.885
+ttft_ms,GRU,Mistral,1472.3,1340.5,1.098
+ttft_ms,GRU,StreamLake,3212.6,1769.9,1.815
+ttft_ms,GRU,Fireworks,1204.9,1239.3,0.972
+ttft_ms,GRU,ModelRun [by Modular],893.9,751.8,1.189
+ttft_ms,HEL,Modal,880.4,718.6,1.225
+ttft_ms,HEL,River,801.3,966.0,0.83
+ttft_ms,HEL,Open Inference,1126.5,877.8,1.283
+ttft_ms,HEL,Alibaba Cloud Int.,1095.2,1121.1,0.977
+ttft_ms,HEL,Wafer,462.5,372.4,1.242
+ttft_ms,HEL,Morph,501.6,537.1,0.934
+ttft_ms,HEL,DeepInfra,1036.9,839.0,1.236
+ttft_ms,HEL,inference.net (US),387.4,232.0,1.67
+ttft_ms,HEL,Particle AI (Flex),903.6,596.9,1.514
+ttft_ms,HEL,Relace,703.2,719.6,0.977
+ttft_ms,HEL,DeepSeek,993.5,1176.4,0.845
+ttft_ms,HEL,DeepInfra (Priority),1348.3,1026.0,1.314
+ttft_ms,HEL,Crusoe,667.8,740.3,0.902
+ttft_ms,HEL,Wafer (US),435.7,359.9,1.21
+ttft_ms,HEL,Cohere,1126.2,825.2,1.365
+ttft_ms,HEL,Fireworks,904.5,1239.3,0.73
+ttft_ms,HEL,DigitalOcean,802.4,741.0,1.083
+ttft_ms,HEL,inference.net,402.5,278.2,1.447
+ttft_ms,HEL,Ionstream,781.4,763.2,1.024
+ttft_ms,HEL,Together,685.1,490.4,1.397
+ttft_ms,HEL,Prime Intellect,849.5,985.3,0.862
+ttft_ms,HEL,CoreWeave,792.6,513.1,1.545
+ttft_ms,HEL,Mistral,1154.7,1340.5,0.861
+ttft_ms,HEL,StepFun,1286.4,1094.1,1.176
+ttft_ms,HEL,Makora,681.3,649.5,1.049
+ttft_ms,HEL,DeepInfra (Flex),2587.5,5534.7,0.468
+ttft_ms,HEL,Cloudflare,2402.1,2466.9,0.974
+ttft_ms,HEL,NovitaAI,2235.7,1610.2,1.389
+ttft_ms,HEL,Nebius Token Factory,736.5,921.0,0.8
+ttft_ms,HEL,ModelRun [by Modular],841.1,751.8,1.119
+ttft_ms,IAD,Fireworks (US),633.2,766.3,0.826
+ttft_ms,IAD,StepFun,794.7,1094.1,0.726
+ttft_ms,IAD,Modal,709.7,718.6,0.988
+ttft_ms,IAD,Fireworks Spot,3944.7,2746.7,1.436
+ttft_ms,IAD,SiliconFlow,1268.4,2431.3,0.522
+ttft_ms,IAD,River,811.9,966.0,0.84
+ttft_ms,IAD,Makora,502.9,649.5,0.774
+ttft_ms,IAD,Open Inference,671.4,877.8,0.765
+ttft_ms,IAD,Alibaba Cloud Int.,937.0,1121.1,0.836
+ttft_ms,IAD,CoreWeave,452.5,513.1,0.882
+ttft_ms,IAD,Parasail,438.6,497.4,0.882
+ttft_ms,IAD,Wafer,335.5,372.4,0.901
+ttft_ms,IAD,Baseten (Fast),208.7,344.3,0.606
+ttft_ms,IAD,Particle AI,508.6,614.5,0.828
+ttft_ms,IAD,DeepInfra (Flex),2120.7,5534.7,0.383
+ttft_ms,IAD,Morph,498.7,537.1,0.929
+ttft_ms,IAD,Cloudflare,2440.3,2466.9,0.989
+ttft_ms,IAD,DeepInfra,975.1,839.0,1.162
+ttft_ms,IAD,inference.net (US),163.1,232.0,0.703
+ttft_ms,IAD,Particle AI (Flex),568.7,596.9,0.953
+ttft_ms,IAD,NovitaAI,1643.3,1610.2,1.021
+ttft_ms,IAD,Relace,750.3,719.6,1.043
+ttft_ms,IAD,GMICloud,851.6,982.1,0.867
+ttft_ms,IAD,DeepSeek,1266.7,1176.4,1.077
+ttft_ms,IAD,DeepInfra (Priority),935.5,1026.0,0.912
+ttft_ms,IAD,Baseten,649.9,753.5,0.863
+ttft_ms,IAD,Crusoe,574.5,740.3,0.776
+ttft_ms,IAD,DekaLLM,1350.9,1442.6,0.936
+ttft_ms,IAD,StreamLake,3001.6,1769.9,1.696
+ttft_ms,IAD,Wafer (US),265.1,359.9,0.736
+ttft_ms,IAD,Cohere,642.5,825.2,0.779
+ttft_ms,IAD,Fireworks,1458.0,1239.3,1.176
+ttft_ms,IAD,DigitalOcean,423.7,741.0,0.572
+ttft_ms,IAD,inference.net,202.0,278.2,0.726
+ttft_ms,IAD,Ionstream,608.7,763.2,0.798
+ttft_ms,IAD,Together,499.6,490.4,1.019
+ttft_ms,IAD,Mistral,1164.1,1340.5,0.868
+ttft_ms,IAD,Prime Intellect,934.5,985.3,0.948
+ttft_ms,IAD,Morph (Fast),616.0,934.3,0.659
+ttft_ms,IAD,Nebius Token Factory,723.6,921.0,0.786
+ttft_ms,IAD,Ambient,988.6,945.2,1.046
+ttft_ms,IAD,ModelRun [by Modular],633.2,751.8,0.842
+ttft_ms,ICN,Modal,699.1,718.6,0.973
+ttft_ms,ICN,River,1062.7,966.0,1.1
+ttft_ms,ICN,Makora,920.2,649.5,1.417
+ttft_ms,ICN,Open Inference,1048.6,877.8,1.195
+ttft_ms,ICN,Alibaba Cloud Int.,804.3,1121.1,0.717
+ttft_ms,ICN,CoreWeave,752.5,513.1,1.467
+ttft_ms,ICN,Parasail,734.6,497.4,1.477
+ttft_ms,ICN,Wafer,371.3,372.4,0.997
+ttft_ms,ICN,Baseten (Fast),476.0,344.3,1.382
+ttft_ms,ICN,Particle AI,641.3,614.5,1.044
+ttft_ms,ICN,Morph,619.3,537.1,1.153
+ttft_ms,ICN,DeepInfra,907.2,839.0,1.081
+ttft_ms,ICN,inference.net (US),639.5,232.0,2.757
+ttft_ms,ICN,Relace,581.4,719.6,0.808
+ttft_ms,ICN,DeepSeek,912.2,1176.4,0.775
+ttft_ms,ICN,DeepInfra (Priority),1021.5,1026.0,0.996
+ttft_ms,ICN,Baseten,1012.7,753.5,1.344
+ttft_ms,ICN,Crusoe,976.7,740.3,1.319
+ttft_ms,ICN,Wafer (US),368.6,359.9,1.024
+ttft_ms,ICN,Cohere,963.8,825.2,1.168
+ttft_ms,ICN,DigitalOcean,1210.1,741.0,1.633
+ttft_ms,ICN,inference.net,653.2,278.2,2.348
+ttft_ms,ICN,Ionstream,931.3,763.2,1.22
+ttft_ms,ICN,Together,784.2,490.4,1.599
+ttft_ms,ICN,Mistral,1940.9,1340.5,1.448
+ttft_ms,ICN,Prime Intellect,818.6,985.3,0.831
+ttft_ms,ICN,NovitaAI,1522.6,1610.2,0.946
+ttft_ms,ICN,StepFun,1481.2,1094.1,1.354
+ttft_ms,ICN,Fireworks,1239.5,1239.3,1.0
+ttft_ms,ICN,Morph (Fast),1238.1,934.3,1.325
+ttft_ms,ICN,Nebius Token Factory,1324.8,921.0,1.438
+ttft_ms,ICN,ModelRun [by Modular],889.0,751.8,1.182
+ttft_ms,LAX,Fireworks (US),1054.9,766.3,1.377
+ttft_ms,LAX,Modal,698.0,718.6,0.971
+ttft_ms,LAX,Fireworks Spot,2478.2,2746.7,0.902
+ttft_ms,LAX,River,982.8,966.0,1.017
+ttft_ms,LAX,Makora,598.6,649.5,0.922
+ttft_ms,LAX,Open Inference,970.1,877.8,1.105
+ttft_ms,LAX,Alibaba Cloud Int.,1756.5,1121.1,1.567
+ttft_ms,LAX,Wafer,240.1,372.4,0.645
+ttft_ms,LAX,Baseten (Fast),394.0,344.3,1.144
+ttft_ms,LAX,Particle AI,486.1,614.5,0.791
+ttft_ms,LAX,DeepInfra (Flex),5896.4,5534.7,1.065
+ttft_ms,LAX,Morph,514.0,537.1,0.957
+ttft_ms,LAX,DeepInfra,686.8,839.0,0.819
+ttft_ms,LAX,inference.net (US),329.7,232.0,1.421
+ttft_ms,LAX,Particle AI (Flex),1138.6,596.9,1.908
+ttft_ms,LAX,NovitaAI,1470.9,1610.2,0.914
+ttft_ms,LAX,Relace,779.3,719.6,1.083
+ttft_ms,LAX,GMICloud,724.7,982.1,0.738
+ttft_ms,LAX,DeepSeek,1266.7,1176.4,1.077
+ttft_ms,LAX,DeepInfra (Priority),753.6,1026.0,0.734
+ttft_ms,LAX,Baseten,952.5,753.5,1.264
+ttft_ms,LAX,Crusoe,787.2,740.3,1.063
+ttft_ms,LAX,DekaLLM,1412.7,1442.6,0.979
+ttft_ms,LAX,Wafer (US),216.8,359.9,0.602
+ttft_ms,LAX,Cohere,759.6,825.2,0.921
+ttft_ms,LAX,Fireworks,1134.4,1239.3,0.915
+ttft_ms,LAX,DigitalOcean,758.4,741.0,1.024
+ttft_ms,LAX,inference.net,342.9,278.2,1.232
+ttft_ms,LAX,Ionstream,663.5,763.2,0.869
+ttft_ms,LAX,Together,515.2,490.4,1.051
+ttft_ms,LAX,Prime Intellect,787.9,985.3,0.8
+ttft_ms,LAX,CoreWeave,447.5,513.1,0.872
+ttft_ms,LAX,Cloudflare,2174.3,2466.9,0.881
+ttft_ms,LAX,Mistral,1274.3,1340.5,0.951
+ttft_ms,LAX,StepFun,964.5,1094.1,0.882
+ttft_ms,LAX,Nebius Token Factory,1114.3,921.0,1.21
+ttft_ms,LAX,ModelRun [by Modular],750.5,751.8,0.998
+ttft_ms,LHR,StepFun,1158.5,1094.1,1.059
+ttft_ms,LHR,Modal,1063.0,718.6,1.479
+ttft_ms,LHR,River,976.5,966.0,1.011
+ttft_ms,LHR,Open Inference,1033.8,877.8,1.178
+ttft_ms,LHR,Alibaba Cloud Int.,1111.9,1121.1,0.992
+ttft_ms,LHR,Wafer,467,372.4,1.254
+ttft_ms,LHR,Particle AI,658.8,614.5,1.072
+ttft_ms,LHR,DeepInfra (Flex),2739.3,5534.7,0.495
+ttft_ms,LHR,Morph,447.8,537.1,0.834
+ttft_ms,LHR,DeepInfra,769.2,839.0,0.917
+ttft_ms,LHR,inference.net (US),343.0,232.0,1.478
+ttft_ms,LHR,Relace,835.0,719.6,1.16
+ttft_ms,LHR,DeepSeek,1095.5,1176.4,0.931
+ttft_ms,LHR,DeepInfra (Priority),896.1,1026.0,0.873
+ttft_ms,LHR,Crusoe,398.6,740.3,0.538
+ttft_ms,LHR,Wafer (US),457.1,359.9,1.27
+ttft_ms,LHR,Cohere,1114.5,825.2,1.351
+ttft_ms,LHR,Fireworks,1287.1,1239.3,1.039
+ttft_ms,LHR,DigitalOcean,887.5,741.0,1.198
+ttft_ms,LHR,inference.net,390.9,278.2,1.405
+ttft_ms,LHR,Ionstream,875.6,763.2,1.147
+ttft_ms,LHR,Together,518.2,490.4,1.057
+ttft_ms,LHR,Mistral,1084.9,1340.5,0.809
+ttft_ms,LHR,Prime Intellect,1144.2,985.3,1.161
+ttft_ms,LHR,Makora,645.1,649.5,0.993
+ttft_ms,LHR,CoreWeave,624.0,513.1,1.216
+ttft_ms,LHR,Cloudflare,2272.5,2466.9,0.921
+ttft_ms,LHR,Particle AI (Flex),907.1,596.9,1.52
+ttft_ms,LHR,Baseten (Fast),291.9,344.3,0.848
+ttft_ms,LHR,NovitaAI,1726.0,1610.2,1.072
+ttft_ms,LHR,Nebius Token Factory,872.0,921.0,0.947
+ttft_ms,LHR,ModelRun [by Modular],854.4,751.8,1.136
+ttft_ms,NRT,AtlasCloud,3271.2,2487.3,1.315
+ttft_ms,NRT,Fireworks (US),577.3,766.3,0.753
+ttft_ms,NRT,Modal,857.7,718.6,1.194
+ttft_ms,NRT,Fireworks Spot,2619.0,2746.7,0.954
+ttft_ms,NRT,River,1399.0,966.0,1.448
+ttft_ms,NRT,Open Inference,1104.5,877.8,1.258
+ttft_ms,NRT,Alibaba Cloud Int.,939.2,1121.1,0.838
+ttft_ms,NRT,Wafer,469.3,372.4,1.26
+ttft_ms,NRT,Particle AI,1223.0,614.5,1.99
+ttft_ms,NRT,DeepInfra (Flex),3404.5,5534.7,0.615
+ttft_ms,NRT,Morph,661.0,537.1,1.231
+ttft_ms,NRT,Cloudflare,2836,2466.9,1.15
+ttft_ms,NRT,DeepInfra,847.8,839.0,1.01
+ttft_ms,NRT,inference.net (US),465.4,232.0,2.006
+ttft_ms,NRT,Particle AI (Flex),972.3,596.9,1.629
+ttft_ms,NRT,Relace,743.1,719.6,1.033
+ttft_ms,NRT,GMICloud,597.6,982.1,0.609
+ttft_ms,NRT,DeepSeek,1029.5,1176.4,0.875
+ttft_ms,NRT,DeepInfra (Priority),1446.9,1026.0,1.41
+ttft_ms,NRT,Baseten,1483.3,753.5,1.969
+ttft_ms,NRT,Crusoe,732.1,740.3,0.989
+ttft_ms,NRT,Wafer (US),410.4,359.9,1.14
+ttft_ms,NRT,Cohere,1296.1,825.2,1.571
+ttft_ms,NRT,Fireworks,790.2,1239.3,0.638
+ttft_ms,NRT,DigitalOcean,1411.3,741.0,1.905
+ttft_ms,NRT,inference.net,613.2,278.2,2.204
+ttft_ms,NRT,Ionstream,769.9,763.2,1.009
+ttft_ms,NRT,Together,680.9,490.4,1.388
+ttft_ms,NRT,Prime Intellect,825.7,985.3,0.838
+ttft_ms,NRT,CoreWeave,454.7,513.1,0.886
+ttft_ms,NRT,Mistral,1961.5,1340.5,1.463
+ttft_ms,NRT,StepFun,2025.1,1094.1,1.851
+ttft_ms,NRT,NovitaAI,1842.3,1610.2,1.144
+ttft_ms,NRT,Morph (Fast),881.3,934.3,0.943
+ttft_ms,NRT,Nebius Token Factory,624.2,921.0,0.678
+ttft_ms,NRT,ModelRun [by Modular],1093.1,751.8,1.454
+ttft_ms,ORD,Modal,544.2,718.6,0.757
+ttft_ms,ORD,River,790.0,966.0,0.818
+ttft_ms,ORD,Makora,531.1,649.5,0.818
+ttft_ms,ORD,Open Inference,597.2,877.8,0.68
+ttft_ms,ORD,Alibaba Cloud Int.,820.2,1121.1,0.732
+ttft_ms,ORD,Parasail,389.4,497.4,0.783
+ttft_ms,ORD,Wafer,275.5,372.4,0.74
+ttft_ms,ORD,Baseten (Fast),282.8,344.3,0.821
+ttft_ms,ORD,Particle AI,495.0,614.5,0.805
+ttft_ms,ORD,Morph,417.6,537.1,0.777
+ttft_ms,ORD,Cloudflare,1794.5,2466.9,0.727
+ttft_ms,ORD,DeepInfra,788.3,839.0,0.94
+ttft_ms,ORD,inference.net (US),197.9,232.0,0.853
+ttft_ms,ORD,Particle AI (Flex),917.3,596.9,1.537
+ttft_ms,ORD,NovitaAI,1681.3,1610.2,1.044
+ttft_ms,ORD,Relace,744.9,719.6,1.035
+ttft_ms,ORD,GMICloud,776.2,982.1,0.79
+ttft_ms,ORD,DeepSeek,1057.9,1176.4,0.899
+ttft_ms,ORD,DeepInfra (Priority),898.9,1026.0,0.876
+ttft_ms,ORD,Crusoe,570.2,740.3,0.77
+ttft_ms,ORD,DekaLLM,1335.4,1442.6,0.926
+ttft_ms,ORD,Wafer (US),294.3,359.9,0.818
+ttft_ms,ORD,Cohere,582.7,825.2,0.706
+ttft_ms,ORD,Fireworks,1331.4,1239.3,1.074
+ttft_ms,ORD,DigitalOcean,482.6,741.0,0.651
+ttft_ms,ORD,inference.net,231.6,278.2,0.833
+ttft_ms,ORD,Ionstream,532.0,763.2,0.697
+ttft_ms,ORD,Together,561.6,490.4,1.145
+ttft_ms,ORD,Mistral,1246.6,1340.5,0.93
+ttft_ms,ORD,Prime Intellect,741.9,985.3,0.753
+ttft_ms,ORD,Fireworks (US),670.5,766.3,0.875
+ttft_ms,ORD,StepFun,636.0,1094.1,0.581
+ttft_ms,ORD,CoreWeave,546.1,513.1,1.064
+ttft_ms,ORD,Baseten,687.8,753.5,0.913
+ttft_ms,ORD,Venice,988.9,1404.3,0.704
+ttft_ms,ORD,Baidu Qianfan,1089.6,1341.9,0.812
+ttft_ms,ORD,Nebius Token Factory,899.8,921.0,0.977
+ttft_ms,ORD,Morph (Fast),762.5,934.3,0.816
+ttft_ms,ORD,Ambient,830.9,945.2,0.879
+ttft_ms,ORD,ModelRun [by Modular],715.4,751.8,0.952
+ttft_ms,OSL,StepFun,2442.9,1094.1,2.233
+ttft_ms,OSL,DeepInfra,825.6,839.0,0.984
+ttft_ms,OSL,Relace,1203.7,719.6,1.673
+ttft_ms,OSL,DeepInfra (Priority),1098.3,1026.0,1.07
+ttft_ms,OSL,Crusoe,515.0,740.3,0.696
+ttft_ms,OSL,Wafer (US),625.3,359.9,1.737
+ttft_ms,OSL,Cohere,1743.3,825.2,2.113
+ttft_ms,OSL,Fireworks,834.6,1239.3,0.673
+ttft_ms,OSL,Together,6580.5,490.4,13.417
+ttft_ms,OSL,Mistral,993.2,1340.5,0.741
+ttft_ms,OSL,DigitalOcean,1160.2,741.0,1.566
+ttft_ms,OSL,Morph,718.5,537.1,1.338
+ttft_ms,OSL,River,1107.6,966.0,1.147
+ttft_ms,PDX,Fireworks (US),830.0,766.3,1.083
+ttft_ms,PDX,Modal,634.6,718.6,0.883
+ttft_ms,PDX,Fireworks Spot,2107.9,2746.7,0.767
+ttft_ms,PDX,River,975.4,966.0,1.01
+ttft_ms,PDX,Makora,669.2,649.5,1.03
+ttft_ms,PDX,Open Inference,675.3,877.8,0.769
+ttft_ms,PDX,Alibaba Cloud Int.,957.0,1121.1,0.854
+ttft_ms,PDX,CoreWeave,381.8,513.1,0.744
+ttft_ms,PDX,Wafer,285.1,372.4,0.766
+ttft_ms,PDX,Baseten (Fast),414.0,344.3,1.202
+ttft_ms,PDX,Particle AI,2298.8,614.5,3.741
+ttft_ms,PDX,Morph,626.5,537.1,1.166
+ttft_ms,PDX,Cloudflare,2320.2,2466.9,0.941
+ttft_ms,PDX,DeepInfra,1050.0,839.0,1.252
+ttft_ms,PDX,inference.net (US),346.5,232.0,1.494
+ttft_ms,PDX,NovitaAI,1255.6,1610.2,0.78
+ttft_ms,PDX,Relace,619.9,719.6,0.861
+ttft_ms,PDX,DeepSeek,841.8,1176.4,0.716
+ttft_ms,PDX,DeepInfra (Priority),989.5,1026.0,0.964
+ttft_ms,PDX,Baseten,611.8,753.5,0.812
+ttft_ms,PDX,Crusoe,837.2,740.3,1.131
+ttft_ms,PDX,DekaLLM,1561.7,1442.6,1.083
+ttft_ms,PDX,Wafer (US),274.0,359.9,0.761
+ttft_ms,PDX,Cohere,456.6,825.2,0.553
+ttft_ms,PDX,Fireworks,1184.9,1239.3,0.956
+ttft_ms,PDX,DigitalOcean,678.0,741.0,0.915
+ttft_ms,PDX,inference.net,381.1,278.2,1.37
+ttft_ms,PDX,Ionstream,790.5,763.2,1.036
+ttft_ms,PDX,Together,351.8,490.4,0.717
+ttft_ms,PDX,Mistral,1624.7,1340.5,1.212
+ttft_ms,PDX,Prime Intellect,820.2,985.3,0.832
+ttft_ms,PDX,StepFun,996.6,1094.1,0.911
+ttft_ms,PDX,Parasail,538.7,497.4,1.083
+ttft_ms,PDX,Nebius Token Factory,1262.8,921.0,1.371
+ttft_ms,PDX,Morph (Fast),1051.5,934.3,1.125
+ttft_ms,PDX,ModelRun [by Modular],805.4,751.8,1.071
+ttft_ms,PHX,River,750.5,966.0,0.777
+ttft_ms,PHX,Makora,432.9,649.5,0.666
+ttft_ms,PHX,Alibaba Cloud Int.,730.4,1121.1,0.651
+ttft_ms,PHX,Wafer,207.0,372.4,0.556
+ttft_ms,PHX,Morph,451.3,537.1,0.84
+ttft_ms,PHX,DeepInfra,1075.2,839.0,1.281
+ttft_ms,PHX,inference.net (US),252.5,232.0,1.088
+ttft_ms,PHX,Relace,756.6,719.6,1.051
+ttft_ms,PHX,Wafer (US),250.0,359.9,0.695
+ttft_ms,PHX,Cohere,346.5,825.2,0.42
+ttft_ms,PHX,DigitalOcean,599.6,741.0,0.809
+ttft_ms,PHX,inference.net,232.4,278.2,0.835
+ttft_ms,PHX,Ionstream,377.0,763.2,0.494
+ttft_ms,PHX,Together,496.7,490.4,1.013
+ttft_ms,PHX,Prime Intellect,903.4,985.3,0.917
+ttft_ms,PHX,StepFun,553.0,1094.1,0.505
+ttft_ms,PHX,ModelRun [by Modular],660.3,751.8,0.878
+ttft_ms,SEA,Fireworks (US),566,766.3,0.739
+ttft_ms,SEA,StepFun,1145.8,1094.1,1.047
+ttft_ms,SEA,Modal,603.2,718.6,0.84
+ttft_ms,SEA,Fireworks Spot,2599.3,2746.7,0.946
+ttft_ms,SEA,River,1038.5,966.0,1.075
+ttft_ms,SEA,Makora,827.0,649.5,1.273
+ttft_ms,SEA,Open Inference,732.1,877.8,0.834
+ttft_ms,SEA,Alibaba Cloud Int.,982.9,1121.1,0.877
+ttft_ms,SEA,Parasail,505.4,497.4,1.016
+ttft_ms,SEA,Wafer,329.8,372.4,0.886
+ttft_ms,SEA,Baseten (Fast),348.2,344.3,1.011
+ttft_ms,SEA,Particle AI,725.8,614.5,1.181
+ttft_ms,SEA,Morph,589.0,537.1,1.097
+ttft_ms,SEA,DeepInfra,881.0,839.0,1.05
+ttft_ms,SEA,inference.net (US),303.2,232.0,1.307
+ttft_ms,SEA,NovitaAI,1542.5,1610.2,0.958
+ttft_ms,SEA,Relace,1017.3,719.6,1.414
+ttft_ms,SEA,DeepSeek,953.4,1176.4,0.81
+ttft_ms,SEA,DeepInfra (Priority),842.6,1026.0,0.821
+ttft_ms,SEA,Baseten,734.9,753.5,0.975
+ttft_ms,SEA,Crusoe,965.4,740.3,1.304
+ttft_ms,SEA,Wafer (US),335.7,359.9,0.933
+ttft_ms,SEA,Cohere,799.2,825.2,0.968
+ttft_ms,SEA,Fireworks,1185.6,1239.3,0.957
+ttft_ms,SEA,DigitalOcean,852.3,741.0,1.15
+ttft_ms,SEA,inference.net,357.2,278.2,1.284
+ttft_ms,SEA,Ionstream,930.8,763.2,1.22
+ttft_ms,SEA,Together,464.7,490.4,0.948
+ttft_ms,SEA,Mistral,1654.7,1340.5,1.234
+ttft_ms,SEA,Prime Intellect,1186.9,985.3,1.205
+ttft_ms,SEA,CoreWeave,1060.3,513.1,2.067
+ttft_ms,SEA,Cloudflare,3368.7,2466.9,1.366
+ttft_ms,SEA,Morph (Fast),1213.8,934.3,1.299
+ttft_ms,SEA,Nebius Token Factory,1365.5,921.0,1.483
+ttft_ms,SEA,ModelRun [by Modular],859,751.8,1.143
+ttft_ms,SIN,StepFun,1628.2,1094.1,1.488
+ttft_ms,SIN,Modal,861.2,718.6,1.199
+ttft_ms,SIN,River,1290.0,966.0,1.335
+ttft_ms,SIN,Makora,855.5,649.5,1.317
+ttft_ms,SIN,Open Inference,1219.4,877.8,1.389
+ttft_ms,SIN,Alibaba Cloud Int.,735.9,1121.1,0.656
+ttft_ms,SIN,CoreWeave,676.4,513.1,1.318
+ttft_ms,SIN,Parasail,606.8,497.4,1.22
+ttft_ms,SIN,Wafer,458.4,372.4,1.231
+ttft_ms,SIN,Baseten (Fast),401.2,344.3,1.165
+ttft_ms,SIN,Particle AI,643.8,614.5,1.048
+ttft_ms,SIN,DeepInfra (Flex),2455.2,5534.7,0.444
+ttft_ms,SIN,Morph,696.0,537.1,1.296
+ttft_ms,SIN,Cloudflare,2252.7,2466.9,0.913
+ttft_ms,SIN,DeepInfra,1305.5,839.0,1.556
+ttft_ms,SIN,inference.net (US),499.1,232.0,2.151
+ttft_ms,SIN,Particle AI (Flex),1487.1,596.9,2.491
+ttft_ms,SIN,NovitaAI,1691.2,1610.2,1.05
+ttft_ms,SIN,Relace,444.7,719.6,0.618
+ttft_ms,SIN,GMICloud,823.2,982.1,0.838
+ttft_ms,SIN,DeepSeek,941.3,1176.4,0.8
+ttft_ms,SIN,DeepInfra (Priority),1263.0,1026.0,1.231
+ttft_ms,SIN,Crusoe,942.5,740.3,1.273
+ttft_ms,SIN,DekaLLM,1035.8,1442.6,0.718
+ttft_ms,SIN,Wafer (US),490.6,359.9,1.363
+ttft_ms,SIN,Cohere,1274.7,825.2,1.545
+ttft_ms,SIN,DigitalOcean,1147.6,741.0,1.549
+ttft_ms,SIN,inference.net,544.8,278.2,1.958
+ttft_ms,SIN,Ionstream,973.3,763.2,1.275
+ttft_ms,SIN,Together,751.3,490.4,1.532
+ttft_ms,SIN,Mistral,1521.5,1340.5,1.135
+ttft_ms,SIN,Prime Intellect,1103.0,985.3,1.119
+ttft_ms,SIN,Fireworks,919.3,1239.3,0.742
+ttft_ms,SIN,Nebius Token Factory,1180.0,921.0,1.281
+ttft_ms,SIN,Ambient,1222.5,945.2,1.293
+ttft_ms,SIN,ModelRun [by Modular],943.5,751.8,1.255
+ttft_ms,SJC,Fireworks (US),543.4,766.3,0.709
+ttft_ms,SJC,Modal,665.3,718.6,0.926
+ttft_ms,SJC,Fireworks Spot,2217.0,2746.7,0.807
+ttft_ms,SJC,River,938.2,966.0,0.971
+ttft_ms,SJC,Makora,596.1,649.5,0.918
+ttft_ms,SJC,Open Inference,731.1,877.8,0.833
+ttft_ms,SJC,Alibaba Cloud Int.,1413.5,1121.1,1.261
+ttft_ms,SJC,CoreWeave,415.2,513.1,0.809
+ttft_ms,SJC,Parasail,418.0,497.4,0.841
+ttft_ms,SJC,Wafer,273.3,372.4,0.734
+ttft_ms,SJC,Particle AI,517.5,614.5,0.842
+ttft_ms,SJC,DeepInfra (Flex),7366.9,5534.7,1.331
+ttft_ms,SJC,Morph,488.1,537.1,0.909
+ttft_ms,SJC,Cloudflare,2457.2,2466.9,0.996
+ttft_ms,SJC,DeepInfra,593.9,839.0,0.708
+ttft_ms,SJC,inference.net (US),348.2,232.0,1.501
+ttft_ms,SJC,Particle AI (Flex),544.3,596.9,0.912
+ttft_ms,SJC,NovitaAI,1394.0,1610.2,0.866
+ttft_ms,SJC,Relace,846.3,719.6,1.176
+ttft_ms,SJC,GMICloud,746.9,982.1,0.761
+ttft_ms,SJC,DeepSeek,930.5,1176.4,0.791
+ttft_ms,SJC,DeepInfra (Priority),747.9,1026.0,0.729
+ttft_ms,SJC,Baseten,662.6,753.5,0.879
+ttft_ms,SJC,Crusoe,695.8,740.3,0.94
+ttft_ms,SJC,DekaLLM,1433.3,1442.6,0.994
+ttft_ms,SJC,StreamLake,1336.1,1769.9,0.755
+ttft_ms,SJC,Wafer (US),254.1,359.9,0.706
+ttft_ms,SJC,Cohere,721.3,825.2,0.874
+ttft_ms,SJC,Fireworks,990.2,1239.3,0.799
+ttft_ms,SJC,DigitalOcean,704.3,741.0,0.95
+ttft_ms,SJC,inference.net,347.2,278.2,1.248
+ttft_ms,SJC,Ionstream,685.0,763.2,0.898
+ttft_ms,SJC,Together,398.8,490.4,0.813
+ttft_ms,SJC,Mistral,1280.8,1340.5,0.955
+ttft_ms,SJC,Prime Intellect,760.8,985.3,0.772
+ttft_ms,SJC,StepFun,937.1,1094.1,0.856
+ttft_ms,SJC,Baseten (Fast),329.2,344.3,0.956
+ttft_ms,SJC,Nebius Token Factory,932.6,921.0,1.013
+ttft_ms,SJC,Ambient,675.4,945.2,0.715
+ttft_ms,SJC,ModelRun [by Modular],747.5,751.8,0.994
+ttft_ms,WAW,River,934.6,966.0,0.967
+ttft_ms,WAW,Open Inference,1099.4,877.8,1.252
+ttft_ms,WAW,Alibaba Cloud Int.,996.9,1121.1,0.889
+ttft_ms,WAW,Wafer,506.4,372.4,1.36
+ttft_ms,WAW,Morph,646.4,537.1,1.203
+ttft_ms,WAW,Cloudflare,1927.1,2466.9,0.781
+ttft_ms,WAW,DeepInfra,847.5,839.0,1.01
+ttft_ms,WAW,inference.net (US),380.4,232.0,1.64
+ttft_ms,WAW,Relace,1029.2,719.6,1.43
+ttft_ms,WAW,DeepSeek,1078.4,1176.4,0.917
+ttft_ms,WAW,DeepInfra (Priority),1340.0,1026.0,1.306
+ttft_ms,WAW,Crusoe,588.6,740.3,0.795
+ttft_ms,WAW,Wafer (US),391.0,359.9,1.086
+ttft_ms,WAW,Cohere,1095.6,825.2,1.328
+ttft_ms,WAW,DigitalOcean,995.1,741.0,1.343
+ttft_ms,WAW,inference.net,450.4,278.2,1.619
+ttft_ms,WAW,Ionstream,796.2,763.2,1.043
+ttft_ms,WAW,Together,733.3,490.4,1.495
+ttft_ms,WAW,Prime Intellect,1295.1,985.3,1.314
+ttft_ms,WAW,CoreWeave,651.9,513.1,1.271
+ttft_ms,WAW,Parasail,671.3,497.4,1.35
+ttft_ms,WAW,Mistral,1426.9,1340.5,1.064
+ttft_ms,WAW,Fireworks (US),1851.0,766.3,2.416
+ttft_ms,WAW,StepFun,1183.1,1094.1,1.081
+ttft_ms,WAW,Modal,1111.2,718.6,1.546
+ttft_ms,WAW,NovitaAI,1729.2,1610.2,1.074
+ttft_ms,WAW,ModelRun [by Modular],838.8,751.8,1.116
+ttft_ms,YYZ,River,1103.7,966.0,1.143
+ttft_ms,YYZ,Open Inference,849.4,877.8,0.968
+ttft_ms,YYZ,Alibaba Cloud Int.,1014.2,1121.1,0.905
+ttft_ms,YYZ,Wafer,399.9,372.4,1.074
+ttft_ms,YYZ,DeepInfra (Flex),2743.5,5534.7,0.496
+ttft_ms,YYZ,Morph,533.0,537.1,0.992
+ttft_ms,YYZ,DeepInfra,923.3,839.0,1.1
+ttft_ms,YYZ,inference.net (US),272.9,232.0,1.177
+ttft_ms,YYZ,Particle AI (Flex),973.9,596.9,1.632
+ttft_ms,YYZ,Relace,1112.7,719.6,1.546
+ttft_ms,YYZ,DeepSeek,1263.8,1176.4,1.074
+ttft_ms,YYZ,DeepInfra (Priority),1001.4,1026.0,0.976
+ttft_ms,YYZ,StreamLake,2065.4,1769.9,1.167
+ttft_ms,YYZ,Wafer (US),343.9,359.9,0.955
+ttft_ms,YYZ,Cohere,930.1,825.2,1.127
+ttft_ms,YYZ,DigitalOcean,658.2,741.0,0.888
+ttft_ms,YYZ,inference.net,313.3,278.2,1.126
+ttft_ms,YYZ,Ionstream,752.3,763.2,0.986
+ttft_ms,YYZ,Together,425.9,490.4,0.868
+ttft_ms,YYZ,Mistral,1492.0,1340.5,1.113
+ttft_ms,YYZ,Prime Intellect,1071.1,985.3,1.087
+ttft_ms,YYZ,StepFun,917.4,1094.1,0.838
+ttft_ms,YYZ,CoreWeave,561.3,513.1,1.094
+ttft_ms,YYZ,Nebius Token Factory,948.5,921.0,1.03
+ttft_ms,YYZ,ModelRun [by Modular],766.3,751.8,1.019
+e2e_ms,AMS,StepFun,5176.6,4723.9,1.096
+e2e_ms,AMS,Modal,3996.6,3631.2,1.101
+e2e_ms,AMS,River,5473.4,4560.9,1.2
+e2e_ms,AMS,Makora,3364.5,3644.8,0.923
+e2e_ms,AMS,Open Inference,7140.7,6769.3,1.055
+e2e_ms,AMS,Alibaba Cloud Int.,4648.3,5681.5,0.818
+e2e_ms,AMS,Parasail,3489.6,2434.3,1.433
+e2e_ms,AMS,Wafer,2783.5,2753.3,1.011
+e2e_ms,AMS,Baseten (Fast),1314.6,1002.9,1.311
+e2e_ms,AMS,Particle AI,3383.3,3045.0,1.111
+e2e_ms,AMS,DeepInfra (Flex),9166.4,17322.8,0.529
+e2e_ms,AMS,Morph,3200.8,2868.3,1.116
+e2e_ms,AMS,Cloudflare,6739,7735.5,0.871
+e2e_ms,AMS,DeepInfra,3779.7,4026.8,0.939
+e2e_ms,AMS,inference.net (US),2652.7,2444.1,1.085
+e2e_ms,AMS,Particle AI (Flex),4129.2,4470.3,0.924
+e2e_ms,AMS,NovitaAI,6135.3,5363.9,1.144
+e2e_ms,AMS,Relace,3546.5,2983.8,1.189
+e2e_ms,AMS,DeepSeek,4554.2,4028.5,1.131
+e2e_ms,AMS,DeepInfra (Priority),6660.9,5878,1.133
+e2e_ms,AMS,Crusoe,3135.0,3062.4,1.024
+e2e_ms,AMS,DekaLLM,6112.2,5607.2,1.09
+e2e_ms,AMS,StreamLake,16333.7,5421.0,3.013
+e2e_ms,AMS,Wafer (US),1458.0,2306.3,0.632
+e2e_ms,AMS,Cohere,4607.1,3817.4,1.207
+e2e_ms,AMS,DigitalOcean,3193.4,3111.1,1.026
+e2e_ms,AMS,inference.net,2491.4,3417.0,0.729
+e2e_ms,AMS,Ionstream,3798.9,3470.9,1.095
+e2e_ms,AMS,Together,2787.0,2494.0,1.118
+e2e_ms,AMS,Mistral,4094.4,4240.3,0.966
+e2e_ms,AMS,Prime Intellect,5166.9,4398.2,1.175
+e2e_ms,AMS,CoreWeave,5551.3,4816.1,1.153
+e2e_ms,AMS,GMICloud,5383.5,3596.4,1.497
+e2e_ms,AMS,Fireworks,4615.8,4811.8,0.959
+e2e_ms,AMS,Nebius Token Factory,3624.2,3445.4,1.052
+e2e_ms,AMS,Ambient,5512.1,6459.4,0.853
+e2e_ms,AMS,ModelRun [by Modular],3072.4,3083.5,0.996
+e2e_ms,ARN,Fireworks (US),5274.0,3074.0,1.716
+e2e_ms,ARN,StepFun,4869.3,4723.9,1.031
+e2e_ms,ARN,Modal,4090.9,3631.2,1.127
+e2e_ms,ARN,River,4346.5,4560.9,0.953
+e2e_ms,ARN,Open Inference,8090.3,6769.3,1.195
+e2e_ms,ARN,Alibaba Cloud Int.,5147.0,5681.5,0.906
+e2e_ms,ARN,Wafer,2946.1,2753.3,1.07
+e2e_ms,ARN,Morph,3448.1,2868.3,1.202
+e2e_ms,ARN,DeepInfra,6843.8,4026.8,1.7
+e2e_ms,ARN,inference.net (US),3580.1,2444.1,1.465
+e2e_ms,ARN,Particle AI (Flex),2665.0,4470.3,0.596
+e2e_ms,ARN,NovitaAI,5584.7,5363.9,1.041
+e2e_ms,ARN,Relace,3547.2,2983.8,1.189
+e2e_ms,ARN,DeepSeek,4656.8,4028.5,1.156
+e2e_ms,ARN,DeepInfra (Priority),7571.5,5878,1.288
+e2e_ms,ARN,Baseten,8572.4,4004.5,2.141
+e2e_ms,ARN,Crusoe,3712.8,3062.4,1.212
+e2e_ms,ARN,Wafer (US),3306.8,2306.3,1.434
+e2e_ms,ARN,Cohere,4591.9,3817.4,1.203
+e2e_ms,ARN,Fireworks,5700.9,4811.8,1.185
+e2e_ms,ARN,DigitalOcean,3494.2,3111.1,1.123
+e2e_ms,ARN,inference.net,2106.6,3417.0,0.617
+e2e_ms,ARN,Ionstream,4185.9,3470.9,1.206
+e2e_ms,ARN,Together,3697.8,2494.0,1.483
+e2e_ms,ARN,Mistral,4379.2,4240.3,1.033
+e2e_ms,ARN,Prime Intellect,5613.5,4398.2,1.276
+e2e_ms,ARN,CoreWeave,3646.4,4816.1,0.757
+e2e_ms,ARN,Cloudflare,7236.6,7735.5,0.936
+e2e_ms,ARN,Morph (Fast),4683.2,3789.1,1.236
+e2e_ms,ARN,ModelRun [by Modular],3036.5,3083.5,0.985
+e2e_ms,ATL,River,4441.7,4560.9,0.974
+e2e_ms,ATL,Open Inference,6372.6,6769.3,0.941
+e2e_ms,ATL,Alibaba Cloud Int.,4853.8,5681.5,0.854
+e2e_ms,ATL,Parasail,3437.3,2434.3,1.412
+e2e_ms,ATL,Wafer,2862.1,2753.3,1.04
+e2e_ms,ATL,Morph,3469.1,2868.3,1.209
+e2e_ms,ATL,Cloudflare,5865.7,7735.5,0.758
+e2e_ms,ATL,DeepInfra,3746.9,4026.8,0.93
+e2e_ms,ATL,inference.net (US),3365.7,2444.1,1.377
+e2e_ms,ATL,Relace,4156.3,2983.8,1.393
+e2e_ms,ATL,DeepInfra (Priority),4383.4,5878,0.746
+e2e_ms,ATL,Crusoe,3359.1,3062.4,1.097
+e2e_ms,ATL,Wafer (US),3476.5,2306.3,1.507
+e2e_ms,ATL,Cohere,3949.1,3817.4,1.034
+e2e_ms,ATL,DigitalOcean,2419.7,3111.1,0.778
+e2e_ms,ATL,inference.net,2454.6,3417.0,0.718
+e2e_ms,ATL,Ionstream,3237.5,3470.9,0.933
+e2e_ms,ATL,Together,2460.4,2494.0,0.987
+e2e_ms,ATL,Prime Intellect,4706.7,4398.2,1.07
+e2e_ms,ATL,Modal,3660.3,3631.2,1.008
+e2e_ms,ATL,Mistral,4570.8,4240.3,1.078
+e2e_ms,ATL,StepFun,4003.4,4723.9,0.847
+e2e_ms,ATL,CoreWeave,2405.2,4816.1,0.499
+e2e_ms,ATL,NovitaAI,5664.2,5363.9,1.056
+e2e_ms,ATL,DeepInfra (Flex),6561.5,17322.8,0.379
+e2e_ms,ATL,Nebius Token Factory,3798.1,3445.4,1.102
+e2e_ms,ATL,ModelRun [by Modular],3301.8,3083.5,1.071
+e2e_ms,BOM,River,6209.4,4560.9,1.361
+e2e_ms,BOM,Open Inference,8636.6,6769.3,1.276
+e2e_ms,BOM,Alibaba Cloud Int.,4716.7,5681.5,0.83
+e2e_ms,BOM,Parasail,4139.5,2434.3,1.7
+e2e_ms,BOM,Wafer,4406.0,2753.3,1.6
+e2e_ms,BOM,Baseten (Fast),3022.0,1002.9,3.013
+e2e_ms,BOM,Particle AI,3688.9,3045.0,1.211
+e2e_ms,BOM,Morph,7211.1,2868.3,2.514
+e2e_ms,BOM,DeepInfra,7568.4,4026.8,1.88
+e2e_ms,BOM,inference.net (US),3888.6,2444.1,1.591
+e2e_ms,BOM,NovitaAI,7304.1,5363.9,1.362
+e2e_ms,BOM,Relace,3462.9,2983.8,1.161
+e2e_ms,BOM,DeepInfra (Priority),5843.2,5878,0.994
+e2e_ms,BOM,Crusoe,4891.2,3062.4,1.597
+e2e_ms,BOM,Wafer (US),4049.2,2306.3,1.756
+e2e_ms,BOM,Cohere,6437.6,3817.4,1.686
+e2e_ms,BOM,DigitalOcean,4952.1,3111.1,1.592
+e2e_ms,BOM,inference.net,1632.5,3417.0,0.478
+e2e_ms,BOM,Ionstream,5388.5,3470.9,1.552
+e2e_ms,BOM,Together,3894.0,2494.0,1.561
+e2e_ms,BOM,Mistral,5778.0,4240.3,1.363
+e2e_ms,BOM,Prime Intellect,5573.4,4398.2,1.267
+e2e_ms,BOM,CoreWeave,5120.2,4816.1,1.063
+e2e_ms,BOM,StepFun,6366.2,4723.9,1.348
+e2e_ms,BOM,DeepSeek,6772.2,4028.5,1.681
+e2e_ms,BOM,AtlasCloud,13932,7360.9,1.893
+e2e_ms,BOM,Morph (Fast),7110.4,3789.1,1.877
+e2e_ms,BOM,Nebius Token Factory,6446.5,3445.4,1.871
+e2e_ms,CDG,Modal,3642.0,3631.2,1.003
+e2e_ms,CDG,Fireworks Spot,7934.0,9915.3,0.8
+e2e_ms,CDG,River,4196.7,4560.9,0.92
+e2e_ms,CDG,Makora,6649.4,3644.8,1.824
+e2e_ms,CDG,Open Inference,7782.1,6769.3,1.15
+e2e_ms,CDG,Alibaba Cloud Int.,4533.5,5681.5,0.798
+e2e_ms,CDG,Wafer,2990.5,2753.3,1.086
+e2e_ms,CDG,Baseten (Fast),881.8,1002.9,0.879
+e2e_ms,CDG,Particle AI,3084.7,3045.0,1.013
+e2e_ms,CDG,DeepInfra (Flex),12634.6,17322.8,0.729
+e2e_ms,CDG,Morph,2456.9,2868.3,0.857
+e2e_ms,CDG,DeepInfra,4755.8,4026.8,1.181
+e2e_ms,CDG,inference.net (US),1974.8,2444.1,0.808
+e2e_ms,CDG,Particle AI (Flex),2892.1,4470.3,0.647
+e2e_ms,CDG,Relace,3560.7,2983.8,1.193
+e2e_ms,CDG,DeepSeek,3628.6,4028.5,0.901
+e2e_ms,CDG,DeepInfra (Priority),5310.4,5878,0.903
+e2e_ms,CDG,Crusoe,2631.3,3062.4,0.859
+e2e_ms,CDG,Wafer (US),1883.6,2306.3,0.817
+e2e_ms,CDG,Cohere,3062.3,3817.4,0.802
+e2e_ms,CDG,Fireworks,4423.1,4811.8,0.919
+e2e_ms,CDG,DigitalOcean,3509.8,3111.1,1.128
+e2e_ms,CDG,inference.net,2393.0,3417.0,0.7
+e2e_ms,CDG,Ionstream,3447.2,3470.9,0.993
+e2e_ms,CDG,Together,2831.5,2494.0,1.135
+e2e_ms,CDG,Mistral,3275.8,4240.3,0.773
+e2e_ms,CDG,Prime Intellect,3690.2,4398.2,0.839
+e2e_ms,CDG,Parasail,16427.2,2434.3,6.748
+e2e_ms,CDG,AtlasCloud,13896.1,7360.9,1.888
+e2e_ms,CDG,StepFun,4955.6,4723.9,1.049
+e2e_ms,CDG,CoreWeave,2232.4,4816.1,0.464
+e2e_ms,CDG,Cloudflare,7256.1,7735.5,0.938
+e2e_ms,CDG,NovitaAI,6350.2,5363.9,1.184
+e2e_ms,CDG,StreamLake,5459.2,5421.0,1.007
+e2e_ms,CDG,Nebius Token Factory,3109.1,3445.4,0.902
+e2e_ms,CDG,Morph (Fast),4828.0,3789.1,1.274
+e2e_ms,CDG,Ambient,6621.6,6459.4,1.025
+e2e_ms,CDG,ModelRun [by Modular],3084.1,3083.5,1.0
+e2e_ms,CMH,Modal,2961.8,3631.2,0.816
+e2e_ms,CMH,Fireworks Spot,21532.4,9915.3,2.172
+e2e_ms,CMH,River,4295.2,4560.9,0.942
+e2e_ms,CMH,Open Inference,7032.4,6769.3,1.039
+e2e_ms,CMH,Parasail,1110.2,2434.3,0.456
+e2e_ms,CMH,Wafer,2296.8,2753.3,0.834
+e2e_ms,CMH,Morph,2628.9,2868.3,0.917
+e2e_ms,CMH,DeepInfra,4531.7,4026.8,1.125
+e2e_ms,CMH,inference.net (US),3893.1,2444.1,1.593
+e2e_ms,CMH,Relace,2588.5,2983.8,0.868
+e2e_ms,CMH,DeepSeek,3984.3,4028.5,0.989
+e2e_ms,CMH,DeepInfra (Priority),4420.1,5878,0.752
+e2e_ms,CMH,Crusoe,2645.3,3062.4,0.864
+e2e_ms,CMH,Wafer (US),2265.1,2306.3,0.982
+e2e_ms,CMH,Cohere,3140.4,3817.4,0.823
+e2e_ms,CMH,DigitalOcean,2316.9,3111.1,0.745
+e2e_ms,CMH,inference.net,2394.7,3417.0,0.701
+e2e_ms,CMH,Ionstream,3037.3,3470.9,0.875
+e2e_ms,CMH,Together,2211.0,2494.0,0.887
+e2e_ms,CMH,Mistral,4236.1,4240.3,0.999
+e2e_ms,CMH,Makora,3162.2,3644.8,0.868
+e2e_ms,CMH,Alibaba Cloud Int.,3981.2,5681.5,0.701
+e2e_ms,CMH,Fireworks,9661.5,4811.8,2.008
+e2e_ms,CMH,StepFun,3488.5,4723.9,0.738
+e2e_ms,CMH,CoreWeave,2614.8,4816.1,0.543
+e2e_ms,CMH,Prime Intellect,4398.8,4398.2,1.0
+e2e_ms,CMH,Nebius Token Factory,3529.5,3445.4,1.024
+e2e_ms,CMH,ModelRun [by Modular],2902.1,3083.5,0.941
+e2e_ms,DEN,River,3668.7,4560.9,0.804
+e2e_ms,DEN,Wafer,3574.7,2753.3,1.298
+e2e_ms,DEN,Morph,4242.6,2868.3,1.479
+e2e_ms,DEN,DeepInfra,3584.7,4026.8,0.89
+e2e_ms,DEN,inference.net (US),2798.4,2444.1,1.145
+e2e_ms,DEN,Relace,4267.3,2983.8,1.43
+e2e_ms,DEN,DeepSeek,3267.5,4028.5,0.811
+e2e_ms,DEN,DeepInfra (Priority),4083.4,5878,0.695
+e2e_ms,DEN,StreamLake,4238.1,5421.0,0.782
+e2e_ms,DEN,Wafer (US),3024.9,2306.3,1.312
+e2e_ms,DEN,Cohere,4330.0,3817.4,1.134
+e2e_ms,DEN,DigitalOcean,5163.8,3111.1,1.66
+e2e_ms,DEN,inference.net,2146.9,3417.0,0.628
+e2e_ms,DEN,Together,1944.1,2494.0,0.78
+e2e_ms,DEN,Particle AI (Flex),3958.8,4470.3,0.886
+e2e_ms,DEN,StepFun,5313.8,4723.9,1.125
+e2e_ms,DEN,Alibaba Cloud Int.,4386.7,5681.5,0.772
+e2e_ms,DFW,Fireworks (US),2022.0,3074.0,0.658
+e2e_ms,DFW,Modal,3122.0,3631.2,0.86
+e2e_ms,DFW,Fireworks Spot,11967.7,9915.3,1.207
+e2e_ms,DFW,River,4576.2,4560.9,1.003
+e2e_ms,DFW,Open Inference,6489.2,6769.3,0.959
+e2e_ms,DFW,Alibaba Cloud Int.,5125.4,5681.5,0.902
+e2e_ms,DFW,Wafer,2905.1,2753.3,1.055
+e2e_ms,DFW,Morph,3170.0,2868.3,1.105
+e2e_ms,DFW,Cloudflare,7141.2,7735.5,0.923
+e2e_ms,DFW,DeepInfra,2639.9,4026.8,0.656
+e2e_ms,DFW,inference.net (US),3055.2,2444.1,1.25
+e2e_ms,DFW,Relace,4145.4,2983.8,1.389
+e2e_ms,DFW,DeepSeek,5201.0,4028.5,1.291
+e2e_ms,DFW,DeepInfra (Priority),4411.8,5878,0.751
+e2e_ms,DFW,Crusoe,2116.8,3062.4,0.691
+e2e_ms,DFW,Wafer (US),2311.8,2306.3,1.002
+e2e_ms,DFW,Cohere,3897.3,3817.4,1.021
+e2e_ms,DFW,Fireworks,5535.2,4811.8,1.15
+e2e_ms,DFW,DigitalOcean,1748.7,3111.1,0.562
+e2e_ms,DFW,inference.net,2375.6,3417.0,0.695
+e2e_ms,DFW,Ionstream,3245.5,3470.9,0.935
+e2e_ms,DFW,Together,1660.6,2494.0,0.666
+e2e_ms,DFW,Mistral,3554.2,4240.3,0.838
+e2e_ms,DFW,Prime Intellect,5398.4,4398.2,1.227
+e2e_ms,DFW,StepFun,3928.1,4723.9,0.832
+e2e_ms,DFW,CoreWeave,2026.7,4816.1,0.421
+e2e_ms,DFW,Baseten,3947.2,4004.5,0.986
+e2e_ms,DFW,NovitaAI,6525.8,5363.9,1.217
+e2e_ms,DFW,Nebius Token Factory,3897.1,3445.4,1.131
+e2e_ms,DFW,ModelRun [by Modular],3175.3,3083.5,1.03
+e2e_ms,EWR,Fireworks (US),3509.4,3074.0,1.142
+e2e_ms,EWR,Modal,3440.7,3631.2,0.948
+e2e_ms,EWR,River,4642.7,4560.9,1.018
+e2e_ms,EWR,Makora,3966.1,3644.8,1.088
+e2e_ms,EWR,Open Inference,6319.9,6769.3,0.934
+e2e_ms,EWR,Alibaba Cloud Int.,4764.0,5681.5,0.839
+e2e_ms,EWR,Parasail,3141.8,2434.3,1.291
+e2e_ms,EWR,Wafer,2620.0,2753.3,0.952
+e2e_ms,EWR,Baseten (Fast),933.2,1002.9,0.93
+e2e_ms,EWR,Particle AI,5081.6,3045.0,1.669
+e2e_ms,EWR,DeepInfra (Flex),38624.4,17322.8,2.23
+e2e_ms,EWR,Morph,3474.0,2868.3,1.211
+e2e_ms,EWR,Cloudflare,7093.1,7735.5,0.917
+e2e_ms,EWR,DeepInfra,2882.4,4026.8,0.716
+e2e_ms,EWR,inference.net (US),3359.7,2444.1,1.375
+e2e_ms,EWR,Particle AI (Flex),8102.7,4470.3,1.813
+e2e_ms,EWR,NovitaAI,5975.6,5363.9,1.114
+e2e_ms,EWR,Relace,3001.7,2983.8,1.006
+e2e_ms,EWR,DeepSeek,5125.3,4028.5,1.272
+e2e_ms,EWR,DeepInfra (Priority),4730.7,5878,0.805
+e2e_ms,EWR,Baseten,4137.4,4004.5,1.033
+e2e_ms,EWR,Crusoe,3006.2,3062.4,0.982
+e2e_ms,EWR,DekaLLM,6322.7,5607.2,1.128
+e2e_ms,EWR,Wafer (US),2688.2,2306.3,1.166
+e2e_ms,EWR,Cohere,3772.6,3817.4,0.988
+e2e_ms,EWR,Fireworks,6515.0,4811.8,1.354
+e2e_ms,EWR,DigitalOcean,2554.5,3111.1,0.821
+e2e_ms,EWR,inference.net,2800.7,3417.0,0.82
+e2e_ms,EWR,Ionstream,3005,3470.9,0.866
+e2e_ms,EWR,Together,1725.5,2494.0,0.692
+e2e_ms,EWR,Mistral,4273.9,4240.3,1.008
+e2e_ms,EWR,Prime Intellect,4107.6,4398.2,0.934
+e2e_ms,EWR,CoreWeave,2761.7,4816.1,0.573
+e2e_ms,EWR,GMICloud,3685.4,3596.4,1.025
+e2e_ms,EWR,StepFun,4134.1,4723.9,0.875
+e2e_ms,EWR,Nebius Token Factory,4203.6,3445.4,1.22
+e2e_ms,EWR,Ambient,5987.9,6459.4,0.927
+e2e_ms,EWR,ModelRun [by Modular],2873.3,3083.5,0.932
+e2e_ms,FRA,Fireworks (US),4506.1,3074.0,1.466
+e2e_ms,FRA,StepFun,4205.4,4723.9,0.89
+e2e_ms,FRA,Modal,3581.5,3631.2,0.986
+e2e_ms,FRA,Fireworks Spot,8833.7,9915.3,0.891
+e2e_ms,FRA,SiliconFlow,22974.4,17513.2,1.312
+e2e_ms,FRA,River,3530.4,4560.9,0.774
+e2e_ms,FRA,Makora,2510.5,3644.8,0.689
+e2e_ms,FRA,Open Inference,6213.5,6769.3,0.918
+e2e_ms,FRA,Alibaba Cloud Int.,3653.6,5681.5,0.643
+e2e_ms,FRA,CoreWeave,3432.2,4816.1,0.713
+e2e_ms,FRA,Parasail,2138.5,2434.3,0.878
+e2e_ms,FRA,Wafer,2178.4,2753.3,0.791
+e2e_ms,FRA,Baseten (Fast),1157.0,1002.9,1.154
+e2e_ms,FRA,Particle AI,3278.9,3045.0,1.077
+e2e_ms,FRA,DeepInfra (Flex),15895.5,17322.8,0.918
+e2e_ms,FRA,Morph,2220.4,2868.3,0.774
+e2e_ms,FRA,Cloudflare,6669.4,7735.5,0.862
+e2e_ms,FRA,DeepInfra,4510.1,4026.8,1.12
+e2e_ms,FRA,inference.net (US),2271.5,2444.1,0.929
+e2e_ms,FRA,Particle AI (Flex),3546.6,4470.3,0.793
+e2e_ms,FRA,NovitaAI,6161.6,5363.9,1.149
+e2e_ms,FRA,Relace,2545.6,2983.8,0.853
+e2e_ms,FRA,GMICloud,4248.4,3596.4,1.181
+e2e_ms,FRA,DeepSeek,2953.8,4028.5,0.733
+e2e_ms,FRA,DeepInfra (Priority),7767.1,5878,1.321
+e2e_ms,FRA,Baseten,5015.0,4004.5,1.252
+e2e_ms,FRA,Crusoe,2458.6,3062.4,0.803
+e2e_ms,FRA,DekaLLM,4623.4,5607.2,0.825
+e2e_ms,FRA,StreamLake,9349.3,5421.0,1.725
+e2e_ms,FRA,Wafer (US),2105.2,2306.3,0.913
+e2e_ms,FRA,Cohere,3134.3,3817.4,0.821
+e2e_ms,FRA,Fireworks,4581.4,4811.8,0.952
+e2e_ms,FRA,DigitalOcean,2559.3,3111.1,0.823
+e2e_ms,FRA,inference.net,2735.9,3417.0,0.801
+e2e_ms,FRA,Ionstream,2796.3,3470.9,0.806
+e2e_ms,FRA,Together,2798.3,2494.0,1.122
+e2e_ms,FRA,Mistral,3346.6,4240.3,0.789
+e2e_ms,FRA,Prime Intellect,4625.5,4398.2,1.052
+e2e_ms,FRA,Baidu Qianfan,5949.3,5111.9,1.164
+e2e_ms,FRA,Nebius Token Factory,2779.6,3445.4,0.807
+e2e_ms,FRA,Ambient,7345.3,6459.4,1.137
+e2e_ms,FRA,ModelRun [by Modular],2348.9,3083.5,0.762
+e2e_ms,GRU,StepFun,5299.6,4723.9,1.122
+e2e_ms,GRU,Modal,4035.5,3631.2,1.111
+e2e_ms,GRU,River,5129.5,4560.9,1.125
+e2e_ms,GRU,Open Inference,7632.5,6769.3,1.128
+e2e_ms,GRU,Alibaba Cloud Int.,5031.1,5681.5,0.886
+e2e_ms,GRU,Wafer,3129.1,2753.3,1.136
+e2e_ms,GRU,DeepInfra (Flex),8316.1,17322.8,0.48
+e2e_ms,GRU,Morph,3764.0,2868.3,1.312
+e2e_ms,GRU,DeepInfra,5049.4,4026.8,1.254
+e2e_ms,GRU,inference.net (US),2752.6,2444.1,1.126
+e2e_ms,GRU,Particle AI (Flex),4431.6,4470.3,0.991
+e2e_ms,GRU,NovitaAI,4458.2,5363.9,0.831
+e2e_ms,GRU,Relace,4006.9,2983.8,1.343
+e2e_ms,GRU,DeepSeek,3157.1,4028.5,0.784
+e2e_ms,GRU,DeepInfra (Priority),6143.5,5878,1.045
+e2e_ms,GRU,Crusoe,3696.8,3062.4,1.207
+e2e_ms,GRU,Wafer (US),3498.1,2306.3,1.517
+e2e_ms,GRU,Cohere,4167.6,3817.4,1.092
+e2e_ms,GRU,DigitalOcean,3151.8,3111.1,1.013
+e2e_ms,GRU,inference.net,2913.7,3417.0,0.853
+e2e_ms,GRU,Ionstream,3499.1,3470.9,1.008
+e2e_ms,GRU,Together,2574.8,2494.0,1.032
+e2e_ms,GRU,Prime Intellect,6251.9,4398.2,1.421
+e2e_ms,GRU,Mistral,4192.8,4240.3,0.989
+e2e_ms,GRU,StreamLake,8815.2,5421.0,1.626
+e2e_ms,GRU,Fireworks,3955.1,4811.8,0.822
+e2e_ms,GRU,ModelRun [by Modular],3357.3,3083.5,1.089
+e2e_ms,HEL,Modal,3725.3,3631.2,1.026
+e2e_ms,HEL,River,3875.5,4560.9,0.85
+e2e_ms,HEL,Open Inference,7318.8,6769.3,1.081
+e2e_ms,HEL,Alibaba Cloud Int.,4778.3,5681.5,0.841
+e2e_ms,HEL,Wafer,2885.1,2753.3,1.048
+e2e_ms,HEL,Morph,2205.9,2868.3,0.769
+e2e_ms,HEL,DeepInfra,5782.1,4026.8,1.436
+e2e_ms,HEL,inference.net (US),2747.8,2444.1,1.124
+e2e_ms,HEL,Particle AI (Flex),3397.2,4470.3,0.76
+e2e_ms,HEL,Relace,2839.9,2983.8,0.952
+e2e_ms,HEL,DeepSeek,3341.0,4028.5,0.829
+e2e_ms,HEL,DeepInfra (Priority),5800.2,5878,0.987
+e2e_ms,HEL,Crusoe,2881.9,3062.4,0.941
+e2e_ms,HEL,Wafer (US),3738.3,2306.3,1.621
+e2e_ms,HEL,Cohere,4380.7,3817.4,1.148
+e2e_ms,HEL,Fireworks,2979.6,4811.8,0.619
+e2e_ms,HEL,DigitalOcean,3279.6,3111.1,1.054
+e2e_ms,HEL,inference.net,2665.5,3417.0,0.78
+e2e_ms,HEL,Ionstream,3290.5,3470.9,0.948
+e2e_ms,HEL,Together,2898.3,2494.0,1.162
+e2e_ms,HEL,Prime Intellect,7840.5,4398.2,1.783
+e2e_ms,HEL,CoreWeave,3461.5,4816.1,0.719
+e2e_ms,HEL,Mistral,3816.3,4240.3,0.9
+e2e_ms,HEL,StepFun,4754.8,4723.9,1.007
+e2e_ms,HEL,Makora,3403.5,3644.8,0.934
+e2e_ms,HEL,DeepInfra (Flex),8853.9,17322.8,0.511
+e2e_ms,HEL,Cloudflare,6904.2,7735.5,0.893
+e2e_ms,HEL,NovitaAI,7108.5,5363.9,1.325
+e2e_ms,HEL,Nebius Token Factory,3082.6,3445.4,0.895
+e2e_ms,HEL,ModelRun [by Modular],3369.8,3083.5,1.093
+e2e_ms,IAD,Fireworks (US),3188.4,3074.0,1.037
+e2e_ms,IAD,StepFun,4314.4,4723.9,0.913
+e2e_ms,IAD,Modal,3920.1,3631.2,1.08
+e2e_ms,IAD,Fireworks Spot,16241.1,9915.3,1.638
+e2e_ms,IAD,SiliconFlow,18384.7,17513.2,1.05
+e2e_ms,IAD,River,3622.4,4560.9,0.794
+e2e_ms,IAD,Makora,4546.2,3644.8,1.247
+e2e_ms,IAD,Open Inference,5892.0,6769.3,0.87
+e2e_ms,IAD,Alibaba Cloud Int.,14121.8,5681.5,2.486
+e2e_ms,IAD,CoreWeave,6422.9,4816.1,1.334
+e2e_ms,IAD,Parasail,1683.8,2434.3,0.692
+e2e_ms,IAD,Wafer,2290.7,2753.3,0.832
+e2e_ms,IAD,Baseten (Fast),914.9,1002.9,0.912
+e2e_ms,IAD,Particle AI,3415.7,3045.0,1.122
+e2e_ms,IAD,DeepInfra (Flex),7664.6,17322.8,0.442
+e2e_ms,IAD,Morph,4219.8,2868.3,1.471
+e2e_ms,IAD,Cloudflare,8112.5,7735.5,1.049
+e2e_ms,IAD,DeepInfra,5396.1,4026.8,1.34
+e2e_ms,IAD,inference.net (US),1826.4,2444.1,0.747
+e2e_ms,IAD,Particle AI (Flex),6403.4,4470.3,1.432
+e2e_ms,IAD,NovitaAI,5271.5,5363.9,0.983
+e2e_ms,IAD,Relace,2806.1,2983.8,0.94
+e2e_ms,IAD,GMICloud,2902.3,3596.4,0.807
+e2e_ms,IAD,DeepSeek,4705.3,4028.5,1.168
+e2e_ms,IAD,DeepInfra (Priority),5733.2,5878,0.975
+e2e_ms,IAD,Baseten,3188.4,4004.5,0.796
+e2e_ms,IAD,Crusoe,2478.9,3062.4,0.809
+e2e_ms,IAD,DekaLLM,4627,5607.2,0.825
+e2e_ms,IAD,StreamLake,8613.2,5421.0,1.589
+e2e_ms,IAD,Wafer (US),1188.4,2306.3,0.515
+e2e_ms,IAD,Cohere,3162.5,3817.4,0.828
+e2e_ms,IAD,Fireworks,5827.9,4811.8,1.211
+e2e_ms,IAD,DigitalOcean,2075.2,3111.1,0.667
+e2e_ms,IAD,inference.net,4178.8,3417.0,1.223
+e2e_ms,IAD,Ionstream,2609.9,3470.9,0.752
+e2e_ms,IAD,Together,2436.2,2494.0,0.977
+e2e_ms,IAD,Mistral,3482.6,4240.3,0.821
+e2e_ms,IAD,Prime Intellect,4615.1,4398.2,1.049
+e2e_ms,IAD,Morph (Fast),2944.6,3789.1,0.777
+e2e_ms,IAD,Nebius Token Factory,2751.7,3445.4,0.799
+e2e_ms,IAD,Ambient,6522.3,6459.4,1.01
+e2e_ms,IAD,ModelRun [by Modular],2375.9,3083.5,0.771
+e2e_ms,ICN,Modal,3862.8,3631.2,1.064
+e2e_ms,ICN,River,5721.7,4560.9,1.255
+e2e_ms,ICN,Makora,6164.9,3644.8,1.691
+e2e_ms,ICN,Open Inference,8178.4,6769.3,1.208
+e2e_ms,ICN,Alibaba Cloud Int.,6913.8,5681.5,1.217
+e2e_ms,ICN,CoreWeave,4128.4,4816.1,0.857
+e2e_ms,ICN,Parasail,4348.8,2434.3,1.786
+e2e_ms,ICN,Wafer,4466.5,2753.3,1.622
+e2e_ms,ICN,Baseten (Fast),1424.5,1002.9,1.42
+e2e_ms,ICN,Particle AI,4613.3,3045.0,1.515
+e2e_ms,ICN,Morph,3977.7,2868.3,1.387
+e2e_ms,ICN,DeepInfra,4970.1,4026.8,1.234
+e2e_ms,ICN,inference.net (US),5549.0,2444.1,2.27
+e2e_ms,ICN,Relace,3320.0,2983.8,1.113
+e2e_ms,ICN,DeepSeek,6527.7,4028.5,1.62
+e2e_ms,ICN,DeepInfra (Priority),6923.9,5878,1.178
+e2e_ms,ICN,Baseten,7432.0,4004.5,1.856
+e2e_ms,ICN,Crusoe,4586.7,3062.4,1.498
+e2e_ms,ICN,Wafer (US),3855.5,2306.3,1.672
+e2e_ms,ICN,Cohere,4824.2,3817.4,1.264
+e2e_ms,ICN,DigitalOcean,4492.8,3111.1,1.444
+e2e_ms,ICN,inference.net,4323.7,3417.0,1.265
+e2e_ms,ICN,Ionstream,5289.9,3470.9,1.524
+e2e_ms,ICN,Together,3659.5,2494.0,1.467
+e2e_ms,ICN,Mistral,6663.3,4240.3,1.571
+e2e_ms,ICN,Prime Intellect,8056.4,4398.2,1.832
+e2e_ms,ICN,NovitaAI,6635.1,5363.9,1.237
+e2e_ms,ICN,StepFun,6975.4,4723.9,1.477
+e2e_ms,ICN,Fireworks,4465.3,4811.8,0.928
+e2e_ms,ICN,Morph (Fast),5617.7,3789.1,1.483
+e2e_ms,ICN,Nebius Token Factory,5748.9,3445.4,1.669
+e2e_ms,ICN,ModelRun [by Modular],6778.7,3083.5,2.198
+e2e_ms,LAX,Fireworks (US),3384.8,3074.0,1.101
+e2e_ms,LAX,Modal,3520.8,3631.2,0.97
+e2e_ms,LAX,Fireworks Spot,8276.2,9915.3,0.835
+e2e_ms,LAX,River,5017.6,4560.9,1.1
+e2e_ms,LAX,Makora,4078.2,3644.8,1.119
+e2e_ms,LAX,Open Inference,9248.4,6769.3,1.366
+e2e_ms,LAX,Alibaba Cloud Int.,13646.0,5681.5,2.402
+e2e_ms,LAX,Wafer,2564.6,2753.3,0.931
+e2e_ms,LAX,Baseten (Fast),1166.1,1002.9,1.163
+e2e_ms,LAX,Particle AI,2693.8,3045.0,0.885
+e2e_ms,LAX,DeepInfra (Flex),15991.5,17322.8,0.923
+e2e_ms,LAX,Morph,2985.7,2868.3,1.041
+e2e_ms,LAX,DeepInfra,6058.3,4026.8,1.505
+e2e_ms,LAX,inference.net (US),3095.6,2444.1,1.267
+e2e_ms,LAX,Particle AI (Flex),6112.8,4470.3,1.367
+e2e_ms,LAX,NovitaAI,5449.0,5363.9,1.016
+e2e_ms,LAX,Relace,3422.7,2983.8,1.147
+e2e_ms,LAX,GMICloud,2613.8,3596.4,0.727
+e2e_ms,LAX,DeepSeek,4585.8,4028.5,1.138
+e2e_ms,LAX,DeepInfra (Priority),5285.1,5878,0.899
+e2e_ms,LAX,Baseten,3830.2,4004.5,0.956
+e2e_ms,LAX,Crusoe,3815.7,3062.4,1.246
+e2e_ms,LAX,DekaLLM,5482.1,5607.2,0.978
+e2e_ms,LAX,Wafer (US),2115.1,2306.3,0.917
+e2e_ms,LAX,Cohere,3946.0,3817.4,1.034
+e2e_ms,LAX,Fireworks,4065.9,4811.8,0.845
+e2e_ms,LAX,DigitalOcean,3341.6,3111.1,1.074
+e2e_ms,LAX,inference.net,3252.0,3417.0,0.952
+e2e_ms,LAX,Ionstream,3300.8,3470.9,0.951
+e2e_ms,LAX,Together,2471.5,2494.0,0.991
+e2e_ms,LAX,Prime Intellect,4446.6,4398.2,1.011
+e2e_ms,LAX,CoreWeave,2853.3,4816.1,0.592
+e2e_ms,LAX,Cloudflare,6453.1,7735.5,0.834
+e2e_ms,LAX,Mistral,4390.5,4240.3,1.035
+e2e_ms,LAX,StepFun,4152.0,4723.9,0.879
+e2e_ms,LAX,Nebius Token Factory,4792.7,3445.4,1.391
+e2e_ms,LAX,ModelRun [by Modular],3098.2,3083.5,1.005
+e2e_ms,LHR,StepFun,4345.3,4723.9,0.92
+e2e_ms,LHR,Modal,4177.0,3631.2,1.15
+e2e_ms,LHR,River,4728.2,4560.9,1.037
+e2e_ms,LHR,Open Inference,6971.8,6769.3,1.03
+e2e_ms,LHR,Alibaba Cloud Int.,6221.2,5681.5,1.095
+e2e_ms,LHR,Wafer,3344.7,2753.3,1.215
+e2e_ms,LHR,Particle AI,3042.7,3045.0,0.999
+e2e_ms,LHR,DeepInfra (Flex),8476.1,17322.8,0.489
+e2e_ms,LHR,Morph,1747.7,2868.3,0.609
+e2e_ms,LHR,DeepInfra,3537.1,4026.8,0.878
+e2e_ms,LHR,inference.net (US),3302.4,2444.1,1.351
+e2e_ms,LHR,Relace,3507.3,2983.8,1.175
+e2e_ms,LHR,DeepSeek,3420.9,4028.5,0.849
+e2e_ms,LHR,DeepInfra (Priority),4462.5,5878,0.759
+e2e_ms,LHR,Crusoe,2999.3,3062.4,0.979
+e2e_ms,LHR,Wafer (US),3316.8,2306.3,1.438
+e2e_ms,LHR,Cohere,4323.0,3817.4,1.132
+e2e_ms,LHR,Fireworks,4538.8,4811.8,0.943
+e2e_ms,LHR,DigitalOcean,3619.4,3111.1,1.163
+e2e_ms,LHR,inference.net,2606.2,3417.0,0.763
+e2e_ms,LHR,Ionstream,3359.8,3470.9,0.968
+e2e_ms,LHR,Together,4349.2,2494.0,1.744
+e2e_ms,LHR,Mistral,3671.9,4240.3,0.866
+e2e_ms,LHR,Prime Intellect,5312.8,4398.2,1.208
+e2e_ms,LHR,Makora,2599.4,3644.8,0.713
+e2e_ms,LHR,CoreWeave,3980.6,4816.1,0.827
+e2e_ms,LHR,Cloudflare,6530.6,7735.5,0.844
+e2e_ms,LHR,Particle AI (Flex),7143.9,4470.3,1.598
+e2e_ms,LHR,Baseten (Fast),892.5,1002.9,0.89
+e2e_ms,LHR,NovitaAI,5378.0,5363.9,1.003
+e2e_ms,LHR,Nebius Token Factory,3304.5,3445.4,0.959
+e2e_ms,LHR,ModelRun [by Modular],3107.8,3083.5,1.008
+e2e_ms,NRT,AtlasCloud,6545.2,7360.9,0.889
+e2e_ms,NRT,Fireworks (US),2451.9,3074.0,0.798
+e2e_ms,NRT,Modal,4172.4,3631.2,1.149
+e2e_ms,NRT,Fireworks Spot,8890.2,9915.3,0.897
+e2e_ms,NRT,River,5594.4,4560.9,1.227
+e2e_ms,NRT,Open Inference,8446.6,6769.3,1.248
+e2e_ms,NRT,Alibaba Cloud Int.,5517.1,5681.5,0.971
+e2e_ms,NRT,Wafer,3186.8,2753.3,1.157
+e2e_ms,NRT,Particle AI,4521.4,3045.0,1.485
+e2e_ms,NRT,DeepInfra (Flex),11458.4,17322.8,0.661
+e2e_ms,NRT,Morph,2692.8,2868.3,0.939
+e2e_ms,NRT,Cloudflare,8628.4,7735.5,1.115
+e2e_ms,NRT,DeepInfra,3279.7,4026.8,0.814
+e2e_ms,NRT,inference.net (US),3777.7,2444.1,1.546
+e2e_ms,NRT,Particle AI (Flex),4259.7,4470.3,0.953
+e2e_ms,NRT,Relace,3236.3,2983.8,1.085
+e2e_ms,NRT,GMICloud,1858.9,3596.4,0.517
+e2e_ms,NRT,DeepSeek,3721.1,4028.5,0.924
+e2e_ms,NRT,DeepInfra (Priority),5936.1,5878,1.01
+e2e_ms,NRT,Baseten,10120.3,4004.5,2.527
+e2e_ms,NRT,Crusoe,2715.6,3062.4,0.887
+e2e_ms,NRT,Wafer (US),2993.8,2306.3,1.298
+e2e_ms,NRT,Cohere,4751.9,3817.4,1.245
+e2e_ms,NRT,Fireworks,3112.0,4811.8,0.647
+e2e_ms,NRT,DigitalOcean,4903.8,3111.1,1.576
+e2e_ms,NRT,inference.net,3712.2,3417.0,1.086
+e2e_ms,NRT,Ionstream,3169.5,3470.9,0.913
+e2e_ms,NRT,Together,2441.3,2494.0,0.979
+e2e_ms,NRT,Prime Intellect,2782.1,4398.2,0.633
+e2e_ms,NRT,CoreWeave,2172.2,4816.1,0.451
+e2e_ms,NRT,Mistral,5266.9,4240.3,1.242
+e2e_ms,NRT,StepFun,6240.9,4723.9,1.321
+e2e_ms,NRT,NovitaAI,6209.3,5363.9,1.158
+e2e_ms,NRT,Morph (Fast),2779.2,3789.1,0.733
+e2e_ms,NRT,Nebius Token Factory,2301.0,3445.4,0.668
+e2e_ms,NRT,ModelRun [by Modular],4085.0,3083.5,1.325
+e2e_ms,ORD,Modal,5547.4,3631.2,1.528
+e2e_ms,ORD,River,7354.4,4560.9,1.613
+e2e_ms,ORD,Makora,12054.4,3644.8,3.307
+e2e_ms,ORD,Open Inference,6376.5,6769.3,0.942
+e2e_ms,ORD,Alibaba Cloud Int.,3211.4,5681.5,0.565
+e2e_ms,ORD,Parasail,1771.1,2434.3,0.728
+e2e_ms,ORD,Wafer,3552.6,2753.3,1.29
+e2e_ms,ORD,Baseten (Fast),886.6,1002.9,0.884
+e2e_ms,ORD,Particle AI,5317.1,3045.0,1.746
+e2e_ms,ORD,Morph,4592.8,2868.3,1.601
+e2e_ms,ORD,Cloudflare,7521.4,7735.5,0.972
+e2e_ms,ORD,DeepInfra,4106.7,4026.8,1.02
+e2e_ms,ORD,inference.net (US),2097.3,2444.1,0.858
+e2e_ms,ORD,Particle AI (Flex),4653.9,4470.3,1.041
+e2e_ms,ORD,NovitaAI,7471.5,5363.9,1.393
+e2e_ms,ORD,Relace,4711.2,2983.8,1.579
+e2e_ms,ORD,GMICloud,4525.1,3596.4,1.258
+e2e_ms,ORD,DeepSeek,4520.2,4028.5,1.122
+e2e_ms,ORD,DeepInfra (Priority),8920.4,5878,1.518
+e2e_ms,ORD,Crusoe,3318.4,3062.4,1.084
+e2e_ms,ORD,DekaLLM,10259.3,5607.2,1.83
+e2e_ms,ORD,Wafer (US),3134.9,2306.3,1.359
+e2e_ms,ORD,Cohere,4805.9,3817.4,1.259
+e2e_ms,ORD,Fireworks,5683.0,4811.8,1.181
+e2e_ms,ORD,DigitalOcean,3178.1,3111.1,1.022
+e2e_ms,ORD,inference.net,4368.0,3417.0,1.278
+e2e_ms,ORD,Ionstream,5887.7,3470.9,1.696
+e2e_ms,ORD,Together,3089.6,2494.0,1.239
+e2e_ms,ORD,Mistral,4683.0,4240.3,1.104
+e2e_ms,ORD,Prime Intellect,5499.2,4398.2,1.25
+e2e_ms,ORD,Fireworks (US),3367.1,3074.0,1.095
+e2e_ms,ORD,StepFun,6039.4,4723.9,1.278
+e2e_ms,ORD,CoreWeave,5554.2,4816.1,1.153
+e2e_ms,ORD,Baseten,4508.3,4004.5,1.126
+e2e_ms,ORD,Venice,8797.9,4640.9,1.896
+e2e_ms,ORD,Baidu Qianfan,5118.4,5111.9,1.001
+e2e_ms,ORD,Nebius Token Factory,4649.5,3445.4,1.349
+e2e_ms,ORD,Morph (Fast),4178.3,3789.1,1.103
+e2e_ms,ORD,Ambient,34797.5,6459.4,5.387
+e2e_ms,ORD,ModelRun [by Modular],6338.4,3083.5,2.056
+e2e_ms,OSL,StepFun,8377.7,4723.9,1.773
+e2e_ms,OSL,DeepInfra,9587.2,4026.8,2.381
+e2e_ms,OSL,Relace,4013.3,2983.8,1.345
+e2e_ms,OSL,DeepInfra (Priority),16129.3,5878,2.744
+e2e_ms,OSL,Crusoe,10577.4,3062.4,3.454
+e2e_ms,OSL,Wafer (US),4234.1,2306.3,1.836
+e2e_ms,OSL,Cohere,5897.9,3817.4,1.545
+e2e_ms,OSL,Fireworks,9768.7,4811.8,2.03
+e2e_ms,OSL,Together,15787.0,2494.0,6.33
+e2e_ms,OSL,Mistral,8383.5,4240.3,1.977
+e2e_ms,OSL,DigitalOcean,4134.7,3111.1,1.329
+e2e_ms,OSL,Morph,3668.8,2868.3,1.279
+e2e_ms,OSL,River,5361.8,4560.9,1.176
+e2e_ms,PDX,Fireworks (US),3360.7,3074.0,1.093
+e2e_ms,PDX,Modal,4288.4,3631.2,1.181
+e2e_ms,PDX,Fireworks Spot,8527.3,9915.3,0.86
+e2e_ms,PDX,River,5097.8,4560.9,1.118
+e2e_ms,PDX,Makora,4556.8,3644.8,1.25
+e2e_ms,PDX,Open Inference,6953.0,6769.3,1.027
+e2e_ms,PDX,Alibaba Cloud Int.,9166.7,5681.5,1.613
+e2e_ms,PDX,CoreWeave,9005.2,4816.1,1.87
+e2e_ms,PDX,Wafer,3289.5,2753.3,1.195
+e2e_ms,PDX,Baseten (Fast),3080.3,1002.9,3.071
+e2e_ms,PDX,Particle AI,8745.6,3045.0,2.872
+e2e_ms,PDX,Morph,3788.5,2868.3,1.321
+e2e_ms,PDX,Cloudflare,7361.1,7735.5,0.952
+e2e_ms,PDX,DeepInfra,4800.2,4026.8,1.192
+e2e_ms,PDX,inference.net (US),3985.9,2444.1,1.631
+e2e_ms,PDX,NovitaAI,3237.4,5363.9,0.604
+e2e_ms,PDX,Relace,2676.3,2983.8,0.897
+e2e_ms,PDX,DeepSeek,3012.0,4028.5,0.748
+e2e_ms,PDX,DeepInfra (Priority),7074.6,5878,1.204
+e2e_ms,PDX,Baseten,2979.6,4004.5,0.744
+e2e_ms,PDX,Crusoe,3324.3,3062.4,1.086
+e2e_ms,PDX,DekaLLM,6367.4,5607.2,1.136
+e2e_ms,PDX,Wafer (US),3042.6,2306.3,1.319
+e2e_ms,PDX,Cohere,2168.9,3817.4,0.568
+e2e_ms,PDX,Fireworks,4321.6,4811.8,0.898
+e2e_ms,PDX,DigitalOcean,1880.6,3111.1,0.604
+e2e_ms,PDX,inference.net,4085.9,3417.0,1.196
+e2e_ms,PDX,Ionstream,3457.8,3470.9,0.996
+e2e_ms,PDX,Together,2045.1,2494.0,0.82
+e2e_ms,PDX,Mistral,5086.8,4240.3,1.2
+e2e_ms,PDX,Prime Intellect,4767.7,4398.2,1.084
+e2e_ms,PDX,StepFun,6007.1,4723.9,1.272
+e2e_ms,PDX,Parasail,3159.7,2434.3,1.298
+e2e_ms,PDX,Nebius Token Factory,4598.2,3445.4,1.335
+e2e_ms,PDX,Morph (Fast),4685.1,3789.1,1.236
+e2e_ms,PDX,ModelRun [by Modular],3597.7,3083.5,1.167
+e2e_ms,PHX,River,4557.9,4560.9,0.999
+e2e_ms,PHX,Makora,2852.4,3644.8,0.783
+e2e_ms,PHX,Alibaba Cloud Int.,4331.4,5681.5,0.762
+e2e_ms,PHX,Wafer,3096,2753.3,1.124
+e2e_ms,PHX,Morph,3736.3,2868.3,1.303
+e2e_ms,PHX,DeepInfra,5871.1,4026.8,1.458
+e2e_ms,PHX,inference.net (US),3545.7,2444.1,1.451
+e2e_ms,PHX,Relace,3261.3,2983.8,1.093
+e2e_ms,PHX,Wafer (US),3223.8,2306.3,1.398
+e2e_ms,PHX,Cohere,3136.3,3817.4,0.822
+e2e_ms,PHX,DigitalOcean,2957.9,3111.1,0.951
+e2e_ms,PHX,inference.net,3145.6,3417.0,0.921
+e2e_ms,PHX,Ionstream,2905.0,3470.9,0.837
+e2e_ms,PHX,Together,2669.5,2494.0,1.07
+e2e_ms,PHX,Prime Intellect,4395.8,4398.2,0.999
+e2e_ms,PHX,StepFun,3646.9,4723.9,0.772
+e2e_ms,PHX,ModelRun [by Modular],3585.0,3083.5,1.163
+e2e_ms,SEA,Fireworks (US),1979.8,3074.0,0.644
+e2e_ms,SEA,StepFun,4991.6,4723.9,1.057
+e2e_ms,SEA,Modal,3582.3,3631.2,0.987
+e2e_ms,SEA,Fireworks Spot,9971.9,9915.3,1.006
+e2e_ms,SEA,River,4676.3,4560.9,1.025
+e2e_ms,SEA,Makora,5414.1,3644.8,1.485
+e2e_ms,SEA,Open Inference,6664.3,6769.3,0.984
+e2e_ms,SEA,Alibaba Cloud Int.,4561.8,5681.5,0.803
+e2e_ms,SEA,Parasail,3736.1,2434.3,1.535
+e2e_ms,SEA,Wafer,2904.2,2753.3,1.055
+e2e_ms,SEA,Baseten (Fast),1034.8,1002.9,1.032
+e2e_ms,SEA,Particle AI,4399.0,3045.0,1.445
+e2e_ms,SEA,Morph,3337.2,2868.3,1.163
+e2e_ms,SEA,DeepInfra,4032.3,4026.8,1.001
+e2e_ms,SEA,inference.net (US),2106.7,2444.1,0.862
+e2e_ms,SEA,NovitaAI,6800.2,5363.9,1.268
+e2e_ms,SEA,Relace,3727.9,2983.8,1.249
+e2e_ms,SEA,DeepSeek,2408.1,4028.5,0.598
+e2e_ms,SEA,DeepInfra (Priority),3661.6,5878,0.623
+e2e_ms,SEA,Baseten,3927.9,4004.5,0.981
+e2e_ms,SEA,Crusoe,3630.7,3062.4,1.186
+e2e_ms,SEA,Wafer (US),3056.4,2306.3,1.325
+e2e_ms,SEA,Cohere,3837.4,3817.4,1.005
+e2e_ms,SEA,Fireworks,5541.7,4811.8,1.152
+e2e_ms,SEA,DigitalOcean,3518.1,3111.1,1.131
+e2e_ms,SEA,inference.net,2888.8,3417.0,0.845
+e2e_ms,SEA,Ionstream,4078.4,3470.9,1.175
+e2e_ms,SEA,Together,2657.7,2494.0,1.066
+e2e_ms,SEA,Mistral,4561.8,4240.3,1.076
+e2e_ms,SEA,Prime Intellect,4196.5,4398.2,0.954
+e2e_ms,SEA,CoreWeave,4923.2,4816.1,1.022
+e2e_ms,SEA,Cloudflare,11556.1,7735.5,1.494
+e2e_ms,SEA,Morph (Fast),4836.7,3789.1,1.276
+e2e_ms,SEA,Nebius Token Factory,4447.7,3445.4,1.291
+e2e_ms,SEA,ModelRun [by Modular],3462.9,3083.5,1.123
+e2e_ms,SIN,StepFun,6322.8,4723.9,1.338
+e2e_ms,SIN,Modal,4159.8,3631.2,1.146
+e2e_ms,SIN,River,6088.9,4560.9,1.335
+e2e_ms,SIN,Makora,4907.8,3644.8,1.347
+e2e_ms,SIN,Open Inference,11571.5,6769.3,1.709
+e2e_ms,SIN,Alibaba Cloud Int.,4983,5681.5,0.877
+e2e_ms,SIN,CoreWeave,3007.7,4816.1,0.625
+e2e_ms,SIN,Parasail,1727.6,2434.3,0.71
+e2e_ms,SIN,Wafer,3929.0,2753.3,1.427
+e2e_ms,SIN,Baseten (Fast),916.5,1002.9,0.914
+e2e_ms,SIN,Particle AI,2621.4,3045.0,0.861
+e2e_ms,SIN,DeepInfra (Flex),8499.8,17322.8,0.491
+e2e_ms,SIN,Morph,5155.2,2868.3,1.797
+e2e_ms,SIN,Cloudflare,6937.1,7735.5,0.897
+e2e_ms,SIN,DeepInfra,5836.9,4026.8,1.45
+e2e_ms,SIN,inference.net (US),4065.0,2444.1,1.663
+e2e_ms,SIN,Particle AI (Flex),9863.0,4470.3,2.206
+e2e_ms,SIN,NovitaAI,7004.5,5363.9,1.306
+e2e_ms,SIN,Relace,3097.7,2983.8,1.038
+e2e_ms,SIN,GMICloud,3091.4,3596.4,0.86
+e2e_ms,SIN,DeepSeek,2742.1,4028.5,0.681
+e2e_ms,SIN,DeepInfra (Priority),6760.7,5878,1.15
+e2e_ms,SIN,Crusoe,3856.0,3062.4,1.259
+e2e_ms,SIN,DekaLLM,5292.9,5607.2,0.944
+e2e_ms,SIN,Wafer (US),4624.3,2306.3,2.005
+e2e_ms,SIN,Cohere,5179.2,3817.4,1.357
+e2e_ms,SIN,DigitalOcean,4429.9,3111.1,1.424
+e2e_ms,SIN,inference.net,3468.0,3417.0,1.015
+e2e_ms,SIN,Ionstream,4112.2,3470.9,1.185
+e2e_ms,SIN,Together,3122.7,2494.0,1.252
+e2e_ms,SIN,Mistral,4362.3,4240.3,1.029
+e2e_ms,SIN,Prime Intellect,5413.8,4398.2,1.231
+e2e_ms,SIN,Fireworks,3531.3,4811.8,0.734
+e2e_ms,SIN,Nebius Token Factory,3885.3,3445.4,1.128
+e2e_ms,SIN,Ambient,6119.9,6459.4,0.947
+e2e_ms,SIN,ModelRun [by Modular],3922.1,3083.5,1.272
+e2e_ms,SJC,Fireworks (US),2100.5,3074.0,0.683
+e2e_ms,SJC,Modal,3649.1,3631.2,1.005
+e2e_ms,SJC,Fireworks Spot,10148.8,9915.3,1.024
+e2e_ms,SJC,River,4730.2,4560.9,1.037
+e2e_ms,SJC,Makora,4843.5,3644.8,1.329
+e2e_ms,SJC,Open Inference,6598.1,6769.3,0.975
+e2e_ms,SJC,Alibaba Cloud Int.,7668.4,5681.5,1.35
+e2e_ms,SJC,CoreWeave,16706.2,4816.1,3.469
+e2e_ms,SJC,Parasail,2565,2434.3,1.054
+e2e_ms,SJC,Wafer,2964.5,2753.3,1.077
+e2e_ms,SJC,Particle AI,4126.4,3045.0,1.355
+e2e_ms,SJC,DeepInfra (Flex),22977.1,17322.8,1.326
+e2e_ms,SJC,Morph,3090.5,2868.3,1.077
+e2e_ms,SJC,Cloudflare,9435.8,7735.5,1.22
+e2e_ms,SJC,DeepInfra,2975.7,4026.8,0.739
+e2e_ms,SJC,inference.net (US),2875.5,2444.1,1.177
+e2e_ms,SJC,Particle AI (Flex),2727.2,4470.3,0.61
+e2e_ms,SJC,NovitaAI,5371.9,5363.9,1.002
+e2e_ms,SJC,Relace,3392.6,2983.8,1.137
+e2e_ms,SJC,GMICloud,2819.7,3596.4,0.784
+e2e_ms,SJC,DeepSeek,3593.2,4028.5,0.892
+e2e_ms,SJC,DeepInfra (Priority),7197.4,5878,1.224
+e2e_ms,SJC,Baseten,3573.9,4004.5,0.892
+e2e_ms,SJC,Crusoe,3232.5,3062.4,1.056
+e2e_ms,SJC,DekaLLM,5868.3,5607.2,1.047
+e2e_ms,SJC,StreamLake,3653.7,5421.0,0.674
+e2e_ms,SJC,Wafer (US),2326.2,2306.3,1.009
+e2e_ms,SJC,Cohere,3998.7,3817.4,1.047
+e2e_ms,SJC,Fireworks,4014.9,4811.8,0.834
+e2e_ms,SJC,DigitalOcean,3039.3,3111.1,0.977
+e2e_ms,SJC,inference.net,2882.5,3417.0,0.844
+e2e_ms,SJC,Ionstream,3342.4,3470.9,0.963
+e2e_ms,SJC,Together,2178.1,2494.0,0.873
+e2e_ms,SJC,Mistral,4318.5,4240.3,1.018
+e2e_ms,SJC,Prime Intellect,3853.9,4398.2,0.876
+e2e_ms,SJC,StepFun,5720.9,4723.9,1.211
+e2e_ms,SJC,Baseten (Fast),3816.9,1002.9,3.806
+e2e_ms,SJC,Nebius Token Factory,3638.5,3445.4,1.056
+e2e_ms,SJC,Ambient,5529.3,6459.4,0.856
+e2e_ms,SJC,ModelRun [by Modular],3242.1,3083.5,1.051
+e2e_ms,WAW,River,4940.4,4560.9,1.083
+e2e_ms,WAW,Open Inference,6855.6,6769.3,1.013
+e2e_ms,WAW,Alibaba Cloud Int.,5560.0,5681.5,0.979
+e2e_ms,WAW,Wafer,3610.9,2753.3,1.311
+e2e_ms,WAW,Morph,3736.1,2868.3,1.303
+e2e_ms,WAW,Cloudflare,5904.2,7735.5,0.763
+e2e_ms,WAW,DeepInfra,2763.6,4026.8,0.686
+e2e_ms,WAW,inference.net (US),3474.1,2444.1,1.421
+e2e_ms,WAW,Relace,3959.7,2983.8,1.327
+e2e_ms,WAW,DeepSeek,3855.0,4028.5,0.957
+e2e_ms,WAW,DeepInfra (Priority),6213.5,5878,1.057
+e2e_ms,WAW,Crusoe,2857.8,3062.4,0.933
+e2e_ms,WAW,Wafer (US),2179.9,2306.3,0.945
+e2e_ms,WAW,Cohere,4996.4,3817.4,1.309
+e2e_ms,WAW,DigitalOcean,4146.8,3111.1,1.333
+e2e_ms,WAW,inference.net,3628.7,3417.0,1.062
+e2e_ms,WAW,Ionstream,3931.5,3470.9,1.133
+e2e_ms,WAW,Together,2938.5,2494.0,1.178
+e2e_ms,WAW,Prime Intellect,5361.4,4398.2,1.219
+e2e_ms,WAW,CoreWeave,3085.1,4816.1,0.641
+e2e_ms,WAW,Parasail,2539.0,2434.3,1.043
+e2e_ms,WAW,Mistral,4007.0,4240.3,0.945
+e2e_ms,WAW,Fireworks (US),5807.2,3074.0,1.889
+e2e_ms,WAW,StepFun,5383.6,4723.9,1.14
+e2e_ms,WAW,Modal,4582.3,3631.2,1.262
+e2e_ms,WAW,NovitaAI,6004.9,5363.9,1.12
+e2e_ms,WAW,ModelRun [by Modular],3992.8,3083.5,1.295
+e2e_ms,YYZ,River,5322.1,4560.9,1.167
+e2e_ms,YYZ,Open Inference,6519.2,6769.3,0.963
+e2e_ms,YYZ,Alibaba Cloud Int.,5215.4,5681.5,0.918
+e2e_ms,YYZ,Wafer,3356.0,2753.3,1.219
+e2e_ms,YYZ,DeepInfra (Flex),9162.3,17322.8,0.529
+e2e_ms,YYZ,Morph,3240.9,2868.3,1.13
+e2e_ms,YYZ,DeepInfra,5022.3,4026.8,1.247
+e2e_ms,YYZ,inference.net (US),3168.0,2444.1,1.296
+e2e_ms,YYZ,Particle AI (Flex),5434.4,4470.3,1.216
+e2e_ms,YYZ,Relace,3764.5,2983.8,1.262
+e2e_ms,YYZ,DeepSeek,4594.9,4028.5,1.141
+e2e_ms,YYZ,DeepInfra (Priority),6500.9,5878,1.106
+e2e_ms,YYZ,StreamLake,6520.0,5421.0,1.203
+e2e_ms,YYZ,Wafer (US),3065.4,2306.3,1.329
+e2e_ms,YYZ,Cohere,4225.3,3817.4,1.107
+e2e_ms,YYZ,DigitalOcean,2942.3,3111.1,0.946
+e2e_ms,YYZ,inference.net,2889.3,3417.0,0.846
+e2e_ms,YYZ,Ionstream,3609.4,3470.9,1.04
+e2e_ms,YYZ,Together,2001.7,2494.0,0.803
+e2e_ms,YYZ,Mistral,4825,4240.3,1.138
+e2e_ms,YYZ,Prime Intellect,5388.0,4398.2,1.225
+e2e_ms,YYZ,StepFun,5228.5,4723.9,1.107
+e2e_ms,YYZ,CoreWeave,3095.3,4816.1,0.643
+e2e_ms,YYZ,Nebius Token Factory,3622.1,3445.4,1.051
+e2e_ms,YYZ,ModelRun [by Modular],3332.0,3083.5,1.081

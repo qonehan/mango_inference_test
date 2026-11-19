@@ -1,0 +1,638 @@
+{
+  "planned": 4065,
+  "downloaded": 4065,
+  "missing": [],
+  "empty": [],
+  "summary_rows": 174676,
+  "observations": 3656374,
+  "provider_count": 53,
+  "unmapped_provider_ids": [],
+  "first_fetch": "2026-11-19T00:51:40.124Z",
+  "last_fetch": "2026-11-19T00:57:17.303Z",
+  "temporal_grids": [
+    {
+      "metric": "cache-hit-rate-comparison",
+      "period": "1w",
+      "buckets": 8,
+      "first": "2026-11-12 00:00:00",
+      "last": "2026-11-19 00:00:00",
+      "step_hours": [
+        24
+      ]
+    },
+    {
+      "metric": "cache-hit-rate-comparison",
+      "period": "3d",
+      "buckets": 96,
+      "first": "2026-11-15 00:00:00",
+      "last": "2026-11-18 23:00:00",
+      "step_hours": [
+        1
+      ]
+    },
+    {
+      "metric": "latency-comparison",
+      "period": "1w",
+      "buckets": 8,
+      "first": "2026-11-11",
+      "last": "2026-11-18",
+      "step_hours": [
+        24
+      ]
+    },
+    {
+      "metric": "latency-comparison",
+      "period": "3d",
+      "buckets": 73,
+      "first": "2026-11-16 00:00:00",
+      "last": "2026-11-19 00:00:00",
+      "step_hours": [
+        1
+      ]
+    },
+    {
+      "metric": "latency-comparison",
+      "period": "1w",
+      "buckets": 8,
+      "first": "2026-11-12",
+      "last": "2026-11-19",
+      "step_hours": [
+        24
+      ]
+    },
+    {
+      "metric": "latency-comparison",
+      "period": "3d",
+      "buckets": 72,
+      "first": "2026-11-16 00:00:00",
+      "last": "2026-11-19 00:00:00",
+      "step_hours": [
+        1,
+        2
+      ]
+    },
+    {
+      "metric": "latency-comparison",
+      "period": "3d",
+      "buckets": 69,
+      "first": "2026-11-16 00:00:00",
+      "last": "2026-11-19 00:00:00",
+      "step_hours": [
+        1,
+        3,
+        2
+      ]
+    },
+    {
+      "metric": "latency-comparison",
+      "period": "1w",
+      "buckets": 7,
+      "first": "2026-11-12",
+      "last": "2026-11-18",
+      "step_hours": [
+        24
+      ]
+    },
+    {
+      "metric": "latency-comparison",
+      "period": "3d",
+      "buckets": 71,
+      "first": "2026-11-16 00:00:00",
+      "last": "2026-11-18 23:00:00",
+      "step_hours": [
+        1,
+        2
+      ]
+    },
+    {
+      "metric": "latency-comparison",
+      "period": "3d",
+      "buckets": 69,
+      "first": "2026-11-16 00:00:00",
+      "last": "2026-11-19 00:00:00",
+      "step_hours": [
+        1,
+        2
+      ]
+    },
+    {
+      "metric": "latency-comparison",
+      "period": "3d",
+      "buckets": 56,
+      "first": "2026-11-16 00:00:00",
+      "last": "2026-11-19 00:00:00",
+      "step_hours": [
+        1,
+        5,
+        3,
+        2,
+        6
+      ]
+    },
+    {
+      "metric": "latency-comparison",
+      "period": "3d",
+      "buckets": 61,
+      "first": "2026-11-16 01:00:00",
+      "last": "2026-11-18 23:00:00",
+      "step_hours": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "metric": "latency-comparison",
+      "period": "3d",
+      "buckets": 60,
+      "first": "2026-11-16 00:00:00",
+      "last": "2026-11-18 23:00:00",
+      "step_hours": [
+        1,
+        2,
+        4,
+        5
+      ]
+    },
+    {
+      "metric": "latency-comparison",
+      "period": "3d",
+      "buckets": 53,
+      "first": "2026-11-16 00:00:00",
+      "last": "2026-11-18 23:00:00",
+      "step_hours": [
+        1,
+        8,
+        3,
+        2,
+        7
+      ]
+    },
+    {
+      "metric": "latency-comparison",
+      "period": "3d",
+      "buckets": 10,
+      "first": "2026-11-16 05:00:00",
+      "last": "2026-11-18 20:00:00",
+      "step_hours": [
+        16,
+        4,
+        22,
+        2,
+        14,
+        1
+      ]
+    },
+    {
+      "metric": "latency-comparison",
+      "period": "3d",
+      "buckets": 71,
+      "first": "2026-11-16 00:00:00",
+      "last": "2026-11-19 00:00:00",
+      "step_hours": [
+        1,
+        2
+      ]
+    },
+    {
+      "metric": "latency-comparison",
+      "period": "3d",
+      "buckets": 70,
+      "first": "2026-11-16 00:00:00",
+      "last": "2026-11-19 00:00:00",
+      "step_hours": [
+        1,
+        4
+      ]
+    },
+    {
+      "metric": "latency-e2e-comparison",
+      "period": "1w",
+      "buckets": 8,
+      "first": "2026-11-11",
+      "last": "2026-11-18",
+      "step_hours": [
+        24
+      ]
+    },
+    {
+      "metric": "latency-e2e-comparison",
+      "period": "3d",
+      "buckets": 73,
+      "first": "2026-11-16 00:00:00",
+      "last": "2026-11-19 00:00:00",
+      "step_hours": [
+        1
+      ]
+    },
+    {
+      "metric": "latency-e2e-comparison",
+      "period": "1w",
+      "buckets": 8,
+      "first": "2026-11-12",
+      "last": "2026-11-19",
+      "step_hours": [
+        24
+      ]
+    },
+    {
+      "metric": "latency-e2e-comparison",
+      "period": "3d",
+      "buckets": 72,
+      "first": "2026-11-16 00:00:00",
+      "last": "2026-11-19 00:00:00",
+      "step_hours": [
+        1,
+        2
+      ]
+    },
+    {
+      "metric": "latency-e2e-comparison",
+      "period": "3d",
+      "buckets": 69,
+      "first": "2026-11-16 00:00:00",
+      "last": "2026-11-19 00:00:00",
+      "step_hours": [
+        1,
+        3,
+        2
+      ]
+    },
+    {
+      "metric": "latency-e2e-comparison",
+      "period": "1w",
+      "buckets": 7,
+      "first": "2026-11-12",
+      "last": "2026-11-18",
+      "step_hours": [
+        24
+      ]
+    },
+    {
+      "metric": "latency-e2e-comparison",
+      "period": "3d",
+      "buckets": 71,
+      "first": "2026-11-16 00:00:00",
+      "last": "2026-11-18 23:00:00",
+      "step_hours": [
+        1,
+        2
+      ]
+    },
+    {
+      "metric": "latency-e2e-comparison",
+      "period": "3d",
+      "buckets": 69,
+      "first": "2026-11-16 00:00:00",
+      "last": "2026-11-19 00:00:00",
+      "step_hours": [
+        1,
+        2
+      ]
+    },
+    {
+      "metric": "latency-e2e-comparison",
+      "period": "3d",
+      "buckets": 56,
+      "first": "2026-11-16 00:00:00",
+      "last": "2026-11-19 00:00:00",
+      "step_hours": [
+        1,
+        5,
+        3,
+        2,
+        6
+      ]
+    },
+    {
+      "metric": "latency-e2e-comparison",
+      "period": "3d",
+      "buckets": 61,
+      "first": "2026-11-16 01:00:00",
+      "last": "2026-11-18 23:00:00",
+      "step_hours": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "metric": "latency-e2e-comparison",
+      "period": "3d",
+      "buckets": 60,
+      "first": "2026-11-16 00:00:00",
+      "last": "2026-11-18 23:00:00",
+      "step_hours": [
+        1,
+        2,
+        4,
+        5
+      ]
+    },
+    {
+      "metric": "latency-e2e-comparison",
+      "period": "3d",
+      "buckets": 53,
+      "first": "2026-11-16 00:00:00",
+      "last": "2026-11-18 23:00:00",
+      "step_hours": [
+        1,
+        8,
+        3,
+        2,
+        7
+      ]
+    },
+    {
+      "metric": "latency-e2e-comparison",
+      "period": "3d",
+      "buckets": 10,
+      "first": "2026-11-16 05:00:00",
+      "last": "2026-11-18 20:00:00",
+      "step_hours": [
+        16,
+        4,
+        22,
+        2,
+        14,
+        1
+      ]
+    },
+    {
+      "metric": "latency-e2e-comparison",
+      "period": "3d",
+      "buckets": 71,
+      "first": "2026-11-16 00:00:00",
+      "last": "2026-11-19 00:00:00",
+      "step_hours": [
+        1,
+        2
+      ]
+    },
+    {
+      "metric": "latency-e2e-comparison",
+      "period": "3d",
+      "buckets": 70,
+      "first": "2026-11-16 00:00:00",
+      "last": "2026-11-19 00:00:00",
+      "step_hours": [
+        1,
+        4
+      ]
+    },
+    {
+      "metric": "structured-output-error-rate",
+      "period": "1w",
+      "buckets": 8,
+      "first": "2026-11-12 00:00:00",
+      "last": "2026-11-19 00:00:00",
+      "step_hours": [
+        24
+      ]
+    },
+    {
+      "metric": "structured-output-error-rate",
+      "period": "3d",
+      "buckets": 73,
+      "first": "2026-11-16 00:00:00",
+      "last": "2026-11-19 00:00:00",
+      "step_hours": [
+        1
+      ]
+    },
+    {
+      "metric": "throughput-comparison",
+      "period": "1w",
+      "buckets": 8,
+      "first": "2026-11-11",
+      "last": "2026-11-18",
+      "step_hours": [
+        24
+      ]
+    },
+    {
+      "metric": "throughput-comparison",
+      "period": "3d",
+      "buckets": 73,
+      "first": "2026-11-16 00:00:00",
+      "last": "2026-11-19 00:00:00",
+      "step_hours": [
+        1
+      ]
+    },
+    {
+      "metric": "throughput-comparison",
+      "period": "1w",
+      "buckets": 8,
+      "first": "2026-11-12",
+      "last": "2026-11-19",
+      "step_hours": [
+        24
+      ]
+    },
+    {
+      "metric": "throughput-comparison",
+      "period": "3d",
+      "buckets": 70,
+      "first": "2026-11-16 00:00:00",
+      "last": "2026-11-19 00:00:00",
+      "step_hours": [
+        1,
+        2
+      ]
+    },
+    {
+      "metric": "throughput-comparison",
+      "period": "3d",
+      "buckets": 69,
+      "first": "2026-11-16 00:00:00",
+      "last": "2026-11-19 00:00:00",
+      "step_hours": [
+        1,
+        3,
+        2
+      ]
+    },
+    {
+      "metric": "throughput-comparison",
+      "period": "3d",
+      "buckets": 72,
+      "first": "2026-11-16 00:00:00",
+      "last": "2026-11-19 00:00:00",
+      "step_hours": [
+        1,
+        2
+      ]
+    },
+    {
+      "metric": "throughput-comparison",
+      "period": "3d",
+      "buckets": 52,
+      "first": "2026-11-16 00:00:00",
+      "last": "2026-11-19 00:00:00",
+      "step_hours": [
+        1,
+        4,
+        2,
+        3,
+        5
+      ]
+    },
+    {
+      "metric": "throughput-comparison",
+      "period": "1w",
+      "buckets": 7,
+      "first": "2026-11-12",
+      "last": "2026-11-18",
+      "step_hours": [
+        24
+      ]
+    },
+    {
+      "metric": "throughput-comparison",
+      "period": "3d",
+      "buckets": 71,
+      "first": "2026-11-16 00:00:00",
+      "last": "2026-11-18 23:00:00",
+      "step_hours": [
+        1,
+        2
+      ]
+    },
+    {
+      "metric": "throughput-comparison",
+      "period": "3d",
+      "buckets": 68,
+      "first": "2026-11-16 00:00:00",
+      "last": "2026-11-19 00:00:00",
+      "step_hours": [
+        1,
+        2,
+        4
+      ]
+    },
+    {
+      "metric": "throughput-comparison",
+      "period": "3d",
+      "buckets": 56,
+      "first": "2026-11-16 00:00:00",
+      "last": "2026-11-19 00:00:00",
+      "step_hours": [
+        1,
+        5,
+        3,
+        2,
+        6
+      ]
+    },
+    {
+      "metric": "throughput-comparison",
+      "period": "3d",
+      "buckets": 67,
+      "first": "2026-11-16 00:00:00",
+      "last": "2026-11-19 00:00:00",
+      "step_hours": [
+        1,
+        3,
+        4,
+        2
+      ]
+    },
+    {
+      "metric": "throughput-comparison",
+      "period": "3d",
+      "buckets": 61,
+      "first": "2026-11-16 01:00:00",
+      "last": "2026-11-18 23:00:00",
+      "step_hours": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "metric": "throughput-comparison",
+      "period": "3d",
+      "buckets": 59,
+      "first": "2026-11-16 00:00:00",
+      "last": "2026-11-18 23:00:00",
+      "step_hours": [
+        1,
+        2,
+        5
+      ]
+    },
+    {
+      "metric": "throughput-comparison",
+      "period": "3d",
+      "buckets": 28,
+      "first": "2026-11-16 00:00:00",
+      "last": "2026-11-18 23:00:00",
+      "step_hours": [
+        1,
+        2,
+        3,
+        10,
+        11,
+        19
+      ]
+    },
+    {
+      "metric": "throughput-comparison",
+      "period": "3d",
+      "buckets": 10,
+      "first": "2026-11-16 05:00:00",
+      "last": "2026-11-18 20:00:00",
+      "step_hours": [
+        16,
+        4,
+        22,
+        2,
+        14,
+        1
+      ]
+    },
+    {
+      "metric": "throughput-comparison",
+      "period": "3d",
+      "buckets": 71,
+      "first": "2026-11-16 00:00:00",
+      "last": "2026-11-19 00:00:00",
+      "step_hours": [
+        1,
+        2
+      ]
+    },
+    {
+      "metric": "throughput-comparison",
+      "period": "3d",
+      "buckets": 69,
+      "first": "2026-11-16 00:00:00",
+      "last": "2026-11-19 00:00:00",
+      "step_hours": [
+        1,
+        5
+      ]
+    },
+    {
+      "metric": "tool-call-error-rate",
+      "period": "1w",
+      "buckets": 8,
+      "first": "2026-11-12 00:00:00",
+      "last": "2026-11-19 00:00:00",
+      "step_hours": [
+        24
+      ]
+    },
+    {
+      "metric": "tool-call-error-rate",
+      "period": "3d",
+      "buckets": 73,
+      "first": "2026-11-16 00:00:00",
+      "last": "2026-11-19 00:00:00",
+      "step_hours": [
+        1
+      ]
+    }
+  ]
+}
