@@ -2,7 +2,7 @@
 
 OpenRouter 성능 화면의 모든 필터 조합을 받아, 시간·관측 위치·추론 강도·백분위에 따라 제공사 성능이 어떻게 달라지는지, 그리고 **사용자 위치가 성능을 얼마나 바꾸는지**를 정리했습니다.
 
-- **대시보드:** [results/openrouter_deepseek_20261119/시간지역_성능_대시보드.html](../results/openrouter_deepseek_20261119/시간지역_성능_대시보드.html)(내려받아 브라우저로 열기, d3는 CDN에서 불러옴)
+- **대시보드:** [slides/시간지역_성능_대시보드.html](../slides/시간지역_성능_대시보드.html)(내려받아 브라우저로 열기, d3는 CDN에서 불러옴)
 - **자료:** [results/openrouter_deepseek_20261119](../results/openrouter_deepseek_20261119/README.md)
 - **관측이지 실험이 아닙니다.** 제공사마다 요청 구성(입력·출력 길이)이 통제되지 않았고, 인과로 해석하지 않습니다.
 

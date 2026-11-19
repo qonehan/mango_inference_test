@@ -21,8 +21,9 @@
 | `analysis/compare_or_stats.txt` | `code/compare_or_stats.py` 출력: OR 엔드포인트별 실측·generation 기록·공개 통계 비교 |
 | `analysis/explore_run1.txt` | `code/explore_run1.py` 출력: 입력 길이·부하·캐시 대조·고정 제공사·도구 호출 탐색 집계 |
 | `analysis/policy_mix.json` | `code/estimate_policy_mix.py` 출력: OpenRouter 전체 요청 중 정책별 비중의 범위 추정(신뢰도 낮음, [09번 12절](../../docs/09_1회실험_결과.md)). 이 폴더의 공개 기록으로 같은 값이 재현됨 (2026-11-18 추가) |
-| `1회실험_대시보드.html` | 판정 12개·생성 속도·첫 토큰·제공사 배분·캐시·엔드포인트 비교 대시보드의 독립 사본(2026-11-19 추가, 내려받아 브라우저로 열기). `SHA256SUMS`에는 포함하지 않음 |
 | `SHA256SUMS` | 이 폴더 파일의 해시 |
+
+이 기록으로 만든 대시보드는 [slides/1회실험_대시보드.html](../../slides/1회실험_대시보드.html)에 있습니다(2026-11-19 추가).
 
 **싣지 않은 것:** Broadcast 수신 원본(요청 전문과 계정 메타데이터 포함), Q 응답 원문(`q_raw.jsonl`), 질문 세트 파일(파일럿과 같은 `prompts_manifest`, `code/build_prompts.py`로 재생성), OR 통계 페이지 HTML, 계정 콘솔 캡처. 이 자료는 비공개로 보관합니다.
 

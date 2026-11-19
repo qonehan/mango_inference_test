@@ -18,11 +18,11 @@ Mango Inference와 OpenRouter의 관측 성능·비용 및 라우팅을 비교�
 3. [간이 테스트](docs/03_간이테스트_결과.md) · [reasoning 시험](docs/04_reasoning설정_시험.md)
 4. [보완 이력](docs/05_간이테스트_이후_보완.md)
 5. [파일럿 결과와 결론](docs/08_파일럿_결과.md) · [파일럿 원시 기록](results/pilot_20261117/README.md)
-6. [1회 실험 결과](docs/09_1회실험_결과.md) · [1회 실험 원시 기록](results/run1_20261117/README.md) · [1회 실험 대시보드](results/run1_20261117/1회실험_대시보드.html)
+6. [1회 실험 결과](docs/09_1회실험_결과.md) · [1회 실험 원시 기록](results/run1_20261117/README.md) · [1회 실험 대시보드](slides/1회실험_대시보드.html)
 7. [OpenRouter 공개 통계 분석](docs/10_OpenRouter_공개통계_분석.md) · [재수집 집계](data/openrouter_recollect_20261117/README.md)
 8. [2회 실험 설계 초안](docs/11_2회실험_설계_초안.md)
 9. [발표 자료·3D 그래프](slides/README.md)
-10. [OpenRouter DeepSeek 시간·지역 분석](docs/12_OpenRouter_DeepSeek_시간지역_분석.md) · [대시보드](results/openrouter_deepseek_20261119/시간지역_성능_대시보드.html)
+10. [OpenRouter DeepSeek 시간·지역 분석](docs/12_OpenRouter_DeepSeek_시간지역_분석.md) · [대시보드](slides/시간지역_성능_대시보드.html)
 
 `code/`는 시험·계산 코드, `data/`는 공개 통계(`data/openrouter_recollect_20261117/`은 2026-11-17 화면 재수집 집계), `slides/`는 발표 자료와 그래프, `results/`는 시험·파일럿 원시 기록입니다(`results/pilot_20261117`·`results/run1_20261117`은 응답 헤더를 뺀 파일럿·1회 실험 기록). `pdf/`의 01·02는 v0.9, 03은 v0.9.1 보관본으로 현재 실행 기준이 아닙니다. 원본 PDF는 변경하지 않았습니다.
 
