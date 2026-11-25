@@ -1,5 +1,7 @@
 # mango_inference_test
 
+> GitHub 작업 전 [AGENTS.md](AGENTS.md)를 읽습니다. PDF·PPTX·생성 대시보드·측정 원시 데이터는 학교 Google Drive에 있으며 [ASSETS.md](ASSETS.md)로 복원합니다.
+
 Mango Inference와 OpenRouter의 관측 성능·비용 및 라우팅을 비교하는 실험입니다.
 
 - **현재 기준:** [프로토콜 v1.0](docs/02_실험_프로토콜.md)(1회 실험, [0절 변경표](docs/02_실험_프로토콜.md#0-v10-변경-1회-실험-2026-11-17), 설정 `code/config/run1.yaml`, 예상 약 $36·상한 $50). 이전 기준 v0.9.4 · [통합 명세 HTML](pdf/04_통합명세_v0.9.2.html)(파일명은 v0.9.2, 내용은 v0.9.4). 파일럿 결과로 v1.0을 정했습니다.
@@ -22,7 +24,7 @@ Mango Inference와 OpenRouter의 관측 성능·비용 및 라우팅을 비교�
 7. [OpenRouter 공개 통계 분석](docs/10_OpenRouter_공개통계_분석.md) · [재수집 집계](data/openrouter_recollect_20261117/README.md)
 8. [2회 실험 설계 초안](docs/11_2회실험_설계_초안.md)
 9. [발표 자료·3D 그래프](slides/README.md)
-10. [OpenRouter DeepSeek 시간·지역 분석](docs/12_OpenRouter_DeepSeek_시간지역_분석.md) · [대시보드](slides/시간지역_성능_대시보드.html)
+10. [OpenRouter DeepSeek 시간·지역 분석](docs/12_OpenRouter_DeepSeek_시간지역_분석.md) · [대시보드](https://drive.google.com/file/d/1IQx14rWnMmHegCraLTzxMXjFoS2hZCOv/view?usp=drivesdk)
 
 `code/`는 시험·계산 코드, `data/`는 공개 통계(`data/openrouter_recollect_20261117/`은 2026-11-17 화면 재수집 집계), `slides/`는 발표 자료와 그래프, `results/`는 시험·파일럿 원시 기록입니다(`results/pilot_20261117`·`results/run1_20261117`은 응답 헤더를 뺀 파일럿·1회 실험 기록). `pdf/`의 01·02는 v0.9, 03은 v0.9.1 보관본으로 현재 실행 기준이 아닙니다. 원본 PDF는 변경하지 않았습니다.
 

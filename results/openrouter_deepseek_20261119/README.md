@@ -11,4 +11,4 @@
 
 **싣지 않은 것:** 원본 API 응답 묶음(약 21MB), 수집 당시 페이지 HTML과 공개 스크립트, 요약 전체(17만 행), 수집·분석 코드. 비공개로 보관합니다.
 
-이 자료로 만든 대시보드는 [slides/시간지역_성능_대시보드.html](../../slides/시간지역_성능_대시보드.html)에 있습니다(claude.ai 대시보드의 독립 사본, 원본의 출처 패널은 없고 그래프와 수치는 같음).
+이 자료로 만든 대시보드는 [slides/시간지역_성능_대시보드.html](https://drive.google.com/file/d/1IQx14rWnMmHegCraLTzxMXjFoS2hZCOv/view?usp=drivesdk)에 있습니다(claude.ai 대시보드의 독립 사본, 원본의 출처 패널은 없고 그래프와 수치는 같음).

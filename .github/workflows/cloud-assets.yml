@@ -1,0 +1,24 @@
+name: Cloud asset policy
+on: [push, pull_request]
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check external assets and large tracked files
+        run: |
+          python - <<'PY'
+          import json, subprocess, pathlib
+          manifest = json.loads(pathlib.Path('assets.manifest.json').read_text())
+          tracked = set(subprocess.check_output(['git', 'ls-files', '-z']).decode().split('\0'))
+          failures = []
+          for item in manifest['files']:
+              if item['path'] in tracked:
+                  failures.append('Cloud asset tracked in Git: ' + item['path'])
+          for name in sorted(tracked - {''}):
+              if pathlib.Path(name).stat().st_size > 10 * 1024 * 1024:
+                  failures.append('File exceeds 10 MiB: ' + name)
+          if failures:
+              raise SystemExit('\n'.join(failures))
+          print('Cloud asset policy passed')
+          PY

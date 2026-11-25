@@ -1,5 +1,7 @@
 # 1회 실험 원시 기록 (2026-11-17, 프로토콜 v1.0)
 
+> 원시 데이터 파일(표의 jsonl·gz·json·SHA256SUMS)은 2026-11-25부터 학교 Google Drive에 보관합니다. 위치와 해시는 [ASSETS.md](../../ASSETS.md), 로컬 복원은 `python -I tools/cloud_assets.py sync`. `analysis/`와 이 README는 GitHub에 있습니다.
+
 [1회 실험 결과](../../docs/09_1회실험_결과.md)의 근거 데이터입니다. 서울 VM(AWS ap-northeast-2, m6i.large), 측정 코드 커밋 `5e9962d`, 설정 `code/config/run1.yaml`(SHA-256 `a970b7e0…d2ad16`).
 
 - **실행 시각:** 본 루프 2026-11-17 14:50:47~18:02:26 UTC(**2026-11-17 23:50 ~ 2026-11-18 03:02 KST**). 품질 점검 Q는 18:09~18:19 UTC(03:09~03:19 KST)입니다.

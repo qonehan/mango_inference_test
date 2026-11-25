@@ -1,5 +1,7 @@
 # 파일럿 원시 기록 (2026-11-17)
 
+> 원시 데이터 파일(표의 jsonl·gz·json·SHA256SUMS)은 2026-11-25부터 학교 Google Drive에 보관합니다. 위치와 해시는 [ASSETS.md](../../ASSETS.md), 로컬 복원은 `python -I tools/cloud_assets.py sync`. `analysis/`와 이 README는 GitHub에 있습니다.
+
 [파일럿 결과와 결론](../../docs/08_파일럿_결과.md)의 근거 데이터입니다. 서울 VM(AWS ap-northeast-2), 측정 코드 커밋 `48f7bb0`, 설정 `code/config/pilot.yaml`. **본 판정에 쓰지 않는 파일럿 데이터입니다.**
 
 | 파일 | 내용 |
