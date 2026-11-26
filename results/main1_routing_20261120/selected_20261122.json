@@ -1,0 +1,366 @@
+{
+ "source": "sel_39h_20261122.json",
+ "rule": "top5 by observed first-attempt share + TTFT 1st + long-input(3000/16) effective cost 1st among endpoints with >=1 observed assignment, not deranked, last-6h stats",
+ "models": {
+  "deepseek-v4.1-flash-1017": {
+   "top5": [
+    "wafer/us",
+    "wafer/mxfp4",
+    "inference-net/us",
+    "morph/fp8",
+    "deepinfra/fp8"
+   ],
+   "top5_share": 0.5228,
+   "ttft_1st": "inference-net/us",
+   "ttft_1st_ms": 190.0,
+   "cost_L_1st": "open-inference/fp4",
+   "cost_L_1st_usd": 2.381e-05,
+   "selected": [
+    "wafer/us",
+    "wafer/mxfp4",
+    "inference-net/us",
+    "morph/fp8",
+    "deepinfra/fp8",
+    "open-inference/fp4"
+   ],
+   "rows": [
+    {
+     "tag": "wafer/us",
+     "e": "913e3d9a-dc7e-4e84-b892-35169efa3de3",
+     "n": 943,
+     "share": 0.117875,
+     "ttft_6h": 334.0,
+     "tps_6h": 204.0,
+     "ein_6h": 0.011817777902321976,
+     "pout_6h": 5e-07,
+     "costL": 4.345333370696593e-05
+    },
+    {
+     "tag": "wafer/mxfp4",
+     "e": "66d4851d-7738-4948-9d40-2ab6dc54f895",
+     "n": 940,
+     "share": 0.1175,
+     "ttft_6h": 316.0,
+     "tps_6h": 221.0,
+     "ein_6h": 0.010610976357566203,
+     "pout_6h": 5e-07,
+     "costL": 3.983292907269861e-05
+    },
+    {
+     "tag": "inference-net/us",
+     "e": "a74ca7c9-69a5-461d-ad10-93e3c04267b9",
+     "n": 882,
+     "share": 0.11025,
+     "ttft_6h": 190.0,
+     "tps_6h": 166.0,
+     "ein_6h": 0.014038620311855335,
+     "pout_6h": 6.66e-07,
+     "costL": 5.277186093556601e-05
+    },
+    {
+     "tag": "morph/fp8",
+     "e": "e768a23f-2848-4af0-a7c0-c02cf79ed41c",
+     "n": 776,
+     "share": 0.097,
+     "ttft_6h": 426.75,
+     "tps_6h": 122.0,
+     "ein_6h": 0.00948191150961486,
+     "pout_6h": 5.2e-07,
+     "costL": 3.676573452884458e-05
+    },
+    {
+     "tag": "deepinfra/fp8",
+     "e": "a34868e3-d8e3-46c4-acf2-19c86ae3365a",
+     "n": 641,
+     "share": 0.080125,
+     "ttft_6h": 652.25,
+     "tps_6h": 116.5,
+     "ein_6h": 0.007345145652124739,
+     "pout_6h": 2.94e-07,
+     "costL": 2.6739436956374217e-05
+    },
+    {
+     "tag": "open-inference/fp4",
+     "e": "4cec88c1-b7f3-43fc-890a-76e6decc17d4",
+     "n": 36,
+     "share": 0.0045,
+     "ttft_6h": 701.0,
+     "tps_6h": 175.0,
+     "ein_6h": 0.003937148973777211,
+     "pout_6h": 7.5e-07,
+     "costL": 2.3811446921331634e-05
+    }
+   ]
+  },
+  "glm-5.3": {
+   "top5": [
+    "wafer/fp4",
+    "wafer/us",
+    "decart/fp4",
+    "friendli",
+    "fireworks/spot"
+   ],
+   "top5_share": 0.8558,
+   "ttft_1st": "parasail/fp4",
+   "ttft_1st_ms": 242.25,
+   "cost_L_1st": "wafer/us",
+   "cost_L_1st_usd": 0.00022934,
+   "selected": [
+    "wafer/fp4",
+    "wafer/us",
+    "decart/fp4",
+    "friendli",
+    "fireworks/spot",
+    "parasail/fp4"
+   ],
+   "rows": [
+    {
+     "tag": "wafer/fp4",
+     "e": "fdba52ce-2d94-467b-91c6-a331910f8c27",
+     "n": 3752,
+     "share": 0.469,
+     "ttft_6h": 269.5,
+     "tps_6h": 98.5,
+     "ein_6h": 0.17807483899715118,
+     "pout_6h": 1.4e-06,
+     "costL": 0.0005566245169914535
+    },
+    {
+     "tag": "wafer/us",
+     "e": "a809e106-5f12-4333-ab6b-64d1e4f1d76a",
+     "n": 2363,
+     "share": 0.295375,
+     "ttft_6h": 356.5,
+     "tps_6h": 101.0,
+     "ein_6h": 0.06898082390644542,
+     "pout_6h": 1.4e-06,
+     "costL": 0.00022934247171933625
+    },
+    {
+     "tag": "decart/fp4",
+     "e": "4d67d501-6f88-4519-b572-320d1e451f9d",
+     "n": 253,
+     "share": 0.031625,
+     "ttft_6h": 755.5,
+     "tps_6h": 95.0,
+     "ein_6h": 0.13609994177849433,
+     "pout_6h": 1.81e-06,
+     "costL": 0.000437259825335483
+    },
+    {
+     "tag": "friendli",
+     "e": "235a0f49-0546-4324-a5f1-e4f21d824302",
+     "n": 244,
+     "share": 0.0305,
+     "ttft_6h": 359.0,
+     "tps_6h": 115.0,
+     "ein_6h": 0.5565323720216647,
+     "pout_6h": 3.96e-06,
+     "costL": 0.0017329571160649942
+    },
+    {
+     "tag": "fireworks/spot",
+     "e": "eea1d0f0-237b-4394-8900-e315d9af363e",
+     "n": 234,
+     "share": 0.02925,
+     "ttft_6h": 401.0,
+     "tps_6h": 75.0,
+     "ein_6h": 0.2620972788323881,
+     "pout_6h": 2.2e-06,
+     "costL": 0.0008214918364971642
+    },
+    {
+     "tag": "parasail/fp4",
+     "e": "14352c48-92c0-4e0f-b73a-dcafd16057bf",
+     "n": 34,
+     "share": 0.00425,
+     "ttft_6h": 242.25,
+     "tps_6h": 138.5,
+     "ein_6h": 0.5413233542221726,
+     "pout_6h": 4.4e-06,
+     "costL": 0.001694370062666518
+    }
+   ]
+  },
+  "glm-5.3-flash": {
+   "top5": [
+    "wafer/nvfp4",
+    "wafer/us",
+    "inference-net/fp4",
+    "inference-net/us",
+    "reka"
+   ],
+   "top5_share": 0.5714,
+   "ttft_1st": "friendli",
+   "ttft_1st_ms": 165.0,
+   "cost_L_1st": "cohere/nvfp4",
+   "cost_L_1st_usd": 8.514e-05,
+   "selected": [
+    "wafer/nvfp4",
+    "wafer/us",
+    "inference-net/fp4",
+    "inference-net/us",
+    "reka",
+    "friendli",
+    "cohere/nvfp4"
+   ],
+   "rows": [
+    {
+     "tag": "wafer/nvfp4",
+     "e": "7c22a43e-fac7-4201-bdc2-226a97e8a0d7",
+     "n": 1173,
+     "share": 0.146625,
+     "ttft_6h": 324.0,
+     "tps_6h": 123.0,
+     "ein_6h": 0.06425022288667176,
+     "pout_6h": 2.4e-07,
+     "costL": 0.00019659066866001526
+    },
+    {
+     "tag": "wafer/us",
+     "e": "f4829435-d932-4798-8489-21d56770f093",
+     "n": 1042,
+     "share": 0.13025,
+     "ttft_6h": 380.0,
+     "tps_6h": 107.25,
+     "ein_6h": 0.04144836216457288,
+     "pout_6h": 1.84e-07,
+     "costL": 0.00012728908649371865
+    },
+    {
+     "tag": "inference-net/fp4",
+     "e": "7688c4bb-df42-4097-a964-cf038b69f7f2",
+     "n": 840,
+     "share": 0.105,
+     "ttft_6h": 333.5,
+     "tps_6h": 114.0,
+     "ein_6h": 0.04274517664705353,
+     "pout_6h": 3.5e-07,
+     "costL": 0.0001338355299411606
+    },
+    {
+     "tag": "inference-net/us",
+     "e": "565f1577-f737-412c-9690-0a414ba8fb84",
+     "n": 799,
+     "share": 0.099875,
+     "ttft_6h": 326.75,
+     "tps_6h": 116.0,
+     "ein_6h": 0.039930754799596985,
+     "pout_6h": 3.5e-07,
+     "costL": 0.00012539226439879097
+    },
+    {
+     "tag": "reka",
+     "e": "8e427c3a-c460-4db7-a40f-227b6d2ed05a",
+     "n": 717,
+     "share": 0.089625,
+     "ttft_6h": 523.75,
+     "tps_6h": 89.0,
+     "ein_6h": 0.04744535855480861,
+     "pout_6h": 3e-07,
+     "costL": 0.00014713607566442584
+    },
+    {
+     "tag": "friendli",
+     "e": "516713c5-3500-49b4-88c6-6b342b2c800c",
+     "n": 519,
+     "share": 0.064875,
+     "ttft_6h": 165.0,
+     "tps_6h": 127.0,
+     "ein_6h": 0.06371795916586978,
+     "pout_6h": 5e-07,
+     "costL": 0.00019915387749760933
+    },
+    {
+     "tag": "cohere/nvfp4",
+     "e": "d3f43587-c8e3-4a3d-897a-5a74ec4cae25",
+     "n": 38,
+     "share": 0.00475,
+     "ttft_6h": 977.0,
+     "tps_6h": 92.0,
+     "ein_6h": 0.026567499170040438,
+     "pout_6h": 3.4e-07,
+     "costL": 8.514249751012131e-05
+    }
+   ]
+  },
+  "kimi-k3.1-pro": {
+   "top5": [
+    "wafer/mxfp4",
+    "inference-net/mxfp4/us",
+    "wafer/us",
+    "inference-net/mxfp4",
+    "river"
+   ],
+   "top5_share": 0.5931,
+   "ttft_1st": "wafer/mxfp4",
+   "ttft_1st_ms": 538.0,
+   "cost_L_1st": "wafer/us",
+   "cost_L_1st_usd": 0.00068841,
+   "selected": [
+    "wafer/mxfp4",
+    "inference-net/mxfp4/us",
+    "wafer/us",
+    "inference-net/mxfp4",
+    "river"
+   ],
+   "rows": [
+    {
+     "tag": "wafer/mxfp4",
+     "e": "ef01e5c5-7f65-433b-9df6-9add8b075889",
+     "n": 919,
+     "share": 0.12582146768893757,
+     "ttft_6h": 538.0,
+     "tps_6h": 104.0,
+     "ein_6h": 0.24182734113868232,
+     "pout_6h": 9e-06,
+     "costL": 0.000869482023416047
+    },
+    {
+     "tag": "inference-net/mxfp4/us",
+     "e": "bed5b2b6-f15f-42c3-ab5f-6c1d2a8e0aaf",
+     "n": 900,
+     "share": 0.12322015334063527,
+     "ttft_6h": 558.25,
+     "tps_6h": 110.0,
+     "ein_6h": 0.23509448779444372,
+     "pout_6h": 9e-06,
+     "costL": 0.0008492834633833312
+    },
+    {
+     "tag": "wafer/us",
+     "e": "9dc2f681-3df0-4f3c-b8f4-5fb564629c5b",
+     "n": 891,
+     "share": 0.12198795180722892,
+     "ttft_6h": 722.0,
+     "tps_6h": 99.5,
+     "ein_6h": 0.18253588201531784,
+     "pout_6h": 8.8e-06,
+     "costL": 0.0006884076460459535
+    },
+    {
+     "tag": "inference-net/mxfp4",
+     "e": "ceab21e5-5131-48d2-8fd6-9edb3a069383",
+     "n": 847,
+     "share": 0.11596385542168675,
+     "ttft_6h": 573.5,
+     "tps_6h": 109.5,
+     "ein_6h": 0.24551489642294716,
+     "pout_6h": 9e-06,
+     "costL": 0.0008805446892688416
+    },
+    {
+     "tag": "river",
+     "e": "65c23e19-6e6b-4882-9399-5891175e03b0",
+     "n": 775,
+     "share": 0.10610624315443593,
+     "ttft_6h": 602.5,
+     "tps_6h": 91.0,
+     "ein_6h": 0.28710695053698765,
+     "pout_6h": 1e-05,
+     "costL": 0.001021320851610963
+    }
+   ]
+  }
+ }
+}

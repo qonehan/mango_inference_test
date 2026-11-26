@@ -1,0 +1,5601 @@
+{
+ "conversion": {
+  "seoul": {
+   "deepseek-v4.1-flash-1017": {
+    "ttft_factor": 0.9086219814765121,
+    "ttft_factor_paths": {
+     "wafer/us": 0.7683943457774556,
+     "wafer/mxfp4": 0.8845607628322175,
+     "inference-net/us": 1.6591836734693877,
+     "morph/fp8": 0.8930559624963376,
+     "deepinfra/fp8": 0.6017060367454068,
+     "open-inference/fp4": 0.9286030257453773
+    },
+    "tps_factor": 1.217479310852608,
+    "tps_factor_paths": {
+     "wafer/us": 1.2311485377018774,
+     "wafer/mxfp4": 1.2393796050125314,
+     "inference-net/us": 1.2898468693284777,
+     "morph/fp8": 1.169577364604121,
+     "deepinfra/fp8": 1.2335807552440694,
+     "open-inference/fp4": 1.1468854578323504
+    },
+    "mango_green_ms": 287.73,
+    "mango_G_tps": 485.64660397131445,
+    "mango_ttft_or": 316.66634295203636,
+    "mango_tps_or": 398.8951595663775,
+    "ttft_or_range_by_path": [
+     173.41660516605168,
+     478.1903162486369
+    ],
+    "tps_or_range_by_path": [
+     376.5149301979952,
+     423.44821852497967
+    ],
+    "old_weighted": {
+     "ttft_factor": 0.9237589073145753,
+     "mango_ttft_or": 311.4773754511868,
+     "tps_factor": 1.233719316157511,
+     "mango_tps_or": 393.6443221817167
+    }
+   },
+   "glm-5.3": {
+    "ttft_factor": 0.8304765188700083,
+    "ttft_factor_paths": {
+     "wafer/fp4": 1.0678983833718245,
+     "wafer/us": 0.7303443794671864,
+     "decart/fp4": 0.9875788266768584,
+     "friendli": 0.4986830553116769,
+     "inference-net/fp4": 1.1428571428571428,
+     "parasail/fp4": 0.7473399458972046
+    },
+    "tps_factor": 1.6195292605347618,
+    "tps_factor_paths": {
+     "wafer/fp4": 1.3078531339825596,
+     "wafer/us": 1.2458622668311337,
+     "decart/fp4": 1.7941545864120976,
+     "friendli": 1.9466492735015222,
+     "inference-net/fp4": 1.4344743634581638,
+     "parasail/fp4": 2.2103620775930892
+    },
+    "mango_green_ms": 442.525,
+    "mango_G_tps": 197.49770790331746,
+    "mango_ttft_or": 532.8567273667456,
+    "mango_tps_or": 121.94760089614222,
+    "ttft_or_range_by_path": [
+     387.209375,
+     887.3872799295774
+    ],
+    "tps_or_range_by_path": [
+     89.35083980375603,
+     158.52290671396236
+    ],
+    "old_weighted": {
+     "ttft_factor": 0.911189941752917,
+     "mango_ttft_or": 485.6561510640526,
+     "tps_factor": 1.3237395210895204,
+     "mango_tps_or": 149.19680553222773
+    }
+   },
+   "glm-5.3-flash": {
+    "ttft_factor": 0.9080173312895118,
+    "ttft_factor_paths": {
+     "wafer/nvfp4": 0.9053668654394607,
+     "wafer/us": 0.7651902960160248,
+     "inference-net/fp4": 1.3113466823714173,
+     "inference-net/us": 1.2484939759036144,
+     "friendli": 0.8593208593208593,
+     "cohere/nvfp4": 0.5750577367205543
+    },
+    "tps_factor": 1.4012025742820167,
+    "tps_factor_paths": {
+     "wafer/nvfp4": 1.1477512449130798,
+     "wafer/us": 1.5233904322804521,
+     "inference-net/fp4": 1.3587948983082352,
+     "inference-net/us": 1.4115057548360332,
+     "friendli": 1.2350307154886866,
+     "cohere/nvfp4": 1.8273942057745325
+    },
+    "mango_green_ms": 391.71500000000003,
+    "mango_G_tps": 334.89813776523783,
+    "mango_ttft_or": 431.3959508280639,
+    "mango_tps_or": 239.0076523637857,
+    "ttft_or_range_by_path": [
+     298.71200748502997,
+     681.1750803212852
+    ],
+    "tps_or_range_by_path": [
+     183.26540420614546,
+     291.78634242352746
+    ],
+    "old_weighted": {
+     "ttft_factor": 0.9843894731183894,
+     "mango_ttft_or": 397.9268477537749,
+     "tps_factor": 1.3284596741950288,
+     "mango_tps_or": 252.0950724139723
+    }
+   },
+   "kimi-k3.1-pro": {
+    "ttft_factor": 0.5643725046478094,
+    "ttft_factor_paths": {
+     "wafer/mxfp4": 0.5656565656565656,
+     "inference-net/mxfp4/us": 0.7784269662921348,
+     "wafer/us": 0.5037370738200061,
+     "inference-net/mxfp4": 0.8048752443371278,
+     "river": 0.4285821174710064,
+     "modal/mxfp4": 0.42233575333871115
+    },
+    "tps_factor": 1.3382038059647527,
+    "tps_factor_paths": {
+     "wafer/mxfp4": 1.3847594389671363,
+     "inference-net/mxfp4/us": 1.3720189707545931,
+     "wafer/us": 1.5283237299208272,
+     "inference-net/mxfp4": 1.3256672482459309,
+     "river": 1.348564364437155,
+     "modal/mxfp4": 1.106311817065728
+    },
+    "mango_green_ms": 359.28499999999997,
+    "mango_G_tps": 118.55792198947407,
+    "mango_ttft_or": 636.6096807359669,
+    "mango_tps_or": 88.59481751660539,
+    "ttft_or_range_by_path": [
+     446.3859492857142,
+     850.7094110780984
+    ],
+    "tps_or_range_by_path": [
+     77.57382789287438,
+     107.1650145651751
+    ],
+    "old_weighted": {
+     "ttft_factor": 0.5709895780543981,
+     "mango_ttft_or": 629.2321503034,
+     "tps_factor": 1.3453569779246757,
+     "mango_tps_or": 88.12376487046542
+    }
+   }
+  },
+  "iad": {
+   "deepseek-v4.1-flash-1017": {
+    "ttft_factor": 0.5016874280696285,
+    "ttft_factor_paths": {
+     "wafer/us": 0.5683218557448351,
+     "wafer/mxfp4": 0.33110164333536213,
+     "inference-net/us": 0.4346938775510204,
+     "morph/fp8": 0.59654263111632,
+     "deepinfra/fp8": 0.4363517060367454,
+     "open-inference/fp4": 0.7488277448465009
+    },
+    "tps_factor": 1.2695551631765092,
+    "tps_factor_paths": {
+     "wafer/us": 1.3546641597006284,
+     "wafer/mxfp4": 1.2363339494210823,
+     "inference-net/us": 1.3746871938514926,
+     "morph/fp8": 1.165427009305392,
+     "deepinfra/fp8": 1.2563625180122802,
+     "open-inference/fp4": 1.2420471522140986
+    },
+    "mango_green_ms": 160.915,
+    "mango_G_tps": 481.78947775709946,
+    "mango_ttft_or": 320.7475232520015,
+    "mango_tps_or": 379.49471730840827,
+    "ttft_or_range_by_path": [
+     214.88920663988657,
+     485.9987959558824
+    ],
+    "tps_or_range_by_path": [
+     350.4720782385837,
+     413.4016750171695
+    ],
+    "old_weighted": {
+     "ttft_factor": 0.4608099324182358,
+     "mango_ttft_or": 349.2003723868345,
+     "tps_factor": 1.2796507730652864,
+     "mango_tps_or": 376.5007515316205
+    }
+   },
+   "glm-5.3": {
+    "ttft_factor": 0.44279424419631846,
+    "ttft_factor_paths": {
+     "wafer/fp4": 0.3787528868360277,
+     "wafer/us": 0.5562053281351527,
+     "decart/fp4": 0.6558379514618765,
+     "friendli": 0.3230904302019315,
+     "inference-net/fp4": 0.32691029900332225,
+     "parasail/fp4": 0.5165013525698828
+    },
+    "tps_factor": 1.6121547749413265,
+    "tps_factor_paths": {
+     "wafer/fp4": 1.3724072351563172,
+     "wafer/us": 1.2872502872769456,
+     "decart/fp4": 1.8078681056733454,
+     "friendli": 1.6931607488520928,
+     "inference-net/fp4": 1.4929374026794084,
+     "parasail/fp4": 2.174642510626307
+    },
+    "mango_green_ms": 307.08000000000004,
+    "mango_G_tps": 204.9780382472207,
+    "mango_ttft_or": 693.5049495897517,
+    "mango_tps_or": 127.14538419841281,
+    "ttft_or_range_by_path": [
+     468.22541958041967,
+     950.4459782608698
+    ],
+    "tps_or_range_by_path": [
+     94.25826877089149,
+     159.23712759919601
+    ],
+    "old_weighted": {
+     "ttft_factor": 0.43693328645695434,
+     "mango_ttft_or": 702.8075212352878,
+     "tps_factor": 1.3701263082243569,
+     "mango_tps_or": 149.60521304993125
+    }
+   },
+   "glm-5.3-flash": {
+    "ttft_factor": 0.3988530651822601,
+    "ttft_factor_paths": {
+     "wafer/nvfp4": 0.30023334197562873,
+     "wafer/us": 0.5889160916981971,
+     "inference-net/fp4": 0.3564978405967805,
+     "inference-net/us": 0.3433734939759036,
+     "friendli": 0.5322245322245323,
+     "cohere/nvfp4": 0.3494996150885296
+    },
+    "tps_factor": 1.458567655703557,
+    "tps_factor_paths": {
+     "wafer/nvfp4": 1.2315421339813157,
+     "wafer/us": 1.63993793052792,
+     "inference-net/fp4": 1.4472373743724571,
+     "inference-net/us": 1.4525307379310746,
+     "friendli": 1.203457581001896,
+     "cohere/nvfp4": 1.8844598916949773
+    },
+    "mango_green_ms": 262.65999999999997,
+    "mango_G_tps": 338.07003487696477,
+    "mango_ttft_or": 658.5382511225649,
+    "mango_tps_or": 231.78221013950346,
+    "ttft_or_range_by_path": [
+     446.0058125472411,
+     874.8528670120897
+    ],
+    "tps_or_range_by_path": [
+     179.39890170487402,
+     280.9156219660992
+    ],
+    "old_weighted": {
+     "ttft_factor": 0.39950427965046376,
+     "mango_ttft_or": 657.464796697066,
+     "tps_factor": 1.397578673626252,
+     "mango_tps_or": 241.8969616928866
+    }
+   },
+   "kimi-k3.1-pro": {
+    "ttft_factor": 0.26129202393088724,
+    "ttft_factor_paths": {
+     "wafer/mxfp4": 0.23334468278288503,
+     "inference-net/mxfp4/us": 0.2301123595505618,
+     "wafer/us": 0.390703388962834,
+     "inference-net/mxfp4": 0.22904449810279406,
+     "river": 0.18436213991769548,
+     "modal/mxfp4": 0.3592363538585641
+    },
+    "tps_factor": 1.3550008447222515,
+    "tps_factor_paths": {
+     "wafer/mxfp4": 1.5028510465923939,
+     "inference-net/mxfp4/us": 1.3915212335183293,
+     "wafer/us": 1.4849488490910847,
+     "inference-net/mxfp4": 1.4499861372101344,
+     "river": 1.3966449309477877,
+     "modal/mxfp4": 0.9841703257082793
+    },
+    "mango_green_ms": 230.535,
+    "mango_G_tps": 118.84009963863141,
+    "mango_ttft_or": 882.2886995623617,
+    "mango_tps_or": 87.70481590584639,
+    "ttft_or_range_by_path": [
+     590.0511910377359,
+     1250.4465401785712
+    ],
+    "tps_or_range_by_path": [
+     79.07643269643572,
+     120.75155746349655
+    ],
+    "old_weighted": {
+     "ttft_factor": 0.2611952084440812,
+     "mango_ttft_or": 882.6157316333574,
+     "tps_factor": 1.36599699392467,
+     "mango_tps_or": 86.99880026616297
+    }
+   }
+  }
+ },
+ "share": {
+  "deepseek-v4.1-flash-1017": {
+   "n_snapshots": 40,
+   "t_first": 1795325400.6592894,
+   "t_last": 1795392900.8203366,
+   "n_candidates_mean": 32.25,
+   "n_candidates_union": 33,
+   "n_snapshots_by_round": {
+    "r1": 10,
+    "r2": 10,
+    "r3": 10,
+    "r4": 10
+   },
+   "leader": "Wafer (wafer/mxfp4)",
+   "by_vm": {
+    "seoul": {
+     "mango_ttft_or": 316.66634295203636,
+     "mango_tps_or": 398.8951595663775,
+     "mango_share": 0.0387657285592683,
+     "mango_share_rank": 9,
+     "mango_metric_rank": {
+      "ttft": 3,
+      "tps": 1,
+      "pout": 28,
+      "ein": 25
+     },
+     "mango_level": {
+      "ttft": 316.66634295203636,
+      "tps": 398.8951595663775,
+      "pout": 0.8,
+      "ein": 0.020061576044052672
+     },
+     "candidates": [
+      {
+       "endpoint": "a74ca7c9-69a5-461d-ad10-93e3c04267b9",
+       "name": "InferenceNet (inference-net/us)",
+       "share": 0.12526478924153767,
+       "obs_share_2_1": 0.1055813953488372,
+       "level": {
+        "ttft": 245.0,
+        "tps": 166.1875,
+        "pout": 0.6659999999999999,
+        "ein": 0.014305400000000001
+       },
+       "rank": {
+        "ttft": 1,
+        "tps": 11,
+        "pout": 21,
+        "ein": 19
+       }
+      },
+      {
+       "endpoint": "66d4851d-7738-4948-9d40-2ab6dc54f895",
+       "name": "Wafer (wafer/mxfp4)",
+       "share": 0.12473970023044498,
+       "obs_share_2_1": 0.12151162790697674,
+       "level": {
+        "ttft": 308.0625,
+        "tps": 204.875,
+        "pout": 0.5,
+        "ein": 0.010331800000000002
+       },
+       "rank": {
+        "ttft": 2,
+        "tps": 3,
+        "pout": 10,
+        "ein": 12
+       }
+      },
+      {
+       "endpoint": "913e3d9a-dc7e-4e84-b892-35169efa3de3",
+       "name": "Wafer (wafer/us)",
+       "share": 0.09309372402034345,
+       "obs_share_2_1": 0.11976744186046512,
+       "level": {
+        "ttft": 344.875,
+        "tps": 186.625,
+        "pout": 0.5,
+        "ein": 0.011781650000000003
+       },
+       "rank": {
+        "ttft": 3,
+        "tps": 7,
+        "pout": 10,
+        "ein": 15
+       }
+      },
+      {
+       "endpoint": "e768a23f-2848-4af0-a7c0-c02cf79ed41c",
+       "name": "Morph (morph/fp8)",
+       "share": 0.0775617422189581,
+       "obs_share_2_1": 0.10011627906976744,
+       "level": {
+        "ttft": 426.625,
+        "tps": 116.0,
+        "pout": 0.52,
+        "ein": 0.0083183
+       },
+       "rank": {
+        "ttft": 5,
+        "tps": 29,
+        "pout": 13,
+        "ein": 7
+       }
+      },
+      {
+       "endpoint": "8f31c510-c6ab-4ce3-9c0d-162d2d78fe02",
+       "name": "Sail Research (sail-research/fp4/us)",
+       "share": 0.07512232114634185,
+       "obs_share_2_1": 0.03965116279069768,
+       "level": {
+        "ttft": 1169.75,
+        "tps": 116.625,
+        "pout": 0.09999999999999999,
+        "ein": 0.009176350000000002
+       },
+       "rank": {
+        "ttft": 30,
+        "tps": 26,
+        "pout": 1,
+        "ein": 10
+       }
+      },
+      {
+       "endpoint": "4231aea9-73af-4a2f-bd14-660b1d8b13b2",
+       "name": "InferenceNet (inference-net/fp8)",
+       "share": 0.05995248628453362,
+       "obs_share_2_1": 0.056511627906976745,
+       "level": {
+        "ttft": 360.375,
+        "tps": 164.875,
+        "pout": 0.6659999999999999,
+        "ein": 0.012436999999999998
+       },
+       "rank": {
+        "ttft": 4,
+        "tps": 12,
+        "pout": 21,
+        "ein": 18
+       }
+      },
+      {
+       "endpoint": "a79e9269-183e-4bf8-8d54-6f667d8be0b0",
+       "name": "Sail Research (sail-research/fp4)",
+       "share": 0.044913339557187584,
+       "obs_share_2_1": 0.010348837209302325,
+       "level": {
+        "ttft": 1395.25,
+        "tps": 116.375,
+        "pout": 0.09999999999999999,
+        "ein": 0.008979174999999999
+       },
+       "rank": {
+        "ttft": 32,
+        "tps": 27,
+        "pout": 1,
+        "ein": 9
+       }
+      },
+      {
+       "endpoint": "a34868e3-d8e3-46c4-acf2-19c86ae3365a",
+       "name": "DeepInfra (deepinfra/fp8)",
+       "share": 0.0421043154766868,
+       "obs_share_2_1": 0.08151162790697675,
+       "level": {
+        "ttft": 762.0,
+        "tps": 109.75,
+        "pout": 0.29400000000000004,
+        "ein": 0.0069562849999999996
+       },
+       "rank": {
+        "ttft": 19,
+        "tps": 31,
+        "pout": 3,
+        "ein": 5
+       }
+      },
+      {
+       "endpoint": "448020c2-5922-46c6-b994-849a58da32d8",
+       "name": "Cohere (cohere/fp8)",
+       "share": 0.0331044443638082,
+       "obs_share_2_1": 0.041627906976744185,
+       "level": {
+        "ttft": 743.25,
+        "tps": 126.625,
+        "pout": 0.39999999999999997,
+        "ein": 0.007762187500000005
+       },
+       "rank": {
+        "ttft": 18,
+        "tps": 22,
+        "pout": 6,
+        "ein": 6
+       }
+      },
+      {
+       "endpoint": "91aeefa7-9cc4-4935-9f11-84e016617eca",
+       "name": "Particle AI (particle-ai/us)",
+       "share": 0.02677480478679735,
+       "obs_share_2_1": 0.08069767441860465,
+       "level": {
+        "ttft": 526.375,
+        "tps": 143.875,
+        "pout": 0.55,
+        "ein": 0.0339315
+       },
+       "rank": {
+        "ttft": 8,
+        "tps": 16,
+        "pout": 15,
+        "ein": 29
+       }
+      },
+      {
+       "endpoint": "2b9b6bb4-dec5-474f-bfc9-7ade62a8f0a4",
+       "name": "PrimeIntellect (primeintellect)",
+       "share": 0.02185671453289013,
+       "obs_share_2_1": 0.011627906976744186,
+       "level": {
+        "ttft": 629.375,
+        "tps": 135.5,
+        "pout": 0.7,
+        "ein": 0.006378746400000002
+       },
+       "rank": {
+        "ttft": 13,
+        "tps": 19,
+        "pout": 24,
+        "ein": 3
+       }
+      },
+      {
+       "endpoint": "80af3df1-c7a8-4988-867a-4bb407304155",
+       "name": "River (river)",
+       "share": 0.021200715777656996,
+       "obs_share_2_1": 0.03174418604651163,
+       "level": {
+        "ttft": 798.875,
+        "tps": 100.375,
+        "pout": 0.48,
+        "ein": 0.0086181
+       },
+       "rank": {
+        "ttft": 20,
+        "tps": 33,
+        "pout": 9,
+        "ein": 8
+       }
+      },
+      {
+       "endpoint": "6b6dd19c-9bdc-4d62-b0ef-5d663bdb3efb",
+       "name": "Baidu (baidu/fp8)",
+       "share": 0.020842770909424116,
+       "obs_share_2_1": 0.02616279069767442,
+       "level": {
+        "ttft": 850.9375,
+        "tps": 116.375,
+        "pout": 0.39437,
+        "ein": 0.014570802349999998
+       },
+       "rank": {
+        "ttft": 22,
+        "tps": 27,
+        "pout": 5,
+        "ein": 20
+       }
+      },
+      {
+       "endpoint": "e9ec4131-d517-4d00-8e5f-6232001de29e",
+       "name": "Pearl Research (pearl-research/fp8)",
+       "share": 0.015739630218091813,
+       "obs_share_2_1": 0.00813953488372093,
+       "level": {
+        "ttft": 1160.875,
+        "tps": 138.6875,
+        "pout": 0.3,
+        "ein": 0.006824625000000001
+       },
+       "rank": {
+        "ttft": 29,
+        "tps": 18,
+        "pout": 4,
+        "ein": 4
+       }
+      },
+      {
+       "endpoint": "a65c86b0-a8d7-4692-8559-5dca58395a10",
+       "name": "SiliconFlow (siliconflow/fp8)",
+       "share": 0.014008810034064264,
+       "obs_share_2_1": 0.014534883720930232,
+       "level": {
+        "ttft": 697.125,
+        "tps": 157.25,
+        "pout": 0.6,
+        "ein": 0.011625225000000001
+       },
+       "rank": {
+        "ttft": 14,
+        "tps": 15,
+        "pout": 16,
+        "ein": 14
+       }
+      },
+      {
+       "endpoint": "ca094cda-a75e-4d5f-bb36-4758e79f4d18",
+       "name": "DigitalOcean (digitalocean)",
+       "share": 0.013781154598323552,
+       "obs_share_2_1": 0.012790697674418604,
+       "level": {
+        "ttft": 712.25,
+        "tps": 160.75,
+        "pout": 0.6,
+        "ein": 0.012367575
+       },
+       "rank": {
+        "ttft": 17,
+        "tps": 14,
+        "pout": 16,
+        "ein": 17
+       }
+      },
+      {
+       "endpoint": "4cec88c1-b7f3-43fc-890a-76e6decc17d4",
+       "name": "OpenInference (open-inference/fp4)",
+       "share": 0.013249567311795439,
+       "obs_share_2_1": 0.0047674418604651166,
+       "level": {
+        "ttft": 706.4375,
+        "tps": 173.25,
+        "pout": 0.7999999999999999,
+        "ein": 0.004133599999999998
+       },
+       "rank": {
+        "ttft": 16,
+        "tps": 10,
+        "pout": 26,
+        "ein": 1
+       }
+      },
+      {
+       "endpoint": "a2e0601b-7262-49a7-b60b-3f2a4eb336ab",
+       "name": "Nebius (nebius/fp4)",
+       "share": 0.013227223392193475,
+       "obs_share_2_1": 0.025116279069767444,
+       "level": {
+        "ttft": 614.5,
+        "tps": 239.1875,
+        "pout": 0.72,
+        "ein": 0.015506999999999995
+       },
+       "rank": {
+        "ttft": 12,
+        "tps": 1,
+        "pout": 25,
+        "ein": 22
+       }
+      },
+      {
+       "endpoint": "246c64e1-7574-453f-b42a-6fa0cf2925f6",
+       "name": "DeepInfra (deepinfra/fp8/priority)",
+       "share": 0.01321002751394711,
+       "obs_share_2_1": 0.0074418604651162795,
+       "level": {
+        "ttft": 928.0625,
+        "tps": 111.125,
+        "pout": 0.441,
+        "ein": 0.011404039500000001
+       },
+       "rank": {
+        "ttft": 24,
+        "tps": 30,
+        "pout": 8,
+        "ein": 13
+       }
+      },
+      {
+       "endpoint": "c4dbf623-9590-4e94-8979-ea518f81acd6",
+       "name": "CoreWeave (coreweave/fp8)",
+       "share": 0.011864403960666127,
+       "obs_share_2_1": 0.0006976744186046512,
+       "level": {
+        "ttft": 464.1875,
+        "tps": 218.0,
+        "pout": 1.2,
+        "ein": 0.039383699999999994
+       },
+       "rank": {
+        "ttft": 6,
+        "tps": 2,
+        "pout": 29,
+        "ein": 31
+       }
+      },
+      {
+       "endpoint": "9f90ca83-58b7-4ccb-8489-f15175902d5c",
+       "name": "Fireworks (fireworks/spot)",
+       "share": 0.011861135721793413,
+       "obs_share_2_1": 0.0037209302325581397,
+       "level": {
+        "ttft": 704.1666666666666,
+        "tps": 124.66666666666667,
+        "pout": 0.6,
+        "ein": 0.04244989999999999
+       },
+       "rank": {
+        "ttft": 15,
+        "tps": 24,
+        "pout": 16,
+        "ein": 32
+       }
+      },
+      {
+       "endpoint": "80ff1ad9-0bb9-4b02-8708-097af3b845de",
+       "name": "Makora (makora/fp8)",
+       "share": 0.010809930798910676,
+       "obs_share_2_1": 0.005465116279069767,
+       "level": {
+        "ttft": 1001.9375,
+        "tps": 129.6875,
+        "pout": 0.7999999999999999,
+        "ein": 0.015453600000000005
+       },
+       "rank": {
+        "ttft": 27,
+        "tps": 21,
+        "pout": 26,
+        "ein": 21
+       }
+      },
+      {
+       "endpoint": "97877a2b-db8c-463c-be76-91fe6a7ecd64",
+       "name": "Ionstream (ionstream)",
+       "share": 0.010587645844146747,
+       "obs_share_2_1": 0.030465116279069768,
+       "level": {
+        "ttft": 985.0625,
+        "tps": 174.0625,
+        "pout": 0.62,
+        "ein": 0.028190662500000005
+       },
+       "rank": {
+        "ttft": 26,
+        "tps": 9,
+        "pout": 20,
+        "ein": 26
+       }
+      },
+      {
+       "endpoint": "7be9abfd-5172-47b6-8950-0fc8c98318e6",
+       "name": "Alibaba (alibaba)",
+       "share": 0.010493127322150683,
+       "obs_share_2_1": 0.011395348837209301,
+       "level": {
+        "ttft": 921.375,
+        "tps": 139.625,
+        "pout": 0.54,
+        "ein": 0.011910284999999998
+       },
+       "rank": {
+        "ttft": 23,
+        "tps": 17,
+        "pout": 14,
+        "ein": 16
+       }
+      },
+      {
+       "endpoint": "edae2c86-a199-447d-83fb-11f5dcac70b3",
+       "name": "Modal (modal)",
+       "share": 0.008965995239234623,
+       "obs_share_2_1": 0.002325581395348837,
+       "level": {
+        "ttft": 592.9375,
+        "tps": 132.75,
+        "pout": 1.0,
+        "ein": 0.056909375
+       },
+       "rank": {
+        "ttft": 10,
+        "tps": 20,
+        "pout": 28,
+        "ein": 33
+       }
+      },
+      {
+       "endpoint": "8151dfde-838e-419d-95a3-f71683de8579",
+       "name": "ModelRun (modelrun/fp4)",
+       "share": 0.00850572495121297,
+       "obs_share_2_1": 0.0074418604651162795,
+       "level": {
+        "ttft": 806.75,
+        "tps": 161.75,
+        "pout": 0.67,
+        "ein": 0.016127
+       },
+       "rank": {
+        "ttft": 21,
+        "tps": 13,
+        "pout": 23,
+        "ein": 23
+       }
+      },
+      {
+       "endpoint": "79433609-9bff-4ceb-b5c4-59b9884749ca",
+       "name": "Crusoe (crusoe/fp8)",
+       "share": 0.007538008553213703,
+       "obs_share_2_1": 0.00046511627906976747,
+       "level": {
+        "ttft": 531.0625,
+        "tps": 182.125,
+        "pout": 1.2,
+        "ein": 0.030397024999999994
+       },
+       "rank": {
+        "ttft": 9,
+        "tps": 8,
+        "pout": 29,
+        "ein": 27
+       }
+      },
+      {
+       "endpoint": "bddfc3ba-e63a-443d-9adb-d4cef7ec7ac0",
+       "name": "Parasail (parasail/fp8)",
+       "share": 0.007439587699786761,
+       "obs_share_2_1": 0.00046511627906976747,
+       "level": {
+        "ttft": 507.5,
+        "tps": 199.3125,
+        "pout": 1.2,
+        "ein": 0.03849435000000001
+       },
+       "rank": {
+        "ttft": 7,
+        "tps": 4,
+        "pout": 29,
+        "ein": 30
+       }
+      },
+      {
+       "endpoint": "34cd16bf-a525-40b2-beeb-5f1809202c06",
+       "name": "Together (together)",
+       "share": 0.006924173920511748,
+       "obs_share_2_1": 0.0010465116279069768,
+       "level": {
+        "ttft": 604.625,
+        "tps": 191.375,
+        "pout": 1.2,
+        "ein": 0.020869049999999993
+       },
+       "rank": {
+        "ttft": 11,
+        "tps": 5,
+        "pout": 29,
+        "ein": 25
+       }
+      },
+      {
+       "endpoint": "66be8e3a-dd2d-4845-83d1-20d18305ae02",
+       "name": "StepFun (stepfun/fp8)",
+       "share": 0.005250784144196153,
+       "obs_share_2_1": 0.024767441860465117,
+       "level": {
+        "ttft": 1122.75,
+        "tps": 189.0,
+        "pout": 0.42,
+        "ein": 0.005752949999999998
+       },
+       "rank": {
+        "ttft": 28,
+        "tps": 6,
+        "pout": 7,
+        "ein": 2
+       }
+      },
+      {
+       "endpoint": "485d24f3-be58-4b01-b08e-62f7b9f1f6ac",
+       "name": "Relace (relace/fp4)",
+       "share": 0.0051320353096177595,
+       "obs_share_2_1": 0.011046511627906977,
+       "level": {
+        "ttft": 1357.4375,
+        "tps": 125.375,
+        "pout": 0.5,
+        "ein": 0.010020000000000001
+       },
+       "rank": {
+        "ttft": 31,
+        "tps": 23,
+        "pout": 10,
+        "ein": 11
+       }
+      },
+      {
+       "endpoint": "b7371050-21e6-47a4-b538-ff56d9aa2eb6",
+       "name": "BaseTen (baseten)",
+       "share": 0.0032497190616011026,
+       "obs_share_2_1": 0.00023255813953488373,
+       "level": {
+        "ttft": 931.125,
+        "tps": 102.9375,
+        "pout": 1.2,
+        "ein": 0.03175117499999999
+       },
+       "rank": {
+        "ttft": 25,
+        "tps": 32,
+        "pout": 29,
+        "ein": 28
+       }
+      },
+      {
+       "endpoint": "9b9ad118-ae57-42b5-b62d-020888d730e4",
+       "name": "DekaLLM (dekallm)",
+       "share": 0.002863717298662731,
+       "obs_share_2_1": 0.00023255813953488373,
+       "level": {
+        "ttft": 1577.4375,
+        "tps": 116.75,
+        "pout": 0.6,
+        "ein": 0.017794925
+       },
+       "rank": {
+        "ttft": 33,
+        "tps": 25,
+        "pout": 16,
+        "ein": 24
+       }
+      }
+     ]
+    },
+    "iad": {
+     "mango_ttft_or": 320.7475232520015,
+     "mango_tps_or": 379.49471730840827,
+     "mango_share": 0.03832840594030503,
+     "mango_share_rank": 9,
+     "mango_metric_rank": {
+      "ttft": 3,
+      "tps": 1,
+      "pout": 28,
+      "ein": 25
+     },
+     "mango_level": {
+      "ttft": 320.7475232520015,
+      "tps": 379.49471730840827,
+      "pout": 0.8,
+      "ein": 0.020061576044052672
+     },
+     "candidates": [
+      {
+       "endpoint": "a74ca7c9-69a5-461d-ad10-93e3c04267b9",
+       "name": "InferenceNet (inference-net/us)",
+       "share": 0.12532002686880173,
+       "obs_share_2_1": 0.1055813953488372,
+       "level": {
+        "ttft": 245.0,
+        "tps": 166.1875,
+        "pout": 0.6659999999999999,
+        "ein": 0.014305400000000001
+       },
+       "rank": {
+        "ttft": 1,
+        "tps": 11,
+        "pout": 21,
+        "ein": 19
+       }
+      },
+      {
+       "endpoint": "66d4851d-7738-4948-9d40-2ab6dc54f895",
+       "name": "Wafer (wafer/mxfp4)",
+       "share": 0.1247969085340705,
+       "obs_share_2_1": 0.12151162790697674,
+       "level": {
+        "ttft": 308.0625,
+        "tps": 204.875,
+        "pout": 0.5,
+        "ein": 0.010331800000000002
+       },
+       "rank": {
+        "ttft": 2,
+        "tps": 3,
+        "pout": 10,
+        "ein": 12
+       }
+      },
+      {
+       "endpoint": "913e3d9a-dc7e-4e84-b892-35169efa3de3",
+       "name": "Wafer (wafer/us)",
+       "share": 0.09313711994495308,
+       "obs_share_2_1": 0.11976744186046512,
+       "level": {
+        "ttft": 344.875,
+        "tps": 186.625,
+        "pout": 0.5,
+        "ein": 0.011781650000000003
+       },
+       "rank": {
+        "ttft": 3,
+        "tps": 7,
+        "pout": 10,
+        "ein": 15
+       }
+      },
+      {
+       "endpoint": "e768a23f-2848-4af0-a7c0-c02cf79ed41c",
+       "name": "Morph (morph/fp8)",
+       "share": 0.07759783847961582,
+       "obs_share_2_1": 0.10011627906976744,
+       "level": {
+        "ttft": 426.625,
+        "tps": 116.0,
+        "pout": 0.52,
+        "ein": 0.0083183
+       },
+       "rank": {
+        "ttft": 5,
+        "tps": 29,
+        "pout": 13,
+        "ein": 7
+       }
+      },
+      {
+       "endpoint": "8f31c510-c6ab-4ce3-9c0d-162d2d78fe02",
+       "name": "Sail Research (sail-research/fp4/us)",
+       "share": 0.07515522545107947,
+       "obs_share_2_1": 0.03965116279069768,
+       "level": {
+        "ttft": 1169.75,
+        "tps": 116.625,
+        "pout": 0.09999999999999999,
+        "ein": 0.009176350000000002
+       },
+       "rank": {
+        "ttft": 30,
+        "tps": 26,
+        "pout": 1,
+        "ein": 10
+       }
+      },
+      {
+       "endpoint": "4231aea9-73af-4a2f-bd14-660b1d8b13b2",
+       "name": "InferenceNet (inference-net/fp8)",
+       "share": 0.05997931101832207,
+       "obs_share_2_1": 0.056511627906976745,
+       "level": {
+        "ttft": 360.375,
+        "tps": 164.875,
+        "pout": 0.6659999999999999,
+        "ein": 0.012436999999999998
+       },
+       "rank": {
+        "ttft": 4,
+        "tps": 12,
+        "pout": 21,
+        "ein": 18
+       }
+      },
+      {
+       "endpoint": "a79e9269-183e-4bf8-8d54-6f667d8be0b0",
+       "name": "Sail Research (sail-research/fp4)",
+       "share": 0.04493346454820506,
+       "obs_share_2_1": 0.010348837209302325,
+       "level": {
+        "ttft": 1395.25,
+        "tps": 116.375,
+        "pout": 0.09999999999999999,
+        "ein": 0.008979174999999999
+       },
+       "rank": {
+        "ttft": 32,
+        "tps": 27,
+        "pout": 1,
+        "ein": 9
+       }
+      },
+      {
+       "endpoint": "a34868e3-d8e3-46c4-acf2-19c86ae3365a",
+       "name": "DeepInfra (deepinfra/fp8)",
+       "share": 0.042123989341517454,
+       "obs_share_2_1": 0.08151162790697675,
+       "level": {
+        "ttft": 762.0,
+        "tps": 109.75,
+        "pout": 0.29400000000000004,
+        "ein": 0.0069562849999999996
+       },
+       "rank": {
+        "ttft": 19,
+        "tps": 31,
+        "pout": 3,
+        "ein": 5
+       }
+      },
+      {
+       "endpoint": "448020c2-5922-46c6-b994-849a58da32d8",
+       "name": "Cohere (cohere/fp8)",
+       "share": 0.033118503102216104,
+       "obs_share_2_1": 0.041627906976744185,
+       "level": {
+        "ttft": 743.25,
+        "tps": 126.625,
+        "pout": 0.39999999999999997,
+        "ein": 0.007762187500000005
+       },
+       "rank": {
+        "ttft": 18,
+        "tps": 22,
+        "pout": 6,
+        "ein": 6
+       }
+      },
+      {
+       "endpoint": "91aeefa7-9cc4-4935-9f11-84e016617eca",
+       "name": "Particle AI (particle-ai/us)",
+       "share": 0.02678730858394781,
+       "obs_share_2_1": 0.08069767441860465,
+       "level": {
+        "ttft": 526.375,
+        "tps": 143.875,
+        "pout": 0.55,
+        "ein": 0.0339315
+       },
+       "rank": {
+        "ttft": 8,
+        "tps": 16,
+        "pout": 15,
+        "ein": 29
+       }
+      },
+      {
+       "endpoint": "2b9b6bb4-dec5-474f-bfc9-7ade62a8f0a4",
+       "name": "PrimeIntellect (primeintellect)",
+       "share": 0.02186713249976696,
+       "obs_share_2_1": 0.011627906976744186,
+       "level": {
+        "ttft": 629.375,
+        "tps": 135.5,
+        "pout": 0.7,
+        "ein": 0.006378746400000002
+       },
+       "rank": {
+        "ttft": 13,
+        "tps": 19,
+        "pout": 24,
+        "ein": 3
+       }
+      },
+      {
+       "endpoint": "80af3df1-c7a8-4988-867a-4bb407304155",
+       "name": "River (river)",
+       "share": 0.02121107212293665,
+       "obs_share_2_1": 0.03174418604651163,
+       "level": {
+        "ttft": 798.875,
+        "tps": 100.375,
+        "pout": 0.48,
+        "ein": 0.0086181
+       },
+       "rank": {
+        "ttft": 20,
+        "tps": 33,
+        "pout": 9,
+        "ein": 8
+       }
+      },
+      {
+       "endpoint": "6b6dd19c-9bdc-4d62-b0ef-5d663bdb3efb",
+       "name": "Baidu (baidu/fp8)",
+       "share": 0.02085259247563767,
+       "obs_share_2_1": 0.02616279069767442,
+       "level": {
+        "ttft": 850.9375,
+        "tps": 116.375,
+        "pout": 0.39437,
+        "ein": 0.014570802349999998
+       },
+       "rank": {
+        "ttft": 22,
+        "tps": 27,
+        "pout": 5,
+        "ein": 20
+       }
+      },
+      {
+       "endpoint": "e9ec4131-d517-4d00-8e5f-6232001de29e",
+       "name": "Pearl Research (pearl-research/fp8)",
+       "share": 0.015746528254627423,
+       "obs_share_2_1": 0.00813953488372093,
+       "level": {
+        "ttft": 1160.875,
+        "tps": 138.6875,
+        "pout": 0.3,
+        "ein": 0.006824625000000001
+       },
+       "rank": {
+        "ttft": 29,
+        "tps": 18,
+        "pout": 4,
+        "ein": 4
+       }
+      },
+      {
+       "endpoint": "a65c86b0-a8d7-4692-8559-5dca58395a10",
+       "name": "SiliconFlow (siliconflow/fp8)",
+       "share": 0.014015173731807613,
+       "obs_share_2_1": 0.014534883720930232,
+       "level": {
+        "ttft": 697.125,
+        "tps": 157.25,
+        "pout": 0.6,
+        "ein": 0.011625225000000001
+       },
+       "rank": {
+        "ttft": 14,
+        "tps": 15,
+        "pout": 16,
+        "ein": 14
+       }
+      },
+      {
+       "endpoint": "ca094cda-a75e-4d5f-bb36-4758e79f4d18",
+       "name": "DigitalOcean (digitalocean)",
+       "share": 0.01378750212894491,
+       "obs_share_2_1": 0.012790697674418604,
+       "level": {
+        "ttft": 712.25,
+        "tps": 160.75,
+        "pout": 0.6,
+        "ein": 0.012367575
+       },
+       "rank": {
+        "ttft": 17,
+        "tps": 14,
+        "pout": 16,
+        "ein": 17
+       }
+      },
+      {
+       "endpoint": "4cec88c1-b7f3-43fc-890a-76e6decc17d4",
+       "name": "OpenInference (open-inference/fp4)",
+       "share": 0.013255797927843664,
+       "obs_share_2_1": 0.0047674418604651166,
+       "level": {
+        "ttft": 706.4375,
+        "tps": 173.25,
+        "pout": 0.7999999999999999,
+        "ein": 0.004133599999999998
+       },
+       "rank": {
+        "ttft": 16,
+        "tps": 10,
+        "pout": 26,
+        "ein": 1
+       }
+      },
+      {
+       "endpoint": "a2e0601b-7262-49a7-b60b-3f2a4eb336ab",
+       "name": "Nebius (nebius/fp4)",
+       "share": 0.013233422101201962,
+       "obs_share_2_1": 0.025116279069767444,
+       "level": {
+        "ttft": 614.5,
+        "tps": 239.1875,
+        "pout": 0.72,
+        "ein": 0.015506999999999995
+       },
+       "rank": {
+        "ttft": 12,
+        "tps": 1,
+        "pout": 25,
+        "ein": 22
+       }
+      },
+      {
+       "endpoint": "246c64e1-7574-453f-b42a-6fa0cf2925f6",
+       "name": "DeepInfra (deepinfra/fp8/priority)",
+       "share": 0.01321606658793821,
+       "obs_share_2_1": 0.0074418604651162795,
+       "level": {
+        "ttft": 928.0625,
+        "tps": 111.125,
+        "pout": 0.441,
+        "ein": 0.011404039500000001
+       },
+       "rank": {
+        "ttft": 24,
+        "tps": 30,
+        "pout": 8,
+        "ein": 13
+       }
+      },
+      {
+       "endpoint": "c4dbf623-9590-4e94-8979-ea518f81acd6",
+       "name": "CoreWeave (coreweave/fp8)",
+       "share": 0.011870120835736579,
+       "obs_share_2_1": 0.0006976744186046512,
+       "level": {
+        "ttft": 464.1875,
+        "tps": 218.0,
+        "pout": 1.2,
+        "ein": 0.039383699999999994
+       },
+       "rank": {
+        "ttft": 6,
+        "tps": 2,
+        "pout": 29,
+        "ein": 31
+       }
+      },
+      {
+       "endpoint": "9f90ca83-58b7-4ccb-8489-f15175902d5c",
+       "name": "Fireworks (fireworks/spot)",
+       "share": 0.011866337481244939,
+       "obs_share_2_1": 0.0037209302325581397,
+       "level": {
+        "ttft": 704.1666666666666,
+        "tps": 124.66666666666667,
+        "pout": 0.6,
+        "ein": 0.04244989999999999
+       },
+       "rank": {
+        "ttft": 15,
+        "tps": 24,
+        "pout": 16,
+        "ein": 32
+       }
+      },
+      {
+       "endpoint": "80ff1ad9-0bb9-4b02-8708-097af3b845de",
+       "name": "Makora (makora/fp8)",
+       "share": 0.010814157465067278,
+       "obs_share_2_1": 0.005465116279069767,
+       "level": {
+        "ttft": 1001.9375,
+        "tps": 129.6875,
+        "pout": 0.7999999999999999,
+        "ein": 0.015453600000000005
+       },
+       "rank": {
+        "ttft": 27,
+        "tps": 21,
+        "pout": 26,
+        "ein": 21
+       }
+      },
+      {
+       "endpoint": "97877a2b-db8c-463c-be76-91fe6a7ecd64",
+       "name": "Ionstream (ionstream)",
+       "share": 0.010592210169882153,
+       "obs_share_2_1": 0.030465116279069768,
+       "level": {
+        "ttft": 985.0625,
+        "tps": 174.0625,
+        "pout": 0.62,
+        "ein": 0.028190662500000005
+       },
+       "rank": {
+        "ttft": 26,
+        "tps": 9,
+        "pout": 20,
+        "ein": 26
+       }
+      },
+      {
+       "endpoint": "7be9abfd-5172-47b6-8950-0fc8c98318e6",
+       "name": "Alibaba (alibaba)",
+       "share": 0.01049789275818034,
+       "obs_share_2_1": 0.011395348837209301,
+       "level": {
+        "ttft": 921.375,
+        "tps": 139.625,
+        "pout": 0.54,
+        "ein": 0.011910284999999998
+       },
+       "rank": {
+        "ttft": 23,
+        "tps": 17,
+        "pout": 14,
+        "ein": 16
+       }
+      },
+      {
+       "endpoint": "edae2c86-a199-447d-83fb-11f5dcac70b3",
+       "name": "Modal (modal)",
+       "share": 0.008970319718859652,
+       "obs_share_2_1": 0.002325581395348837,
+       "level": {
+        "ttft": 592.9375,
+        "tps": 132.75,
+        "pout": 1.0,
+        "ein": 0.056909375
+       },
+       "rank": {
+        "ttft": 10,
+        "tps": 20,
+        "pout": 28,
+        "ein": 33
+       }
+      },
+      {
+       "endpoint": "8151dfde-838e-419d-95a3-f71683de8579",
+       "name": "ModelRun (modelrun/fp4)",
+       "share": 0.008509652974712165,
+       "obs_share_2_1": 0.0074418604651162795,
+       "level": {
+        "ttft": 806.75,
+        "tps": 161.75,
+        "pout": 0.67,
+        "ein": 0.016127
+       },
+       "rank": {
+        "ttft": 21,
+        "tps": 13,
+        "pout": 23,
+        "ein": 23
+       }
+      },
+      {
+       "endpoint": "79433609-9bff-4ceb-b5c4-59b9884749ca",
+       "name": "Crusoe (crusoe/fp8)",
+       "share": 0.007541364621845976,
+       "obs_share_2_1": 0.00046511627906976747,
+       "level": {
+        "ttft": 531.0625,
+        "tps": 182.125,
+        "pout": 1.2,
+        "ein": 0.030397024999999994
+       },
+       "rank": {
+        "ttft": 9,
+        "tps": 8,
+        "pout": 29,
+        "ein": 27
+       }
+      },
+      {
+       "endpoint": "bddfc3ba-e63a-443d-9adb-d4cef7ec7ac0",
+       "name": "Parasail (parasail/fp8)",
+       "share": 0.007443060393869553,
+       "obs_share_2_1": 0.00046511627906976747,
+       "level": {
+        "ttft": 507.5,
+        "tps": 199.3125,
+        "pout": 1.2,
+        "ein": 0.03849435000000001
+       },
+       "rank": {
+        "ttft": 7,
+        "tps": 4,
+        "pout": 29,
+        "ein": 30
+       }
+      },
+      {
+       "endpoint": "34cd16bf-a525-40b2-beeb-5f1809202c06",
+       "name": "Together (together)",
+       "share": 0.00692741564908377,
+       "obs_share_2_1": 0.0010465116279069768,
+       "level": {
+        "ttft": 604.625,
+        "tps": 191.375,
+        "pout": 1.2,
+        "ein": 0.020869049999999993
+       },
+       "rank": {
+        "ttft": 11,
+        "tps": 5,
+        "pout": 29,
+        "ein": 25
+       }
+      },
+      {
+       "endpoint": "66be8e3a-dd2d-4845-83d1-20d18305ae02",
+       "name": "StepFun (stepfun/fp8)",
+       "share": 0.005253376819915512,
+       "obs_share_2_1": 0.024767441860465117,
+       "level": {
+        "ttft": 1122.75,
+        "tps": 189.0,
+        "pout": 0.42,
+        "ein": 0.005752949999999998
+       },
+       "rank": {
+        "ttft": 28,
+        "tps": 6,
+        "pout": 7,
+        "ein": 2
+       }
+      },
+      {
+       "endpoint": "485d24f3-be58-4b01-b08e-62f7b9f1f6ac",
+       "name": "Relace (relace/fp4)",
+       "share": 0.00513450026897648,
+       "obs_share_2_1": 0.011046511627906977,
+       "level": {
+        "ttft": 1357.4375,
+        "tps": 125.375,
+        "pout": 0.5,
+        "ein": 0.010020000000000001
+       },
+       "rank": {
+        "ttft": 31,
+        "tps": 23,
+        "pout": 10,
+        "ein": 11
+       }
+      },
+      {
+       "endpoint": "b7371050-21e6-47a4-b538-ff56d9aa2eb6",
+       "name": "BaseTen (baseten)",
+       "share": 0.0032511341955358776,
+       "obs_share_2_1": 0.00023255813953488373,
+       "level": {
+        "ttft": 931.125,
+        "tps": 102.9375,
+        "pout": 1.2,
+        "ein": 0.03175117499999999
+       },
+       "rank": {
+        "ttft": 25,
+        "tps": 32,
+        "pout": 29,
+        "ein": 28
+       }
+      },
+      {
+       "endpoint": "9b9ad118-ae57-42b5-b62d-020888d730e4",
+       "name": "DekaLLM (dekallm)",
+       "share": 0.002865067003350529,
+       "obs_share_2_1": 0.00023255813953488373,
+       "level": {
+        "ttft": 1577.4375,
+        "tps": 116.75,
+        "pout": 0.6,
+        "ein": 0.017794925
+       },
+       "rank": {
+        "ttft": 33,
+        "tps": 25,
+        "pout": 16,
+        "ein": 24
+       }
+      }
+     ]
+    }
+   }
+  },
+  "glm-5.3": {
+   "n_snapshots": 40,
+   "t_first": 1795325402.6794043,
+   "t_last": 1795392902.841197,
+   "n_candidates_mean": 43.9,
+   "n_candidates_union": 45,
+   "n_snapshots_by_round": {
+    "r1": 10,
+    "r2": 10,
+    "r3": 10,
+    "r4": 10
+   },
+   "leader": "Wafer (wafer/fp4)",
+   "by_vm": {
+    "seoul": {
+     "mango_ttft_or": 532.8567273667456,
+     "mango_tps_or": 121.94760089614222,
+     "mango_share": 0.003868657306224421,
+     "mango_share_rank": 20,
+     "mango_metric_rank": {
+      "ttft": 16,
+      "tps": 8,
+      "pout": 23,
+      "ein": 20
+     },
+     "mango_level": {
+      "ttft": 532.8567273667456,
+      "tps": 121.94760089614222,
+      "pout": 4.2,
+      "ein": 0.2888900181140544
+     },
+     "candidates": [
+      {
+       "endpoint": "fdba52ce-2d94-467b-91c6-a331910f8c27",
+       "name": "Wafer (wafer/fp4)",
+       "share": 0.4706551808311376,
+       "obs_share_2_1": 0.47244186046511627,
+       "level": {
+        "ttft": 270.625,
+        "tps": 81.375,
+        "pout": 1.4,
+        "ein": 0.17809162499999998
+       },
+       "rank": {
+        "ttft": 2,
+        "tps": 24,
+        "pout": 1,
+        "ein": 9
+       }
+      },
+      {
+       "endpoint": "a809e106-5f12-4333-ab6b-64d1e4f1d76a",
+       "name": "Wafer (wafer/us)",
+       "share": 0.2877554945844452,
+       "obs_share_2_1": 0.29709302325581394,
+       "level": {
+        "ttft": 384.75,
+        "tps": 84.375,
+        "pout": 1.4,
+        "ein": 0.06902920000000001
+       },
+       "rank": {
+        "ttft": 11,
+        "tps": 22,
+        "pout": 1,
+        "ein": 1
+       }
+      },
+      {
+       "endpoint": "4d67d501-6f88-4519-b572-320d1e451f9d",
+       "name": "Decart (decart/fp4)",
+       "share": 0.04623884500499538,
+       "obs_share_2_1": 0.03011627906976744,
+       "level": {
+        "ttft": 654.125,
+        "tps": 163.875,
+        "pout": 1.81,
+        "ein": 0.1415955
+       },
+       "rank": {
+        "ttft": 21,
+        "tps": 2,
+        "pout": 3,
+        "ein": 5
+       }
+      },
+      {
+       "endpoint": "1061ce74-29d3-48aa-9023-6cd65a1f4fef",
+       "name": "InferenceNet (inference-net/us)",
+       "share": 0.025202732686520093,
+       "obs_share_2_1": 0.027093023255813954,
+       "level": {
+        "ttft": 367.125,
+        "tps": 85.25,
+        "pout": 3.5999999999999996,
+        "ein": 0.07936512500000001
+       },
+       "rank": {
+        "ttft": 9,
+        "tps": 21,
+        "pout": 18,
+        "ein": 3
+       }
+      },
+      {
+       "endpoint": "11786268-f727-4553-928a-5b0d8033b513",
+       "name": "InferenceNet (inference-net/fp4)",
+       "share": 0.02118733807039731,
+       "obs_share_2_1": 0.026511627906976743,
+       "level": {
+        "ttft": 376.25,
+        "tps": 81.0,
+        "pout": 3.5999999999999996,
+        "ein": 0.079380875
+       },
+       "rank": {
+        "ttft": 10,
+        "tps": 26,
+        "pout": 18,
+        "ein": 4
+       }
+      },
+      {
+       "endpoint": "f8fc284a-08a0-491d-8718-52afb19007aa",
+       "name": "Makora (makora/fp4)",
+       "share": 0.015972570690939117,
+       "obs_share_2_1": 0.013488372093023256,
+       "level": {
+        "ttft": 254.375,
+        "tps": 116.0,
+        "pout": 4.4,
+        "ein": 0.71322
+       },
+       "rank": {
+        "ttft": 1,
+        "tps": 8,
+        "pout": 24,
+        "ein": 38
+       }
+      },
+      {
+       "endpoint": "27282490-4d6e-49c8-98d5-8f2263cd117f",
+       "name": "Tenstorrent (tenstorrent/fp8)",
+       "share": 0.015090353105271426,
+       "obs_share_2_1": 0.0020930232558139536,
+       "level": {
+        "ttft": 560.5,
+        "tps": 181.16666666666666,
+        "pout": 2.5,
+        "ein": 0.1724166666666666
+       },
+       "rank": {
+        "ttft": 17,
+        "tps": 1,
+        "pout": 9,
+        "ein": 7
+       }
+      },
+      {
+       "endpoint": "8e3f9342-ac3d-4b19-91d5-054c580ee622",
+       "name": "Doubleword (doubleword/nvfp4)",
+       "share": 0.014930730708331444,
+       "obs_share_2_1": 0.005581395348837209,
+       "level": {
+        "ttft": 638.25,
+        "tps": 56.3125,
+        "pout": 2.2,
+        "ein": 0.422338
+       },
+       "rank": {
+        "ttft": 20,
+        "tps": 38,
+        "pout": 6,
+        "ein": 26
+       }
+      },
+      {
+       "endpoint": "14352c48-92c0-4e0f-b73a-dcafd16057bf",
+       "name": "Parasail (parasail/fp4)",
+       "share": 0.01220354575184369,
+       "obs_share_2_1": 0.004651162790697674,
+       "level": {
+        "ttft": 346.5625,
+        "tps": 149.9375,
+        "pout": 4.4,
+        "ein": 0.664586
+       },
+       "rank": {
+        "ttft": 5,
+        "tps": 3,
+        "pout": 24,
+        "ein": 34
+       }
+      },
+      {
+       "endpoint": "eea1d0f0-237b-4394-8900-e315d9af363e",
+       "name": "Fireworks (fireworks/spot)",
+       "share": 0.009716078633575442,
+       "obs_share_2_1": 0.028255813953488373,
+       "level": {
+        "ttft": 869.0,
+        "tps": 70.5,
+        "pout": 2.2,
+        "ein": 0.27274224999999996
+       },
+       "rank": {
+        "ttft": 30,
+        "tps": 32,
+        "pout": 6,
+        "ein": 19
+       }
+      },
+      {
+       "endpoint": "235a0f49-0546-4324-a5f1-e4f21d824302",
+       "name": "Friendli (friendli)",
+       "share": 0.009171494973113797,
+       "obs_share_2_1": 0.028372093023255815,
+       "level": {
+        "ttft": 355.9375,
+        "tps": 100.875,
+        "pout": 3.9600000000000004,
+        "ein": 0.5269743
+       },
+       "rank": {
+        "ttft": 8,
+        "tps": 11,
+        "pout": 21,
+        "ein": 30
+       }
+      },
+      {
+       "endpoint": "c478ed38-0e42-4666-a9fd-e6362d9766da",
+       "name": "Cohere (cohere/nvfp4)",
+       "share": 0.0074283670489601475,
+       "obs_share_2_1": 0.004651162790697674,
+       "level": {
+        "ttft": 494.375,
+        "tps": 83.625,
+        "pout": 3.5,
+        "ein": 0.17674
+       },
+       "rank": {
+        "ttft": 15,
+        "tps": 23,
+        "pout": 15,
+        "ein": 8
+       }
+      },
+      {
+       "endpoint": "647ef611-8c3c-4ceb-80e3-1ced53f97444",
+       "name": "Together (together)",
+       "share": 0.007402877135687976,
+       "obs_share_2_1": 0.011279069767441861,
+       "level": {
+        "ttft": 350.8125,
+        "tps": 97.875,
+        "pout": 4.4,
+        "ein": 0.43387849999999994
+       },
+       "rank": {
+        "ttft": 6,
+        "tps": 13,
+        "pout": 24,
+        "ein": 27
+       }
+      },
+      {
+       "endpoint": "09738197-8512-443b-bdda-03cfddd58fb9",
+       "name": "DigitalOcean (digitalocean)",
+       "share": 0.006493527483075937,
+       "obs_share_2_1": 0.009651162790697674,
+       "level": {
+        "ttft": 627.875,
+        "tps": 90.375,
+        "pout": 2.8600000000000003,
+        "ein": 0.407101825
+       },
+       "rank": {
+        "ttft": 18,
+        "tps": 18,
+        "pout": 11,
+        "ein": 25
+       }
+      },
+      {
+       "endpoint": "134f37a4-eff5-4253-a848-c47799458db7",
+       "name": "CoreWeave (coreweave/nvfp4)",
+       "share": 0.0056196900661000405,
+       "obs_share_2_1": 0.017906976744186048,
+       "level": {
+        "ttft": 633.0,
+        "tps": 97.5,
+        "pout": 3.0,
+        "ein": 0.310834
+       },
+       "rank": {
+        "ttft": 19,
+        "tps": 14,
+        "pout": 12,
+        "ein": 20
+       }
+      },
+      {
+       "endpoint": "07c1449f-f75e-41c9-8a0b-7276fbf332cc",
+       "name": "Nebius (nebius/fp4)",
+       "share": 0.004819031681826743,
+       "obs_share_2_1": 0.004883720930232558,
+       "level": {
+        "ttft": 427.875,
+        "tps": 112.25,
+        "pout": 4.4,
+        "ein": 0.64133
+       },
+       "rank": {
+        "ttft": 14,
+        "tps": 9,
+        "pout": 24,
+        "ein": 33
+       }
+      },
+      {
+       "endpoint": "b711bea7-3994-4935-873d-fb845bd40c00",
+       "name": "DeepInfra (deepinfra/fp4)",
+       "share": 0.004598121458185806,
+       "obs_share_2_1": 0.0013953488372093023,
+       "level": {
+        "ttft": 746.9375,
+        "tps": 76.875,
+        "pout": 2.5,
+        "ein": 0.268915625
+       },
+       "rank": {
+        "ttft": 26,
+        "tps": 28,
+        "pout": 9,
+        "ein": 18
+       }
+      },
+      {
+       "endpoint": "ad891376-6279-4fcd-8ffe-e1407c9fdadc",
+       "name": "ModelRun (modelrun/fp4)",
+       "share": 0.004268662239141126,
+       "obs_share_2_1": 0.0005813953488372093,
+       "level": {
+        "ttft": 311.9375,
+        "tps": 146.4375,
+        "pout": 6.6000000000000005,
+        "ein": 0.6861524999999999
+       },
+       "rank": {
+        "ttft": 3,
+        "tps": 4,
+        "pout": 42,
+        "ein": 36
+       }
+      },
+      {
+       "endpoint": "6525e7bb-8248-47fc-a3fd-ea750187fdf8",
+       "name": "Parasail (parasail/fast)",
+       "share": 0.004056948811847747,
+       "obs_share_2_1": 0.00046511627906976747,
+       "level": {
+        "ttft": 329.6875,
+        "tps": 139.5625,
+        "pout": 6.6000000000000005,
+        "ein": 0.722714
+       },
+       "rank": {
+        "ttft": 4,
+        "tps": 7,
+        "pout": 42,
+        "ein": 39
+       }
+      },
+      {
+       "endpoint": "0ed0cc5a-aec4-4f60-b0d5-baef3b6a87f4",
+       "name": "Modal (modal)",
+       "share": 0.002755692077459258,
+       "obs_share_2_1": 0.00046511627906976747,
+       "level": {
+        "ttft": 425.4375,
+        "tps": 81.375,
+        "pout": 4.4,
+        "ein": 0.9677404999999999
+       },
+       "rank": {
+        "ttft": 13,
+        "tps": 24,
+        "pout": 24,
+        "ein": 42
+       }
+      },
+      {
+       "endpoint": "a8f798b5-02d2-4271-81cf-d44b073aeab0",
+       "name": "BaseTen (baseten/us/fast)",
+       "share": 0.002459543371787912,
+       "obs_share_2_1": 0.0003488372093023256,
+       "level": {
+        "ttft": 355.8125,
+        "tps": 144.75,
+        "pout": 6.6000000000000005,
+        "ein": 0.6126645
+       },
+       "rank": {
+        "ttft": 7,
+        "tps": 5,
+        "pout": 42,
+        "ein": 32
+       }
+      },
+      {
+       "endpoint": "1d1b0387-30bf-4b5a-a438-c232ebfc6b2c",
+       "name": "BaseTen (baseten/fast)",
+       "share": 0.0020783517403657878,
+       "obs_share_2_1": 0.00011627906976744187,
+       "level": {
+        "ttft": 388.6875,
+        "tps": 140.125,
+        "pout": 6.6000000000000005,
+        "ein": 0.55081425
+       },
+       "rank": {
+        "ttft": 12,
+        "tps": 6,
+        "pout": 42,
+        "ein": 31
+       }
+      },
+      {
+       "endpoint": "f9ad8b7a-d7b2-430d-a4e3-ae523c91c6a5",
+       "name": "Relace (relace/fp4)",
+       "share": 0.002069872352857685,
+       "obs_share_2_1": 0.0016279069767441861,
+       "level": {
+        "ttft": 677.5625,
+        "tps": 62.0,
+        "pout": 4.3843,
+        "ein": 0.07030000000000002
+       },
+       "rank": {
+        "ttft": 22,
+        "tps": 35,
+        "pout": 23,
+        "ein": 2
+       }
+      },
+      {
+       "endpoint": "fcd269ed-cf26-4492-a7de-57bb66d6b3ea",
+       "name": "Inceptron (inceptron/fp4)",
+       "share": 0.0016772476425489324,
+       "obs_share_2_1": 0.002441860465116279,
+       "level": {
+        "ttft": 874.8125,
+        "tps": 96.375,
+        "pout": 3.5,
+        "ein": 0.192898125
+       },
+       "rank": {
+        "ttft": 31,
+        "tps": 15,
+        "pout": 15,
+        "ein": 12
+       }
+      },
+      {
+       "endpoint": "8f1461f3-3ed1-444e-998d-b5c43a5c5ae7",
+       "name": "Sail Research (sail-research/us)",
+       "share": 0.0014562905278237535,
+       "obs_share_2_1": 0.0008139534883720931,
+       "level": {
+        "ttft": 950.5,
+        "tps": 55.375,
+        "pout": 3.0,
+        "ein": 0.16417875000000004
+       },
+       "rank": {
+        "ttft": 33,
+        "tps": 39,
+        "pout": 12,
+        "ein": 6
+       }
+      },
+      {
+       "endpoint": "23dcedc3-0ac4-4aa3-b70a-673c020ff7ce",
+       "name": "Crusoe (crusoe/fp4)",
+       "share": 0.0012761930249976018,
+       "obs_share_2_1": 0.0006976744186046512,
+       "level": {
+        "ttft": 558.75,
+        "tps": 70.5625,
+        "pout": 4.4,
+        "ein": 0.699584
+       },
+       "rank": {
+        "ttft": 16,
+        "tps": 31,
+        "pout": 24,
+        "ein": 37
+       }
+      },
+      {
+       "endpoint": "0efcf3da-b4cd-4f92-9ab9-e1fe3d666108",
+       "name": "Mistral (mistral/zdr)",
+       "share": 0.0009935930768492085,
+       "obs_share_2_1": 0.0003488372093023256,
+       "level": {
+        "ttft": 789.0,
+        "tps": 88.25,
+        "pout": 4.4,
+        "ein": 0.36251599999999995
+       },
+       "rank": {
+        "ttft": 27,
+        "tps": 20,
+        "pout": 24,
+        "ein": 22
+       }
+      },
+      {
+       "endpoint": "3f8e9e83-5afe-4d89-8b50-295596798350",
+       "name": "Fireworks (fireworks)",
+       "share": 0.0009501615597429456,
+       "obs_share_2_1": 0.0008139534883720931,
+       "level": {
+        "ttft": 716.75,
+        "tps": 70.1875,
+        "pout": 4.4,
+        "ein": 0.38180899999999995
+       },
+       "rank": {
+        "ttft": 25,
+        "tps": 33,
+        "pout": 24,
+        "ein": 24
+       }
+      },
+      {
+       "endpoint": "90ba1d03-97d5-468d-b44c-f8c99e015583",
+       "name": "Venice (venice)",
+       "share": 0.0008821426472852902,
+       "obs_share_2_1": 0.0003488372093023256,
+       "level": {
+        "ttft": 686.1875,
+        "tps": 99.25,
+        "pout": 4.4,
+        "ein": 0.9769175
+       },
+       "rank": {
+        "ttft": 23,
+        "tps": 12,
+        "pout": 24,
+        "ein": 43
+       }
+      },
+      {
+       "endpoint": "8d1d52b9-bf8e-4537-965e-46eba83fd1de",
+       "name": "Mistral (mistral/nvfp4/eu)",
+       "share": 0.0008224689834843645,
+       "obs_share_2_1": 0.0003488372093023256,
+       "level": {
+        "ttft": 704.3125,
+        "tps": 89.125,
+        "pout": 4.84,
+        "ein": 0.8599591
+       },
+       "rank": {
+        "ttft": 24,
+        "tps": 19,
+        "pout": 39,
+        "ein": 41
+       }
+      },
+      {
+       "endpoint": "7d50c92d-ca51-47f3-8466-74d82615076d",
+       "name": "SiliconFlow (siliconflow/fp8)",
+       "share": 0.0007093885334635247,
+       "obs_share_2_1": 0.0005813953488372093,
+       "level": {
+        "ttft": 1998.1875,
+        "tps": 53.5,
+        "pout": 1.9,
+        "ein": 0.2292655
+       },
+       "rank": {
+        "ttft": 44,
+        "tps": 41,
+        "pout": 4,
+        "ein": 14
+       }
+      },
+      {
+       "endpoint": "e75b6aa4-e55e-418d-88cf-b638ba4d0ab2",
+       "name": "Sail Research (sail-research/fp8)",
+       "share": 0.0006318668311687802,
+       "obs_share_2_1": 0.0005813953488372093,
+       "level": {
+        "ttft": 800.9375,
+        "tps": 57.375,
+        "pout": 4.199999999999999,
+        "ein": 0.5097749999999999
+       },
+       "rank": {
+        "ttft": 28,
+        "tps": 37,
+        "pout": 22,
+        "ein": 29
+       }
+      },
+      {
+       "endpoint": "dfbc5aac-4913-4e88-94c1-94af625aadf9",
+       "name": "Novita (novita/fp8)",
+       "share": 0.0005734691351575805,
+       "obs_share_2_1": 0.00011627906976744187,
+       "level": {
+        "ttft": 1934.875,
+        "tps": 49.75,
+        "pout": 1.9800000000000002,
+        "ein": 0.181753425
+       },
+       "rank": {
+        "ttft": 43,
+        "tps": 45,
+        "pout": 5,
+        "ein": 10
+       }
+      },
+      {
+       "endpoint": "dd64dfe2-61e9-437b-bc86-c0755f48d630",
+       "name": "Morph (morph/fp8)",
+       "share": 0.0005395477521296696,
+       "obs_share_2_1": 0.0005813953488372093,
+       "level": {
+        "ttft": 904.4375,
+        "tps": 77.375,
+        "pout": 4.70975,
+        "ein": 0.26828625
+       },
+       "rank": {
+        "ttft": 32,
+        "tps": 27,
+        "pout": 38,
+        "ein": 16
+       }
+      },
+      {
+       "endpoint": "a243c90a-4976-4c24-81cb-0370f9232eb3",
+       "name": "Cloudflare (cloudflare)",
+       "share": 0.0005238404369544287,
+       "obs_share_2_1": 0.00011627906976744187,
+       "level": {
+        "ttft": 2471.3125,
+        "tps": 55.1875,
+        "pout": 2.2,
+        "ein": 0.20474125
+       },
+       "rank": {
+        "ttft": 45,
+        "tps": 40,
+        "pout": 6,
+        "ein": 13
+       }
+      },
+      {
+       "endpoint": "72e21902-3a27-4603-80b4-8e498c436474",
+       "name": "Amazon Bedrock (amazon-bedrock/us-east-1)",
+       "share": 0.00047974823501679666,
+       "obs_share_2_1": 0.00011627906976744187,
+       "level": {
+        "ttft": 1103.9375,
+        "tps": 102.5,
+        "pout": 5.28,
+        "ein": 0.6813258
+       },
+       "rank": {
+        "ttft": 38,
+        "tps": 10,
+        "pout": 40,
+        "ein": 35
+       }
+      },
+      {
+       "endpoint": "5e1c1e2e-7a35-4a5a-b406-0a68a100a4b8",
+       "name": "BaseTen (baseten/fp4/us)",
+       "share": 0.000434258955620627,
+       "obs_share_2_1": 0.00011627906976744187,
+       "level": {
+        "ttft": 1029.6875,
+        "tps": 74.375,
+        "pout": 4.4,
+        "ein": 0.24275299999999997
+       },
+       "rank": {
+        "ttft": 36,
+        "tps": 30,
+        "pout": 24,
+        "ein": 15
+       }
+      },
+      {
+       "endpoint": "b285f84b-c9d4-4afa-9eda-031f3ac350a0",
+       "name": "Featherless (featherless)",
+       "share": 0.00043318707203651664,
+       "obs_share_2_1": 0.00046511627906976747,
+       "level": {
+        "ttft": 1162.0,
+        "tps": 61.0,
+        "pout": 3.08,
+        "ein": 0.759809
+       },
+       "rank": {
+        "ttft": 39,
+        "tps": 36,
+        "pout": 14,
+        "ein": 40
+       }
+      },
+      {
+       "endpoint": "98b6133d-ac3d-4d5c-856f-593d9d5fbaa0",
+       "name": "BaseTen (baseten/fp4)",
+       "share": 0.00041733334388524947,
+       "obs_share_2_1": 0.00011627906976744187,
+       "level": {
+        "ttft": 1051.25,
+        "tps": 75.625,
+        "pout": 4.4,
+        "ein": 0.26858299999999996
+       },
+       "rank": {
+        "ttft": 37,
+        "tps": 29,
+        "pout": 24,
+        "ein": 17
+       }
+      },
+      {
+       "endpoint": "726a4847-fff4-47e6-926d-f0ad8c970f9c",
+       "name": "Alibaba (alibaba)",
+       "share": 0.0003822131585843298,
+       "obs_share_2_1": 0.00011627906976744187,
+       "level": {
+        "ttft": 828.3125,
+        "tps": 50.625,
+        "pout": 3.74,
+        "ein": 0.3732554
+       },
+       "rank": {
+        "ttft": 29,
+        "tps": 43,
+        "pout": 20,
+        "ein": 23
+       }
+      },
+      {
+       "endpoint": "508f732f-12b5-4398-a704-9fcd1b855fd5",
+       "name": "River (river)",
+       "share": 0.00026946335297382454,
+       "obs_share_2_1": 0.0013953488372093023,
+       "level": {
+        "ttft": 954.0,
+        "tps": 91.0,
+        "pout": 3.52,
+        "ein": 1.12
+       },
+       "rank": {
+        "ttft": 34,
+        "tps": 17,
+        "pout": 17,
+        "ein": 45
+       }
+      },
+      {
+       "endpoint": "21452c02-0c70-4fcc-8e93-73f1eeab8f52",
+       "name": "AkashML (akashml/fp4)",
+       "share": 0.00024032611583641296,
+       "obs_share_2_1": 0.0003488372093023256,
+       "level": {
+        "ttft": 1422.25,
+        "tps": 93.375,
+        "pout": 4.4,
+        "ein": 0.19
+       },
+       "rank": {
+        "ttft": 41,
+        "tps": 16,
+        "pout": 24,
+        "ein": 11
+       }
+      },
+      {
+       "endpoint": "49171932-b2e3-4df4-80f9-53eadd830db9",
+       "name": "Alibaba (alibaba/prime)",
+       "share": 9.874154584254278e-05,
+       "obs_share_2_1": 0.00011627906976744187,
+       "level": {
+        "ttft": 958.625,
+        "tps": 62.75,
+        "pout": 5.28,
+        "ein": 0.44896320000000006
+       },
+       "rank": {
+        "ttft": 35,
+        "tps": 34,
+        "pout": 40,
+        "ein": 28
+       }
+      },
+      {
+       "endpoint": "db975786-e7f6-4838-9e56-3e0b77f1bdc2",
+       "name": "Z.AI (z-ai/fp8)",
+       "share": 8.363078496024197e-05,
+       "obs_share_2_1": 0.00011627906976744187,
+       "level": {
+        "ttft": 1599.625,
+        "tps": 52.75,
+        "pout": 4.4,
+        "ein": 0.33036649999999995
+       },
+       "rank": {
+        "ttft": 42,
+        "tps": 42,
+        "pout": 24,
+        "ein": 21
+       }
+      },
+      {
+       "endpoint": "7597ff18-b922-4a8b-afdf-1cfe97d986e3",
+       "name": "SambaNova (sambanova)",
+       "share": 8.117946954629298e-05,
+       "obs_share_2_1": 0.00011627906976744187,
+       "level": {
+        "ttft": 1252.4375,
+        "tps": 50.5,
+        "pout": 4.4,
+        "ein": 1.09253725
+       },
+       "rank": {
+        "ttft": 40,
+        "tps": 44,
+        "pout": 24,
+        "ein": 44
+       }
+      }
+     ]
+    },
+    "iad": {
+     "mango_ttft_or": 693.5049495897517,
+     "mango_tps_or": 127.14538419841281,
+     "mango_share": 0.001946354499694521,
+     "mango_share_rank": 24,
+     "mango_metric_rank": {
+      "ttft": 24,
+      "tps": 8,
+      "pout": 23,
+      "ein": 20
+     },
+     "mango_level": {
+      "ttft": 693.5049495897517,
+      "tps": 127.14538419841281,
+      "pout": 4.2,
+      "ein": 0.2888900181140544
+     },
+     "candidates": [
+      {
+       "endpoint": "fdba52ce-2d94-467b-91c6-a331910f8c27",
+       "name": "Wafer (wafer/fp4)",
+       "share": 0.47154913184905606,
+       "obs_share_2_1": 0.47244186046511627,
+       "level": {
+        "ttft": 270.625,
+        "tps": 81.375,
+        "pout": 1.4,
+        "ein": 0.17809162499999998
+       },
+       "rank": {
+        "ttft": 2,
+        "tps": 24,
+        "pout": 1,
+        "ein": 9
+       }
+      },
+      {
+       "endpoint": "a809e106-5f12-4333-ab6b-64d1e4f1d76a",
+       "name": "Wafer (wafer/us)",
+       "share": 0.2883208101336693,
+       "obs_share_2_1": 0.29709302325581394,
+       "level": {
+        "ttft": 384.75,
+        "tps": 84.375,
+        "pout": 1.4,
+        "ein": 0.06902920000000001
+       },
+       "rank": {
+        "ttft": 11,
+        "tps": 22,
+        "pout": 1,
+        "ein": 1
+       }
+      },
+      {
+       "endpoint": "4d67d501-6f88-4519-b572-320d1e451f9d",
+       "name": "Decart (decart/fp4)",
+       "share": 0.046331685830249644,
+       "obs_share_2_1": 0.03011627906976744,
+       "level": {
+        "ttft": 654.125,
+        "tps": 163.875,
+        "pout": 1.81,
+        "ein": 0.1415955
+       },
+       "rank": {
+        "ttft": 21,
+        "tps": 2,
+        "pout": 3,
+        "ein": 5
+       }
+      },
+      {
+       "endpoint": "1061ce74-29d3-48aa-9023-6cd65a1f4fef",
+       "name": "InferenceNet (inference-net/us)",
+       "share": 0.02525220198314625,
+       "obs_share_2_1": 0.027093023255813954,
+       "level": {
+        "ttft": 367.125,
+        "tps": 85.25,
+        "pout": 3.5999999999999996,
+        "ein": 0.07936512500000001
+       },
+       "rank": {
+        "ttft": 9,
+        "tps": 21,
+        "pout": 18,
+        "ein": 3
+       }
+      },
+      {
+       "endpoint": "11786268-f727-4553-928a-5b0d8033b513",
+       "name": "InferenceNet (inference-net/fp4)",
+       "share": 0.021229111044034327,
+       "obs_share_2_1": 0.026511627906976743,
+       "level": {
+        "ttft": 376.25,
+        "tps": 81.0,
+        "pout": 3.5999999999999996,
+        "ein": 0.079380875
+       },
+       "rank": {
+        "ttft": 10,
+        "tps": 26,
+        "pout": 18,
+        "ein": 4
+       }
+      },
+      {
+       "endpoint": "f8fc284a-08a0-491d-8718-52afb19007aa",
+       "name": "Makora (makora/fp4)",
+       "share": 0.01600353377831235,
+       "obs_share_2_1": 0.013488372093023256,
+       "level": {
+        "ttft": 254.375,
+        "tps": 116.0,
+        "pout": 4.4,
+        "ein": 0.71322
+       },
+       "rank": {
+        "ttft": 1,
+        "tps": 8,
+        "pout": 24,
+        "ein": 38
+       }
+      },
+      {
+       "endpoint": "27282490-4d6e-49c8-98d5-8f2263cd117f",
+       "name": "Tenstorrent (tenstorrent/fp8)",
+       "share": 0.015119624358640489,
+       "obs_share_2_1": 0.0020930232558139536,
+       "level": {
+        "ttft": 560.5,
+        "tps": 181.16666666666666,
+        "pout": 2.5,
+        "ein": 0.1724166666666666
+       },
+       "rank": {
+        "ttft": 17,
+        "tps": 1,
+        "pout": 9,
+        "ein": 7
+       }
+      },
+      {
+       "endpoint": "8e3f9342-ac3d-4b19-91d5-054c580ee622",
+       "name": "Doubleword (doubleword/nvfp4)",
+       "share": 0.01495360577028203,
+       "obs_share_2_1": 0.005581395348837209,
+       "level": {
+        "ttft": 638.25,
+        "tps": 56.3125,
+        "pout": 2.2,
+        "ein": 0.422338
+       },
+       "rank": {
+        "ttft": 20,
+        "tps": 38,
+        "pout": 6,
+        "ein": 26
+       }
+      },
+      {
+       "endpoint": "14352c48-92c0-4e0f-b73a-dcafd16057bf",
+       "name": "Parasail (parasail/fp4)",
+       "share": 0.012227983277235776,
+       "obs_share_2_1": 0.004651162790697674,
+       "level": {
+        "ttft": 346.5625,
+        "tps": 149.9375,
+        "pout": 4.4,
+        "ein": 0.664586
+       },
+       "rank": {
+        "ttft": 5,
+        "tps": 3,
+        "pout": 24,
+        "ein": 34
+       }
+      },
+      {
+       "endpoint": "eea1d0f0-237b-4394-8900-e315d9af363e",
+       "name": "Fireworks (fireworks/spot)",
+       "share": 0.009734431772827774,
+       "obs_share_2_1": 0.028255813953488373,
+       "level": {
+        "ttft": 869.0,
+        "tps": 70.5,
+        "pout": 2.2,
+        "ein": 0.27274224999999996
+       },
+       "rank": {
+        "ttft": 30,
+        "tps": 32,
+        "pout": 6,
+        "ein": 19
+       }
+      },
+      {
+       "endpoint": "235a0f49-0546-4324-a5f1-e4f21d824302",
+       "name": "Friendli (friendli)",
+       "share": 0.00919004020231469,
+       "obs_share_2_1": 0.028372093023255815,
+       "level": {
+        "ttft": 355.9375,
+        "tps": 100.875,
+        "pout": 3.9600000000000004,
+        "ein": 0.5269743
+       },
+       "rank": {
+        "ttft": 8,
+        "tps": 11,
+        "pout": 21,
+        "ein": 30
+       }
+      },
+      {
+       "endpoint": "c478ed38-0e42-4666-a9fd-e6362d9766da",
+       "name": "Cohere (cohere/nvfp4)",
+       "share": 0.007442811499493179,
+       "obs_share_2_1": 0.004651162790697674,
+       "level": {
+        "ttft": 494.375,
+        "tps": 83.625,
+        "pout": 3.5,
+        "ein": 0.17674
+       },
+       "rank": {
+        "ttft": 15,
+        "tps": 23,
+        "pout": 15,
+        "ein": 8
+       }
+      },
+      {
+       "endpoint": "647ef611-8c3c-4ceb-80e3-1ced53f97444",
+       "name": "Together (together)",
+       "share": 0.0074175821546455445,
+       "obs_share_2_1": 0.011279069767441861,
+       "level": {
+        "ttft": 350.8125,
+        "tps": 97.875,
+        "pout": 4.4,
+        "ein": 0.43387849999999994
+       },
+       "rank": {
+        "ttft": 6,
+        "tps": 13,
+        "pout": 24,
+        "ein": 27
+       }
+      },
+      {
+       "endpoint": "09738197-8512-443b-bdda-03cfddd58fb9",
+       "name": "DigitalOcean (digitalocean)",
+       "share": 0.006506241463735099,
+       "obs_share_2_1": 0.009651162790697674,
+       "level": {
+        "ttft": 627.875,
+        "tps": 90.375,
+        "pout": 2.8600000000000003,
+        "ein": 0.407101825
+       },
+       "rank": {
+        "ttft": 18,
+        "tps": 18,
+        "pout": 11,
+        "ein": 25
+       }
+      },
+      {
+       "endpoint": "134f37a4-eff5-4253-a848-c47799458db7",
+       "name": "CoreWeave (coreweave/nvfp4)",
+       "share": 0.005630907700179412,
+       "obs_share_2_1": 0.017906976744186048,
+       "level": {
+        "ttft": 633.0,
+        "tps": 97.5,
+        "pout": 3.0,
+        "ein": 0.310834
+       },
+       "rank": {
+        "ttft": 19,
+        "tps": 14,
+        "pout": 12,
+        "ein": 20
+       }
+      },
+      {
+       "endpoint": "07c1449f-f75e-41c9-8a0b-7276fbf332cc",
+       "name": "Nebius (nebius/fp4)",
+       "share": 0.004828380970086415,
+       "obs_share_2_1": 0.004883720930232558,
+       "level": {
+        "ttft": 427.875,
+        "tps": 112.25,
+        "pout": 4.4,
+        "ein": 0.64133
+       },
+       "rank": {
+        "ttft": 14,
+        "tps": 9,
+        "pout": 24,
+        "ein": 33
+       }
+      },
+      {
+       "endpoint": "b711bea7-3994-4935-873d-fb845bd40c00",
+       "name": "DeepInfra (deepinfra/fp4)",
+       "share": 0.004608248492425859,
+       "obs_share_2_1": 0.0013953488372093023,
+       "level": {
+        "ttft": 746.9375,
+        "tps": 76.875,
+        "pout": 2.5,
+        "ein": 0.268915625
+       },
+       "rank": {
+        "ttft": 26,
+        "tps": 28,
+        "pout": 9,
+        "ein": 18
+       }
+      },
+      {
+       "endpoint": "ad891376-6279-4fcd-8ffe-e1407c9fdadc",
+       "name": "ModelRun (modelrun/fp4)",
+       "share": 0.004276552402115901,
+       "obs_share_2_1": 0.0005813953488372093,
+       "level": {
+        "ttft": 311.9375,
+        "tps": 146.4375,
+        "pout": 6.6000000000000005,
+        "ein": 0.6861524999999999
+       },
+       "rank": {
+        "ttft": 3,
+        "tps": 4,
+        "pout": 42,
+        "ein": 36
+       }
+      },
+      {
+       "endpoint": "6525e7bb-8248-47fc-a3fd-ea750187fdf8",
+       "name": "Parasail (parasail/fast)",
+       "share": 0.004065560758504507,
+       "obs_share_2_1": 0.00046511627906976747,
+       "level": {
+        "ttft": 329.6875,
+        "tps": 139.5625,
+        "pout": 6.6000000000000005,
+        "ein": 0.722714
+       },
+       "rank": {
+        "ttft": 4,
+        "tps": 7,
+        "pout": 42,
+        "ein": 39
+       }
+      },
+      {
+       "endpoint": "0ed0cc5a-aec4-4f60-b0d5-baef3b6a87f4",
+       "name": "Modal (modal)",
+       "share": 0.002760711994932564,
+       "obs_share_2_1": 0.00046511627906976747,
+       "level": {
+        "ttft": 425.4375,
+        "tps": 81.375,
+        "pout": 4.4,
+        "ein": 0.9677404999999999
+       },
+       "rank": {
+        "ttft": 13,
+        "tps": 24,
+        "pout": 24,
+        "ein": 42
+       }
+      },
+      {
+       "endpoint": "a8f798b5-02d2-4271-81cf-d44b073aeab0",
+       "name": "BaseTen (baseten/us/fast)",
+       "share": 0.0024644057022724956,
+       "obs_share_2_1": 0.0003488372093023256,
+       "level": {
+        "ttft": 355.8125,
+        "tps": 144.75,
+        "pout": 6.6000000000000005,
+        "ein": 0.6126645
+       },
+       "rank": {
+        "ttft": 7,
+        "tps": 5,
+        "pout": 42,
+        "ein": 32
+       }
+      },
+      {
+       "endpoint": "1d1b0387-30bf-4b5a-a438-c232ebfc6b2c",
+       "name": "BaseTen (baseten/fast)",
+       "share": 0.0020825025558032315,
+       "obs_share_2_1": 0.00011627906976744187,
+       "level": {
+        "ttft": 388.6875,
+        "tps": 140.125,
+        "pout": 6.6000000000000005,
+        "ein": 0.55081425
+       },
+       "rank": {
+        "ttft": 12,
+        "tps": 6,
+        "pout": 42,
+        "ein": 31
+       }
+      },
+      {
+       "endpoint": "f9ad8b7a-d7b2-430d-a4e3-ae523c91c6a5",
+       "name": "Relace (relace/fp4)",
+       "share": 0.0020739490987469133,
+       "obs_share_2_1": 0.0016279069767441861,
+       "level": {
+        "ttft": 677.5625,
+        "tps": 62.0,
+        "pout": 4.3843,
+        "ein": 0.07030000000000002
+       },
+       "rank": {
+        "ttft": 22,
+        "tps": 35,
+        "pout": 23,
+        "ein": 2
+       }
+      },
+      {
+       "endpoint": "fcd269ed-cf26-4492-a7de-57bb66d6b3ea",
+       "name": "Inceptron (inceptron/fp4)",
+       "share": 0.001680468371727714,
+       "obs_share_2_1": 0.002441860465116279,
+       "level": {
+        "ttft": 874.8125,
+        "tps": 96.375,
+        "pout": 3.5,
+        "ein": 0.192898125
+       },
+       "rank": {
+        "ttft": 31,
+        "tps": 15,
+        "pout": 15,
+        "ein": 12
+       }
+      },
+      {
+       "endpoint": "8f1461f3-3ed1-444e-998d-b5c43a5c5ae7",
+       "name": "Sail Research (sail-research/us)",
+       "share": 0.0014590218047366634,
+       "obs_share_2_1": 0.0008139534883720931,
+       "level": {
+        "ttft": 950.5,
+        "tps": 55.375,
+        "pout": 3.0,
+        "ein": 0.16417875000000004
+       },
+       "rank": {
+        "ttft": 33,
+        "tps": 39,
+        "pout": 12,
+        "ein": 6
+       }
+      },
+      {
+       "endpoint": "23dcedc3-0ac4-4aa3-b70a-673c020ff7ce",
+       "name": "Crusoe (crusoe/fp4)",
+       "share": 0.0012787672775435254,
+       "obs_share_2_1": 0.0006976744186046512,
+       "level": {
+        "ttft": 558.75,
+        "tps": 70.5625,
+        "pout": 4.4,
+        "ein": 0.699584
+       },
+       "rank": {
+        "ttft": 16,
+        "tps": 31,
+        "pout": 24,
+        "ein": 37
+       }
+      },
+      {
+       "endpoint": "0efcf3da-b4cd-4f92-9ab9-e1fe3d666108",
+       "name": "Mistral (mistral/zdr)",
+       "share": 0.000995407074107314,
+       "obs_share_2_1": 0.0003488372093023256,
+       "level": {
+        "ttft": 789.0,
+        "tps": 88.25,
+        "pout": 4.4,
+        "ein": 0.36251599999999995
+       },
+       "rank": {
+        "ttft": 27,
+        "tps": 20,
+        "pout": 24,
+        "ein": 22
+       }
+      },
+      {
+       "endpoint": "3f8e9e83-5afe-4d89-8b50-295596798350",
+       "name": "Fireworks (fireworks)",
+       "share": 0.0009520066032835312,
+       "obs_share_2_1": 0.0008139534883720931,
+       "level": {
+        "ttft": 716.75,
+        "tps": 70.1875,
+        "pout": 4.4,
+        "ein": 0.38180899999999995
+       },
+       "rank": {
+        "ttft": 25,
+        "tps": 33,
+        "pout": 24,
+        "ein": 24
+       }
+      },
+      {
+       "endpoint": "90ba1d03-97d5-468d-b44c-f8c99e015583",
+       "name": "Venice (venice)",
+       "share": 0.0008839064866858256,
+       "obs_share_2_1": 0.0003488372093023256,
+       "level": {
+        "ttft": 686.1875,
+        "tps": 99.25,
+        "pout": 4.4,
+        "ein": 0.9769175
+       },
+       "rank": {
+        "ttft": 23,
+        "tps": 12,
+        "pout": 24,
+        "ein": 43
+       }
+      },
+      {
+       "endpoint": "8d1d52b9-bf8e-4537-965e-46eba83fd1de",
+       "name": "Mistral (mistral/nvfp4/eu)",
+       "share": 0.0008241512642748756,
+       "obs_share_2_1": 0.0003488372093023256,
+       "level": {
+        "ttft": 704.3125,
+        "tps": 89.125,
+        "pout": 4.84,
+        "ein": 0.8599591
+       },
+       "rank": {
+        "ttft": 24,
+        "tps": 19,
+        "pout": 39,
+        "ein": 41
+       }
+      },
+      {
+       "endpoint": "7d50c92d-ca51-47f3-8466-74d82615076d",
+       "name": "SiliconFlow (siliconflow/fp8)",
+       "share": 0.0007107397756168313,
+       "obs_share_2_1": 0.0005813953488372093,
+       "level": {
+        "ttft": 1998.1875,
+        "tps": 53.5,
+        "pout": 1.9,
+        "ein": 0.2292655
+       },
+       "rank": {
+        "ttft": 44,
+        "tps": 41,
+        "pout": 4,
+        "ein": 14
+       }
+      },
+      {
+       "endpoint": "e75b6aa4-e55e-418d-88cf-b638ba4d0ab2",
+       "name": "Sail Research (sail-research/fp8)",
+       "share": 0.00063307820078661,
+       "obs_share_2_1": 0.0005813953488372093,
+       "level": {
+        "ttft": 800.9375,
+        "tps": 57.375,
+        "pout": 4.199999999999999,
+        "ein": 0.5097749999999999
+       },
+       "rank": {
+        "ttft": 28,
+        "tps": 37,
+        "pout": 22,
+        "ein": 29
+       }
+      },
+      {
+       "endpoint": "dfbc5aac-4913-4e88-94c1-94af625aadf9",
+       "name": "Novita (novita/fp8)",
+       "share": 0.0005746337535369649,
+       "obs_share_2_1": 0.00011627906976744187,
+       "level": {
+        "ttft": 1934.875,
+        "tps": 49.75,
+        "pout": 1.9800000000000002,
+        "ein": 0.181753425
+       },
+       "rank": {
+        "ttft": 43,
+        "tps": 45,
+        "pout": 5,
+        "ein": 10
+       }
+      },
+      {
+       "endpoint": "dd64dfe2-61e9-437b-bc86-c0755f48d630",
+       "name": "Morph (morph/fp8)",
+       "share": 0.0005406415347022863,
+       "obs_share_2_1": 0.0005813953488372093,
+       "level": {
+        "ttft": 904.4375,
+        "tps": 77.375,
+        "pout": 4.70975,
+        "ein": 0.26828625
+       },
+       "rank": {
+        "ttft": 32,
+        "tps": 27,
+        "pout": 38,
+        "ein": 16
+       }
+      },
+      {
+       "endpoint": "a243c90a-4976-4c24-81cb-0370f9232eb3",
+       "name": "Cloudflare (cloudflare)",
+       "share": 0.0005249135343364042,
+       "obs_share_2_1": 0.00011627906976744187,
+       "level": {
+        "ttft": 2471.3125,
+        "tps": 55.1875,
+        "pout": 2.2,
+        "ein": 0.20474125
+       },
+       "rank": {
+        "ttft": 45,
+        "tps": 40,
+        "pout": 6,
+        "ein": 13
+       }
+      },
+      {
+       "endpoint": "72e21902-3a27-4603-80b4-8e498c436474",
+       "name": "Amazon Bedrock (amazon-bedrock/us-east-1)",
+       "share": 0.0004807544213333779,
+       "obs_share_2_1": 0.00011627906976744187,
+       "level": {
+        "ttft": 1103.9375,
+        "tps": 102.5,
+        "pout": 5.28,
+        "ein": 0.6813258
+       },
+       "rank": {
+        "ttft": 38,
+        "tps": 10,
+        "pout": 40,
+        "ein": 35
+       }
+      },
+      {
+       "endpoint": "5e1c1e2e-7a35-4a5a-b406-0a68a100a4b8",
+       "name": "BaseTen (baseten/fp4/us)",
+       "share": 0.0004351260239905692,
+       "obs_share_2_1": 0.00011627906976744187,
+       "level": {
+        "ttft": 1029.6875,
+        "tps": 74.375,
+        "pout": 4.4,
+        "ein": 0.24275299999999997
+       },
+       "rank": {
+        "ttft": 36,
+        "tps": 30,
+        "pout": 24,
+        "ein": 15
+       }
+      },
+      {
+       "endpoint": "b285f84b-c9d4-4afa-9eda-031f3ac350a0",
+       "name": "Featherless (featherless)",
+       "share": 0.00043400233523414183,
+       "obs_share_2_1": 0.00046511627906976747,
+       "level": {
+        "ttft": 1162.0,
+        "tps": 61.0,
+        "pout": 3.08,
+        "ein": 0.759809
+       },
+       "rank": {
+        "ttft": 39,
+        "tps": 36,
+        "pout": 14,
+        "ein": 40
+       }
+      },
+      {
+       "endpoint": "98b6133d-ac3d-4d5c-856f-593d9d5fbaa0",
+       "name": "BaseTen (baseten/fp4)",
+       "share": 0.0004181636334777138,
+       "obs_share_2_1": 0.00011627906976744187,
+       "level": {
+        "ttft": 1051.25,
+        "tps": 75.625,
+        "pout": 4.4,
+        "ein": 0.26858299999999996
+       },
+       "rank": {
+        "ttft": 37,
+        "tps": 29,
+        "pout": 24,
+        "ein": 17
+       }
+      },
+      {
+       "endpoint": "726a4847-fff4-47e6-926d-f0ad8c970f9c",
+       "name": "Alibaba (alibaba)",
+       "share": 0.0003829716509083788,
+       "obs_share_2_1": 0.00011627906976744187,
+       "level": {
+        "ttft": 828.3125,
+        "tps": 50.625,
+        "pout": 3.74,
+        "ein": 0.3732554
+       },
+       "rank": {
+        "ttft": 29,
+        "tps": 43,
+        "pout": 20,
+        "ein": 23
+       }
+      },
+      {
+       "endpoint": "508f732f-12b5-4398-a704-9fcd1b855fd5",
+       "name": "River (river)",
+       "share": 0.00027000748615536884,
+       "obs_share_2_1": 0.0013953488372093023,
+       "level": {
+        "ttft": 954.0,
+        "tps": 91.0,
+        "pout": 3.52,
+        "ein": 1.12
+       },
+       "rank": {
+        "ttft": 34,
+        "tps": 17,
+        "pout": 17,
+        "ein": 45
+       }
+      },
+      {
+       "endpoint": "21452c02-0c70-4fcc-8e93-73f1eeab8f52",
+       "name": "AkashML (akashml/fp4)",
+       "share": 0.00024079527562690045,
+       "obs_share_2_1": 0.0003488372093023256,
+       "level": {
+        "ttft": 1422.25,
+        "tps": 93.375,
+        "pout": 4.4,
+        "ein": 0.19
+       },
+       "rank": {
+        "ttft": 41,
+        "tps": 16,
+        "pout": 24,
+        "ein": 11
+       }
+      },
+      {
+       "endpoint": "49171932-b2e3-4df4-80f9-53eadd830db9",
+       "name": "Alibaba (alibaba/prime)",
+       "share": 9.894014215990747e-05,
+       "obs_share_2_1": 0.00011627906976744187,
+       "level": {
+        "ttft": 958.625,
+        "tps": 62.75,
+        "pout": 5.28,
+        "ein": 0.44896320000000006
+       },
+       "rank": {
+        "ttft": 35,
+        "tps": 34,
+        "pout": 40,
+        "ein": 28
+       }
+      },
+      {
+       "endpoint": "db975786-e7f6-4838-9e56-3e0b77f1bdc2",
+       "name": "Z.AI (z-ai/fp8)",
+       "share": 8.379549151539583e-05,
+       "obs_share_2_1": 0.00011627906976744187,
+       "level": {
+        "ttft": 1599.625,
+        "tps": 52.75,
+        "pout": 4.4,
+        "ein": 0.33036649999999995
+       },
+       "rank": {
+        "ttft": 42,
+        "tps": 42,
+        "pout": 24,
+        "ein": 21
+       }
+      },
+      {
+       "endpoint": "7597ff18-b922-4a8b-afdf-1cfe97d986e3",
+       "name": "SambaNova (sambanova)",
+       "share": 8.133856585543523e-05,
+       "obs_share_2_1": 0.00011627906976744187,
+       "level": {
+        "ttft": 1252.4375,
+        "tps": 50.5,
+        "pout": 4.4,
+        "ein": 1.09253725
+       },
+       "rank": {
+        "ttft": 40,
+        "tps": 44,
+        "pout": 24,
+        "ein": 44
+       }
+      }
+     ]
+    }
+   }
+  },
+  "glm-5.3-flash": {
+   "n_snapshots": 40,
+   "t_first": 1795325405.055699,
+   "t_last": 1795392904.9062808,
+   "n_candidates_mean": 33.5,
+   "n_candidates_union": 34,
+   "n_snapshots_by_round": {
+    "r1": 10,
+    "r2": 10,
+    "r3": 10,
+    "r4": 10
+   },
+   "leader": "Wafer (wafer/nvfp4)",
+   "by_vm": {
+    "seoul": {
+     "mango_ttft_or": 431.3959508280639,
+     "mango_tps_or": 239.0076523637857,
+     "mango_share": 0.05748679344320706,
+     "mango_share_rank": 7,
+     "mango_metric_rank": {
+      "ttft": 8,
+      "tps": 1,
+      "pout": 17,
+      "ein": 19
+     },
+     "mango_level": {
+      "ttft": 431.3959508280639,
+      "tps": 239.0076523637857,
+      "pout": 0.45,
+      "ein": 0.05070475593255813
+     },
+     "candidates": [
+      {
+       "endpoint": "7688c4bb-df42-4097-a964-cf038b69f7f2",
+       "name": "InferenceNet (inference-net/fp4)",
+       "share": 0.13256748816600614,
+       "obs_share_2_1": 0.10418604651162791,
+       "level": {
+        "ttft": 318.375,
+        "tps": 146.625,
+        "pout": 0.35,
+        "ein": 0.044617750000000005
+       },
+       "rank": {
+        "ttft": 2,
+        "tps": 6,
+        "pout": 12,
+        "ein": 14
+       }
+      },
+      {
+       "endpoint": "516713c5-3500-49b4-88c6-6b342b2c800c",
+       "name": "Friendli (friendli)",
+       "share": 0.1273446727476161,
+       "obs_share_2_1": 0.06034883720930233,
+       "level": {
+        "ttft": 180.375,
+        "tps": 120.4375,
+        "pout": 0.5,
+        "ein": 0.08140499999999999
+       },
+       "rank": {
+        "ttft": 1,
+        "tps": 10,
+        "pout": 17,
+        "ein": 30
+       }
+      },
+      {
+       "endpoint": "565f1577-f737-412c-9690-0a414ba8fb84",
+       "name": "InferenceNet (inference-net/us)",
+       "share": 0.12421143156520359,
+       "obs_share_2_1": 0.09965116279069768,
+       "level": {
+        "ttft": 332.0,
+        "tps": 145.0,
+        "pout": 0.35,
+        "ein": 0.04285662500000001
+       },
+       "rank": {
+        "ttft": 4,
+        "tps": 7,
+        "pout": 12,
+        "ein": 12
+       }
+      },
+      {
+       "endpoint": "9a787b89-d6e4-4238-9b58-732d74dbbb49",
+       "name": "Relace (relace/fp4)",
+       "share": 0.08154197205100862,
+       "obs_share_2_1": 0.06918604651162791,
+       "level": {
+        "ttft": 951.0,
+        "tps": 82.875,
+        "pout": 0.077025,
+        "ein": 0.03244909
+       },
+       "rank": {
+        "ttft": 26,
+        "tps": 25,
+        "pout": 1,
+        "ein": 6
+       }
+      },
+      {
+       "endpoint": "7c22a43e-fac7-4201-bdc2-226a97e8a0d7",
+       "name": "Wafer (wafer/nvfp4)",
+       "share": 0.0805949949521218,
+       "obs_share_2_1": 0.15139534883720931,
+       "level": {
+        "ttft": 321.4166666666667,
+        "tps": 122.66666666666667,
+        "pout": 0.24,
+        "ein": 0.06428930000000002
+       },
+       "rank": {
+        "ttft": 3,
+        "tps": 9,
+        "pout": 4,
+        "ein": 24
+       }
+      },
+      {
+       "endpoint": "f4829435-d932-4798-8489-21d56770f093",
+       "name": "Wafer (wafer/us)",
+       "share": 0.07093072519231608,
+       "obs_share_2_1": 0.12186046511627907,
+       "level": {
+        "ttft": 374.4166666666667,
+        "tps": 109.0,
+        "pout": 0.184,
+        "ein": 0.0413778
+       },
+       "rank": {
+        "ttft": 6,
+        "tps": 14,
+        "pout": 3,
+        "ein": 11
+       }
+      },
+      {
+       "endpoint": "d3f43587-c8e3-4a3d-897a-5a74ec4cae25",
+       "name": "Cohere (cohere/nvfp4)",
+       "share": 0.047985799555082996,
+       "obs_share_2_1": 0.005348837209302326,
+       "level": {
+        "ttft": 649.5,
+        "tps": 214.4375,
+        "pout": 0.33999999999999997,
+        "ein": 0.028657250000000002
+       },
+       "rank": {
+        "ttft": 15,
+        "tps": 1,
+        "pout": 11,
+        "ein": 3
+       }
+      },
+      {
+       "endpoint": "1f64afbd-4c77-4708-b9d7-06961b3d8854",
+       "name": "Together (together)",
+       "share": 0.03447022344265079,
+       "obs_share_2_1": 0.032790697674418605,
+       "level": {
+        "ttft": 452.0,
+        "tps": 167.875,
+        "pout": 0.5,
+        "ein": 0.04446
+       },
+       "rank": {
+        "ttft": 8,
+        "tps": 3,
+        "pout": 17,
+        "ein": 13
+       }
+      },
+      {
+       "endpoint": "107375f6-fb9f-4dd5-bbdf-fa7957caabab",
+       "name": "CoreWeave (coreweave/nvfp4)",
+       "share": 0.025964076716808067,
+       "obs_share_2_1": 0.030465116279069768,
+       "level": {
+        "ttft": 594.9375,
+        "tps": 143.75,
+        "pout": 0.38,
+        "ein": 0.0350025
+       },
+       "rank": {
+        "ttft": 14,
+        "tps": 8,
+        "pout": 14,
+        "ein": 7
+       }
+      },
+      {
+       "endpoint": "86ef90d1-c280-48e8-95b3-e3d3b26d1e6e",
+       "name": "Modal (modal/fp4)",
+       "share": 0.0240481409560863,
+       "obs_share_2_1": 0.035465116279069765,
+       "level": {
+        "ttft": 373.25,
+        "tps": 89.625,
+        "pout": 0.5,
+        "ein": 0.053774999999999996
+       },
+       "rank": {
+        "ttft": 5,
+        "tps": 23,
+        "pout": 17,
+        "ein": 20
+       }
+      },
+      {
+       "endpoint": "8e427c3a-c460-4db7-a40f-227b6d2ed05a",
+       "name": "Reka (reka)",
+       "share": 0.020388598152187666,
+       "obs_share_2_1": 0.09,
+       "level": {
+        "ttft": 650.3125,
+        "tps": 81.25,
+        "pout": 0.3,
+        "ein": 0.04107224999999999
+       },
+       "rank": {
+        "ttft": 16,
+        "tps": 27,
+        "pout": 7,
+        "ein": 10
+       }
+      },
+      {
+       "endpoint": "bd0939a3-6374-4d3c-ac5c-4669252d7527",
+       "name": "OpenInference (open-inference/fp4)",
+       "share": 0.020321454702724857,
+       "obs_share_2_1": 0.023023255813953487,
+       "level": {
+        "ttft": 686.875,
+        "tps": 166.25,
+        "pout": 0.44999999999999996,
+        "ein": 0.026686875
+       },
+       "rank": {
+        "ttft": 18,
+        "tps": 4,
+        "pout": 16,
+        "ein": 1
+       }
+      },
+      {
+       "endpoint": "10b60d49-178d-4f55-9765-3ed0c6ed0176",
+       "name": "River (river)",
+       "share": 0.019543501837053185,
+       "obs_share_2_1": 0.025930232558139536,
+       "level": {
+        "ttft": 541.0,
+        "tps": 100.375,
+        "pout": 0.39999999999999997,
+        "ein": 0.0382296
+       },
+       "rank": {
+        "ttft": 13,
+        "tps": 19,
+        "pout": 15,
+        "ein": 9
+       }
+      },
+      {
+       "endpoint": "1a652828-0813-4a86-8af1-b13f503b59ce",
+       "name": "BaseTen (baseten/fp8)",
+       "share": 0.017282286865909102,
+       "obs_share_2_1": 0.030232558139534883,
+       "level": {
+        "ttft": 376.5,
+        "tps": 98.0,
+        "pout": 0.5,
+        "ein": 0.066228
+       },
+       "rank": {
+        "ttft": 7,
+        "tps": 21,
+        "pout": 17,
+        "ein": 25
+       }
+      },
+      {
+       "endpoint": "132d6a0f-aa11-4dfb-8b08-15783ea353c1",
+       "name": "DeepInfra (deepinfra/fp4)",
+       "share": 0.01724663011462265,
+       "obs_share_2_1": 0.031046511627906975,
+       "level": {
+        "ttft": 741.125,
+        "tps": 105.125,
+        "pout": 0.335,
+        "ein": 0.027760110000000005
+       },
+       "rank": {
+        "ttft": 20,
+        "tps": 17,
+        "pout": 10,
+        "ein": 2
+       }
+      },
+      {
+       "endpoint": "1febec4d-c3c0-4fa3-9758-dae2e3092053",
+       "name": "DigitalOcean (digitalocean)",
+       "share": 0.014234060313561083,
+       "obs_share_2_1": 0.00872093023255814,
+       "level": {
+        "ttft": 762.875,
+        "tps": 105.5,
+        "pout": 0.325,
+        "ein": 0.03023085
+       },
+       "rank": {
+        "ttft": 22,
+        "tps": 15,
+        "pout": 9,
+        "ein": 5
+       }
+      },
+      {
+       "endpoint": "81b2ef52-3735-4d9a-a8d1-b8017e67cef4",
+       "name": "Particle AI (particle-ai/nvfp4)",
+       "share": 0.013331305350717203,
+       "obs_share_2_1": 0.0051162790697674414,
+       "level": {
+        "ttft": 504.5,
+        "tps": 158.125,
+        "pout": 0.65,
+        "ein": 0.0471055
+       },
+       "rank": {
+        "ttft": 12,
+        "tps": 5,
+        "pout": 33,
+        "ein": 17
+       }
+      },
+      {
+       "endpoint": "ab94d8f1-6d0e-4f86-9951-c8bbf2b5a562",
+       "name": "Inceptron (inceptron/fp8)",
+       "share": 0.012287942531402866,
+       "obs_share_2_1": 0.006744186046511628,
+       "level": {
+        "ttft": 463.6875,
+        "tps": 101.625,
+        "pout": 0.5,
+        "ein": 0.068506
+       },
+       "rank": {
+        "ttft": 11,
+        "tps": 18,
+        "pout": 17,
+        "ein": 26
+       }
+      },
+      {
+       "endpoint": "8d0a00fc-ca4e-4822-a1bd-62fe5e617050",
+       "name": "Parasail (parasail/fast)",
+       "share": 0.012165137702831142,
+       "obs_share_2_1": 0.00046511627906976747,
+       "level": {
+        "ttft": 455.4375,
+        "tps": 196.875,
+        "pout": 0.625,
+        "ein": 0.09178875
+       },
+       "rank": {
+        "ttft": 9,
+        "tps": 2,
+        "pout": 30,
+        "ein": 32
+       }
+      },
+      {
+       "endpoint": "7a8e74c9-df09-4a74-9d9b-3c7263c86cdc",
+       "name": "Makora (makora/fp4)",
+       "share": 0.010370019115701465,
+       "obs_share_2_1": 0.03790697674418605,
+       "level": {
+        "ttft": 1078.875,
+        "tps": 80.25,
+        "pout": 0.2525,
+        "ein": 0.05425775000000001
+       },
+       "rank": {
+        "ttft": 27,
+        "tps": 28,
+        "pout": 5,
+        "ein": 21
+       }
+      },
+      {
+       "endpoint": "a2e983c1-2f37-48eb-b931-1d0e6e8d89c5",
+       "name": "Fireworks (fireworks)",
+       "share": 0.007348196880277201,
+       "obs_share_2_1": 0.0029069767441860465,
+       "level": {
+        "ttft": 672.625,
+        "tps": 115.375,
+        "pout": 0.5,
+        "ein": 0.06348899999999999
+       },
+       "rank": {
+        "ttft": 17,
+        "tps": 13,
+        "pout": 17,
+        "ein": 23
+       }
+      },
+      {
+       "endpoint": "fec4a816-d66c-4611-a2b4-0c6457a5a45c",
+       "name": "Venice (venice)",
+       "share": 0.004768442722629873,
+       "obs_share_2_1": 0.011046511627906977,
+       "level": {
+        "ttft": 756.8125,
+        "tps": 99.625,
+        "pout": 0.5,
+        "ein": 0.047547
+       },
+       "rank": {
+        "ttft": 21,
+        "tps": 20,
+        "pout": 17,
+        "ein": 18
+       }
+      },
+      {
+       "endpoint": "7e1222fc-b9ab-4299-b75a-dd80e1ccd206",
+       "name": "Novita (novita/fp8)",
+       "share": 0.004316930449379944,
+       "obs_share_2_1": 0.0003488372093023256,
+       "level": {
+        "ttft": 1405.3125,
+        "tps": 66.375,
+        "pout": 0.28,
+        "ein": 0.02869104
+       },
+       "rank": {
+        "ttft": 30,
+        "tps": 29,
+        "pout": 6,
+        "ein": 4
+       }
+      },
+      {
+       "endpoint": "ed2af902-42fc-4f3f-9b4e-8bd1e982aa49",
+       "name": "DekaLLM (dekallm)",
+       "share": 0.003402564588977689,
+       "obs_share_2_1": 0.0006976744186046512,
+       "level": {
+        "ttft": 882.0,
+        "tps": 81.5,
+        "pout": 0.5,
+        "ein": 0.04680000000000001
+       },
+       "rank": {
+        "ttft": 23,
+        "tps": 26,
+        "pout": 17,
+        "ein": 16
+       }
+      },
+      {
+       "endpoint": "d5e5b37c-75fd-480e-9a1b-0d574a5edcc5",
+       "name": "Fireworks (fireworks/us)",
+       "share": 0.003361856322279894,
+       "obs_share_2_1": 0.0005813953488372093,
+       "level": {
+        "ttft": 455.5,
+        "tps": 118.0,
+        "pout": 0.75,
+        "ein": 0.085869
+       },
+       "rank": {
+        "ttft": 10,
+        "tps": 12,
+        "pout": 34,
+        "ein": 31
+       }
+      },
+      {
+       "endpoint": "f11e0445-97f5-4cf1-8acb-d9bb16b5b278",
+       "name": "Parasail (parasail/fp8)",
+       "share": 0.0026436228994488106,
+       "obs_share_2_1": 0.0027906976744186047,
+       "level": {
+        "ttft": 740.6875,
+        "tps": 86.75,
+        "pout": 0.5,
+        "ein": 0.07768499999999999
+       },
+       "rank": {
+        "ttft": 19,
+        "tps": 24,
+        "pout": 17,
+        "ein": 29
+       }
+      },
+      {
+       "endpoint": "96bd1f63-870f-4b8b-a0ce-5eb7ff7c63f3",
+       "name": "Morph (morph/fp8)",
+       "share": 0.002343801679851589,
+       "obs_share_2_1": 0.0032558139534883722,
+       "level": {
+        "ttft": 1137.9375,
+        "tps": 31.375,
+        "pout": 0.3045,
+        "ein": 0.068966475
+       },
+       "rank": {
+        "ttft": 28,
+        "tps": 34,
+        "pout": 8,
+        "ein": 27
+       }
+      },
+      {
+       "endpoint": "51375f40-3be7-48e7-b753-d58edebdef27",
+       "name": "Crusoe (crusoe/fp4)",
+       "share": 0.0022490707746639117,
+       "obs_share_2_1": 0.004186046511627907,
+       "level": {
+        "ttft": 926.5625,
+        "tps": 97.875,
+        "pout": 0.5,
+        "ein": 0.057254999999999986
+       },
+       "rank": {
+        "ttft": 25,
+        "tps": 22,
+        "pout": 17,
+        "ein": 22
+       }
+      },
+      {
+       "endpoint": "fbae3257-3d0f-42a6-a0f2-421e45ec856d",
+       "name": "KT (kt)",
+       "share": 0.001925399229290332,
+       "obs_share_2_1": 0.0018604651162790699,
+       "level": {
+        "ttft": 1359.125,
+        "tps": 118.6875,
+        "pout": 0.5,
+        "ein": 0.053052
+       },
+       "rank": {
+        "ttft": 29,
+        "tps": 11,
+        "pout": 17,
+        "ein": 19
+       }
+      },
+      {
+       "endpoint": "9ef14aca-3683-430e-8a01-ad33cccc7a72",
+       "name": "Mistral (mistral)",
+       "share": 0.0014712379216783125,
+       "obs_share_2_1": 0.0015116279069767441,
+       "level": {
+        "ttft": 919.0,
+        "tps": 105.5,
+        "pout": 0.5,
+        "ein": 0.09348899999999999
+       },
+       "rank": {
+        "ttft": 24,
+        "tps": 15,
+        "pout": 17,
+        "ein": 33
+       }
+      },
+      {
+       "endpoint": "4ac6be6b-0e23-4957-a4c4-b556defbecfb",
+       "name": "Sail Research (sail-research/fp4)",
+       "share": 0.0005845879167701976,
+       "obs_share_2_1": 0.0003488372093023256,
+       "level": {
+        "ttft": 1452.625,
+        "tps": 40.125,
+        "pout": 0.625,
+        "ein": 0.11158668749999999
+       },
+       "rank": {
+        "ttft": 31,
+        "tps": 30,
+        "pout": 30,
+        "ein": 34
+       }
+      },
+      {
+       "endpoint": "77639dbf-5536-4e9f-9ae0-e5f9ea9eab40",
+       "name": "Near AI (near-ai/fp8)",
+       "share": 0.000569151041392292,
+       "obs_share_2_1": 0.00023255813953488373,
+       "level": {
+        "ttft": 2521.4375,
+        "tps": 34.625,
+        "pout": 0.5,
+        "ein": 0.036466399999999996
+       },
+       "rank": {
+        "ttft": 34,
+        "tps": 32,
+        "pout": 17,
+        "ein": 8
+       }
+      },
+      {
+       "endpoint": "c8bb7e4d-e5de-49a9-8e41-65e52ddcc7f4",
+       "name": "Darkbloom (darkbloom/fp4)",
+       "share": 0.0004288065727165659,
+       "obs_share_2_1": 0.00011627906976744187,
+       "level": {
+        "ttft": 2361.9375,
+        "tps": 32.0,
+        "pout": 0.18,
+        "ein": 0.044816274999999996
+       },
+       "rank": {
+        "ttft": 33,
+        "tps": 33,
+        "pout": 2,
+        "ein": 15
+       }
+      },
+      {
+       "endpoint": "4557c192-2c06-426e-ba9f-acfcee110c42",
+       "name": "Sail Research (sail-research/us)",
+       "share": 0.0002690755258246296,
+       "obs_share_2_1": 0.00023255813953488373,
+       "level": {
+        "ttft": 1621.0625,
+        "tps": 37.375,
+        "pout": 0.625,
+        "ein": 0.07280975
+       },
+       "rank": {
+        "ttft": 32,
+        "tps": 31,
+        "pout": 30,
+        "ein": 28
+       }
+      }
+     ]
+    },
+    "iad": {
+     "mango_ttft_or": 658.5382511225649,
+     "mango_tps_or": 231.78221013950346,
+     "mango_share": 0.02054614912155773,
+     "mango_share_rank": 13,
+     "mango_metric_rank": {
+      "ttft": 17,
+      "tps": 1,
+      "pout": 17,
+      "ein": 19
+     },
+     "mango_level": {
+      "ttft": 658.5382511225649,
+      "tps": 231.78221013950346,
+      "pout": 0.45,
+      "ein": 0.05070475593255813
+     },
+     "candidates": [
+      {
+       "endpoint": "7688c4bb-df42-4097-a964-cf038b69f7f2",
+       "name": "InferenceNet (inference-net/fp4)",
+       "share": 0.13760831668147178,
+       "obs_share_2_1": 0.10418604651162791,
+       "level": {
+        "ttft": 318.375,
+        "tps": 146.625,
+        "pout": 0.35,
+        "ein": 0.044617750000000005
+       },
+       "rank": {
+        "ttft": 2,
+        "tps": 6,
+        "pout": 12,
+        "ein": 14
+       }
+      },
+      {
+       "endpoint": "516713c5-3500-49b4-88c6-6b342b2c800c",
+       "name": "Friendli (friendli)",
+       "share": 0.13229640403130735,
+       "obs_share_2_1": 0.06034883720930233,
+       "level": {
+        "ttft": 180.375,
+        "tps": 120.4375,
+        "pout": 0.5,
+        "ein": 0.08140499999999999
+       },
+       "rank": {
+        "ttft": 1,
+        "tps": 10,
+        "pout": 17,
+        "ein": 30
+       }
+      },
+      {
+       "endpoint": "565f1577-f737-412c-9690-0a414ba8fb84",
+       "name": "InferenceNet (inference-net/us)",
+       "share": 0.12900699393297027,
+       "obs_share_2_1": 0.09965116279069768,
+       "level": {
+        "ttft": 332.0,
+        "tps": 145.0,
+        "pout": 0.35,
+        "ein": 0.04285662500000001
+       },
+       "rank": {
+        "ttft": 4,
+        "tps": 7,
+        "pout": 12,
+        "ein": 12
+       }
+      },
+      {
+       "endpoint": "9a787b89-d6e4-4238-9b58-732d74dbbb49",
+       "name": "Relace (relace/fp4)",
+       "share": 0.08489094262446793,
+       "obs_share_2_1": 0.06918604651162791,
+       "level": {
+        "ttft": 951.0,
+        "tps": 82.875,
+        "pout": 0.077025,
+        "ein": 0.03244909
+       },
+       "rank": {
+        "ttft": 26,
+        "tps": 25,
+        "pout": 1,
+        "ein": 6
+       }
+      },
+      {
+       "endpoint": "7c22a43e-fac7-4201-bdc2-226a97e8a0d7",
+       "name": "Wafer (wafer/nvfp4)",
+       "share": 0.0834300329968156,
+       "obs_share_2_1": 0.15139534883720931,
+       "level": {
+        "ttft": 321.4166666666667,
+        "tps": 122.66666666666667,
+        "pout": 0.24,
+        "ein": 0.06428930000000002
+       },
+       "rank": {
+        "ttft": 3,
+        "tps": 9,
+        "pout": 4,
+        "ein": 24
+       }
+      },
+      {
+       "endpoint": "f4829435-d932-4798-8489-21d56770f093",
+       "name": "Wafer (wafer/us)",
+       "share": 0.07343118178160687,
+       "obs_share_2_1": 0.12186046511627907,
+       "level": {
+        "ttft": 374.4166666666667,
+        "tps": 109.0,
+        "pout": 0.184,
+        "ein": 0.0413778
+       },
+       "rank": {
+        "ttft": 6,
+        "tps": 14,
+        "pout": 3,
+        "ein": 11
+       }
+      },
+      {
+       "endpoint": "d3f43587-c8e3-4a3d-897a-5a74ec4cae25",
+       "name": "Cohere (cohere/nvfp4)",
+       "share": 0.05011095803141717,
+       "obs_share_2_1": 0.005348837209302326,
+       "level": {
+        "ttft": 649.5,
+        "tps": 214.4375,
+        "pout": 0.33999999999999997,
+        "ein": 0.028657250000000002
+       },
+       "rank": {
+        "ttft": 15,
+        "tps": 1,
+        "pout": 11,
+        "ein": 3
+       }
+      },
+      {
+       "endpoint": "1f64afbd-4c77-4708-b9d7-06961b3d8854",
+       "name": "Together (together)",
+       "share": 0.035850472936135455,
+       "obs_share_2_1": 0.032790697674418605,
+       "level": {
+        "ttft": 452.0,
+        "tps": 167.875,
+        "pout": 0.5,
+        "ein": 0.04446
+       },
+       "rank": {
+        "ttft": 8,
+        "tps": 3,
+        "pout": 17,
+        "ein": 13
+       }
+      },
+      {
+       "endpoint": "107375f6-fb9f-4dd5-bbdf-fa7957caabab",
+       "name": "CoreWeave (coreweave/nvfp4)",
+       "share": 0.027097544973547782,
+       "obs_share_2_1": 0.030465116279069768,
+       "level": {
+        "ttft": 594.9375,
+        "tps": 143.75,
+        "pout": 0.38,
+        "ein": 0.0350025
+       },
+       "rank": {
+        "ttft": 14,
+        "tps": 8,
+        "pout": 14,
+        "ein": 7
+       }
+      },
+      {
+       "endpoint": "86ef90d1-c280-48e8-95b3-e3d3b26d1e6e",
+       "name": "Modal (modal/fp4)",
+       "share": 0.025042872539644316,
+       "obs_share_2_1": 0.035465116279069765,
+       "level": {
+        "ttft": 373.25,
+        "tps": 89.625,
+        "pout": 0.5,
+        "ein": 0.053774999999999996
+       },
+       "rank": {
+        "ttft": 5,
+        "tps": 23,
+        "pout": 17,
+        "ein": 20
+       }
+      },
+      {
+       "endpoint": "8e427c3a-c460-4db7-a40f-227b6d2ed05a",
+       "name": "Reka (reka)",
+       "share": 0.021201851577921416,
+       "obs_share_2_1": 0.09,
+       "level": {
+        "ttft": 650.3125,
+        "tps": 81.25,
+        "pout": 0.3,
+        "ein": 0.04107224999999999
+       },
+       "rank": {
+        "ttft": 16,
+        "tps": 27,
+        "pout": 7,
+        "ein": 10
+       }
+      },
+      {
+       "endpoint": "bd0939a3-6374-4d3c-ac5c-4669252d7527",
+       "name": "OpenInference (open-inference/fp4)",
+       "share": 0.02111626723692041,
+       "obs_share_2_1": 0.023023255813953487,
+       "level": {
+        "ttft": 686.875,
+        "tps": 166.25,
+        "pout": 0.44999999999999996,
+        "ein": 0.026686875
+       },
+       "rank": {
+        "ttft": 18,
+        "tps": 4,
+        "pout": 16,
+        "ein": 1
+       }
+      },
+      {
+       "endpoint": "10b60d49-178d-4f55-9765-3ed0c6ed0176",
+       "name": "River (river)",
+       "share": 0.020361144811435736,
+       "obs_share_2_1": 0.025930232558139536,
+       "level": {
+        "ttft": 541.0,
+        "tps": 100.375,
+        "pout": 0.39999999999999997,
+        "ein": 0.0382296
+       },
+       "rank": {
+        "ttft": 13,
+        "tps": 19,
+        "pout": 15,
+        "ein": 9
+       }
+      },
+      {
+       "endpoint": "1a652828-0813-4a86-8af1-b13f503b59ce",
+       "name": "BaseTen (baseten/fp8)",
+       "share": 0.017988377104624895,
+       "obs_share_2_1": 0.030232558139534883,
+       "level": {
+        "ttft": 376.5,
+        "tps": 98.0,
+        "pout": 0.5,
+        "ein": 0.066228
+       },
+       "rank": {
+        "ttft": 7,
+        "tps": 21,
+        "pout": 17,
+        "ein": 25
+       }
+      },
+      {
+       "endpoint": "132d6a0f-aa11-4dfb-8b08-15783ea353c1",
+       "name": "DeepInfra (deepinfra/fp4)",
+       "share": 0.017944765520193355,
+       "obs_share_2_1": 0.031046511627906975,
+       "level": {
+        "ttft": 741.125,
+        "tps": 105.125,
+        "pout": 0.335,
+        "ein": 0.027760110000000005
+       },
+       "rank": {
+        "ttft": 20,
+        "tps": 17,
+        "pout": 10,
+        "ein": 2
+       }
+      },
+      {
+       "endpoint": "1febec4d-c3c0-4fa3-9758-dae2e3092053",
+       "name": "DigitalOcean (digitalocean)",
+       "share": 0.01483149323436483,
+       "obs_share_2_1": 0.00872093023255814,
+       "level": {
+        "ttft": 762.875,
+        "tps": 105.5,
+        "pout": 0.325,
+        "ein": 0.03023085
+       },
+       "rank": {
+        "ttft": 22,
+        "tps": 15,
+        "pout": 9,
+        "ein": 5
+       }
+      },
+      {
+       "endpoint": "81b2ef52-3735-4d9a-a8d1-b8017e67cef4",
+       "name": "Particle AI (particle-ai/nvfp4)",
+       "share": 0.013866233251363567,
+       "obs_share_2_1": 0.0051162790697674414,
+       "level": {
+        "ttft": 504.5,
+        "tps": 158.125,
+        "pout": 0.65,
+        "ein": 0.0471055
+       },
+       "rank": {
+        "ttft": 12,
+        "tps": 5,
+        "pout": 33,
+        "ein": 17
+       }
+      },
+      {
+       "endpoint": "ab94d8f1-6d0e-4f86-9951-c8bbf2b5a562",
+       "name": "Inceptron (inceptron/fp8)",
+       "share": 0.01279131435467251,
+       "obs_share_2_1": 0.006744186046511628,
+       "level": {
+        "ttft": 463.6875,
+        "tps": 101.625,
+        "pout": 0.5,
+        "ein": 0.068506
+       },
+       "rank": {
+        "ttft": 11,
+        "tps": 18,
+        "pout": 17,
+        "ein": 26
+       }
+      },
+      {
+       "endpoint": "8d0a00fc-ca4e-4822-a1bd-62fe5e617050",
+       "name": "Parasail (parasail/fast)",
+       "share": 0.01265977011440794,
+       "obs_share_2_1": 0.00046511627906976747,
+       "level": {
+        "ttft": 455.4375,
+        "tps": 196.875,
+        "pout": 0.625,
+        "ein": 0.09178875
+       },
+       "rank": {
+        "ttft": 9,
+        "tps": 2,
+        "pout": 30,
+        "ein": 32
+       }
+      },
+      {
+       "endpoint": "7a8e74c9-df09-4a74-9d9b-3c7263c86cdc",
+       "name": "Makora (makora/fp4)",
+       "share": 0.010824402058042021,
+       "obs_share_2_1": 0.03790697674418605,
+       "level": {
+        "ttft": 1078.875,
+        "tps": 80.25,
+        "pout": 0.2525,
+        "ein": 0.05425775000000001
+       },
+       "rank": {
+        "ttft": 27,
+        "tps": 28,
+        "pout": 5,
+        "ein": 21
+       }
+      },
+      {
+       "endpoint": "a2e983c1-2f37-48eb-b931-1d0e6e8d89c5",
+       "name": "Fireworks (fireworks)",
+       "share": 0.007648696781532129,
+       "obs_share_2_1": 0.0029069767441860465,
+       "level": {
+        "ttft": 672.625,
+        "tps": 115.375,
+        "pout": 0.5,
+        "ein": 0.06348899999999999
+       },
+       "rank": {
+        "ttft": 17,
+        "tps": 13,
+        "pout": 17,
+        "ein": 23
+       }
+      },
+      {
+       "endpoint": "fec4a816-d66c-4611-a2b4-0c6457a5a45c",
+       "name": "Venice (venice)",
+       "share": 0.004951475607262925,
+       "obs_share_2_1": 0.011046511627906977,
+       "level": {
+        "ttft": 756.8125,
+        "tps": 99.625,
+        "pout": 0.5,
+        "ein": 0.047547
+       },
+       "rank": {
+        "ttft": 21,
+        "tps": 20,
+        "pout": 17,
+        "ein": 18
+       }
+      },
+      {
+       "endpoint": "7e1222fc-b9ab-4299-b75a-dd80e1ccd206",
+       "name": "Novita (novita/fp8)",
+       "share": 0.0044774965858850515,
+       "obs_share_2_1": 0.0003488372093023256,
+       "level": {
+        "ttft": 1405.3125,
+        "tps": 66.375,
+        "pout": 0.28,
+        "ein": 0.02869104
+       },
+       "rank": {
+        "ttft": 30,
+        "tps": 29,
+        "pout": 6,
+        "ein": 4
+       }
+      },
+      {
+       "endpoint": "ed2af902-42fc-4f3f-9b4e-8bd1e982aa49",
+       "name": "DekaLLM (dekallm)",
+       "share": 0.0035478466903188085,
+       "obs_share_2_1": 0.0006976744186046512,
+       "level": {
+        "ttft": 882.0,
+        "tps": 81.5,
+        "pout": 0.5,
+        "ein": 0.04680000000000001
+       },
+       "rank": {
+        "ttft": 23,
+        "tps": 26,
+        "pout": 17,
+        "ein": 16
+       }
+      },
+      {
+       "endpoint": "d5e5b37c-75fd-480e-9a1b-0d574a5edcc5",
+       "name": "Fireworks (fireworks/us)",
+       "share": 0.00348791221018386,
+       "obs_share_2_1": 0.0005813953488372093,
+       "level": {
+        "ttft": 455.5,
+        "tps": 118.0,
+        "pout": 0.75,
+        "ein": 0.085869
+       },
+       "rank": {
+        "ttft": 10,
+        "tps": 12,
+        "pout": 34,
+        "ein": 31
+       }
+      },
+      {
+       "endpoint": "f11e0445-97f5-4cf1-8acb-d9bb16b5b278",
+       "name": "Parasail (parasail/fp8)",
+       "share": 0.0027376060234293393,
+       "obs_share_2_1": 0.0027906976744186047,
+       "level": {
+        "ttft": 740.6875,
+        "tps": 86.75,
+        "pout": 0.5,
+        "ein": 0.07768499999999999
+       },
+       "rank": {
+        "ttft": 19,
+        "tps": 24,
+        "pout": 17,
+        "ein": 29
+       }
+      },
+      {
+       "endpoint": "96bd1f63-870f-4b8b-a0ce-5eb7ff7c63f3",
+       "name": "Morph (morph/fp8)",
+       "share": 0.0024482337141306333,
+       "obs_share_2_1": 0.0032558139534883722,
+       "level": {
+        "ttft": 1137.9375,
+        "tps": 31.375,
+        "pout": 0.3045,
+        "ein": 0.068966475
+       },
+       "rank": {
+        "ttft": 28,
+        "tps": 34,
+        "pout": 8,
+        "ein": 27
+       }
+      },
+      {
+       "endpoint": "51375f40-3be7-48e7-b753-d58edebdef27",
+       "name": "Crusoe (crusoe/fp4)",
+       "share": 0.002338183408124786,
+       "obs_share_2_1": 0.004186046511627907,
+       "level": {
+        "ttft": 926.5625,
+        "tps": 97.875,
+        "pout": 0.5,
+        "ein": 0.057254999999999986
+       },
+       "rank": {
+        "ttft": 25,
+        "tps": 22,
+        "pout": 17,
+        "ein": 22
+       }
+      },
+      {
+       "endpoint": "fbae3257-3d0f-42a6-a0f2-421e45ec856d",
+       "name": "KT (kt)",
+       "share": 0.0020069288474347698,
+       "obs_share_2_1": 0.0018604651162790699,
+       "level": {
+        "ttft": 1359.125,
+        "tps": 118.6875,
+        "pout": 0.5,
+        "ein": 0.053052
+       },
+       "rank": {
+        "ttft": 29,
+        "tps": 11,
+        "pout": 17,
+        "ein": 19
+       }
+      },
+      {
+       "endpoint": "9ef14aca-3683-430e-8a01-ad33cccc7a72",
+       "name": "Mistral (mistral)",
+       "share": 0.0015298225301375481,
+       "obs_share_2_1": 0.0015116279069767441,
+       "level": {
+        "ttft": 919.0,
+        "tps": 105.5,
+        "pout": 0.5,
+        "ein": 0.09348899999999999
+       },
+       "rank": {
+        "ttft": 24,
+        "tps": 15,
+        "pout": 17,
+        "ein": 33
+       }
+      },
+      {
+       "endpoint": "4ac6be6b-0e23-4957-a4c4-b556defbecfb",
+       "name": "Sail Research (sail-research/fp4)",
+       "share": 0.0006073218238191679,
+       "obs_share_2_1": 0.0003488372093023256,
+       "level": {
+        "ttft": 1452.625,
+        "tps": 40.125,
+        "pout": 0.625,
+        "ein": 0.11158668749999999
+       },
+       "rank": {
+        "ttft": 31,
+        "tps": 30,
+        "pout": 30,
+        "ein": 34
+       }
+      },
+      {
+       "endpoint": "77639dbf-5536-4e9f-9ae0-e5f9ea9eab40",
+       "name": "Near AI (near-ai/fp8)",
+       "share": 0.0005947425045613479,
+       "obs_share_2_1": 0.00023255813953488373,
+       "level": {
+        "ttft": 2521.4375,
+        "tps": 34.625,
+        "pout": 0.5,
+        "ein": 0.036466399999999996
+       },
+       "rank": {
+        "ttft": 34,
+        "tps": 32,
+        "pout": 17,
+        "ein": 8
+       }
+      },
+      {
+       "endpoint": "c8bb7e4d-e5de-49a9-8e41-65e52ddcc7f4",
+       "name": "Darkbloom (darkbloom/fp4)",
+       "share": 0.0004463055137310655,
+       "obs_share_2_1": 0.00011627906976744187,
+       "level": {
+        "ttft": 2361.9375,
+        "tps": 32.0,
+        "pout": 0.18,
+        "ein": 0.044816274999999996
+       },
+       "rank": {
+        "ttft": 33,
+        "tps": 33,
+        "pout": 2,
+        "ein": 15
+       }
+      },
+      {
+       "endpoint": "4557c192-2c06-426e-ba9f-acfcee110c42",
+       "name": "Sail Research (sail-research/us)",
+       "share": 0.0002799388445596241,
+       "obs_share_2_1": 0.00023255813953488373,
+       "level": {
+        "ttft": 1621.0625,
+        "tps": 37.375,
+        "pout": 0.625,
+        "ein": 0.07280975
+       },
+       "rank": {
+        "ttft": 32,
+        "tps": 31,
+        "pout": 30,
+        "ein": 28
+       }
+      }
+     ]
+    }
+   }
+  },
+  "kimi-k3.1-pro": {
+   "n_snapshots": 40,
+   "t_first": 1795325407.592952,
+   "t_last": 1795392907.2595181,
+   "n_candidates_mean": 28,
+   "n_candidates_union": 28,
+   "n_snapshots_by_round": {
+    "r1": 10,
+    "r2": 10,
+    "r3": 10,
+    "r4": 10
+   },
+   "leader": "Wafer (wafer/mxfp4)",
+   "by_vm": {
+    "seoul": {
+     "mango_ttft_or": 636.6096807359669,
+     "mango_tps_or": 88.59481751660539,
+     "mango_share": 0.07201259456950342,
+     "mango_share_rank": 5,
+     "mango_metric_rank": {
+      "ttft": 6,
+      "tps": 14,
+      "pout": 11,
+      "ein": 12
+     },
+     "mango_level": {
+      "ttft": 636.6096807359669,
+      "tps": 88.59481751660539,
+      "pout": 9.5,
+      "ein": 0.3053781126366476
+     },
+     "candidates": [
+      {
+       "endpoint": "ceab21e5-5131-48d2-8fd6-9edb3a069383",
+       "name": "InferenceNet (inference-net/mxfp4)",
+       "share": 0.13463224676283753,
+       "obs_share_2_1": 0.11504424778761062,
+       "level": {
+        "ttft": 543.5625,
+        "tps": 99.25,
+        "pout": 9.0,
+        "ein": 0.24353684999999994
+       },
+       "rank": {
+        "ttft": 1,
+        "tps": 8,
+        "pout": 5,
+        "ein": 5
+       }
+      },
+      {
+       "endpoint": "ef01e5c5-7f65-433b-9df6-9add8b075889",
+       "name": "Wafer (wafer/mxfp4)",
+       "share": 0.13345565369252502,
+       "obs_share_2_1": 0.127147319104633,
+       "level": {
+        "ttft": 550.6875,
+        "tps": 98.875,
+        "pout": 9.0,
+        "ein": 0.22033800000000006
+       },
+       "rank": {
+        "ttft": 2,
+        "tps": 9,
+        "pout": 5,
+        "ein": 3
+       }
+      },
+      {
+       "endpoint": "bed5b2b6-f15f-42c3-ab5f-6c1d2a8e0aaf",
+       "name": "InferenceNet (inference-net/mxfp4/us)",
+       "share": 0.12698162755480094,
+       "obs_share_2_1": 0.12233211868818324,
+       "level": {
+        "ttft": 556.25,
+        "tps": 100.5,
+        "pout": 9.0,
+        "ein": 0.26460315
+       },
+       "rank": {
+        "ttft": 3,
+        "tps": 7,
+        "pout": 5,
+        "ein": 8
+       }
+      },
+      {
+       "endpoint": "9dc2f681-3df0-4f3c-b8f4-5fb564629c5b",
+       "name": "Wafer (wafer/us)",
+       "share": 0.11282217679968973,
+       "obs_share_2_1": 0.12194169703279542,
+       "level": {
+        "ttft": 610.4375,
+        "tps": 93.375,
+        "pout": 8.8,
+        "ein": 0.1848764
+       },
+       "rank": {
+        "ttft": 4,
+        "tps": 13,
+        "pout": 4,
+        "ein": 1
+       }
+      },
+      {
+       "endpoint": "42406f15-f64c-4bae-95b7-d03877cfff58",
+       "name": "Modal (modal/mxfp4)",
+       "share": 0.059273961804248654,
+       "obs_share_2_1": 0.09864653826132223,
+       "level": {
+        "ttft": 697.3125,
+        "tps": 103.5,
+        "pout": 10.0,
+        "ein": 0.27146
+       },
+       "rank": {
+        "ttft": 7,
+        "tps": 5,
+        "pout": 13,
+        "ein": 9
+       }
+      },
+      {
+       "endpoint": "e05cec5b-176a-46e3-bbbe-22cc0227b3d5",
+       "name": "Makora (makora)",
+       "share": 0.042283391030338104,
+       "obs_share_2_1": 0.052316501821967724,
+       "level": {
+        "ttft": 1552.1875,
+        "tps": 72.625,
+        "pout": 9.49,
+        "ein": 0.76925
+       },
+       "rank": {
+        "ttft": 19,
+        "tps": 17,
+        "pout": 10,
+        "ein": 23
+       }
+      },
+      {
+       "endpoint": "4889efe8-e336-4e5f-896c-b1d06cb65657",
+       "name": "InferenceNet (inference-net/us/fast)",
+       "share": 0.03851242501676849,
+       "obs_share_2_1": 0.022254034357105674,
+       "level": {
+        "ttft": 628.0625,
+        "tps": 120.375,
+        "pout": 13.5,
+        "ein": 0.31386149999999996
+       },
+       "rank": {
+        "ttft": 5,
+        "tps": 1,
+        "pout": 23,
+        "ein": 12
+       }
+      },
+      {
+       "endpoint": "65c23e19-6e6b-4882-9399-5891175e03b0",
+       "name": "River (river)",
+       "share": 0.037835123416725236,
+       "obs_share_2_1": 0.10567412805830297,
+       "level": {
+        "ttft": 835.3125,
+        "tps": 94.875,
+        "pout": 10.0,
+        "ein": 0.256655
+       },
+       "rank": {
+        "ttft": 9,
+        "tps": 12,
+        "pout": 13,
+        "ein": 7
+       }
+      },
+      {
+       "endpoint": "ff212546-d734-444e-807e-119081f55d7b",
+       "name": "InferenceNet (inference-net/fast)",
+       "share": 0.03425224236752507,
+       "obs_share_2_1": 0.019521082769390942,
+       "level": {
+        "ttft": 651.125,
+        "tps": 111.75,
+        "pout": 13.5,
+        "ein": 0.33785775
+       },
+       "rank": {
+        "ttft": 6,
+        "tps": 3,
+        "pout": 23,
+        "ein": 14
+       }
+      },
+      {
+       "endpoint": "ebc840ab-8c6a-4b8f-96cd-82b3fb2694c9",
+       "name": "PrimaLabs (primalabs/mxfp4)",
+       "share": 0.025111853274058935,
+       "obs_share_2_1": 0.017699115044247787,
+       "level": {
+        "ttft": 1074.5,
+        "tps": 98.25,
+        "pout": 10.0,
+        "ein": 0.39818
+       },
+       "rank": {
+        "ttft": 11,
+        "tps": 10,
+        "pout": 13,
+        "ein": 17
+       }
+      },
+      {
+       "endpoint": "f5726dff-29bd-4045-a059-f63ad113e103",
+       "name": "Parasail (parasail/fp4)",
+       "share": 0.023709796328149527,
+       "obs_share_2_1": 0.03839146277980219,
+       "level": {
+        "ttft": 1061.25,
+        "tps": 108.6875,
+        "pout": 10.0,
+        "ein": 0.3363049999999999
+       },
+       "rank": {
+        "ttft": 10,
+        "tps": 4,
+        "pout": 13,
+        "ein": 13
+       }
+      },
+      {
+       "endpoint": "c0a8a518-6ee4-4160-9f15-5f7c4dff633f",
+       "name": "Sail Research (sail-research/fp4/us)",
+       "share": 0.02313689445983693,
+       "obs_share_2_1": 0.004164497657470068,
+       "level": {
+        "ttft": 1202.9375,
+        "tps": 79.75,
+        "pout": 9.35,
+        "ein": 0.8417783125
+       },
+       "rank": {
+        "ttft": 12,
+        "tps": 14,
+        "pout": 8,
+        "ein": 25
+       }
+      },
+      {
+       "endpoint": "4198da12-ea7b-4d51-a112-07b13729507c",
+       "name": "DeepInfra (deepinfra/bf16)",
+       "share": 0.019537476099956867,
+       "obs_share_2_1": 0.0045549193128578865,
+       "level": {
+        "ttft": 829.25,
+        "tps": 56.75,
+        "pout": 9.5,
+        "ein": 0.7191595
+       },
+       "rank": {
+        "ttft": 8,
+        "tps": 20,
+        "pout": 11,
+        "ein": 21
+       }
+      },
+      {
+       "endpoint": "23363b6e-be0a-4791-a053-3f43d3df7e97",
+       "name": "Relace (relace/fp4)",
+       "share": 0.018511069137023453,
+       "obs_share_2_1": 0.005856324830817283,
+       "level": {
+        "ttft": 1411.0,
+        "tps": 49.875,
+        "pout": 8.402299999999999,
+        "ein": 0.2094815825
+       },
+       "rank": {
+        "ttft": 15,
+        "tps": 23,
+        "pout": 2,
+        "ein": 2
+       }
+      },
+      {
+       "endpoint": "53b9e8b3-ded8-4249-8a07-6f45b2d379a8",
+       "name": "Nebius (nebius/fp4)",
+       "share": 0.01694641547622592,
+       "obs_share_2_1": 0.04515877147319105,
+       "level": {
+        "ttft": 1343.3125,
+        "tps": 112.375,
+        "pout": 10.0,
+        "ein": 0.24076999999999998
+       },
+       "rank": {
+        "ttft": 14,
+        "tps": 2,
+        "pout": 13,
+        "ein": 4
+       }
+      },
+      {
+       "endpoint": "40360a75-4e6f-4d46-ba10-9540881c35a4",
+       "name": "Decart (decart/mxfp4)",
+       "share": 0.015013360402340286,
+       "obs_share_2_1": 0.01340447683498178,
+       "level": {
+        "ttft": 1958.1875,
+        "tps": 42.5,
+        "pout": 6.0,
+        "ein": 0.28842599999999996
+       },
+       "rank": {
+        "ttft": 22,
+        "tps": 24,
+        "pout": 1,
+        "ein": 10
+       }
+      },
+      {
+       "endpoint": "3ff5bd90-861a-4aa0-9685-9af317fee05b",
+       "name": "DigitalOcean (digitalocean)",
+       "share": 0.014179572155288242,
+       "obs_share_2_1": 0.01704841228526809,
+       "level": {
+        "ttft": 1436.625,
+        "tps": 96.375,
+        "pout": 9.5,
+        "ein": 0.24933699999999998
+       },
+       "rank": {
+        "ttft": 16,
+        "tps": 11,
+        "pout": 11,
+        "ein": 6
+       }
+      },
+      {
+       "endpoint": "68e8eb89-66c8-46e2-9159-20668b9b6b09",
+       "name": "Sail Research (sail-research/fp4)",
+       "share": 0.013133800349659676,
+       "obs_share_2_1": 0.0068974492451847995,
+       "level": {
+        "ttft": 1593.0,
+        "tps": 76.25,
+        "pout": 9.35,
+        "ein": 0.7605032875
+       },
+       "rank": {
+        "ttft": 20,
+        "tps": 15,
+        "pout": 8,
+        "ein": 22
+       }
+      },
+      {
+       "endpoint": "55900d51-3ed1-4f16-b2d6-c0a74c98d37b",
+       "name": "Morph (morph/fp8)",
+       "share": 0.011361171775663832,
+       "obs_share_2_1": 0.02043206663196252,
+       "level": {
+        "ttft": 1484.625,
+        "tps": 55.0,
+        "pout": 8.774999999999999,
+        "ein": 0.3464467
+       },
+       "rank": {
+        "ttft": 18,
+        "tps": 21,
+        "pout": 3,
+        "ein": 15
+       }
+      },
+      {
+       "endpoint": "753f440c-69e2-44ec-8919-e0699d3d81ef",
+       "name": "Together (together)",
+       "share": 0.008977984305231175,
+       "obs_share_2_1": 0.03305570015616866,
+       "level": {
+        "ttft": 1260.875,
+        "tps": 38.75,
+        "pout": 10.0,
+        "ein": 0.453035
+       },
+       "rank": {
+        "ttft": 13,
+        "tps": 26,
+        "pout": 13,
+        "ein": 19
+       }
+      },
+      {
+       "endpoint": "1160e104-612a-4807-9219-81401c7c5ae0",
+       "name": "AkashML (akashml/fp4)",
+       "share": 0.007039700629615666,
+       "obs_share_2_1": 0.0037740760020822488,
+       "level": {
+        "ttft": 2043.25,
+        "tps": 70.25,
+        "pout": 10.0,
+        "ein": 0.38225525
+       },
+       "rank": {
+        "ttft": 23,
+        "tps": 18,
+        "pout": 13,
+        "ein": 16
+       }
+      },
+      {
+       "endpoint": "2327dc5f-daf6-4106-b4bd-0633037f93c7",
+       "name": "Fireworks (fireworks)",
+       "share": 0.004469171254820119,
+       "obs_share_2_1": 0.0026028110359187923,
+       "level": {
+        "ttft": 1630.0,
+        "tps": 42.0,
+        "pout": 10.0,
+        "ein": 0.41789
+       },
+       "rank": {
+        "ttft": 21,
+        "tps": 25,
+        "pout": 13,
+        "ein": 18
+       }
+      },
+      {
+       "endpoint": "5e042a92-6830-4507-84a4-9e1c6f113b90",
+       "name": "Amazon Bedrock (amazon-bedrock/us-east-1)",
+       "share": 0.0026045296497869247,
+       "obs_share_2_1": 0.0001301405517959396,
+       "level": {
+        "ttft": 1441.25,
+        "tps": 101.0625,
+        "pout": 22.0,
+        "ein": 1.6237485
+       },
+       "rank": {
+        "ttft": 17,
+        "tps": 6,
+        "pout": 28,
+        "ein": 27
+       }
+      },
+      {
+       "endpoint": "aa4952b2-82c8-4903-bb9b-3d6dfb69ce11",
+       "name": "Alibaba (alibaba)",
+       "share": 0.0018596527255548673,
+       "obs_share_2_1": 0.0011712649661634565,
+       "level": {
+        "ttft": 2293.6875,
+        "tps": 31.125,
+        "pout": 10.0,
+        "ein": 1.17668
+       },
+       "rank": {
+        "ttft": 24,
+        "tps": 27,
+        "pout": 13,
+        "ein": 26
+       }
+      },
+      {
+       "endpoint": "a3fafaac-f097-4ef1-86b3-842854dad5c6",
+       "name": "Moonshot AI (moonshotai/mxfp4)",
+       "share": 0.0011779551574023592,
+       "obs_share_2_1": 0.0001301405517959396,
+       "level": {
+        "ttft": 2885.125,
+        "tps": 29.0,
+        "pout": 10.0,
+        "ein": 0.30489499999999997
+       },
+       "rank": {
+        "ttft": 26,
+        "tps": 28,
+        "pout": 13,
+        "ein": 11
+       }
+      },
+      {
+       "endpoint": "028de55e-30d1-4574-b655-9239cb1329e6",
+       "name": "Amazon Bedrock (amazon-bedrock/us-east-2)",
+       "share": 0.0007209502467165672,
+       "obs_share_2_1": 0.0002602811035918792,
+       "level": {
+        "ttft": 2453.875,
+        "tps": 74.1875,
+        "pout": 20.0,
+        "ein": 0.8344099999999999
+       },
+       "rank": {
+        "ttft": 25,
+        "tps": 16,
+        "pout": 25,
+        "ein": 24
+       }
+      },
+      {
+       "endpoint": "5eda388a-b3d8-4675-b373-f29d82e6d6f8",
+       "name": "Alibaba (alibaba/prime)",
+       "share": 0.0002841339832618046,
+       "obs_share_2_1": 0.0001301405517959396,
+       "level": {
+        "ttft": 2967.3125,
+        "tps": 50.125,
+        "pout": 20.0,
+        "ein": 0.6326299999999999
+       },
+       "rank": {
+        "ttft": 27,
+        "tps": 22,
+        "pout": 25,
+        "ein": 20
+       }
+      },
+      {
+       "endpoint": "da2df19f-c004-433f-a41f-2c6ecd346f5e",
+       "name": "Moonshot AI (moonshotai/highspeed)",
+       "share": 0.00016306957444470278,
+       "obs_share_2_1": 0.0002602811035918792,
+       "level": {
+        "ttft": 3825.875,
+        "tps": 59.4375,
+        "pout": 20.0,
+        "ein": 1.70689
+       },
+       "rank": {
+        "ttft": 28,
+        "tps": 19,
+        "pout": 25,
+        "ein": 28
+       }
+      }
+     ]
+    },
+    "iad": {
+     "mango_ttft_or": 882.2886995623617,
+     "mango_tps_or": 87.70481590584639,
+     "mango_share": 0.037139319839629786,
+     "mango_share_rank": 9,
+     "mango_metric_rank": {
+      "ttft": 10,
+      "tps": 14,
+      "pout": 11,
+      "ein": 12
+     },
+     "mango_level": {
+      "ttft": 882.2886995623617,
+      "tps": 87.70481590584639,
+      "pout": 9.5,
+      "ein": 0.3053781126366476
+     },
+     "candidates": [
+      {
+       "endpoint": "ceab21e5-5131-48d2-8fd6-9edb3a069383",
+       "name": "InferenceNet (inference-net/mxfp4)",
+       "share": 0.13966713581575269,
+       "obs_share_2_1": 0.11504424778761062,
+       "level": {
+        "ttft": 543.5625,
+        "tps": 99.25,
+        "pout": 9.0,
+        "ein": 0.24353684999999994
+       },
+       "rank": {
+        "ttft": 1,
+        "tps": 8,
+        "pout": 5,
+        "ein": 5
+       }
+      },
+      {
+       "endpoint": "ef01e5c5-7f65-433b-9df6-9add8b075889",
+       "name": "Wafer (wafer/mxfp4)",
+       "share": 0.13848732305862294,
+       "obs_share_2_1": 0.127147319104633,
+       "level": {
+        "ttft": 550.6875,
+        "tps": 98.875,
+        "pout": 9.0,
+        "ein": 0.22033800000000006
+       },
+       "rank": {
+        "ttft": 2,
+        "tps": 9,
+        "pout": 5,
+        "ein": 3
+       }
+      },
+      {
+       "endpoint": "bed5b2b6-f15f-42c3-ab5f-6c1d2a8e0aaf",
+       "name": "InferenceNet (inference-net/mxfp4/us)",
+       "share": 0.1317638722013773,
+       "obs_share_2_1": 0.12233211868818324,
+       "level": {
+        "ttft": 556.25,
+        "tps": 100.5,
+        "pout": 9.0,
+        "ein": 0.26460315
+       },
+       "rank": {
+        "ttft": 3,
+        "tps": 7,
+        "pout": 5,
+        "ein": 8
+       }
+      },
+      {
+       "endpoint": "9dc2f681-3df0-4f3c-b8f4-5fb564629c5b",
+       "name": "Wafer (wafer/us)",
+       "share": 0.11706207523810208,
+       "obs_share_2_1": 0.12194169703279542,
+       "level": {
+        "ttft": 610.4375,
+        "tps": 93.375,
+        "pout": 8.8,
+        "ein": 0.1848764
+       },
+       "rank": {
+        "ttft": 4,
+        "tps": 13,
+        "pout": 4,
+        "ein": 1
+       }
+      },
+      {
+       "endpoint": "42406f15-f64c-4bae-95b7-d03877cfff58",
+       "name": "Modal (modal/mxfp4)",
+       "share": 0.06152057978902212,
+       "obs_share_2_1": 0.09864653826132223,
+       "level": {
+        "ttft": 697.3125,
+        "tps": 103.5,
+        "pout": 10.0,
+        "ein": 0.27146
+       },
+       "rank": {
+        "ttft": 7,
+        "tps": 5,
+        "pout": 13,
+        "ein": 9
+       }
+      },
+      {
+       "endpoint": "e05cec5b-176a-46e3-bbbe-22cc0227b3d5",
+       "name": "Makora (makora)",
+       "share": 0.04389389276557824,
+       "obs_share_2_1": 0.052316501821967724,
+       "level": {
+        "ttft": 1552.1875,
+        "tps": 72.625,
+        "pout": 9.49,
+        "ein": 0.76925
+       },
+       "rank": {
+        "ttft": 19,
+        "tps": 17,
+        "pout": 10,
+        "ein": 23
+       }
+      },
+      {
+       "endpoint": "4889efe8-e336-4e5f-896c-b1d06cb65657",
+       "name": "InferenceNet (inference-net/us/fast)",
+       "share": 0.03993729502912265,
+       "obs_share_2_1": 0.022254034357105674,
+       "level": {
+        "ttft": 628.0625,
+        "tps": 120.375,
+        "pout": 13.5,
+        "ein": 0.31386149999999996
+       },
+       "rank": {
+        "ttft": 5,
+        "tps": 1,
+        "pout": 23,
+        "ein": 12
+       }
+      },
+      {
+       "endpoint": "65c23e19-6e6b-4882-9399-5891175e03b0",
+       "name": "River (river)",
+       "share": 0.039236900402603234,
+       "obs_share_2_1": 0.10567412805830297,
+       "level": {
+        "ttft": 835.3125,
+        "tps": 94.875,
+        "pout": 10.0,
+        "ein": 0.256655
+       },
+       "rank": {
+        "ttft": 9,
+        "tps": 12,
+        "pout": 13,
+        "ein": 7
+       }
+      },
+      {
+       "endpoint": "ff212546-d734-444e-807e-119081f55d7b",
+       "name": "InferenceNet (inference-net/fast)",
+       "share": 0.03552027812092761,
+       "obs_share_2_1": 0.019521082769390942,
+       "level": {
+        "ttft": 651.125,
+        "tps": 111.75,
+        "pout": 13.5,
+        "ein": 0.33785775
+       },
+       "rank": {
+        "ttft": 6,
+        "tps": 3,
+        "pout": 23,
+        "ein": 14
+       }
+      },
+      {
+       "endpoint": "ebc840ab-8c6a-4b8f-96cd-82b3fb2694c9",
+       "name": "PrimaLabs (primalabs/mxfp4)",
+       "share": 0.026029357572907502,
+       "obs_share_2_1": 0.017699115044247787,
+       "level": {
+        "ttft": 1074.5,
+        "tps": 98.25,
+        "pout": 10.0,
+        "ein": 0.39818
+       },
+       "rank": {
+        "ttft": 11,
+        "tps": 10,
+        "pout": 13,
+        "ein": 17
+       }
+      },
+      {
+       "endpoint": "f5726dff-29bd-4045-a059-f63ad113e103",
+       "name": "Parasail (parasail/fp4)",
+       "share": 0.02460861178770283,
+       "obs_share_2_1": 0.03839146277980219,
+       "level": {
+        "ttft": 1061.25,
+        "tps": 108.6875,
+        "pout": 10.0,
+        "ein": 0.3363049999999999
+       },
+       "rank": {
+        "ttft": 10,
+        "tps": 4,
+        "pout": 13,
+        "ein": 13
+       }
+      },
+      {
+       "endpoint": "c0a8a518-6ee4-4160-9f15-5f7c4dff633f",
+       "name": "Sail Research (sail-research/fp4/us)",
+       "share": 0.024029896010172334,
+       "obs_share_2_1": 0.004164497657470068,
+       "level": {
+        "ttft": 1202.9375,
+        "tps": 79.75,
+        "pout": 9.35,
+        "ein": 0.8417783125
+       },
+       "rank": {
+        "ttft": 12,
+        "tps": 14,
+        "pout": 8,
+        "ein": 25
+       }
+      },
+      {
+       "endpoint": "4198da12-ea7b-4d51-a112-07b13729507c",
+       "name": "DeepInfra (deepinfra/bf16)",
+       "share": 0.020249570486566087,
+       "obs_share_2_1": 0.0045549193128578865,
+       "level": {
+        "ttft": 829.25,
+        "tps": 56.75,
+        "pout": 9.5,
+        "ein": 0.7191595
+       },
+       "rank": {
+        "ttft": 8,
+        "tps": 20,
+        "pout": 11,
+        "ein": 21
+       }
+      },
+      {
+       "endpoint": "23363b6e-be0a-4791-a053-3f43d3df7e97",
+       "name": "Relace (relace/fp4)",
+       "share": 0.019246262630454692,
+       "obs_share_2_1": 0.005856324830817283,
+       "level": {
+        "ttft": 1411.0,
+        "tps": 49.875,
+        "pout": 8.402299999999999,
+        "ein": 0.2094815825
+       },
+       "rank": {
+        "ttft": 15,
+        "tps": 23,
+        "pout": 2,
+        "ein": 2
+       }
+      },
+      {
+       "endpoint": "53b9e8b3-ded8-4249-8a07-6f45b2d379a8",
+       "name": "Nebius (nebius/fp4)",
+       "share": 0.017583998738029148,
+       "obs_share_2_1": 0.04515877147319105,
+       "level": {
+        "ttft": 1343.3125,
+        "tps": 112.375,
+        "pout": 10.0,
+        "ein": 0.24076999999999998
+       },
+       "rank": {
+        "ttft": 14,
+        "tps": 2,
+        "pout": 13,
+        "ein": 4
+       }
+      },
+      {
+       "endpoint": "40360a75-4e6f-4d46-ba10-9540881c35a4",
+       "name": "Decart (decart/mxfp4)",
+       "share": 0.015569978334743217,
+       "obs_share_2_1": 0.01340447683498178,
+       "level": {
+        "ttft": 1958.1875,
+        "tps": 42.5,
+        "pout": 6.0,
+        "ein": 0.28842599999999996
+       },
+       "rank": {
+        "ttft": 22,
+        "tps": 24,
+        "pout": 1,
+        "ein": 10
+       }
+      },
+      {
+       "endpoint": "3ff5bd90-861a-4aa0-9685-9af317fee05b",
+       "name": "DigitalOcean (digitalocean)",
+       "share": 0.014726519975987331,
+       "obs_share_2_1": 0.01704841228526809,
+       "level": {
+        "ttft": 1436.625,
+        "tps": 96.375,
+        "pout": 9.5,
+        "ein": 0.24933699999999998
+       },
+       "rank": {
+        "ttft": 16,
+        "tps": 11,
+        "pout": 11,
+        "ein": 6
+       }
+      },
+      {
+       "endpoint": "68e8eb89-66c8-46e2-9159-20668b9b6b09",
+       "name": "Sail Research (sail-research/fp4)",
+       "share": 0.013614673158661257,
+       "obs_share_2_1": 0.0068974492451847995,
+       "level": {
+        "ttft": 1593.0,
+        "tps": 76.25,
+        "pout": 9.35,
+        "ein": 0.7605032875
+       },
+       "rank": {
+        "ttft": 20,
+        "tps": 15,
+        "pout": 8,
+        "ein": 22
+       }
+      },
+      {
+       "endpoint": "55900d51-3ed1-4f16-b2d6-c0a74c98d37b",
+       "name": "Morph (morph/fp8)",
+       "share": 0.011790671292325437,
+       "obs_share_2_1": 0.02043206663196252,
+       "level": {
+        "ttft": 1484.625,
+        "tps": 55.0,
+        "pout": 8.774999999999999,
+        "ein": 0.3464467
+       },
+       "rank": {
+        "ttft": 18,
+        "tps": 21,
+        "pout": 3,
+        "ein": 15
+       }
+      },
+      {
+       "endpoint": "753f440c-69e2-44ec-8919-e0699d3d81ef",
+       "name": "Together (together)",
+       "share": 0.009309362392316563,
+       "obs_share_2_1": 0.03305570015616866,
+       "level": {
+        "ttft": 1260.875,
+        "tps": 38.75,
+        "pout": 10.0,
+        "ein": 0.453035
+       },
+       "rank": {
+        "ttft": 13,
+        "tps": 26,
+        "pout": 13,
+        "ein": 19
+       }
+      },
+      {
+       "endpoint": "1160e104-612a-4807-9219-81401c7c5ae0",
+       "name": "AkashML (akashml/fp4)",
+       "share": 0.007306153347978516,
+       "obs_share_2_1": 0.0037740760020822488,
+       "level": {
+        "ttft": 2043.25,
+        "tps": 70.25,
+        "pout": 10.0,
+        "ein": 0.38225525
+       },
+       "rank": {
+        "ttft": 23,
+        "tps": 18,
+        "pout": 13,
+        "ein": 16
+       }
+      },
+      {
+       "endpoint": "2327dc5f-daf6-4106-b4bd-0633037f93c7",
+       "name": "Fireworks (fireworks)",
+       "share": 0.004635166793035087,
+       "obs_share_2_1": 0.0026028110359187923,
+       "level": {
+        "ttft": 1630.0,
+        "tps": 42.0,
+        "pout": 10.0,
+        "ein": 0.41789
+       },
+       "rank": {
+        "ttft": 21,
+        "tps": 25,
+        "pout": 13,
+        "ein": 18
+       }
+      },
+      {
+       "endpoint": "5e042a92-6830-4507-84a4-9e1c6f113b90",
+       "name": "Amazon Bedrock (amazon-bedrock/us-east-1)",
+       "share": 0.0027088813062509107,
+       "obs_share_2_1": 0.0001301405517959396,
+       "level": {
+        "ttft": 1441.25,
+        "tps": 101.0625,
+        "pout": 22.0,
+        "ein": 1.6237485
+       },
+       "rank": {
+        "ttft": 17,
+        "tps": 6,
+        "pout": 28,
+        "ein": 27
+       }
+      },
+      {
+       "endpoint": "aa4952b2-82c8-4903-bb9b-3d6dfb69ce11",
+       "name": "Alibaba (alibaba)",
+       "share": 0.001927660065123533,
+       "obs_share_2_1": 0.0011712649661634565,
+       "level": {
+        "ttft": 2293.6875,
+        "tps": 31.125,
+        "pout": 10.0,
+        "ein": 1.17668
+       },
+       "rank": {
+        "ttft": 24,
+        "tps": 27,
+        "pout": 13,
+        "ein": 26
+       }
+      },
+      {
+       "endpoint": "a3fafaac-f097-4ef1-86b3-842854dad5c6",
+       "name": "Moonshot AI (moonshotai/mxfp4)",
+       "share": 0.001222896448168153,
+       "obs_share_2_1": 0.0001301405517959396,
+       "level": {
+        "ttft": 2885.125,
+        "tps": 29.0,
+        "pout": 10.0,
+        "ein": 0.30489499999999997
+       },
+       "rank": {
+        "ttft": 26,
+        "tps": 28,
+        "pout": 13,
+        "ein": 11
+       }
+      },
+      {
+       "endpoint": "028de55e-30d1-4574-b655-9239cb1329e6",
+       "name": "Amazon Bedrock (amazon-bedrock/us-east-2)",
+       "share": 0.0007479782384734487,
+       "obs_share_2_1": 0.0002602811035918792,
+       "level": {
+        "ttft": 2453.875,
+        "tps": 74.1875,
+        "pout": 20.0,
+        "ein": 0.8344099999999999
+       },
+       "rank": {
+        "ttft": 25,
+        "tps": 16,
+        "pout": 25,
+        "ein": 24
+       }
+      },
+      {
+       "endpoint": "5eda388a-b3d8-4675-b373-f29d82e6d6f8",
+       "name": "Alibaba (alibaba/prime)",
+       "share": 0.0002947246953030549,
+       "obs_share_2_1": 0.0001301405517959396,
+       "level": {
+        "ttft": 2967.3125,
+        "tps": 50.125,
+        "pout": 20.0,
+        "ein": 0.6326299999999999
+       },
+       "rank": {
+        "ttft": 27,
+        "tps": 22,
+        "pout": 25,
+        "ein": 20
+       }
+      },
+      {
+       "endpoint": "da2df19f-c004-433f-a41f-2c6ecd346f5e",
+       "name": "Moonshot AI (moonshotai/highspeed)",
+       "share": 0.00016896446506225289,
+       "obs_share_2_1": 0.0002602811035918792,
+       "level": {
+        "ttft": 3825.875,
+        "tps": 59.4375,
+        "pout": 20.0,
+        "ein": 1.70689
+       },
+       "rank": {
+        "ttft": 28,
+        "tps": 19,
+        "pout": 25,
+        "ein": 28
+       }
+      }
+     ]
+    }
+   }
+  }
+ },
+ "period_utc": [
+  1795325400,
+  1795392600
+ ],
+ "rounds_utc": {
+  "r1": [
+   1795325400,
+   1795327800
+  ],
+  "r2": [
+   1795347000,
+   1795349400
+  ],
+  "r3": [
+   1795368600,
+   1795371000
+  ],
+  "r4": [
+   1795390200,
+   1795392600
+  ]
+ },
+ "round_pad_s": 600
+}

@@ -1,0 +1,34 @@
+
+=== eligible: choices 33484 dropped {}
+S1_cost: R2=0.114 cvLL=3.139 (unif -3.538) | log_cost=-2.31
+S2_cost_ttft: R2=0.288 cvLL=2.521 (unif -3.538) | log_cost=-2.65, log_ttft=-1.51
+S3_cost_ttft_tps: R2=0.290 cvLL=2.514 (unif -3.538) | log_cost=-2.74, log_ttft=-1.44, log_tps=+0.28
+S4_main: R2=0.297 cvLL=2.492 (unif -3.538) | log_cost=-2.77[-2.84,-2.70], log_ttft=-1.39[-1.43,-1.35], log_tps=+0.32[+0.27,+0.38], tool_err=-0.82[-1.02,-0.61], so_err=-0.07[-0.24,-0.01], up30=+0.96[+0.66,+2.53], stats_missing=-0.12[-1.28,-0.09]
+S5_split_price: R2=0.295 cvLL=2.503 (unif -3.538) | log_pin=-0.42[-0.46,-0.35], log_pout=-2.42[-2.57,-2.30], log_ttft=-1.50[-1.55,-1.47], log_tps=+0.31[+0.26,+0.37], tool_err=-0.73[-0.89,-0.57], so_err=-0.05[-0.18,-0.01], up30=+0.94[+0.61,+1.97], stats_missing=-0.12[-1.26,-0.09]
+S6_effective_in: R2=0.298 cvLL=2.491 (unif -3.538) | log_ein=-0.83, log_pout=-2.51, log_ttft=-1.60, log_tps=+0.28, tool_err=-0.61, so_err=-0.03, up30=+0.89, stats_missing=-0.12
+S7_main_plus_share: R2=0.300 cvLL=2.481 (unif -3.538) | log_cost=-2.47, log_ttft=-1.34, log_tps=+0.21, tool_err=-0.85, so_err=-0.06, up30=+0.93, stats_missing=-0.07, log_share=+0.29
+S8_eff1h_split: R2=0.298 cvLL=2.492 (unif -3.538) | log_ein1h=-0.81[-0.89,-0.73], log_pout=-2.51[-2.62,-2.40], log_ttft=-1.60[-1.64,-1.56], log_tps=+0.26[+0.20,+0.33], tool_err=-0.62[-0.80,-0.48], so_err=-0.03[-0.16,+0.02], up30=+0.87[+0.52,+2.75], stats_missing=-0.10[-1.24,-0.07]
+S9_eff1h_cost: R2=0.298 cvLL=2.489 (unif -3.538) | log_cost_eff1h=-3.12[-3.21,-3.01], log_ttft=-1.60[-1.65,-1.55], log_tps=+0.28[+0.23,+0.33], tool_err=-0.59[-0.77,-0.43], so_err=-0.03[-0.15,+0.03], up30=+0.87[+0.49,+2.55], stats_missing=-0.10[-1.21,-0.06]
+S10_eff1h_prev_split: R2=0.298 cvLL=2.488 (unif -3.538) | log_ein1h_prev=-0.87, log_pout=-2.50, log_ttft=-1.60, log_tps=+0.27, tool_err=-0.61, so_err=-0.03, up30=+0.89, stats_missing=-0.10
+B_share_only: R2=0.116 cvLL=3.129 (unif -3.538) | log_share=+1.17
+
+=== all_listed: choices 33484 dropped {}
+S1_cost: R2=0.114 cvLL=3.294 (unif -3.717) | log_cost=-2.31
+S2_cost_ttft: R2=0.311 cvLL=2.563 (unif -3.717) | log_cost=-2.62, log_ttft=-1.64
+S3_cost_ttft_tps: R2=0.312 cvLL=2.558 (unif -3.717) | log_cost=-2.68, log_ttft=-1.58, log_tps=+0.22
+S4_main: R2=0.319 cvLL=2.536 (unif -3.717) | log_cost=-2.71, log_ttft=-1.53, log_tps=+0.25, tool_err=-0.80, so_err=-0.05, up30=+1.17, stats_missing=-0.10
+S5_split_price: R2=0.318 cvLL=2.541 (unif -3.717) | log_pin=-0.37, log_pout=-2.43, log_ttft=-1.64, log_tps=+0.26, tool_err=-0.74, so_err=-0.04, up30=+1.10, stats_missing=-0.11
+S6_effective_in: R2=0.323 cvLL=2.524 (unif -3.717) | log_ein=-0.87, log_pout=-2.47, log_ttft=-1.73, log_tps=+0.23, tool_err=-0.61, so_err=-0.01, up30=+1.06, stats_missing=-0.10
+S7_main_plus_share: R2=0.324 cvLL=2.516 (unif -3.717) | log_cost=-2.33, log_ttft=-1.45, log_tps=+0.13, tool_err=-0.87, so_err=-0.04, up30=+1.16, stats_missing=-0.04, log_share=+0.40
+S8_eff1h_split: R2=0.323 cvLL=2.524 (unif -3.717) | log_ein1h=-0.85, log_pout=-2.47, log_ttft=-1.73, log_tps=+0.21, tool_err=-0.62, so_err=-0.01, up30=+1.03, stats_missing=-0.09
+S9_eff1h_cost: R2=0.323 cvLL=2.523 (unif -3.717) | log_cost_eff1h=-3.08, log_ttft=-1.72, log_tps=+0.22, tool_err=-0.59, so_err=-0.02, up30=+1.05, stats_missing=-0.09
+S10_eff1h_prev_split: R2=0.323 cvLL=2.521 (unif -3.717) | log_ein1h_prev=-0.90, log_pout=-2.46, log_ttft=-1.73, log_tps=+0.22, tool_err=-0.61, so_err=-0.01, up30=+1.05, stats_missing=-0.08
+B_share_only: R2=0.136 cvLL=3.214 (unif -3.717) | log_share=+1.31
+
+[deepseek-v4.1-flash-1017] S8 R2=0.168 cvLL=2.907/-3.482 | log_ein1h=-0.18, log_pout=-0.70, log_ttft=-1.00, log_tps=-0.09, tool_err=-0.28, so_err=+0.06, up30=+2.60, stats_missing=-1.38
+
+[glm-5.3] S8 R2=-116241172676.695 cvLL=790842623759.567/-3.794 | log_ein1h=+233459181506.21, log_pout=-61481520357.16, log_ttft=-250459830179.59, log_tps=-154027104923.38, tool_err=-282476218066.53, so_err=-552232060680.45, up30=+239745946369.15, stats_missing=-2861428519112.97
+
+[glm-5.3-flash] S8 R2=0.245 cvLL=2.689/-3.526 | log_ein1h=-0.39, log_pout=-0.75, log_ttft=-1.62, log_tps=+0.67, tool_err=-0.36, so_err=+0.07, up30=+0.44, stats_missing=+0.00
+
+[kimi-k3.1-pro] S8 R2=0.212 cvLL=2.655/-3.329 | log_ein1h=-0.09, log_pout=-0.79, log_ttft=-1.34, log_tps=+0.34, tool_err=-0.04, so_err=-0.12, up30=+0.94, stats_missing=+0.00

@@ -6,6 +6,42 @@
   "system_url": "https://drive.google.com/file/d/1KNLYcYaBB8FmGaUEuskLlHzwj40yJHMU/view",
   "files": [
     {
+      "path": "data/main_raw_xlsx_20261123/본실험1_공개지표_원본_20261123.xlsx",
+      "size": 60585035,
+      "sha256": "5b21cf56c8ae892d3200c2bbbf7065013804d5a99f4dbd03900b7de4d9f86198",
+      "git_blob_sha": null,
+      "drive_file_id": "1CECGY1PZE6gpIGHNXmBE-sXfLyB4JAT_",
+      "url": "https://drive.google.com/file/d/1CECGY1PZE6gpIGHNXmBE-sXfLyB4JAT_/view?usp=drivesdk",
+      "verification": "downloaded_sha256_match"
+    },
+    {
+      "path": "data/main_raw_xlsx_20261123/본실험1_요청별_원본_20261123.xlsx",
+      "size": 33099422,
+      "sha256": "741634abfc119967d4dbfdb3d816d24e5a072bd4fc9ec7f48c79f10beab28899",
+      "git_blob_sha": null,
+      "drive_file_id": "1EG3KIJ-eE_5c5B8OizPwV1fbbzhUaHm2",
+      "url": "https://drive.google.com/file/d/1EG3KIJ-eE_5c5B8OizPwV1fbbzhUaHm2/view?usp=drivesdk",
+      "verification": "downloaded_sha256_match"
+    },
+    {
+      "path": "data/main_raw_xlsx_20261123/본실험2_공개지표_원본_20261123.xlsx",
+      "size": 32171319,
+      "sha256": "290203c28d7365742b5ee4d9234b77b2fb1beecda879c32d8d15eb3750413ddd",
+      "git_blob_sha": null,
+      "drive_file_id": "1cC5ciMyVzTzP0WpvPN0qOTK-UU0Xsrux",
+      "url": "https://drive.google.com/file/d/1cC5ciMyVzTzP0WpvPN0qOTK-UU0Xsrux/view?usp=drivesdk",
+      "verification": "downloaded_sha256_match"
+    },
+    {
+      "path": "data/main_raw_xlsx_20261123/본실험2_요청별_원본_20261123.xlsx",
+      "size": 10305503,
+      "sha256": "f15362df1f4e02573cec464e8f3454222f97f2377496eaec820a9945ce93b3b4",
+      "git_blob_sha": null,
+      "drive_file_id": "1zH5jEyw23WG8MGLc8enA3MsectsD68tI",
+      "url": "https://drive.google.com/file/d/1zH5jEyw23WG8MGLc8enA3MsectsD68tI/view?usp=drivesdk",
+      "verification": "downloaded_sha256_match"
+    },
+    {
       "path": "pdf/01_재현용_명세.pdf",
       "size": 880598,
       "sha256": "f3e0a29d15b0f2aced5aa75de05ea1608553d996dc3a6420ced6ca374f539479",
@@ -363,6 +399,15 @@
       "git_blob_sha": "76ca128bb3344c140440420264b864fa78c18281",
       "drive_file_id": "1oTnhWknOFImarP1yP17rDsTQ0Y0erVY4",
       "url": "https://drive.google.com/file/d/1oTnhWknOFImarP1yP17rDsTQ0Y0erVY4/view?usp=drivesdk",
+      "verification": "downloaded_sha256_match"
+    },
+    {
+      "path": "slides/04_본실험_결과.pdf",
+      "size": 1264964,
+      "sha256": "1d9cee5fbbc1dd0b11799ef2dbc6bcf5d76c0155e5fcf36c750fc3422e8b2405",
+      "git_blob_sha": null,
+      "drive_file_id": "1AxgKUFMXjH3nN9BUn4nmPe4OUBhxtn-v",
+      "url": "https://drive.google.com/file/d/1AxgKUFMXjH3nN9BUn4nmPe4OUBhxtn-v/view?usp=drivesdk",
       "verification": "downloaded_sha256_match"
     },
     {

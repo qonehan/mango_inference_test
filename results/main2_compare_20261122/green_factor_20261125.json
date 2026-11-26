@@ -1,0 +1,358 @@
+{
+ "seoul": {
+  "deepseek-v4.1-flash-1017": {
+   "greenS": {
+    "factor": 0.9237589073145753,
+    "factor_paths": {
+     "wafer/us": 0.7683943457774556,
+     "wafer/mxfp4": 0.8845607628322175,
+     "inference-net/us": 1.6591836734693877,
+     "morph/fp8": 0.8930559624963376,
+     "deepinfra/fp8": 0.6017060367454068,
+     "open-inference/fp4": 0.9286030257453773
+    },
+    "mango_green_ms": 287.73,
+    "mango_ttft_or_scale": 311.4773754511868,
+    "path_green_ms": {
+     "wafer/us": 265.0,
+     "wafer/mxfp4": 272.5,
+     "inference-net/us": 406.5,
+     "morph/fp8": 381.0,
+     "deepinfra/fp8": 458.5,
+     "open-inference/fp4": 656.0
+    }
+   },
+   "greenL": {
+    "factor": 1.0295383189988743,
+    "factor_paths": {
+     "wafer/us": 0.8626313881841247,
+     "wafer/mxfp4": 0.9933049300060864,
+     "inference-net/us": 1.8346938775510204,
+     "morph/fp8": 1.0008789920890713,
+     "deepinfra/fp8": 0.6587926509186351,
+     "open-inference/fp4": 2.133946739803592
+    },
+    "mango_green_ms": 380.65999999999997,
+    "mango_ttft_or_scale": 369.7385449141463,
+    "path_green_ms": {
+     "wafer/us": 297.5,
+     "wafer/mxfp4": 306.0,
+     "inference-net/us": 449.5,
+     "morph/fp8": 427.0,
+     "deepinfra/fp8": 502.0,
+     "open-inference/fp4": 1507.5
+    }
+   }
+  },
+  "glm-5.3": {
+   "greenS": {
+    "factor": 0.911189941752917,
+    "factor_paths": {
+     "wafer/fp4": 1.0678983833718245,
+     "wafer/us": 0.7303443794671864,
+     "decart/fp4": 0.9875788266768584,
+     "friendli": 0.4986830553116769,
+     "inference-net/fp4": 1.1428571428571428,
+     "parasail/fp4": 0.7473399458972046
+    },
+    "mango_green_ms": 442.525,
+    "mango_ttft_or_scale": 485.6561510640526,
+    "path_green_ms": {
+     "wafer/fp4": 289.0,
+     "wafer/us": 281.0,
+     "decart/fp4": 646.0,
+     "friendli": 177.5,
+     "inference-net/fp4": 430.0,
+     "parasail/fp4": 259.0
+    }
+   },
+   "greenL": {
+    "factor": 1.2360710456564137,
+    "factor_paths": {
+     "wafer/fp4": 1.4688221709006928,
+     "wafer/us": 1.0253411306042886,
+     "decart/fp4": 0.63596407414485,
+     "friendli": 0.8231782265144864,
+     "inference-net/fp4": 1.626578073089701,
+     "parasail/fp4": 1.0560865644724977
+    },
+    "mango_green_ms": 527.985,
+    "mango_ttft_or_scale": 427.1477775127516,
+    "path_green_ms": {
+     "wafer/fp4": 397.5,
+     "wafer/us": 394.5,
+     "decart/fp4": 416.0,
+     "friendli": 293.0,
+     "inference-net/fp4": 612.0,
+     "parasail/fp4": 366.0
+    }
+   }
+  },
+  "glm-5.3-flash": {
+   "greenS": {
+    "factor": 0.9843894731183894,
+    "factor_paths": {
+     "wafer/nvfp4": 0.9053668654394607,
+     "wafer/us": 0.7651902960160248,
+     "inference-net/fp4": 1.3113466823714173,
+     "inference-net/us": 1.2484939759036144,
+     "friendli": 0.8593208593208593,
+     "cohere/nvfp4": 0.5750577367205543
+    },
+    "mango_green_ms": 391.71500000000003,
+    "mango_ttft_or_scale": 397.9268477537749,
+    "path_green_ms": {
+     "wafer/nvfp4": 291.0,
+     "wafer/us": 286.5,
+     "inference-net/fp4": 417.5,
+     "inference-net/us": 414.5,
+     "friendli": 155.0,
+     "cohere/nvfp4": 373.5
+    }
+   },
+   "greenL": {
+    "factor": 1.2690525309344225,
+    "factor_paths": {
+     "wafer/nvfp4": 1.2056002074150893,
+     "wafer/us": 1.0296016024927666,
+     "inference-net/fp4": 1.6113074204946995,
+     "inference-net/us": 1.4759036144578312,
+     "friendli": 1.167013167013167,
+     "cohere/nvfp4": 0.8783679753656659
+    },
+    "mango_green_ms": 594.6949999999999,
+    "mango_ttft_or_scale": 468.61338321599425,
+    "path_green_ms": {
+     "wafer/nvfp4": 387.5,
+     "wafer/us": 385.5,
+     "inference-net/fp4": 513.0,
+     "inference-net/us": 490.0,
+     "friendli": 210.5,
+     "cohere/nvfp4": 570.5
+    }
+   }
+  },
+  "kimi-k3.1-pro": {
+   "greenS": {
+    "factor": 0.5709895780543981,
+    "factor_paths": {
+     "wafer/mxfp4": 0.5656565656565656,
+     "inference-net/mxfp4/us": 0.7784269662921348,
+     "wafer/us": 0.5037370738200061,
+     "inference-net/mxfp4": 0.8048752443371278,
+     "river": 0.4285821174710064,
+     "modal/mxfp4": 0.42233575333871115
+    },
+    "mango_green_ms": 359.28499999999997,
+    "mango_ttft_or_scale": 629.2321503034,
+    "path_green_ms": {
+     "wafer/mxfp4": 311.5,
+     "inference-net/mxfp4/us": 433.0,
+     "wafer/us": 307.5,
+     "inference-net/mxfp4": 437.5,
+     "river": 358.0,
+     "modal/mxfp4": 294.5
+    }
+   },
+   "greenL": {
+    "factor": 0.8470943117224817,
+    "factor_paths": {
+     "wafer/mxfp4": 0.8770854613551243,
+     "inference-net/mxfp4/us": 1.1092134831460674,
+     "wafer/us": 0.7773113545612778,
+     "inference-net/mxfp4": 1.1737380705990572,
+     "river": 0.5297418630751964,
+     "modal/mxfp4": 0.7313794030653401
+    },
+    "mango_green_ms": 537.0,
+    "mango_ttft_or_scale": 633.9317742649743,
+    "path_green_ms": {
+     "wafer/mxfp4": 483.0,
+     "inference-net/mxfp4/us": 617.0,
+     "wafer/us": 474.5,
+     "inference-net/mxfp4": 638.0,
+     "river": 442.5,
+     "modal/mxfp4": 510.0
+    }
+   }
+  }
+ },
+ "iad": {
+  "deepseek-v4.1-flash-1017": {
+   "greenS": {
+    "factor": 0.4608099324182358,
+    "factor_paths": {
+     "wafer/us": 0.5683218557448351,
+     "wafer/mxfp4": 0.33110164333536213,
+     "inference-net/us": 0.4346938775510204,
+     "morph/fp8": 0.59654263111632,
+     "deepinfra/fp8": 0.4363517060367454,
+     "open-inference/fp4": 0.7488277448465009
+    },
+    "mango_green_ms": 160.915,
+    "mango_ttft_or_scale": 349.2003723868345,
+    "path_green_ms": {
+     "wafer/us": 196.0,
+     "wafer/mxfp4": 102.0,
+     "inference-net/us": 106.5,
+     "morph/fp8": 254.5,
+     "deepinfra/fp8": 332.5,
+     "open-inference/fp4": 529.0
+    }
+   },
+   "greenL": {
+    "factor": 0.5692274115576714,
+    "factor_paths": {
+     "wafer/us": 0.681406306632838,
+     "wafer/mxfp4": 0.41063095962669915,
+     "inference-net/us": 0.6040816326530613,
+     "morph/fp8": 0.6914737767360094,
+     "deepinfra/fp8": 0.5144356955380578,
+     "open-inference/fp4": 1.7574095372909846
+    },
+    "mango_green_ms": 242.14,
+    "mango_ttft_or_scale": 425.3835902550654,
+    "path_green_ms": {
+     "wafer/us": 235.0,
+     "wafer/mxfp4": 126.5,
+     "inference-net/us": 148.0,
+     "morph/fp8": 295.0,
+     "deepinfra/fp8": 392.0,
+     "open-inference/fp4": 1241.5
+    }
+   }
+  },
+  "glm-5.3": {
+   "greenS": {
+    "factor": 0.43693328645695434,
+    "factor_paths": {
+     "wafer/fp4": 0.3787528868360277,
+     "wafer/us": 0.5562053281351527,
+     "decart/fp4": 0.6558379514618765,
+     "friendli": 0.3230904302019315,
+     "inference-net/fp4": 0.32691029900332225,
+     "parasail/fp4": 0.5165013525698828
+    },
+    "mango_green_ms": 307.08000000000004,
+    "mango_ttft_or_scale": 702.8075212352878,
+    "path_green_ms": {
+     "wafer/fp4": 102.5,
+     "wafer/us": 214.0,
+     "decart/fp4": 429.0,
+     "friendli": 115.0,
+     "inference-net/fp4": 123.0,
+     "parasail/fp4": 179.0
+    }
+   },
+   "greenL": {
+    "factor": 0.797165464943762,
+    "factor_paths": {
+     "wafer/fp4": 0.7833718244803695,
+     "wafer/us": 0.8369070825211176,
+     "decart/fp4": 0.8171221096885152,
+     "friendli": 0.6630377524143986,
+     "inference-net/fp4": 0.7574750830564784,
+     "parasail/fp4": 0.8396753832281334
+    },
+    "mango_green_ms": 385.84,
+    "mango_ttft_or_scale": 484.01494666759055,
+    "path_green_ms": {
+     "wafer/fp4": 212.0,
+     "wafer/us": 322.0,
+     "decart/fp4": 534.5,
+     "friendli": 236.0,
+     "inference-net/fp4": 285.0,
+     "parasail/fp4": 291.0
+    }
+   }
+  },
+  "glm-5.3-flash": {
+   "greenS": {
+    "factor": 0.39950427965046376,
+    "factor_paths": {
+     "wafer/nvfp4": 0.30023334197562873,
+     "wafer/us": 0.5889160916981971,
+     "inference-net/fp4": 0.3564978405967805,
+     "inference-net/us": 0.3433734939759036,
+     "friendli": 0.5322245322245323,
+     "cohere/nvfp4": 0.3494996150885296
+    },
+    "mango_green_ms": 262.65999999999997,
+    "mango_ttft_or_scale": 657.464796697066,
+    "path_green_ms": {
+     "wafer/nvfp4": 96.5,
+     "wafer/us": 220.5,
+     "inference-net/fp4": 113.5,
+     "inference-net/us": 114.0,
+     "friendli": 96.0,
+     "cohere/nvfp4": 227.0
+    }
+   },
+   "greenL": {
+    "factor": 0.6746089088766635,
+    "factor_paths": {
+     "wafer/nvfp4": 0.6191340420015555,
+     "wafer/us": 0.8933897173380814,
+     "inference-net/fp4": 0.5873576756968983,
+     "inference-net/us": 0.5316265060240963,
+     "friendli": 0.8426888426888427,
+     "cohere/nvfp4": 0.6420323325635104
+    },
+    "mango_green_ms": 458.58500000000004,
+    "mango_ttft_or_scale": 679.7790452598983,
+    "path_green_ms": {
+     "wafer/nvfp4": 199.0,
+     "wafer/us": 334.5,
+     "inference-net/fp4": 187.0,
+     "inference-net/us": 176.5,
+     "friendli": 152.0,
+     "cohere/nvfp4": 417.0
+    }
+   }
+  },
+  "kimi-k3.1-pro": {
+   "greenS": {
+    "factor": 0.2611952084440812,
+    "factor_paths": {
+     "wafer/mxfp4": 0.23334468278288503,
+     "inference-net/mxfp4/us": 0.2301123595505618,
+     "wafer/us": 0.390703388962834,
+     "inference-net/mxfp4": 0.22904449810279406,
+     "river": 0.18436213991769548,
+     "modal/mxfp4": 0.3592363538585641
+    },
+    "mango_green_ms": 230.535,
+    "mango_ttft_or_scale": 882.6157316333574,
+    "path_green_ms": {
+     "wafer/mxfp4": 128.5,
+     "inference-net/mxfp4/us": 128.0,
+     "wafer/us": 238.5,
+     "inference-net/mxfp4": 124.5,
+     "river": 154.0,
+     "modal/mxfp4": 250.5
+    }
+   },
+   "greenL": {
+    "factor": 0.5320454257181089,
+    "factor_paths": {
+     "wafer/mxfp4": 0.5420497105890364,
+     "inference-net/mxfp4/us": 0.5671910112359551,
+     "wafer/us": 0.6560868229753251,
+     "inference-net/mxfp4": 0.5657123145912384,
+     "river": 0.2783389450056117,
+     "modal/mxfp4": 0.6833378148247737
+    },
+    "mango_green_ms": 398.755,
+    "mango_ttft_or_scale": 749.4754784552372,
+    "path_green_ms": {
+     "wafer/mxfp4": 298.5,
+     "inference-net/mxfp4/us": 315.5,
+     "wafer/us": 400.5,
+     "inference-net/mxfp4": 307.5,
+     "river": 232.5,
+     "modal/mxfp4": 476.5
+    }
+   }
+  }
+ }
+}
