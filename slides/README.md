@@ -5,7 +5,7 @@
 | 파일 | 내용 |
 |---|---|
 | [04_본실험_결과.html](04_본실험_결과.html) | 본 실험 결과 26장(16:9 HTML). 1 본 실험 1(OR 기본 라우팅 관측) · 2 본 실험 2(Mango와 OR 엔드포인트 성능 비교) · 3 예상 점유율 · 부록(환산 과정). 설명: [docs/14](../docs/14_본실험_결과.md) |
-| [04_본실험_결과.pdf](https://drive.google.com/file/d/1AxgKUFMXjH3nN9BUn4nmPe4OUBhxtn-v/view?usp=drivesdk) | 위 HTML의 PDF(26쪽) |
+| [04_본실험_결과.pdf](https://drive.google.com/file/d/17jmVT7ZW39qlnp3slKS7SgOR4ucEhXvM/view?usp=drivesdk) | 위 HTML의 PDF(26쪽) |
 
 ## 사전 실험
 

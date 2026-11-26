@@ -141,6 +141,7 @@ section.tp .src { left: 104px; bottom: 52px; width: 1712px; }
 #cover .small { font-size: 26px; margin-top: 16px; }
 #cover h1 { font-size: 72px; }
 #a_ds .defs p, #a_glm .defs p, #a_fl .defs p, #a_kimi .defs p { font-size: 22px; line-height: 1.35; }
+.pgno { position: absolute; top: 52px; right: 96px; margin: 0; font: 500 24px/1 'IBM Plex Mono', monospace; color: #8A93A0; letter-spacing: 0.04em; }
 </style></head><body>
 <p class="top">Mango 라우팅 본 실험 결과 · 26장 · 저장소 qonehan/mango_inference_test</p>
 <div class="frame" id="s1"><div class="scaler"><section id="cover" class="dark">
@@ -154,6 +155,7 @@ section.tp .src { left: 104px; bottom: 52px; width: 1712px; }
 </section>
 </div></div>
 <div class="frame" id="s2"><div class="scaler"><section id="ttftmap" class="tp">
+<p class="pgno">2</p>
 <div class="head"><p class="eyebrow">TTFT는 어디서 생기나</p><h2>OR은 ①~④를 거치고, Mango는 ⑤ 한 번 왕복한다</h2></div>
 <div style="display:flex; gap:48px; align-items:flex-start">
 <!-- VM 40,230,240,120  OR 520,200,240,180  Wafer 800,20,220,100  기타 800,470,220,100  Mango 40,540,240,150 -->
@@ -192,6 +194,7 @@ section.tp .src { left: 104px; bottom: 52px; width: 1712px; }
 </section>
 </div></div>
 <div class="frame" id="s3"><div class="scaler"><section id="ttftbar" class="tp">
+<p class="pgno">3</p>
 <div class="head"><p class="eyebrow">시간 나눠 보기 · 본 실험 2 짧은 질문 중간값 (ms)</p><h2>OR 쪽에만 OR 처리 시간이 붙고, 서울은 TTFT가 길다</h2></div>
 <div class="legend"><span><i class="bx sg-o"></i>OR 처리 시간 ①②④ (TTFT에서 뺌)</span><span><i class="bx" style="background:#3D5F92"></i>TTFT ③ · ⑤: 모델 서버 첫 응답</span><span>오른쪽 숫자 = TTFT</span></div>
 <div style="display:grid; grid-template-columns:1fr 1fr; gap:48px">
@@ -223,6 +226,7 @@ section.tp .src { left: 104px; bottom: 52px; width: 1712px; }
 </section>
 </div></div>
 <div class="frame" id="s4"><div class="scaler"><section id="a_ds" class="tp">
+<p class="pgno">4</p>
 <div class="head secno-head"><p class="secno">1</p><div class="head"><p class="eyebrow">본 실험 1: OR 기본 라우팅 관측</p><h2><span class="mn">DeepSeek V4.1 Flash</span> · 엔드포인트별 점유율과 공개 성능</h2></div></div>
 <table class="tbl xs">
 <tr class="hd"><th style="width:22%">엔드포인트<br>(실제 몫 상위 10개)</th><th class="r">실제 몫<br>실측</th><th class="r">예측 몫<br>모형</th><th class="r">출력가<br>$/100만</th><th class="r">실효 입력가<br>$/100만</th><th class="r">TTFT p50<br>ms</th><th class="r">속도 p50<br>tok/s</th><th class="r">도구 호출<br>오류 %</th><th class="r">구조화 출력<br>오류 %</th><th class="r">후보였던<br>비율</th></tr>
@@ -241,7 +245,7 @@ section.tp .src { left: 104px; bottom: 52px; width: 1712px; }
 <p><b>실제 몫</b>: 43시간 OR 기본 라우팅 요청 8,600건 중 해당 엔드포인트가 처음 받은 비율</p>
 <p><b>예측 몫</b>: 요청마다 직전 OR 공개 지표(가격 · TTFT · 속도 · 오류율)로 선택 모형이 낸 선택 확률을 43시간 요청 전체에 걸쳐 산술평균(후보가 아니면 0)</p>
 <p><b>가격</b>: 출력 게시가, 실효 입력가 = 캐시 적중을 반영한 입력 단가. 후보였던 요청마다 직전 공개값을 붙여 기하평균</p>
-<p><b>TTFT · 속도</b>: OR 공개 p50(최근 30분), TTFT = 모델 서버 첫 응답까지(앞 장 ③). 후보였던 요청마다 직전 공개값을 붙여 기하평균(빈 값은 그 시점 후보 중앙값)</p>
+<p><b>TTFT · 속도</b>: OR 공개 p50(최근 30분), TTFT = 모델 서버 첫 응답까지(2장 ③). 후보였던 요청마다 직전 공개값을 붙여 기하평균(빈 값은 그 시점 후보 중앙값)</p>
 <p><b>오류율</b>: OR 공개 도구 호출 · 구조화 출력 오류율(직전 마감 1시간 칸). 후보였던 요청마다 붙여 산술평균(빈 값은 0)</p>
 <p><b>후보 · 후보였던 비율</b>: 후보 = 요청 시점 OR 목록에 있으면서 43시간 동안 한 번이라도 뽑힌 엔드포인트. 후보였던 비율 = 전체 요청 중 이 엔드포인트가 후보였던 비율</p>
 </div>
@@ -250,6 +254,7 @@ section.tp .src { left: 104px; bottom: 52px; width: 1712px; }
 </section>
 </div></div>
 <div class="frame" id="s5"><div class="scaler"><section id="a_glm" class="tp">
+<p class="pgno">5</p>
 <div class="head secno-head"><p class="secno">1</p><div class="head"><p class="eyebrow">본 실험 1: OR 기본 라우팅 관측</p><h2><span class="mn">GLM-5.3</span> · 엔드포인트별 점유율과 공개 성능</h2></div></div>
 <table class="tbl xs">
 <tr class="hd"><th style="width:22%">엔드포인트<br>(실제 몫 상위 10개)</th><th class="r">실제 몫<br>실측</th><th class="r">예측 몫<br>모형</th><th class="r">출력가<br>$/100만</th><th class="r">실효 입력가<br>$/100만</th><th class="r">TTFT p50<br>ms</th><th class="r">속도 p50<br>tok/s</th><th class="r">도구 호출<br>오류 %</th><th class="r">구조화 출력<br>오류 %</th><th class="r">후보였던<br>비율</th></tr>
@@ -268,7 +273,7 @@ section.tp .src { left: 104px; bottom: 52px; width: 1712px; }
 <p><b>실제 몫</b>: 43시간 OR 기본 라우팅 요청 8,600건 중 해당 엔드포인트가 처음 받은 비율</p>
 <p><b>예측 몫</b>: 요청마다 직전 OR 공개 지표(가격 · TTFT · 속도 · 오류율)로 선택 모형이 낸 선택 확률을 43시간 요청 전체에 걸쳐 산술평균(후보가 아니면 0)</p>
 <p><b>가격</b>: 출력 게시가, 실효 입력가 = 캐시 적중을 반영한 입력 단가. 후보였던 요청마다 직전 공개값을 붙여 기하평균</p>
-<p><b>TTFT · 속도</b>: OR 공개 p50(최근 30분), TTFT = 모델 서버 첫 응답까지(앞 장 ③). 후보였던 요청마다 직전 공개값을 붙여 기하평균(빈 값은 그 시점 후보 중앙값)</p>
+<p><b>TTFT · 속도</b>: OR 공개 p50(최근 30분), TTFT = 모델 서버 첫 응답까지(2장 ③). 후보였던 요청마다 직전 공개값을 붙여 기하평균(빈 값은 그 시점 후보 중앙값)</p>
 <p><b>오류율</b>: OR 공개 도구 호출 · 구조화 출력 오류율(직전 마감 1시간 칸). 후보였던 요청마다 붙여 산술평균(빈 값은 0)</p>
 <p><b>후보 · 후보였던 비율</b>: 후보 = 요청 시점 OR 목록에 있으면서 43시간 동안 한 번이라도 뽑힌 엔드포인트. 후보였던 비율 = 전체 요청 중 이 엔드포인트가 후보였던 비율</p>
 </div>
@@ -277,6 +282,7 @@ section.tp .src { left: 104px; bottom: 52px; width: 1712px; }
 </section>
 </div></div>
 <div class="frame" id="s6"><div class="scaler"><section id="a_fl" class="tp">
+<p class="pgno">6</p>
 <div class="head secno-head"><p class="secno">1</p><div class="head"><p class="eyebrow">본 실험 1: OR 기본 라우팅 관측</p><h2><span class="mn">GLM-5.3 Flash</span> · 엔드포인트별 점유율과 공개 성능</h2></div></div>
 <table class="tbl xs">
 <tr class="hd"><th style="width:22%">엔드포인트<br>(실제 몫 상위 10개)</th><th class="r">실제 몫<br>실측</th><th class="r">예측 몫<br>모형</th><th class="r">출력가<br>$/100만</th><th class="r">실효 입력가<br>$/100만</th><th class="r">TTFT p50<br>ms</th><th class="r">속도 p50<br>tok/s</th><th class="r">도구 호출<br>오류 %</th><th class="r">구조화 출력<br>오류 %</th><th class="r">후보였던<br>비율</th></tr>
@@ -295,7 +301,7 @@ section.tp .src { left: 104px; bottom: 52px; width: 1712px; }
 <p><b>실제 몫</b>: 43시간 OR 기본 라우팅 요청 8,600건 중 해당 엔드포인트가 처음 받은 비율</p>
 <p><b>예측 몫</b>: 요청마다 직전 OR 공개 지표(가격 · TTFT · 속도 · 오류율)로 선택 모형이 낸 선택 확률을 43시간 요청 전체에 걸쳐 산술평균(후보가 아니면 0)</p>
 <p><b>가격</b>: 출력 게시가, 실효 입력가 = 캐시 적중을 반영한 입력 단가. 후보였던 요청마다 직전 공개값을 붙여 기하평균</p>
-<p><b>TTFT · 속도</b>: OR 공개 p50(최근 30분), TTFT = 모델 서버 첫 응답까지(앞 장 ③). 후보였던 요청마다 직전 공개값을 붙여 기하평균(빈 값은 그 시점 후보 중앙값)</p>
+<p><b>TTFT · 속도</b>: OR 공개 p50(최근 30분), TTFT = 모델 서버 첫 응답까지(2장 ③). 후보였던 요청마다 직전 공개값을 붙여 기하평균(빈 값은 그 시점 후보 중앙값)</p>
 <p><b>오류율</b>: OR 공개 도구 호출 · 구조화 출력 오류율(직전 마감 1시간 칸). 후보였던 요청마다 붙여 산술평균(빈 값은 0)</p>
 <p><b>후보 · 후보였던 비율</b>: 후보 = 요청 시점 OR 목록에 있으면서 43시간 동안 한 번이라도 뽑힌 엔드포인트. 후보였던 비율 = 전체 요청 중 이 엔드포인트가 후보였던 비율</p>
 </div>
@@ -304,6 +310,7 @@ section.tp .src { left: 104px; bottom: 52px; width: 1712px; }
 </section>
 </div></div>
 <div class="frame" id="s7"><div class="scaler"><section id="a_kimi" class="tp">
+<p class="pgno">7</p>
 <div class="head secno-head"><p class="secno">1</p><div class="head"><p class="eyebrow">본 실험 1: OR 기본 라우팅 관측</p><h2><span class="mn">Kimi K3.1 Pro</span> · 엔드포인트별 점유율과 공개 성능</h2></div></div>
 <table class="tbl xs">
 <tr class="hd"><th style="width:22%">엔드포인트<br>(실제 몫 상위 10개)</th><th class="r">실제 몫<br>실측</th><th class="r">예측 몫<br>모형</th><th class="r">출력가<br>$/100만</th><th class="r">실효 입력가<br>$/100만</th><th class="r">TTFT p50<br>ms</th><th class="r">속도 p50<br>tok/s</th><th class="r">도구 호출<br>오류 %</th><th class="r">구조화 출력<br>오류 %</th><th class="r">후보였던<br>비율</th></tr>
@@ -322,7 +329,7 @@ section.tp .src { left: 104px; bottom: 52px; width: 1712px; }
 <p><b>실제 몫</b>: 43시간 OR 기본 라우팅 요청 7,684건 중 해당 엔드포인트가 처음 받은 비율</p>
 <p><b>예측 몫</b>: 요청마다 직전 OR 공개 지표(가격 · TTFT · 속도 · 오류율)로 선택 모형이 낸 선택 확률을 43시간 요청 전체에 걸쳐 산술평균(후보가 아니면 0)</p>
 <p><b>가격</b>: 출력 게시가, 실효 입력가 = 캐시 적중을 반영한 입력 단가. 후보였던 요청마다 직전 공개값을 붙여 기하평균</p>
-<p><b>TTFT · 속도</b>: OR 공개 p50(최근 30분), TTFT = 모델 서버 첫 응답까지(앞 장 ③). 후보였던 요청마다 직전 공개값을 붙여 기하평균(빈 값은 그 시점 후보 중앙값)</p>
+<p><b>TTFT · 속도</b>: OR 공개 p50(최근 30분), TTFT = 모델 서버 첫 응답까지(2장 ③). 후보였던 요청마다 직전 공개값을 붙여 기하평균(빈 값은 그 시점 후보 중앙값)</p>
 <p><b>오류율</b>: OR 공개 도구 호출 · 구조화 출력 오류율(직전 마감 1시간 칸). 후보였던 요청마다 붙여 산술평균(빈 값은 0)</p>
 <p><b>후보 · 후보였던 비율</b>: 후보 = 요청 시점 OR 목록에 있으면서 43시간 동안 한 번이라도 뽑힌 엔드포인트. 후보였던 비율 = 전체 요청 중 이 엔드포인트가 후보였던 비율</p>
 </div>
@@ -331,6 +338,7 @@ section.tp .src { left: 104px; bottom: 52px; width: 1712px; }
 </section>
 </div></div>
 <div class="frame" id="s8"><div class="scaler"><section id="c_ds" class="tp">
+<p class="pgno">8</p>
 <div class="head secno-head"><p class="secno">2</p><div class="head"><p class="eyebrow">본 실험 2: Mango와 OR 엔드포인트 성능 비교</p><h2><span class="mn">DeepSeek V4.1 Flash</span> · 경로별 TTFT(ms) · 출력 속도(tok/s) · 비용</h2></div></div>
 <table class="tbl xs">
 <tr class="hd"><th style="width:19%">경로</th><th class="r">본 실험 1<br>배분</th><th class="r">서울 TTFT<br>(순위)</th><th class="r">서울 속도<br>(순위)</th><th class="r">서울 비용<br>$/1,000건 (순위)</th><th class="r">미국 TTFT<br>(순위)</th><th class="r">미국 속도<br>(순위)</th><th class="r">미국 비용<br>$/1,000건 (순위)</th></tr>
@@ -345,7 +353,7 @@ section.tp .src { left: 104px; bottom: 52px; width: 1712px; }
 <div class="defs" style="grid-template-columns:1fr; row-gap:6px">
 <p><b>TTFT</b>: 짧은 질문(입력 약 60토큰) 요청마다 잰 값을 VM별로 4회차 모두 합쳐 낸 중앙값(회차별 값을 평균한 것이 아님). OR 엔드포인트는 OR 기록의 latency(OR이 제공사에 보내고 첫 토큰을 받기까지 = ③, OR 처리 시간 제외), Mango는 측정 VM이 첫 응답 조각을 받은 시각. 표본은 VM마다 OR 엔드포인트당 80건(20건 × 4회차), Mango 160건(성공한 요청만).</p>
 <p><b>출력 속도</b>: 긴 출력 요청(최대 1,024토큰)마다 (출력 토큰 수 − 1) ÷ (마지막 생성 조각 시각 − 첫 생성 조각 시각)으로 계산하고(생각 토큰 포함), VM별로 4회차 모두 합쳐 낸 중앙값. 표본은 VM마다 OR 엔드포인트당 40건(10건 × 4회차), Mango 80건.</p>
-<p><b>비용</b>: 짧은 질문 요청마다 사용 토큰 × 게시 가격을 구하고, VM별로 4회차 요청 전체(TTFT와 같은 표본)의 산술평균을 1,000건 기준으로 환산. 생각 토큰을 포함한 짧은 작업의 실제 청구액(OR 청구액과 일치)으로, 3번의 출력가 · 실효 입력가(라우터가 보는 게시 가격, 캐시 반영)와는 다른 지표.</p>
+<p><b>비용</b>: 짧은 질문 요청마다 사용 토큰 × 게시 가격을 구하고, VM별로 4회차 요청 전체(TTFT와 같은 표본)의 산술평균을 1,000건 기준으로 환산. 생각 토큰을 포함한 짧은 작업의 실제 청구액(OR 청구액과 일치)으로, 3번(16 ~ 20장)의 출력가 · 실효 입력가(라우터가 보는 게시 가격, 캐시 반영)와는 다른 지표.</p>
 <p><b>표본 예외</b>: 없음. 모든 엔드포인트가 짧은 질문 80건 · 긴 출력 40건.</p>
 </div>
 <p class="src">서울 · 미국 동부 VM, 2026-11-22 05:30 ~ 11-23 00:10 UTC(하루 4회차), OR 엔드포인트 6개(본 실험 1 배분 합 53.3%) + Mango 직접 호출 · 괄호 = 7개 중 순위(TTFT · 비용은 낮을수록, 속도는 높을수록 1위).</p>
@@ -353,6 +361,7 @@ section.tp .src { left: 104px; bottom: 52px; width: 1712px; }
 </section>
 </div></div>
 <div class="frame" id="s9"><div class="scaler"><section id="c_ds_g" class="tp">
+<p class="pgno">9</p>
 <div class="head secno-head"><p class="secno">2</p><div class="head"><p class="eyebrow">본 실험 2: Mango와 OR 엔드포인트 성능 비교 · 그래프</p><h2><span class="mn">DeepSeek V4.1 Flash</span> · 경로별 TTFT · 출력 속도 · 비용</h2></div></div>
 <div class="legend"><span><i class="bx" style="background:#F2B300"></i>Mango 서울</span><span><i class="bx" style="background:#F8D77C"></i>Mango 미국 동부</span><span><i class="bx" style="background:#3D5F92"></i>OR 경로 서울</span><span><i class="bx" style="background:#A8BCDA"></i>OR 경로 미국 동부</span></div>
 <div style="display:grid; grid-template-columns:230px 300px 150px 300px 150px 300px 150px; column-gap:14px; row-gap:10px; align-items:center">
@@ -370,6 +379,7 @@ section.tp .src { left: 104px; bottom: 52px; width: 1712px; }
 </section>
 </div></div>
 <div class="frame" id="s10"><div class="scaler"><section id="c_glm" class="tp">
+<p class="pgno">10</p>
 <div class="head secno-head"><p class="secno">2</p><div class="head"><p class="eyebrow">본 실험 2: Mango와 OR 엔드포인트 성능 비교</p><h2><span class="mn">GLM-5.3</span> · 경로별 TTFT(ms) · 출력 속도(tok/s) · 비용</h2></div></div>
 <table class="tbl xs">
 <tr class="hd"><th style="width:19%">경로</th><th class="r">본 실험 1<br>배분</th><th class="r">서울 TTFT<br>(순위)</th><th class="r">서울 속도<br>(순위)</th><th class="r">서울 비용<br>$/1,000건 (순위)</th><th class="r">미국 TTFT<br>(순위)</th><th class="r">미국 속도<br>(순위)</th><th class="r">미국 비용<br>$/1,000건 (순위)</th></tr>
@@ -384,7 +394,7 @@ section.tp .src { left: 104px; bottom: 52px; width: 1712px; }
 <div class="defs" style="grid-template-columns:1fr; row-gap:6px">
 <p><b>TTFT</b>: 짧은 질문(입력 약 60토큰) 요청마다 잰 값을 VM별로 4회차 모두 합쳐 낸 중앙값(회차별 값을 평균한 것이 아님). OR 엔드포인트는 OR 기록의 latency(OR이 제공사에 보내고 첫 토큰을 받기까지 = ③, OR 처리 시간 제외), Mango는 측정 VM이 첫 응답 조각을 받은 시각. 표본은 VM마다 OR 엔드포인트당 80건(20건 × 4회차), Mango 160건(성공한 요청만).</p>
 <p><b>출력 속도</b>: 긴 출력 요청(최대 1,024토큰)마다 (출력 토큰 수 − 1) ÷ (마지막 생성 조각 시각 − 첫 생성 조각 시각)으로 계산하고(생각 토큰 포함), VM별로 4회차 모두 합쳐 낸 중앙값. 표본은 VM마다 OR 엔드포인트당 40건(10건 × 4회차), Mango 80건.</p>
-<p><b>비용</b>: 짧은 질문 요청마다 사용 토큰 × 게시 가격을 구하고, VM별로 4회차 요청 전체(TTFT와 같은 표본)의 산술평균을 1,000건 기준으로 환산. 생각 토큰을 포함한 짧은 작업의 실제 청구액(OR 청구액과 일치)으로, 3번의 출력가 · 실효 입력가(라우터가 보는 게시 가격, 캐시 반영)와는 다른 지표.</p>
+<p><b>비용</b>: 짧은 질문 요청마다 사용 토큰 × 게시 가격을 구하고, VM별로 4회차 요청 전체(TTFT와 같은 표본)의 산술평균을 1,000건 기준으로 환산. 생각 토큰을 포함한 짧은 작업의 실제 청구액(OR 청구액과 일치)으로, 3번(16 ~ 20장)의 출력가 · 실효 입력가(라우터가 보는 게시 가격, 캐시 반영)와는 다른 지표.</p>
 <p><b>표본 예외</b>: decart/fp4 · parasail/fp4 · inference-net/fp4는 실패한 요청을 빼 짧은 질문 74~79건, 긴 출력 38~40건.</p>
 </div>
 <p class="src">서울 · 미국 동부 VM, 2026-11-22 05:30 ~ 11-23 00:10 UTC(하루 4회차), OR 엔드포인트 6개(본 실험 1 배분 합 85.9%) + Mango 직접 호출 · 괄호 = 7개 중 순위(TTFT · 비용은 낮을수록, 속도는 높을수록 1위).</p>
@@ -392,6 +402,7 @@ section.tp .src { left: 104px; bottom: 52px; width: 1712px; }
 </section>
 </div></div>
 <div class="frame" id="s11"><div class="scaler"><section id="c_glm_g" class="tp">
+<p class="pgno">11</p>
 <div class="head secno-head"><p class="secno">2</p><div class="head"><p class="eyebrow">본 실험 2: Mango와 OR 엔드포인트 성능 비교 · 그래프</p><h2><span class="mn">GLM-5.3</span> · 경로별 TTFT · 출력 속도 · 비용</h2></div></div>
 <div class="legend"><span><i class="bx" style="background:#F2B300"></i>Mango 서울</span><span><i class="bx" style="background:#F8D77C"></i>Mango 미국 동부</span><span><i class="bx" style="background:#3D5F92"></i>OR 경로 서울</span><span><i class="bx" style="background:#A8BCDA"></i>OR 경로 미국 동부</span></div>
 <div style="display:grid; grid-template-columns:230px 300px 150px 300px 150px 300px 150px; column-gap:14px; row-gap:10px; align-items:center">
@@ -409,6 +420,7 @@ section.tp .src { left: 104px; bottom: 52px; width: 1712px; }
 </section>
 </div></div>
 <div class="frame" id="s12"><div class="scaler"><section id="c_fl" class="tp">
+<p class="pgno">12</p>
 <div class="head secno-head"><p class="secno">2</p><div class="head"><p class="eyebrow">본 실험 2: Mango와 OR 엔드포인트 성능 비교</p><h2><span class="mn">GLM-5.3 Flash</span> · 경로별 TTFT(ms) · 출력 속도(tok/s) · 비용</h2></div></div>
 <table class="tbl xs">
 <tr class="hd"><th style="width:19%">경로</th><th class="r">본 실험 1<br>배분</th><th class="r">서울 TTFT<br>(순위)</th><th class="r">서울 속도<br>(순위)</th><th class="r">서울 비용<br>$/1,000건 (순위)</th><th class="r">미국 TTFT<br>(순위)</th><th class="r">미국 속도<br>(순위)</th><th class="r">미국 비용<br>$/1,000건 (순위)</th></tr>
@@ -423,7 +435,7 @@ section.tp .src { left: 104px; bottom: 52px; width: 1712px; }
 <div class="defs" style="grid-template-columns:1fr; row-gap:6px">
 <p><b>TTFT</b>: 짧은 질문(입력 약 60토큰) 요청마다 잰 값을 VM별로 4회차 모두 합쳐 낸 중앙값(회차별 값을 평균한 것이 아님). OR 엔드포인트는 OR 기록의 latency(OR이 제공사에 보내고 첫 토큰을 받기까지 = ③, OR 처리 시간 제외), Mango는 측정 VM이 첫 응답 조각을 받은 시각. 표본은 VM마다 OR 엔드포인트당 80건(20건 × 4회차), Mango 160건(성공한 요청만).</p>
 <p><b>출력 속도</b>: 긴 출력 요청(최대 1,024토큰)마다 (출력 토큰 수 − 1) ÷ (마지막 생성 조각 시각 − 첫 생성 조각 시각)으로 계산하고(생각 토큰 포함), VM별로 4회차 모두 합쳐 낸 중앙값. 표본은 VM마다 OR 엔드포인트당 40건(10건 × 4회차), Mango 80건.</p>
-<p><b>비용</b>: 짧은 질문 요청마다 사용 토큰 × 게시 가격을 구하고, VM별로 4회차 요청 전체(TTFT와 같은 표본)의 산술평균을 1,000건 기준으로 환산. 생각 토큰을 포함한 짧은 작업의 실제 청구액(OR 청구액과 일치)으로, 3번의 출력가 · 실효 입력가(라우터가 보는 게시 가격, 캐시 반영)와는 다른 지표.</p>
+<p><b>비용</b>: 짧은 질문 요청마다 사용 토큰 × 게시 가격을 구하고, VM별로 4회차 요청 전체(TTFT와 같은 표본)의 산술평균을 1,000건 기준으로 환산. 생각 토큰을 포함한 짧은 작업의 실제 청구액(OR 청구액과 일치)으로, 3번(16 ~ 20장)의 출력가 · 실효 입력가(라우터가 보는 게시 가격, 캐시 반영)와는 다른 지표.</p>
 <p><b>표본 예외</b>: wafer/nvfp4 · wafer/us는 07:39 UTC부터 세 번째 회차 전까지 OR 엔드포인트 목록에서 빠져 짧은 질문 58~60건, 긴 출력 27~30건. inference-net 엔드포인트 2개 · friendli는 실패한 요청을 빼 짧은 질문 77~79건, 긴 출력 39~40건.</p>
 </div>
 <p class="src">서울 · 미국 동부 VM, 2026-11-22 05:30 ~ 11-23 00:10 UTC(하루 4회차), OR 엔드포인트 6개(본 실험 1 배분 합 54.3%) + Mango 직접 호출 · 괄호 = 7개 중 순위(TTFT · 비용은 낮을수록, 속도는 높을수록 1위).</p>
@@ -431,6 +443,7 @@ section.tp .src { left: 104px; bottom: 52px; width: 1712px; }
 </section>
 </div></div>
 <div class="frame" id="s13"><div class="scaler"><section id="c_fl_g" class="tp">
+<p class="pgno">13</p>
 <div class="head secno-head"><p class="secno">2</p><div class="head"><p class="eyebrow">본 실험 2: Mango와 OR 엔드포인트 성능 비교 · 그래프</p><h2><span class="mn">GLM-5.3 Flash</span> · 경로별 TTFT · 출력 속도 · 비용</h2></div></div>
 <div class="legend"><span><i class="bx" style="background:#F2B300"></i>Mango 서울</span><span><i class="bx" style="background:#F8D77C"></i>Mango 미국 동부</span><span><i class="bx" style="background:#3D5F92"></i>OR 경로 서울</span><span><i class="bx" style="background:#A8BCDA"></i>OR 경로 미국 동부</span></div>
 <div style="display:grid; grid-template-columns:230px 300px 150px 300px 150px 300px 150px; column-gap:14px; row-gap:10px; align-items:center">
@@ -448,6 +461,7 @@ section.tp .src { left: 104px; bottom: 52px; width: 1712px; }
 </section>
 </div></div>
 <div class="frame" id="s14"><div class="scaler"><section id="c_kimi" class="tp">
+<p class="pgno">14</p>
 <div class="head secno-head"><p class="secno">2</p><div class="head"><p class="eyebrow">본 실험 2: Mango와 OR 엔드포인트 성능 비교</p><h2><span class="mn">Kimi K3.1 Pro</span> · 경로별 TTFT(ms) · 출력 속도(tok/s) · 비용</h2></div></div>
 <table class="tbl xs">
 <tr class="hd"><th style="width:19%">경로</th><th class="r">본 실험 1<br>배분</th><th class="r">서울 TTFT<br>(순위)</th><th class="r">서울 속도<br>(순위)</th><th class="r">서울 비용<br>$/1,000건 (순위)</th><th class="r">미국 TTFT<br>(순위)</th><th class="r">미국 속도<br>(순위)</th><th class="r">미국 비용<br>$/1,000건 (순위)</th></tr>
@@ -462,7 +476,7 @@ section.tp .src { left: 104px; bottom: 52px; width: 1712px; }
 <div class="defs" style="grid-template-columns:1fr; row-gap:6px">
 <p><b>TTFT</b>: 짧은 질문(입력 약 60토큰) 요청마다 잰 값을 VM별로 4회차 모두 합쳐 낸 중앙값(회차별 값을 평균한 것이 아님). OR 엔드포인트는 OR 기록의 latency(OR이 제공사에 보내고 첫 토큰을 받기까지 = ③, OR 처리 시간 제외), Mango는 측정 VM이 첫 응답 조각을 받은 시각. 표본은 VM마다 OR 엔드포인트당 80건(20건 × 4회차), Mango 160건(성공한 요청만).</p>
 <p><b>출력 속도</b>: 긴 출력 요청(최대 1,024토큰)마다 (출력 토큰 수 − 1) ÷ (마지막 생성 조각 시각 − 첫 생성 조각 시각)으로 계산하고(생각 토큰 포함), VM별로 4회차 모두 합쳐 낸 중앙값. 표본은 VM마다 OR 엔드포인트당 40건(10건 × 4회차), Mango 80건.</p>
-<p><b>비용</b>: 짧은 질문 요청마다 사용 토큰 × 게시 가격을 구하고, VM별로 4회차 요청 전체(TTFT와 같은 표본)의 산술평균을 1,000건 기준으로 환산. 생각 토큰을 포함한 짧은 작업의 실제 청구액(OR 청구액과 일치)으로, 3번의 출력가 · 실효 입력가(라우터가 보는 게시 가격, 캐시 반영)와는 다른 지표.</p>
+<p><b>비용</b>: 짧은 질문 요청마다 사용 토큰 × 게시 가격을 구하고, VM별로 4회차 요청 전체(TTFT와 같은 표본)의 산술평균을 1,000건 기준으로 환산. 생각 토큰을 포함한 짧은 작업의 실제 청구액(OR 청구액과 일치)으로, 3번(16 ~ 20장)의 출력가 · 실효 입력가(라우터가 보는 게시 가격, 캐시 반영)와는 다른 지표.</p>
 <p><b>표본 예외</b>: 없음. 모든 엔드포인트가 짧은 질문 80건 · 긴 출력 40건.</p>
 </div>
 <p class="src">서울 · 미국 동부 VM, 2026-11-22 05:30 ~ 11-23 00:10 UTC(하루 4회차), OR 엔드포인트 6개(본 실험 1 배분 합 69.1%) + Mango 직접 호출 · 괄호 = 7개 중 순위(TTFT · 비용은 낮을수록, 속도는 높을수록 1위).</p>
@@ -470,6 +484,7 @@ section.tp .src { left: 104px; bottom: 52px; width: 1712px; }
 </section>
 </div></div>
 <div class="frame" id="s15"><div class="scaler"><section id="c_kimi_g" class="tp">
+<p class="pgno">15</p>
 <div class="head secno-head"><p class="secno">2</p><div class="head"><p class="eyebrow">본 실험 2: Mango와 OR 엔드포인트 성능 비교 · 그래프</p><h2><span class="mn">Kimi K3.1 Pro</span> · 경로별 TTFT · 출력 속도 · 비용</h2></div></div>
 <div class="legend"><span><i class="bx" style="background:#F2B300"></i>Mango 서울</span><span><i class="bx" style="background:#F8D77C"></i>Mango 미국 동부</span><span><i class="bx" style="background:#3D5F92"></i>OR 경로 서울</span><span><i class="bx" style="background:#A8BCDA"></i>OR 경로 미국 동부</span></div>
 <div style="display:grid; grid-template-columns:230px 300px 150px 300px 150px 300px 150px; column-gap:14px; row-gap:10px; align-items:center">
@@ -487,6 +502,7 @@ section.tp .src { left: 104px; bottom: 52px; width: 1712px; }
 </section>
 </div></div>
 <div class="frame" id="s16"><div class="scaler"><section id="r_sum" class="tp">
+<p class="pgno">16</p>
 <div class="head secno-head"><p class="secno">3</p><div class="head"><p class="eyebrow">공개 눈금으로 옮긴 Mango의 지표별 순위</p><h2>모델 · 측정 VM별 Mango의 지표 순위와 예상 점유율 (TTFT · 속도는 OR 공개 기준 환산값)</h2></div></div>
 <table class="tbl xs">
 <tr class="hd"><th style="width:18%">모델 · 측정 VM</th><th class="r">환산 TTFT ms (순위)</th><th class="r">환산 출력 속도 (순위)</th><th class="r">출력가 (순위)</th><th class="r">실효 입력가 (순위)</th><th class="r">예상 점유율 (순위)</th><th class="r">후보 수<br>(Mango 포함)</th></tr>
@@ -512,6 +528,7 @@ section.tp .src { left: 104px; bottom: 52px; width: 1712px; }
 </section>
 </div></div>
 <div class="frame" id="s17"><div class="scaler"><section id="r_ds" class="tp">
+<p class="pgno">17</p>
 <div class="head secno-head"><p class="secno">3</p><div class="head"><p class="eyebrow">공개 눈금으로 옮긴 Mango와 OR 후보 엔드포인트 33개 비교</p><h2><span class="mn">DeepSeek V4.1 Flash</span> · 지표별 순위와 예상 점유율 순위</h2></div></div>
 <table class="tbl xs">
 <tr class="hd"><th class="r" style="width:6%">점유율<br>순위</th><th style="width:19%">엔드포인트</th><th class="r">예상 몫</th><th class="r">TTFT ms<br>(순위)</th><th class="r">출력 속도<br>(순위)</th><th class="r">출력가<br>(순위)</th><th class="r">실효 입력가<br>(순위)</th><th class="r">본 실험 1<br>실제 몫</th></tr>
@@ -540,6 +557,7 @@ section.tp .src { left: 104px; bottom: 52px; width: 1712px; }
 </section>
 </div></div>
 <div class="frame" id="s18"><div class="scaler"><section id="r_glm" class="tp">
+<p class="pgno">18</p>
 <div class="head secno-head"><p class="secno">3</p><div class="head"><p class="eyebrow">공개 눈금으로 옮긴 Mango와 OR 후보 엔드포인트 45개 비교</p><h2><span class="mn">GLM-5.3</span> · 지표별 순위와 예상 점유율 순위</h2></div></div>
 <table class="tbl xs">
 <tr class="hd"><th class="r" style="width:6%">점유율<br>순위</th><th style="width:19%">엔드포인트</th><th class="r">예상 몫</th><th class="r">TTFT ms<br>(순위)</th><th class="r">출력 속도<br>(순위)</th><th class="r">출력가<br>(순위)</th><th class="r">실효 입력가<br>(순위)</th><th class="r">본 실험 1<br>실제 몫</th></tr>
@@ -568,6 +586,7 @@ section.tp .src { left: 104px; bottom: 52px; width: 1712px; }
 </section>
 </div></div>
 <div class="frame" id="s19"><div class="scaler"><section id="r_fl" class="tp">
+<p class="pgno">19</p>
 <div class="head secno-head"><p class="secno">3</p><div class="head"><p class="eyebrow">공개 눈금으로 옮긴 Mango와 OR 후보 엔드포인트 34개 비교</p><h2><span class="mn">GLM-5.3 Flash</span> · 지표별 순위와 예상 점유율 순위</h2></div></div>
 <table class="tbl xs">
 <tr class="hd"><th class="r" style="width:6%">점유율<br>순위</th><th style="width:19%">엔드포인트</th><th class="r">예상 몫</th><th class="r">TTFT ms<br>(순위)</th><th class="r">출력 속도<br>(순위)</th><th class="r">출력가<br>(순위)</th><th class="r">실효 입력가<br>(순위)</th><th class="r">본 실험 1<br>실제 몫</th></tr>
@@ -596,6 +615,7 @@ section.tp .src { left: 104px; bottom: 52px; width: 1712px; }
 </section>
 </div></div>
 <div class="frame" id="s20"><div class="scaler"><section id="r_kimi" class="tp">
+<p class="pgno">20</p>
 <div class="head secno-head"><p class="secno">3</p><div class="head"><p class="eyebrow">공개 눈금으로 옮긴 Mango와 OR 후보 엔드포인트 28개 비교</p><h2><span class="mn">Kimi K3.1 Pro</span> · 지표별 순위와 예상 점유율 순위</h2></div></div>
 <table class="tbl xs">
 <tr class="hd"><th class="r" style="width:6%">점유율<br>순위</th><th style="width:19%">엔드포인트</th><th class="r">예상 몫</th><th class="r">TTFT ms<br>(순위)</th><th class="r">출력 속도<br>(순위)</th><th class="r">출력가<br>(순위)</th><th class="r">실효 입력가<br>(순위)</th><th class="r">본 실험 1<br>실제 몫</th></tr>
@@ -624,6 +644,7 @@ section.tp .src { left: 104px; bottom: 52px; width: 1712px; }
 </section>
 </div></div>
 <div class="frame" id="s21"><div class="scaler"><section id="e_sum_g" class="tp">
+<p class="pgno">21</p>
 <div class="head secno-head"><p class="secno">3</p><div class="head"><p class="eyebrow">예상 점유율 · 그래프</p><h2>Mango 입점 시 예상 점유율 (%)</h2></div></div>
 <div class="legend"><span><i class="bx" style="background:#F2B300"></i>서울에서 잰 값으로 계산</span><span><i class="bx" style="background:#F8D77C"></i>미국 동부에서 잰 값으로 계산</span></div>
 <div style="display:flex; flex-direction:column; gap:6px"><h3 style="font-size:30px"></h3>
@@ -636,6 +657,7 @@ section.tp .src { left: 104px; bottom: 52px; width: 1712px; }
 </section>
 </div></div>
 <div class="frame" id="s22"><div class="scaler"><section id="conv" class="tp">
+<p class="pgno">22</p>
 <div class="head"><p class="eyebrow">부록 · 환산 과정</p><h2>모델 · 측정 VM별 OR 실측값과 공개 통계값, 환산 계수</h2></div>
 <table class="tbl xs conv-tbl">
 <tr class="hd"><th rowspan="2" style="width:13%">모델</th><th rowspan="2">측정 VM</th><th colspan="6" style="text-align:center">TTFT (ms)</th><th colspan="6" style="text-align:center">출력 속도 (tok/s)</th></tr>
@@ -657,6 +679,7 @@ section.tp .src { left: 104px; bottom: 52px; width: 1712px; }
 </div>
 </section>
 </div></div><div class="frame" id="s23"><div class="scaler"><section id="d_ds" class="tp">
+<p class="pgno">23</p>
 <div class="head"><p class="eyebrow">부록 · 환산 과정</p><h2><span class="mn">DeepSeek V4.1 Flash</span> · 엔드포인트별 OR 공개값과 OR 실측값, 환산 계수</h2></div>
 <table class="tbl xs conv-tbl">
 <tr class="hd"><th rowspan="2" style="width:17%">OR 엔드포인트</th><th rowspan="2" class="r">본 실험 1<br>배분</th><th colspan="5" style="text-align:center">TTFT (ms)</th><th colspan="5" style="text-align:center">출력 속도 (tok/s)</th></tr>
@@ -673,11 +696,12 @@ section.tp .src { left: 104px; bottom: 52px; width: 1712px; }
 <p><b>OR 공개</b>: 엔드포인트의 OR 공개 p50(최근 30분, 전체 사용자 요청). 회차마다 측정 시간 + 10분 안 스냅숏들의 중앙값을 구하고 4회차 값을 산술평균. 측정 VM과 관계없이 같다.</p>
 <p><b>실측</b>: 8 · 10 · 12 · 14장 표(본 실험 2)의 값. 측정 VM이 그 엔드포인트에 고정해 보낸 요청을 4회차 모두 합친 중앙값. TTFT = OR 기록의 latency(짧은 질문 80건), 속도 = 긴 출력 요청의 생성 속도(40건). 표본 예외는 8 · 10 · 12 · 14장 표 아래 참고.</p>
 <p><b>계수</b>: 실측 ÷ OR 공개. 엔드포인트마다 따로 구한 비율이다. 괄호 = OR 엔드포인트 6개 중 순위(TTFT는 낮을수록, 속도는 높을수록 1위).</p>
-<p><b>6개 기하평균</b>: 각 열을 엔드포인트 6개로 동일 가중 기하평균한 값으로, 부록 첫 장 환산 표의 OR 공개 · OR 실측 · 계수와 같다. 본 실험 1 배분(43시간 실제 몫)은 참고용이며 환산에 쓰지 않았다.</p>
+<p><b>6개 기하평균</b>: 각 열을 엔드포인트 6개로 동일 가중 기하평균한 값으로, 22장 환산 표의 OR 공개 · OR 실측 · 계수와 같다. 본 실험 1 배분(43시간 실제 몫)은 참고용이며 환산에 쓰지 않았다.</p>
 </div>
 </section>
 </div></div>
 <div class="frame" id="s24"><div class="scaler"><section id="d_glm" class="tp">
+<p class="pgno">24</p>
 <div class="head"><p class="eyebrow">부록 · 환산 과정</p><h2><span class="mn">GLM-5.3</span> · 엔드포인트별 OR 공개값과 OR 실측값, 환산 계수</h2></div>
 <table class="tbl xs conv-tbl">
 <tr class="hd"><th rowspan="2" style="width:17%">OR 엔드포인트</th><th rowspan="2" class="r">본 실험 1<br>배분</th><th colspan="5" style="text-align:center">TTFT (ms)</th><th colspan="5" style="text-align:center">출력 속도 (tok/s)</th></tr>
@@ -694,11 +718,12 @@ section.tp .src { left: 104px; bottom: 52px; width: 1712px; }
 <p><b>OR 공개</b>: 엔드포인트의 OR 공개 p50(최근 30분, 전체 사용자 요청). 회차마다 측정 시간 + 10분 안 스냅숏들의 중앙값을 구하고 4회차 값을 산술평균. 측정 VM과 관계없이 같다.</p>
 <p><b>실측</b>: 8 · 10 · 12 · 14장 표(본 실험 2)의 값. 측정 VM이 그 엔드포인트에 고정해 보낸 요청을 4회차 모두 합친 중앙값. TTFT = OR 기록의 latency(짧은 질문 80건), 속도 = 긴 출력 요청의 생성 속도(40건). 표본 예외는 8 · 10 · 12 · 14장 표 아래 참고.</p>
 <p><b>계수</b>: 실측 ÷ OR 공개. 엔드포인트마다 따로 구한 비율이다. 괄호 = OR 엔드포인트 6개 중 순위(TTFT는 낮을수록, 속도는 높을수록 1위).</p>
-<p><b>6개 기하평균</b>: 각 열을 엔드포인트 6개로 동일 가중 기하평균한 값으로, 부록 첫 장 환산 표의 OR 공개 · OR 실측 · 계수와 같다. 본 실험 1 배분(43시간 실제 몫)은 참고용이며 환산에 쓰지 않았다.</p>
+<p><b>6개 기하평균</b>: 각 열을 엔드포인트 6개로 동일 가중 기하평균한 값으로, 22장 환산 표의 OR 공개 · OR 실측 · 계수와 같다. 본 실험 1 배분(43시간 실제 몫)은 참고용이며 환산에 쓰지 않았다.</p>
 </div>
 </section>
 </div></div>
 <div class="frame" id="s25"><div class="scaler"><section id="d_fl" class="tp">
+<p class="pgno">25</p>
 <div class="head"><p class="eyebrow">부록 · 환산 과정</p><h2><span class="mn">GLM-5.3 Flash</span> · 엔드포인트별 OR 공개값과 OR 실측값, 환산 계수</h2></div>
 <table class="tbl xs conv-tbl">
 <tr class="hd"><th rowspan="2" style="width:17%">OR 엔드포인트</th><th rowspan="2" class="r">본 실험 1<br>배분</th><th colspan="5" style="text-align:center">TTFT (ms)</th><th colspan="5" style="text-align:center">출력 속도 (tok/s)</th></tr>
@@ -715,11 +740,12 @@ section.tp .src { left: 104px; bottom: 52px; width: 1712px; }
 <p><b>OR 공개</b>: 엔드포인트의 OR 공개 p50(최근 30분, 전체 사용자 요청). 회차마다 측정 시간 + 10분 안 스냅숏들의 중앙값을 구하고 4회차 값을 산술평균. 측정 VM과 관계없이 같다.</p>
 <p><b>실측</b>: 8 · 10 · 12 · 14장 표(본 실험 2)의 값. 측정 VM이 그 엔드포인트에 고정해 보낸 요청을 4회차 모두 합친 중앙값. TTFT = OR 기록의 latency(짧은 질문 80건), 속도 = 긴 출력 요청의 생성 속도(40건). 표본 예외는 8 · 10 · 12 · 14장 표 아래 참고.</p>
 <p><b>계수</b>: 실측 ÷ OR 공개. 엔드포인트마다 따로 구한 비율이다. 괄호 = OR 엔드포인트 6개 중 순위(TTFT는 낮을수록, 속도는 높을수록 1위).</p>
-<p><b>6개 기하평균</b>: 각 열을 엔드포인트 6개로 동일 가중 기하평균한 값으로, 부록 첫 장 환산 표의 OR 공개 · OR 실측 · 계수와 같다. 본 실험 1 배분(43시간 실제 몫)은 참고용이며 환산에 쓰지 않았다.</p>
+<p><b>6개 기하평균</b>: 각 열을 엔드포인트 6개로 동일 가중 기하평균한 값으로, 22장 환산 표의 OR 공개 · OR 실측 · 계수와 같다. 본 실험 1 배분(43시간 실제 몫)은 참고용이며 환산에 쓰지 않았다.</p>
 </div>
 </section>
 </div></div>
 <div class="frame" id="s26"><div class="scaler"><section id="d_kimi" class="tp">
+<p class="pgno">26</p>
 <div class="head"><p class="eyebrow">부록 · 환산 과정</p><h2><span class="mn">Kimi K3.1 Pro</span> · 엔드포인트별 OR 공개값과 OR 실측값, 환산 계수</h2></div>
 <table class="tbl xs conv-tbl">
 <tr class="hd"><th rowspan="2" style="width:17%">OR 엔드포인트</th><th rowspan="2" class="r">본 실험 1<br>배분</th><th colspan="5" style="text-align:center">TTFT (ms)</th><th colspan="5" style="text-align:center">출력 속도 (tok/s)</th></tr>
@@ -736,7 +762,7 @@ section.tp .src { left: 104px; bottom: 52px; width: 1712px; }
 <p><b>OR 공개</b>: 엔드포인트의 OR 공개 p50(최근 30분, 전체 사용자 요청). 회차마다 측정 시간 + 10분 안 스냅숏들의 중앙값을 구하고 4회차 값을 산술평균. 측정 VM과 관계없이 같다.</p>
 <p><b>실측</b>: 8 · 10 · 12 · 14장 표(본 실험 2)의 값. 측정 VM이 그 엔드포인트에 고정해 보낸 요청을 4회차 모두 합친 중앙값. TTFT = OR 기록의 latency(짧은 질문 80건), 속도 = 긴 출력 요청의 생성 속도(40건). 표본 예외는 8 · 10 · 12 · 14장 표 아래 참고.</p>
 <p><b>계수</b>: 실측 ÷ OR 공개. 엔드포인트마다 따로 구한 비율이다. 괄호 = OR 엔드포인트 6개 중 순위(TTFT는 낮을수록, 속도는 높을수록 1위).</p>
-<p><b>6개 기하평균</b>: 각 열을 엔드포인트 6개로 동일 가중 기하평균한 값으로, 부록 첫 장 환산 표의 OR 공개 · OR 실측 · 계수와 같다. 본 실험 1 배분(43시간 실제 몫)은 참고용이며 환산에 쓰지 않았다.</p>
+<p><b>6개 기하평균</b>: 각 열을 엔드포인트 6개로 동일 가중 기하평균한 값으로, 22장 환산 표의 OR 공개 · OR 실측 · 계수와 같다. 본 실험 1 배분(43시간 실제 몫)은 참고용이며 환산에 쓰지 않았다.</p>
 </div>
 </section>
 </div></div>

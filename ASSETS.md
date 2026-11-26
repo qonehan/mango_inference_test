@@ -5,7 +5,7 @@ GitHub 작업 전에 [공통 규칙(GITHUB_CLOUD_SYSTEM.md)](https://drive.googl
 
 2026-11-25, 커밋 `d473875` 기준 원본 41개(21,508,272바이트)를 업로드하고 전부 재다운로드해 SHA-256 일치를 확인했습니다. 내보낸 PDF 3개, PPTX 2개, 생성 대시보드 HTML 1개(`slides/시간지역_성능_대시보드.html`), 파일럿·1회 실험·reasoning 시험·간이 테스트의 측정 원시 데이터입니다. Git에서는 현재 추적만 제거했으며 과거 커밋 기록은 남습니다. 코드·문서·분석 결과(`analysis/`, `report_tables/`, `summary.csv`)·직접 작성한 HTML은 GitHub에 유지합니다.
 
-2026-11-26 추가: 본 실험 발표 자료 PDF 1개와 본 실험 원본 엑셀 4개(5개, 137,426,243바이트)를 업로드하고 전부 재다운로드해 SHA-256 일치를 확인했습니다. 총 46개.
+2026-11-26 추가: 본 실험 발표 자료 PDF 1개와 본 실험 원본 엑셀 4개(5개, 137,426,243바이트)를 업로드하고 전부 재다운로드해 SHA-256 일치를 확인했습니다. 같은 날 PDF는 페이지 번호를 넣은 새 버전(1,271,462바이트)으로 다시 올려 검증했습니다. 총 46개.
 
 ## 로컬 복원
 
@@ -61,7 +61,7 @@ python -I tools/cloud_assets.py sync   # 복원만 (git cloud-sync 별칭 가능
 | `slides/01_추론서비스_경쟁력검토.pptx` | [Drive](https://drive.google.com/file/d/1jL0s8nuANOFRPf61_qCBCePHwfRzeiSS/view?usp=drivesdk) | 3,898,077 |
 | `slides/03_OpenRouter_선택정책_지도.pptx` | [Drive](https://drive.google.com/file/d/1oTnhWknOFImarP1yP17rDsTQ0Y0erVY4/view?usp=drivesdk) | 31,828 |
 | `slides/시간지역_성능_대시보드.html` | [Drive](https://drive.google.com/file/d/1IQx14rWnMmHegCraLTzxMXjFoS2hZCOv/view?usp=drivesdk) | 1,871,179 |
-| `slides/04_본실험_결과.pdf` | [Drive](https://drive.google.com/file/d/1AxgKUFMXjH3nN9BUn4nmPe4OUBhxtn-v/view?usp=drivesdk) | 1,264,964 |
+| `slides/04_본실험_결과.pdf` | [Drive](https://drive.google.com/file/d/17jmVT7ZW39qlnp3slKS7SgOR4ucEhXvM/view?usp=drivesdk) | 1,271,462 |
 | `data/main_raw_xlsx_20261123/본실험2_요청별_원본_20261123.xlsx` | [Drive](https://drive.google.com/file/d/1zH5jEyw23WG8MGLc8enA3MsectsD68tI/view?usp=drivesdk) | 10,305,503 |
 | `data/main_raw_xlsx_20261123/본실험2_공개지표_원본_20261123.xlsx` | [Drive](https://drive.google.com/file/d/1cC5ciMyVzTzP0WpvPN0qOTK-UU0Xsrux/view?usp=drivesdk) | 32,171,319 |
 | `data/main_raw_xlsx_20261123/본실험1_요청별_원본_20261123.xlsx` | [Drive](https://drive.google.com/file/d/1EG3KIJ-eE_5c5B8OizPwV1fbbzhUaHm2/view?usp=drivesdk) | 33,099,422 |
